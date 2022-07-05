@@ -1,0 +1,30 @@
+@import "./mixins";
+
+header {
+  background: var(--primary-color-inverse);
+  padding: 8px 1rem;
+
+  .header--container {
+    max-width: 1370px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.page-container {
+  max-width: 984px;
+  margin: 48px auto 40px;
+  min-height: 65vh;
+
+  &.full-height {
+    height: fit-content;
+    min-height: initial;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}

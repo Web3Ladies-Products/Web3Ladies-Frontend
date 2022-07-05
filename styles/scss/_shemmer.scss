@@ -1,0 +1,19 @@
+.skeleton-loader {
+	background: #e8ebee !important;
+	border-radius: 5px;
+	animation: 12s forwards infinite placeholderShimmer linear;
+	opacity: 0.3;
+	height: 20px;
+	padding: 0;
+	margin: 5px;
+
+	@keyframes placeholderShimmer {
+		0% {
+			background-position: -468px 0;
+		}
+
+		100% {
+			background-position: 468px 0;
+		}
+	}
+}
