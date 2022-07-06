@@ -67,25 +67,17 @@ const Navbar = () => {
               })}
             </ul>
             <div className="nav-cta">
-              <a
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button outline"
-              >
+              <a href="/" target="_blank" className="button outline">
                 Join Us Today
+                <ChevronDown />
               </a>
             </div>
           </nav>
         </div>
         <div className="nav-cta">
-          <a
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button outline"
-          >
+          <a href="/" target="_blank" className="button outline">
             Join Us Today
+            <ChevronDown style={{ marginLeft: "4px" }} />
           </a>
         </div>
 
@@ -130,12 +122,7 @@ const Navbar = () => {
                 })}
               </ul>
               <div className="nav-cta">
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button outline"
-                >
+                <a href="/" target="_blank" className="button outline">
                   Join Us Today
                 </a>
               </div>
