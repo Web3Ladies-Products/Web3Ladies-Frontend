@@ -1,33 +1,33 @@
 body {
-	background-color: var(--color-background);
-	overflow-x: hidden;
+  background-color: var(--color-background);
+  overflow-x: hidden;
 }
 
 body,
 html {
-	font-family: 'Gilroy';
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 300;
-	color: var(--color-black);
-	scroll-behavior: smooth;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  color: var(--color-black);
+  scroll-behavior: smooth;
 }
 
 * {
-	outline-color: var(--primary-color);
-	font-family: 'Gilroy';
-	box-sizing: border-box;
-	font-weight: 300;
+  outline-color: var(--primary-color);
+  font-family: "Space Grotesk";
+  box-sizing: border-box;
+  font-weight: 300;
 }
 
 ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
-	font-weight: 300;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 300;
 }
 
 p,
@@ -43,26 +43,26 @@ ol,
 button,
 body,
 html {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .pointer-cursor {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .display-none {
-	display: none;
+  display: none;
 }
 
 .text-capitalize {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 h1,
@@ -71,9 +71,9 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }

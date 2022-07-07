@@ -4,11 +4,15 @@
 @import "./scss/form";
 @import "./scss/fonts";
 @import "./scss/page";
+@import "./scss/mixins";
 @import "./scss/modal";
 @import "./scss/shemmer";
 @import "./scss/tooltip";
 @import "./scss/typography";
 @import "./scss/tab";
+
+// modules
+@import "./modules/home.module.scss";
 
 :root {
   --color-black: #0f0f0f;
@@ -25,4 +29,10 @@
   --secondary-success-color: #a2c438;
   --popup-modal--container-max-width: 300px;
   --popup-modal--description-font-size: 16px;
+  --section-max-width: 1200px;
+  --page-container-margin: 1.25rem;
+
+  @include desktop {
+    --page-container-margin: 8.4375rem;
+  }
 }
