@@ -22,6 +22,8 @@ main {
     //   width: 100%;
     // }
 
+
+
     & > div {
       position: relative;
 
@@ -85,6 +87,9 @@ main {
     }
   }
 
+  
+  
+
   .cta {
     .content {
       @include desktop {
@@ -115,3 +120,6 @@ main {
     }
   }
 }
+
+
+
