@@ -70,7 +70,7 @@ const applicationError = () => {
           </div>
         </div>
 
-        <div className="cylindrical">
+        <div className="cylindrical-images">
           <div className="">
             <Image
               className=""
