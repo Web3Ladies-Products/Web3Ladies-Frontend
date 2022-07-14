@@ -1,7 +1,9 @@
-.feedback-container {
-  @include tablet {
-    padding-top: 180px;
-  }
+section {
+  background: var(--primary-color-inverse);
+  .container {
+  // @include tablet {
+  //   padding-top: 180px;
+  // }
 
   @include mobile {
     .cylindrical {
@@ -10,7 +12,7 @@
   }
 
   padding-top: 80px;
-  background: var(--primary-color-inverse);
+ 
 
   .feedback {
     @include mobile {
@@ -24,7 +26,7 @@
       justify-content: center;
     }
 
-    .feedback-content {
+    &-content {
       align-items: center;
       text-align: center;
 
@@ -32,9 +34,6 @@
         @include mobile {
           font-size: 25px;
         }
-        font-size: 4px;
-        font-size: 2.5vw;
-        font-family: Space Grotesk-Bold;
       }
 
       p {
@@ -42,7 +41,6 @@
           font-size: 20px;
         }
         margin: 15px 0px 15px 0;
-        font-family: Aeonik;
         font-size: 16px;
       }
 
@@ -51,11 +49,10 @@
           font-size: 15px;
         }
         margin: 15px 0px 15px 0;
-        font-family: Aeonik;
         font-size: 10px;
       }
 
-      .icons {
+      .icons-container {
         @include mobile {
           width: 50%;
           height: 50px;
@@ -63,23 +60,32 @@
         background-color: #f8f2ff;
         width: 30%;
         height: 40px;
-        margin: 0 auto;
+        margin: 11px auto;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
       }
     }
+    &-images {
+      @include mobile {
+        width: 100%;
+      }
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+      margin: 0 auto;
+
+      .vector {
+        @include mobile {
+          width:40px;
+          height:40px;
+        }
+        width:80px;
+        height:80px;
+      }
+    }
   }
 
-  .feedback-images {
-    @include mobile {
-      width: 100%;
-    }
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-  }
 
   .cylindrical-images {
     padding-top: 170px;
@@ -101,9 +107,12 @@
 
         &:nth-of-type(2) {
           bottom: -2px;
-          right: 0px;
+          right:400px;
         }
       }
     }
   }
 }
+}
+
+

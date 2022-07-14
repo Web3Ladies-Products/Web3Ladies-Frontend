@@ -7,26 +7,34 @@ const applicationError = () => {
   return (
     <>
       <Navbar />
-      <div className="feedback-container">
+      <section>
+
+      <div className="container">
         <div className="feedback-images">
+          <div className="vector">
           <Image
-            width={"85px"}
+            width={"100%"}
             height={"93px"}
             src="/assets/images/pyramid-outline.png"
             alt="pyramid-image"
           />
+          </div>
+          <div className="vector">
           <Image
-            width={"80px"}
-            height={"80px"}
+            width={"100%"}
+            height={"100%"}
             src="/assets/images/sad-face.png"
             alt="sad-face-image"
           />
+          </div>
+          <div className="vector">
           <Image
-            width={"80px"}
-            height={"80px"}
+            width={"100%"}
+            height={"100%"}
             src="/assets/images/white-pyramid-outline.png"
             alt="pyramid-image"
           />
+          </div>
         </div>
 
         <div className="feedback">
@@ -37,7 +45,7 @@ const applicationError = () => {
               support.
             </p>
 
-            <div className="icons">
+            <div className="icons-container">
               <Image
                 
                 width={"20px"}
@@ -89,6 +97,8 @@ const applicationError = () => {
           </div>
         </div>
       </div>
+      </section>
+        
       <Footer />
     </>
   );
