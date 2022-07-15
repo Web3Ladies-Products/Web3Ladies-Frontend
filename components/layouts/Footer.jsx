@@ -4,6 +4,9 @@ import Image from "next/image";
 import Button from "/components/buttons/Button";
 
 const Footer = () => {
+	// get year util
+	const getYear = () => new Date().getFullYear();
+
 	const FOOTER_NAVIGATION = [
 		{
 			name: "About",
@@ -24,7 +27,10 @@ const Footer = () => {
 		{
 			name: "Career",
 			route: "/"
-		},
+		}
+	];
+
+	const FOOTER_NAVIGATIONLINKS = [
 		{
 			name: "Token",
 			route: "/"
@@ -67,35 +73,6 @@ const Footer = () => {
 			<footer>
 				<div className="footer-content">
 					<div className="footer-content_form">
-						<div className="image-wrapper">
-							<Image
-								src={"/assets/images/ethereum.png"}
-								alt="ethereum-logo"
-								width={"68px"}
-								height={"81.09px"}
-								objectFit="contain"
-								className="footer-illustration"
-							/>
-
-							<Image
-								src={"/assets/images/web3flag-logo.png"}
-								alt="Web3ladies-vector"
-								width={"177px"}
-								height={"112.38px"}
-								objectFit="contain"
-								className="flag-logo"
-							/>
-
-							<Image
-								src={"/assets/images/bitcoin.png"}
-								alt="Bitcoin"
-								width={"113px"}
-								height={"121px"}
-								objectFit="contain"
-								className="hero-illustration"
-							/>
-						</div>
-
 						<div className="footer-card">
 							<Image
 								src={"/assets/images/Web3Ladies-white.png"}
@@ -106,56 +83,113 @@ const Footer = () => {
 								className="logo"
 							/>
 
-							<p className="card-text">Get the latest updates about web3Ladies activities and events.</p>
+							<p className="card-text">Get the latest updates about Web3Ladies activities and events.</p>
 
-							<input type="email" name="user-email" id="user-email" />
-
-							<div className="btn-container">
-								<Button type={"primary"} buttonText={"Submit"} handleClick={() => null} />
-							</div>
+							<form action="">
+								<div className="update-form">
+									<div className="input">
+										<label htmlFor="user-email" className="display-none"></label>
+										<input type="email" name="user-email" id="user-email" />
+									</div>
+									<div>
+										<Button type={"primary"} buttonText={"Submit"} handleClick={() => null} />
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 
 					<div className="footer-links">
-						<h4>quick links</h4>
+						<div>
+							<h4>quick links</h4>
 
-						<ul className="footer-list">
-							{FOOTER_NAVIGATION.map((item, index) => {
-								return (
-									<li key={index}>
-										<Link href={item.route}>
-											<a href="#" target="_blank" rel="noopener noreferrer">
-												{item.name}
-											</a>
-										</Link>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
+							<ul className="footer-list quick-links">
+								<div>
+									{FOOTER_NAVIGATION.map((item, index) => {
+										return (
+											<li key={index}>
+												<Link href={item.route}>
+													<a href="#" target="_blank" rel="noopener noreferrer">
+														{item.name}
+													</a>
+												</Link>
+											</li>
+										);
+									})}
+								</div>
+								<div>
+									{FOOTER_NAVIGATIONLINKS.map((item, index) => {
+										return (
+											<li key={index}>
+												<Link href={item.route}>
+													<a href="#" target="_blank" rel="noopener noreferrer">
+														{item.name}
+													</a>
+												</Link>
+											</li>
+										);
+									})}
+								</div>
+							</ul>
+						</div>
 
-					<div className="footer-links">
-						<h4 className="contact-links">reach out to us</h4>
+						<div className="contact">
+							<h4 className="contact-links">reach out to us</h4>
 
-						<ul className="footer-list contacts">
-							{CONTACT_NAVIGATION.map((item, index) => {
-								return (
-									<li key={index}>
-										<Link href={item.route}>
-											<a href="#" target="_blank" rel="noopener noreferrer">
-												{item.name}
-											</a>
-										</Link>
-									</li>
-								);
-							})}
-						</ul>
+							<ul className="footer-list contacts">
+								{CONTACT_NAVIGATION.map((item, index) => {
+									return (
+										<li key={index}>
+											<Link href={item.route}>
+												<a href="#" target="_blank" rel="noopener noreferrer">
+													{item.name}
+												</a>
+											</Link>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
 					</div>
 				</div>
 
-				<div className="copyright-section">
-					<p className="copyright-text">Copyright &copy; 2021 Ladies Do Tech. All rights reserved.</p>
+				<div className="image-wrapper">
+					<div className="vector">
+						<Image
+							src={"/assets/images/ethereum.png"}
+							alt="ethereum-logo"
+							width={"100%"}
+							height={"100%"}
+							objectFit="contain"
+						/>
+					</div>
+
+					<div className="vector">
+						<Image
+							src={"/assets/images/web3flag-logo.png"}
+							alt="Web3ladies-vector"
+							width={"100%"}
+							height={"100%"}
+							objectFit="contain"
+						/>
+					</div>
+
+					<div className="vector">
+						<Image
+							src={"/assets/images/bitcoin.png"}
+							alt="Bitcoin"
+							width={"100%"}
+							height={"100%"}
+							objectFit="contain"
+						/>
+					</div>
 				</div>
+
+				<section className="copyright-section">
+					<div className="container">
+						<p className="copyright-text">Copyright &copy; {getYear()} Ladies Do Tech. All rights reserved.</p>
+					</div>
+				</section>
 			</footer>
 		</div>
 	);
