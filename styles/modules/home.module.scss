@@ -5,120 +5,121 @@
   box-sizing: border-box;
 }
 main {
-	&.header-bg {
-		background: url("/assets/images/header-bg.svg"),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, #ffffff 65.37%);
-		background-position: center;
-		background-size: contain;
-		background-repeat: repeat-x;
-	}
-	padding-top: 40px;
-	padding-bottom: 120px;
+  &.header-bg {
+    background: url("/assets/images/header-bg.svg"),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, #ffffff 65.37%);
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat-x;
+  }
+  padding-top: 40px;
+  padding-bottom: 120px;
 
-	.hero_image {
-		position: relative;
-		width: 500px;
-		@include mobile {
-			width: 300px;
-			margin-top: 200px;
-		}
-		// @media (max-width: 1140px) {
-		//   margin-bottom: 100px;
-		//   width: 100%;
-		// }
+  .hero_image {
+    position: relative;
+    width: 500px;
+    @include mobile {
+      width: 300px;
+      margin-top: 200px;
+    }
+    // @media (max-width: 1140px) {
+    //   margin-bottom: 100px;
+    //   width: 100%;
+    // }
 
-		& > div {
-			position: relative;
+    & > div {
+      position: relative;
 
-			> span {
-				position: absolute !important;
+      > span {
+        position: absolute !important;
 
-				&:nth-of-type(1) {
-					position: relative !important;
-					z-index: 0;
-				}
+        &:nth-of-type(1) {
+          position: relative !important;
+          z-index: 0;
+          animation: none !important;
+        }
 
-				&:nth-of-type(2) {
-					bottom: 82px;
-					left: -40px;
-				}
+        &:nth-of-type(2) {
+          bottom: 82px;
+          left: -40px;
+        }
 
-				&:nth-of-type(3) {
-					top: 40px;
-					right: -32px;
-				}
+        &:nth-of-type(3) {
+          top: 40px;
+          right: -32px;
+        }
 
-				&:nth-of-type(4) {
-					bottom: 23px;
-					right: -75px;
-				}
-			}
+        &:nth-of-type(4) {
+          bottom: 23px;
+          right: -75px;
+        }
+      }
 
-			@for $i from 1 through 4 {
-				&:nth-of-type(#{$i}) {
-					animation: bounce 2s #{"0." + ($i * 2)}s infinite;
-				}
-			}
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          animation: bounce 2s #{"0." + ($i * 2)}s infinite;
+        }
+      }
 
-			@keyframes bounce {
-				0%,
-				100% {
-					transform: translateY(0);
-				}
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
 
-				50% {
-					transform: translateY(4px);
-				}
-			}
+        50% {
+          transform: translateY(4px);
+        }
+      }
 
-			.hero-image {
-				width: 40%;
-				animation: beaming-animation 5s infinite;
+      .hero-image {
+        width: 40%;
+        animation: beaming-animation 5s infinite;
 
-				@keyframes beaming-animation {
-					0%,
-					100% {
-						transform: scale(0.95);
-						z-index: 1;
-					}
-					50% {
-						transform: scale(1);
-						z-index: 1;
-					}
-				}
-			}
-		}
-	}
+        @keyframes beaming-animation {
+          0%,
+          100% {
+            transform: scale(0.95);
+            z-index: 1;
+          }
+          50% {
+            transform: scale(1);
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
 
-	.cta {
-		.content {
-			@include desktop {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
+  .cta {
+    .content {
+      @include desktop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-				.hero_content {
-					width: 50%;
-					h1 {
-						max-width: 500px;
-					}
-					p {
-						max-width: 689px;
-						margin-top: 25px;
-					}
-					.button-container {
-						margin-top: 38px;
-						display: flex;
-						justify-content: flex-start;
+        .hero_content {
+          width: 50%;
+          h1 {
+            max-width: 500px;
+          }
+          p {
+            max-width: 689px;
+            margin-top: 25px;
+          }
+          .button-container {
+            margin-top: 38px;
+            display: flex;
+            justify-content: flex-start;
 
-						& :first-child {
-							margin-right: 16px;
-						}
-					}
-				}
-			}
-		}
-	}
+            & :first-child {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .support {
@@ -272,5 +273,39 @@ main {
 
   &--text {
     color: purple;
+  }
+}
+
+.impact-section {
+  display: flex;
+  background-color: #6a00e2;
+  color: #ffffff;
+  width: 100%;
+  padding: 50px 8%;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  > div {
+    width: 50%;
+  }
+
+  .impact-list {
+    .impact-item {
+      display: flex;
+      align-items: baseline;
+
+      p {
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      svg {
+        margin-right: 20px;
+      }
+    }
   }
 }

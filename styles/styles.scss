@@ -10,6 +10,7 @@
 @import "./scss/tooltip";
 @import "./scss/typography";
 @import "./scss/tab";
+@import "./scss/common";
 
 @import "./scss/accordion";
 
@@ -17,6 +18,7 @@
 @import "./modules/home.module.scss";
 @import "./modules/footer.module.scss";
 @import "./modules/feedback.module.scss";
+@import "./modules/track.modules.scss";
 
 :root {
   --color-black: #0f0f0f;

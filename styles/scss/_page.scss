@@ -3,6 +3,7 @@
 header {
   background: var(--primary-color-inverse);
   padding: 8px 1rem;
+  border-bottom: 0.5px solid rgba(var(--color-black-rgb), 0.2);
 
   .header--container {
     max-width: 1370px;
@@ -44,7 +45,8 @@ img {
   display: none !important;
 }
 
-header, footer {
+header,
+footer {
   & > div {
     display: flex;
     justify-content: space-between;
