@@ -3,18 +3,46 @@ import React from "react";
 import Button from "../components/buttons/Button";
 import Footer from "../components/layouts/Footer";
 import Navbar from "../components/layouts/Navbar";
-import stackshift from "../public/assets/images/stackshift.svg"
-import polygon from "../public/assets/images/polygon.svg"
-import w3d from "../public/assets/images/w3d.svg"
-import chainwhiz from "../public/assets/images/chainwhiz.svg"
-import filecoin from "../public/assets/images/filecoin.svg"
-import ftx from "../public/assets/images/ftx.svg"
-import crevatal from "../public/assets/images/crevatal.svg"
-import harmony from "../public/assets/images/harmony.svg"
-import globe from "../public/assets/images/globe.svg"
-
 
 export default function Home() {
+  const W3L_SUPPORTERS_1 = [
+    {
+      name: "Polygon",
+      logo: "/assets/images/polygon.svg",
+    },
+    {
+      name: "W3D",
+      logo: "/assets/images/w3d.svg",
+    },
+    {
+      name: "FTX",
+      logo: "/assets/images/ftx.svg",
+    },
+    {
+      name: "StackShift",
+      logo: "/assets/images/stackshift.svg",
+    },
+    {
+      name: "Crevatal",
+      logo: "/assets/images/crevatal.svg",
+    },
+  ];
+
+  const W3L_SUPPORTERS_2 = [
+    {
+      name: "Harmony",
+      logo: "/assets/images/harmony.svg",
+    },
+    {
+      name: "Filecoin",
+      logo: "/assets/images/filecoin.svg",
+    },
+    {
+      name: "ChainWhiz",
+      logo: "/assets/images/chainwhiz.svg",
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -79,188 +107,126 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="support-logos">
-          <h1 className="Support"> Our Supporters</h1>
-          <div className="support-container">
+      </main>
+      <section className="support">
+        <div className="container">
+          <h1 className="support--heading"> Our Supporters</h1>
+          <div className="support--groups-container">
             <div className="first-group">
-              <Image
-                className="support-image"
-                width={"165px"}
-                height={"60px"}
-                src={polygon}
-                alt="ethereum-logo"
-              />
-
-              <Image
-                className="support-image"
-                width={"115px"}
-                height={"60px"}
-                src={w3d}
-                alt="ethereum-logo"
-              />
-
-              <Image
-                className="support-image"
-                width={"140px"}
-                height={"60px"}
-                src={ftx}
-                alt="ethereum-logo"
-              />
-
-              <Image
-                className="support-image"
-                width={"199px"}
-                height={"29px"}
-                src={stackshift}
-                alt="ethereum-logo"
-              />
-
-              <Image
-                className="support-image"
-                width={"173px"}
-                height={"60px"}
-                src={crevatal}
-                alt="ethereum-logo"
-              />
+              {W3L_SUPPORTERS_1.map((supporter) => (
+                <Image
+                  className="support-image"
+                  width={"165px"}
+                  height={"60px"}
+                  src={supporter.logo}
+                  alt={supporter.name}
+                  key={supporter.name}
+                />
+              ))}
             </div>
-
 
             <div className="second-group">
-              <Image
-                className="support-image"
-                width={"163px"}
-                height={"38px"}
-                src={harmony}
-                alt="ethereum-logo"
-              />
-
-              <Image
-                className="support-image"
-                width={"140px"}
-                height={"60px"}
-                src={filecoin}
-                alt="ethereum-logo"
-              />
-
-              <Image
-                className="support-image"
-                width={"184px"}
-                height={"60px"}
-                src={chainwhiz}
-                alt="ethereum-logo"
-              />
+              {W3L_SUPPORTERS_2.map((supporter) => (
+                <Image
+                  className="support-image"
+                  width={"165px"}
+                  height={"60px"}
+                  src={supporter.logo}
+                  alt={supporter.name}
+                  key={supporter.name}
+                />
+              ))}
             </div>
-
           </div>
         </div>
+      </section>
 
+      <section className="introduction">
+        <div className="container">
+          <h1 className="introduction--header"> Who we are</h1>
+          <div className="introduction--container">
+            <p className="introduction--container-text">
+              This is a free intensive learning phase of the basics/foundations
+              for all tracks, it serves as the introduction to the track for
+              participants. This phase is for 4weeks, classes will be twice a
+              week (Tuesdays &amp; Thursdays 5 - 7 PM). Across all tracks
+              participants will learn intensively as a beginner, mentors will be
+              on the ground to teach, resources will be shared with the
+              participants, assignments will be given as well, and there will be
+              an eviction at the end of this phase upon final assessment to
+              graduate into the learning phase.
+            </p>
 
-
-        <div className="introduction">
-          <h1 className="intro-header"> Who we are</h1>
-          <div className="intro-container">
-            <div className="first-text">
-              <p className="intro-text">This is a free intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track
-                for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all
-                tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared
-                with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final
-                assessment to graduate into the learning phase.</p>
-            </div>
-
-
-            <div className="intro-button">
+            <div className="introduction--container-cta">
               <Button
                 type={"primary"}
                 buttonText={"Learn More"}
                 handleClick={() => null}
               />
             </div>
-
           </div>
         </div>
+      </section>
 
-
-        <div className="wrapper">
-
-          <div className="join-community-container">
-
-            <div className="join-community-text-and-cta">
+      <section className="who-we-are">
+        <div className="container wrapper">
+          <div className="who-we-are--container">
+            <div className="who-we-are--content">
               <h3>Join Our Community</h3>
-              <p className="community-text">Be part of our Non-Profit community of forward-thinking ladies shaping the future of the web3 ecosystem.</p>
-              <Button
-                type={"outline"}
-                width={"243px"}
-                buttonText={"Join our community"}
-                handleClick={() => null}
-              />
+              <p>
+                Be part of our Non-Profit community of forward-thinking ladies
+                shaping the future of the web3 ecosystem.
+              </p>
+              <div className="who-we-are--content-cta">
+                <Button
+                  type={"outline"}
+                  width={"243px"}
+                  buttonText={"Join our community"}
+                  handleClick={() => null}
+                />
+              </div>
             </div>
-            <div className="join-community-img">
+            <div className="who-we-are--img">
               <Image
-                className="second-img"
-                padding={"0px"}
-                margin={"0px"}
-                width={"300px"}
-                height={"300px"}
                 src="/assets/images/communityimg.png"
-                alt="ethereum-logo"
+                width={"532px"}
+                height={"500px"}
+                objectFit="contain"
+                alt="community-image"
               />
-              {/* <Image
-                      className="third-img"
-                      padding={"0px"}
-                      margin={"0px"}
-                      width={"300px"}
-                      height={"300px"}
-                      src="/assets/images/globe.svg"
-                      alt="ethereum-logo"
-                    /> */}
-
-
-            </div>
-
-          </div>
-        </div>
-
-
-
-
-
-
-        <div className="wrapper">
-          <div className="numbers-section">
-            <h1 className="number-header"> Our Numbers</h1>
-            <div className="our-numbers">
-
-            
-    <ul>
-      <li> 1050
-
-      <span className="community-txt"> community member</span>
-      </li>
-     
-      <li> 1050</li>
-      <span className="community-txt"> community member</span>
-      <li> 1050</li>
-      <span className="community-txt"> community member</span>
-      <li> 1050</li>
-      <span className="community-txt"> community member</span>
-      
-      <li> 1050</li>
-      <span className="community-txt"> community member</span>
-     
-    </ul>
-
-
-
-
-
-
             </div>
           </div>
         </div>
+      </section>
 
+      <section className="analytics">
+        <div className="container">
+          <h1 className="analytics--header"> Our Numbers</h1>
+          <ul className="analytics--container">
+            <li>
+              <h3>1050</h3>
+              <span className="analytics--text"> Community members</span>
+            </li>
+            <li>
+              <h3>3</h3>
+              <span className="analytics--text"> Cohorts</span>
+            </li>
+            <li>
+              <h3>54</h3>
+              <span className="analytics--text"> Graduated mentees</span>
+            </li>
+            <li>
+              <h3>52</h3>
+              <span className="analytics--text"> Worktools given</span>
+            </li>
 
-      </main>
-
+            <li>
+              <h3>24</h3>
+              <span className="analytics--text"> Projects</span>
+            </li>
+          </ul>
+        </div>
+      </section>
 
       <Footer />
     </>
