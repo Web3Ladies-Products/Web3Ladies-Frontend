@@ -1,3 +1,5 @@
+@import "../scss/mixins";
+
 /* hero-section styles */
 main {
   h1 {
@@ -111,86 +113,114 @@ main {
 
 /* gains section */
 .gains-section {
-  display: flex;
   background-color: #6a00e2;
   color: #ffffff;
   width: 100%;
   padding: 50px 8%;
-  justify-content: space-between;
+
+  .container {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .gains_image {
+      position: relative;
+      width: 500px;
+      @include mobile {
+        width: 300px;
+        margin-top: 200px;
+      }
+    }
+
+    .content {
+      h1 {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 66px;
+        letter-spacing: -0.04em;
+        margin-bottom: 27px;
+      }
+
+      .button-container {
+        justify-content: start;
+      }
+    }
+  }
+
+  &--list {
+    margin-bottom: 32px;
+
+    &-item {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 12px;
+      }
+    }
+  }
 }
 
-.gains-section h2 {
-  font-size: 48px;
-  font-weight: 700;
-}
-
-.gains-section > div {
-  width: 50%;
-}
-
-.gain {
-  display: flex;
-  align-items: center;
-}
-
-.gain p {
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.gain svg {
-  margin-right: 20px;
-}
-
-/* mentor sections */
+/* mentors sections */
 .mentors-section {
-  padding: 50px 8%;
-}
+  .heading {
+    margin-bottom: 32px;
+    font-size: 54px;
+    font-weight: 700;
+  }
+  .description {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 64px;
 
-.mentors {
-  display: flex;
-  flex-wrap: wrap;
-}
+    @include desktop {
+      width: 873px;
+    }
+  }
 
-.mentors-section h2 {
-  font-size: 54px;
-  font-weight: 700;
-}
+  .mentors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(379px, 1fr));
+    gap: 32px;
 
-.mentors-section p {
-  font-size: 18px;
-  font-weight: 400;
-  width: 60%;
+    @include mobile {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
 }
 
 .mentor-card {
   background-color: #fafafa;
   border-radius: 8px;
   display: flex;
-  width: 45%;
-  margin: 20px 20px 20px 0px;
+  width: 100%;
   padding: 20px;
   justify-content: flex-start;
-}
 
-.mentor-card .name {
-  font-size: 22px;
-  font-weight: 700;
-  width: 100%;
-}
+  .name {
+    font-size: 22px;
+    font-weight: 700;
+    width: 100%;
+  }
 
-.mentor-card .role {
-  font-size: 15px;
-  font-weight: 400;
-  width: 100%;
-  margin-top: -20px;
-}
+  .role {
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+  }
 
-.mentor-img {
-  width: 30%;
-  height: auto;
-  position: relative;
-  margin-right: 20px;
+  .mentor-img {
+    height: 100%;
+    margin-right: 45px;
+  }
 }
 
 container {
@@ -245,11 +275,11 @@ container {
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
+// .description {
+//   margin: 4rem 0;
+//   line-height: 1.5;
+//   font-size: 1.5rem;
+// }
 
 // .code {
 //   background: #fafafa;

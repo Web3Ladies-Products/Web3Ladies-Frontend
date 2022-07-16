@@ -1,5 +1,5 @@
 import React from "react";
-const ExtraInfo = () => {
+const WhyBlockchain = () => {
   return (
     <section className="why-study-blockchain">
       <div className="container ">
@@ -44,4 +44,4 @@ const ExtraInfo = () => {
   );
 };
 
-export default ExtraInfo;
+export default WhyBlockchain;

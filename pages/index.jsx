@@ -257,10 +257,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section>
-        <div className="container">
-          <Accordion panels={panels} />
-        </div>
+      {/* <section className="impact-section">
+        <h2>How We Create Impact</h2>
+        <ul className="impact-list">
+          <li className="impact-item">
+            <div>
+              <Image
+                src="/images/gains/gains-icon-1.svg"
+                alt="gains-icon-1"
+                className="impact-image"
+              />
+            </div>
+            <div>
+              <h3 className="impact-title">Mentorship</h3>
+            </div>
+          </li>
+        </ul>
       </section> */}
 
       <Footer />
