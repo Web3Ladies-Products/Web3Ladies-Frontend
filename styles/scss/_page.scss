@@ -16,6 +16,10 @@ header {
 
 section,
 main {
+  padding: 40px 0;
+  @include mobile {
+    padding: 40px var(--page-container-margin);
+  }
   .container {
     max-width: var(--section-max-width);
     width: 85%;
