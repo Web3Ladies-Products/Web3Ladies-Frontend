@@ -3,33 +3,14 @@ import React from "react";
 import Button from "../buttons/Button";
 import NumberMarker from "../icons/NumberMarker";
 
-const Gains = () => {
-  const GAINS = [
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-  ];
-
+const Gains = ({ data }) => {
   return (
     <section className="gains-section">
       <div className="container">
         <div className="content">
-          <h1>What you will gain</h1>
+          <h1>{data?.title}</h1>
           <ul className="gains-section--list">
-            {GAINS.map((gain, index) => {
+            {data?.gainsList?.map((gain, index) => {
               return (
                 <li key={index} className="gains-section--list-item">
                   <NumberMarker number={index + 1} />
@@ -41,8 +22,8 @@ const Gains = () => {
 
           <div className="button-container">
             <Button
-              type={"outline"}
-              buttonText={"Register now"}
+              type={data?.buttonType}
+              buttonText={data?.buttonText}
               color={"primary"}
               handleClick={() => null}
             />
@@ -55,7 +36,7 @@ const Gains = () => {
               className="gains-image"
               width={"493px"}
               height={"472px"}
-              src="/assets/images/what-you-will-gain-image.png"
+              src={data?.image}
               alt="gains-image"
             />
           </div>

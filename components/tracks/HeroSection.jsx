@@ -2,30 +2,30 @@ import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
 
-const Hero = () => {
+const Hero = ({ data }) => {
   return (
     <main>
       <div className="container cta">
         <div className="content">
           <div className="hero_content">
-            <h1>Web3 - Blockchain Development</h1>
-            <p>
-              The Blockchain developer’s responsibility is to develop innovative
-              solutions to challenging problems, including solutions for command
-              and control, and high integrity.
-            </p>
-            <p className="note">*Registration ongoing for next cohort</p>
+            <h1>{data.title}</h1>
+            <p>{data.description}</p>
+            <p className="note">{data.note}</p>
 
             <div className="button-container">
               <Button
-                type={"outline"}
-                buttonText={"View curriculum"}
-                handleClick={() => null}
+                type={data.buttonTypeOne}
+                buttonText={data.buttonTextOne}
+                handleClick={() => {
+                  window.location.href = data.buttonLinkOne;
+                }}
               />
               <Button
-                type={"primary"}
-                buttonText={"Register now"}
-                handleClick={() => null}
+                type={data.buttonTypeTwo}
+                buttonText={data.buttonTextTwo}
+                handleClick={() => {
+                  window.location.href = data.buttonLinkTwo;
+                }}
               />
             </div>
           </div>
@@ -36,7 +36,7 @@ const Hero = () => {
                 className="hero-image"
                 width={"493px"}
                 height={"472px"}
-                src="/assets/images/blockchain-dev.png"
+                src={data.image}
                 alt="hero-image"
               />
             </div>
