@@ -1,13 +1,13 @@
 import React from "react";
-import Hero from "../../components/HeroSectionion";
-import ExtraInfo from "../../components/ExtraInfoSectionion";
-import Benefits from "../../components/BenefitsSectionion";
-import Curriculum from "../../components/Curriculumlum";
+import Hero from "../../components/tracks/HeroSection";
+import ExtraInfo from "../../components/tracks/ExtraInfoSection";
+import Benefits from "../../components/tracks/BenefitsSection";
+import Curriculum from "../../components/tracks/Curriculum";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
 // import OngroundMentors from '../components/OngroundMentors'
 // import WorkshopMentors from '../components/WorkshopMentors'
-import Gains from "../../components/Gainsins";
+import Gains from "../../components/tracks/Gains";
 
 const Blockchain = () => {
   return (
