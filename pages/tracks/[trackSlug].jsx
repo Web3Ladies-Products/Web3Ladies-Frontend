@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import trackData from "../../data/track_data.json";
+import trackData from "../api/tracks.json";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
 import Hero from "../../components/tracks/HeroSection";
