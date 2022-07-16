@@ -40,7 +40,7 @@ img {
   display: none !important;
 }
 
-header {
+header, footer {
   & > div {
     display: flex;
     justify-content: space-between;
