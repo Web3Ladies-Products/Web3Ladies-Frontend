@@ -19,7 +19,7 @@ const Panel = ({ label, content, activeTab, index, activateTab, children }) => {
     return () => {
       setHeight(0);
     };
-  }, []);
+  }, [panelInner]);
 
   const innerStyle = {
     height: `${isActive ? height : 0}px`,
