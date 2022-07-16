@@ -4,195 +4,206 @@ import Image from "next/image";
 import Button from "/components/buttons/Button";
 
 const Footer = () => {
-	// get year util
-	const getYear = () => new Date().getFullYear();
+  // get year util
+  const getYear = () => new Date().getFullYear();
 
-	const FOOTER_NAVIGATION = [
-		{
-			name: "About",
-			route: "/"
-		},
-		{
-			name: "Sponsor",
-			route: "/"
-		},
-		{
-			name: "Blog",
-			route: "/"
-		},
-		{
-			name: "Team",
-			route: "/"
-		},
-		{
-			name: "Career",
-			route: "/"
-		}
-	];
+  const FOOTER_NAVIGATION = [
+    {
+      name: "About",
+      route: "/",
+    },
+    {
+      name: "Sponsor",
+      route: "/",
+    },
+    {
+      name: "Blog",
+      route: "/",
+    },
+    {
+      name: "Team",
+      route: "/",
+    },
+    {
+      name: "Career",
+      route: "/",
+    },
+  ];
 
-	const FOOTER_NAVIGATIONLINKS = [
-		{
-			name: "Token",
-			route: "/"
-		},
-		{
-			name: "Events",
-			route: "/"
-		},
-		{
-			name: "Mentorship",
-			route: "/"
-		},
-		{
-			name: "Community",
-			route: "/"
-		}
-	];
+  const FOOTER_NAVIGATIONLINKS = [
+    {
+      name: "Token",
+      route: "/",
+    },
+    {
+      name: "Events",
+      route: "/",
+    },
+    {
+      name: "Mentorship",
+      route: "/",
+    },
+    {
+      name: "Community",
+      route: "/",
+    },
+  ];
 
-	const CONTACT_NAVIGATION = [
-		{
-			name: "Contact",
-			route: "/"
-		},
-		{
-			name: "Instagram",
-			route: "/"
-		},
-		{
-			name: "Twitter",
-			route: "/"
-		},
-		{
-			name: "Facebook",
-			route: "/"
-		}
-	];
+  const CONTACT_NAVIGATION = [
+    {
+      name: "Contact",
+      route: "/",
+    },
+    {
+      name: "Instagram",
+      route: "/",
+    },
+    {
+      name: "Twitter",
+      route: "/",
+    },
+    {
+      name: "Facebook",
+      route: "/",
+    },
+  ];
 
-	return (
-		<div>
-			<footer>
-				<div className="footer-content">
-					<div className="footer-content_form">
-						<div className="footer-card">
-							<Image
-								src={"/assets/images/Web3Ladies-white.png"}
-								alt="web3ladies-logo"
-								objectFit="contain"
-								width={"123px"}
-								height={"52.3px"}
-								className="logo"
-							/>
+  return (
+    <div>
+      <footer>
+        <div className="footer-content">
+          <div className="footer-content_form">
+            <div className="footer-card">
+              <Image
+                src={"/assets/images/Web3Ladies-white.png"}
+                alt="web3ladies-logo"
+                objectFit="contain"
+                width={"123px"}
+                height={"52.3px"}
+                className="logo"
+              />
 
-							<p className="card-text">Get the latest updates about Web3Ladies activities and events.</p>
+              <p className="card-text">
+                Get the latest updates about Web3Ladies activities and events.
+              </p>
 
-							<form action="">
-								<div className="update-form">
-									<div className="input">
-										<label htmlFor="user-email" className="display-none"></label>
-										<input type="email" name="user-email" id="user-email" />
-									</div>
-									<div>
-										<Button type={"primary"} buttonText={"Submit"} handleClick={() => null} />
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
+              <form action="">
+                <div className="update-form">
+                  <div className="input">
+                    <label
+                      htmlFor="user-email"
+                      className="display-none"
+                    ></label>
+                    <input type="email" name="user-email" id="user-email" />
+                  </div>
+                  <div>
+                    <Button
+                      type={"primary"}
+                      buttonText={"Submit"}
+                      handleClick={() => null}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
 
-					<div className="footer-links">
-						<div>
-							<h4>quick links</h4>
+          <div className="footer-links">
+            <div>
+              <h4>quick links</h4>
 
-							<ul className="footer-list quick-links">
-								<div>
-									{FOOTER_NAVIGATION.map((item, index) => {
-										return (
-											<li key={index}>
-												<Link href={item.route}>
-													<a href="#" target="_blank" rel="noopener noreferrer">
-														{item.name}
-													</a>
-												</Link>
-											</li>
-										);
-									})}
-								</div>
-								<div>
-									{FOOTER_NAVIGATIONLINKS.map((item, index) => {
-										return (
-											<li key={index}>
-												<Link href={item.route}>
-													<a href="#" target="_blank" rel="noopener noreferrer">
-														{item.name}
-													</a>
-												</Link>
-											</li>
-										);
-									})}
-								</div>
-							</ul>
-						</div>
+              <ul className="footer-list quick-links">
+                <div>
+                  {FOOTER_NAVIGATION.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <Link href={item.route}>
+                          <a href="#" target="_blank" rel="noopener noreferrer">
+                            {item.name}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </div>
+                <div>
+                  {FOOTER_NAVIGATIONLINKS.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <Link href={item.route}>
+                          <a href="#" target="_blank" rel="noopener noreferrer">
+                            {item.name}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </div>
+              </ul>
+            </div>
 
-						<div className="contact">
-							<h4 className="contact-links">reach out to us</h4>
+            <div className="contact">
+              <h4 className="contact-links">reach out to us</h4>
 
-							<ul className="footer-list contacts">
-								{CONTACT_NAVIGATION.map((item, index) => {
-									return (
-										<li key={index}>
-											<Link href={item.route}>
-												<a href="#" target="_blank" rel="noopener noreferrer">
-													{item.name}
-												</a>
-											</Link>
-										</li>
-									);
-								})}
-							</ul>
-						</div>
-					</div>
-				</div>
+              <ul className="footer-list contacts">
+                {CONTACT_NAVIGATION.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <Link href={item.route}>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                          {item.name}
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
 
-				<div className="image-wrapper">
-					<div className="vector">
-						<Image
-							src={"/assets/images/ethereum.png"}
-							alt="ethereum-logo"
-							width={"100%"}
-							height={"100%"}
-							objectFit="contain"
-						/>
-					</div>
+        <div className="image-wrapper">
+          <div className="vector">
+            <Image
+              src={"/assets/images/ethereum.png"}
+              alt="ethereum-logo"
+              width={"100%"}
+              height={"100%"}
+              objectFit="contain"
+            />
+          </div>
 
-					<div className="vector">
-						<Image
-							src={"/assets/images/web3flag-logo.png"}
-							alt="Web3ladies-vector"
-							width={"100%"}
-							height={"100%"}
-							objectFit="contain"
-						/>
-					</div>
+          <div className="vector">
+            <Image
+              src={"/assets/images/web3ladies-vector.png"}
+              alt="Web3ladies-vector"
+              width={"100%"}
+              height={"100%"}
+              objectFit="contain"
+            />
+          </div>
 
-					<div className="vector">
-						<Image
-							src={"/assets/images/bitcoin.png"}
-							alt="Bitcoin"
-							width={"100%"}
-							height={"100%"}
-							objectFit="contain"
-						/>
-					</div>
-				</div>
+          <div className="vector">
+            <Image
+              src={"/assets/images/bitcoin.png"}
+              alt="Bitcoin"
+              width={"100%"}
+              height={"100%"}
+              objectFit="contain"
+            />
+          </div>
+        </div>
 
-				<section className="copyright-section">
-					<div className="container">
-						<p className="copyright-text">Copyright &copy; {getYear()} Ladies Do Tech. All rights reserved.</p>
-					</div>
-				</section>
-			</footer>
-		</div>
-	);
+        <section className="copyright-section">
+          <div className="container">
+            <p className="copyright-text">
+              Copyright &copy; {getYear()} Ladies Do Tech. All rights reserved.
+            </p>
+          </div>
+        </section>
+      </footer>
+    </div>
+  );
 };
 
 export default Footer;
