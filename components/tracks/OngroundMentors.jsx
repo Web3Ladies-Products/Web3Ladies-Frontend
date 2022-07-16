@@ -1,23 +1,16 @@
 import React from "react";
 import MentorCard from "./MentorCard";
 
-const OngroundMentors = () => {
+const OngroundMentors = ({ data }) => {
   return (
     <section className="mentors-section">
       <div className="container">
-        <h2 className="heading">On-Ground Mentors</h2>
-        <p className="description">
-          These mentors will be on the ground for all the mentorship activities,
-          they are responsible for classes, responding to mentees’ concerns on
-          slack, and grading mentees, they will also be compensated monthly.
-        </p>
+        <h2 className="heading">{data.title}</h2>
+        <p className="description">{data.description}</p>
         <div className="mentors-container">
-          <MentorCard />
-          <MentorCard />
-          <MentorCard />
-          <MentorCard />
-          <MentorCard />
-          <MentorCard />
+          {data.mentorsList.map((mentor, index) => {
+            return <MentorCard key={index} mentor={mentor} />;
+          })}
         </div>
       </div>
     </section>

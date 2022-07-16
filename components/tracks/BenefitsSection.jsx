@@ -2,37 +2,14 @@ import React from "react";
 import Button from "../buttons/Button";
 import Mark from "../icons/Mark";
 
-const Benefits = () => {
-  const BENEFITS = [
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment",
-    },
-  ];
-
+const Benefits = ({ data }) => {
   return (
     <section className="benefits">
       <div className="container">
-        <h2>Is this track right for you?</h2>
-        <h3>You will benefit from this programme if you are:</h3>
+        <h2>{data.title}</h2>
+        <h3>{data.benefitsListHeader}:</h3>
         <ul className="benefits-list">
-          {BENEFITS.map((benefit, index) => {
+          {data.benefitsList?.map((benefit, index) => {
             return (
               <li key={index} className="benefit">
                 <Mark />
@@ -42,8 +19,8 @@ const Benefits = () => {
           })}
         </ul>
         <Button
-          type={"primary"}
-          buttonText={"Register now"}
+          type={data.buttonType}
+          buttonText={data.buttonText}
           handleClick={() => null}
         />
       </div>

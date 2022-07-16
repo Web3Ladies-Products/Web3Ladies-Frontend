@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-const MentorCard = () => {
+const MentorCard = ({ mentor }) => {
   return (
     <div className="mentor-card">
       <div className="mentor-img">
         <Image
-          src="/assets/images/mentor.png"
+          src={mentor.image}
           width={"100%"}
           height={"100%"}
           objectFit="contain"
@@ -14,8 +14,8 @@ const MentorCard = () => {
         />
       </div>
       <div>
-        <p className="name">Janet Simpson</p>
-        <p className="role">Blockchain Developer at Binance</p>
+        <p className="name">{mentor.name}</p>
+        <p className="role">{mentor.role}e</p>
       </div>
     </div>
   );
