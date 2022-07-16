@@ -20,10 +20,15 @@ const Track = () => {
     return <div>Track not found</div>;
   }
 
+  const scrollToViewCurriculum = () => {
+    const element = document.getElementById("curriculum");
+    element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       <Navbar />
-      <Hero data={track.hero} />
+      <Hero data={track.hero} handleViewCurriculum={scrollToViewCurriculum} />
       <Why data={track.why} />
       <Benefits data={track.benefits} />
       <Curriculum data={track.curriculum} />

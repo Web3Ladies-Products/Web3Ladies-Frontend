@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
 
-const Hero = ({ data }) => {
+const Hero = ({ data, handleViewCurriculum }) => {
   return (
     <main>
       <div className="container cta">
@@ -17,7 +17,7 @@ const Hero = ({ data }) => {
                 type={data.buttonTypeOne}
                 buttonText={data.buttonTextOne}
                 handleClick={() => {
-                  window.location.href = data.buttonLinkOne;
+                  handleViewCurriculum();
                 }}
               />
               <Button
