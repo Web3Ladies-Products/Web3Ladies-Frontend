@@ -121,6 +121,93 @@ export default function Home() {
     },
   ];
 
+  const LOGOS = [
+    {
+      name: "Polygon",
+      logo: "/assets/images/polygon-colored.svg",
+    },
+    {
+      name: "Ethereum",
+      logo: "/assets/images/ethereum.svg",
+    },
+    {
+      name: "Filecoin",
+      logo: "/assets/images/filecoin-colored.svg",
+    },
+    {
+      name: "Web3Ladies",
+      logo: "/assets/images/web3ladies-vector.png",
+    },
+  ];
+
+  const EVENTS_ITEMS = [
+    {
+      title: "AMA session",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi lacus nulla cursus nulla lacus, cras faucibus nunc. Lacus gravida eget a sit condimentum.",
+      image: "/assets/images/ama-session.png",
+    },
+    {
+      title: "AMA session",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi lacus nulla cursus nulla lacus, cras faucibus nunc. Lacus gravida eget a sit condimentum.",
+      image: "/assets/images/ama-session.png",
+    },
+  ];
+
+  const TESTIMONIAL_TABS = [
+    {
+      key: "shoutouts",
+      title: "Shoutouts",
+    },
+    {
+      key: "community",
+      title: "Community",
+    },
+    {
+      key: "past_mentees",
+      title: "Past Mentees",
+    },
+  ];
+
+  const TESTIMONIAL_ITEMS = {
+    shoutouts: [
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+      },
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
+      },
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT",
+      },
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
+      },
+    ],
+    community: [],
+    past_mentees: [],
+  };
+
+  const [activeTestimonialTab, setActiveTestimonialTab] =
+    React.useState("shoutouts");
+
   return (
     <>
       <Navbar />
@@ -430,6 +517,186 @@ export default function Home() {
         </div>
       </section>
       {/* END OF CALL FOR SPONSORS SECTION */}
+
+      {/* MENTORSHIP SECTION */}
+      <section className="mentorship">
+        <div className="container">
+          <h1>
+            Get mentored by the best in the <span>Web3 Ecosystem</span>
+          </h1>
+          <Button
+            type={"primary"}
+            buttonText={"Register Now"}
+            handleClick={() => null}
+          />
+          {LOGOS.map((item) => (
+            <div className="logo-container" key={item.title}>
+              <Image
+                src={item.logo}
+                width={"170px"}
+                height={"45px"}
+                alt={item.title}
+                objectFit="contain"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* END OF MENTORSHIP SECTION */}
+
+      {/* PLEDGE SECTION */}
+      <section className="pledge">
+        <div className="container card card__black">
+          <div className="pledge--text">
+            <h1>Support us by taking our plegde</h1>
+            <Button
+              type={"outline"}
+              buttonText={"Take the pledge"}
+              handleClick={() => null}
+            />
+          </div>
+          <div className="pledge--image">
+            <Image
+              src="/assets/images/pledge-image.png"
+              width={"532px"}
+              height={"500px"}
+              objectFit="contain"
+              alt="pledge-image"
+            />
+          </div>
+        </div>
+      </section>
+      {/* END OF PLEDGE SECTION */}
+
+      {/* EVENTS SECTION */}
+      <section className="events">
+        <div className="container">
+          <h1>Upcoming Events</h1>
+          <ul className="events-list">
+            {EVENTS_ITEMS.map((item) => (
+              <li className="events-item" key={item.title}>
+                <div className="events-item--image">
+                  <Image
+                    src={item.image}
+                    width={"635px"}
+                    height={"405px"}
+                    alt={item.title}
+                    className="events-image"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className="events-item--text">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <Button
+                    type={"outline"}
+                    buttonText={"Learn More"}
+                    handleClick={() => null}
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      {/* END OF EVENTS SECTION */}
+
+      {/* YOUTUBE SECTION */}
+      <section className="youtube">
+        <div className="container">
+          <h1>
+            Check us out on{" "}
+            <span>
+              <Image
+                src="/assets/images/youtube-wordmark.svg"
+                width={"187px"}
+                height={"43px"}
+                alt="youtube-wordmark"
+                objectFit="contain"
+              />
+            </span>
+          </h1>
+          <div className="youtube-container">
+            <div className="youtube-container--video">
+              <iframe
+                src="https://www.youtube.com/embed/LapzOS7zyW0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div className="btn-container">
+            <Button
+              type={"outline"}
+              buttonText={"Visit our Youtube"}
+              handleClick={() =>
+                window.open(
+                  "https://www.youtube.com/channel/UCJHXyL53LLhIqjYI1Gzt9mQ",
+                  _blank
+                )
+              }
+            />
+          </div>
+        </div>
+      </section>
+      {/* END OF YOUTUBE SECTION */}
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="testimonials">
+        <div className="container">
+          <div className="testimonials--heading">
+            <h1>Don’t take our word for it</h1>
+            <p className="text-muted">
+              See what people have to say about their experience with Web3Ladies
+            </p>
+          </div>
+          <div className="testimonials--container">
+            <div className="testimonials--container__sidebar">
+              {TESTIMONIAL_TABS.map((item) => (
+                <div
+                  className={`testimonials--container__sidebar__item ${
+                    item.key === activeTestimonialTab ? "active" : ""
+                  }`}
+                  key={item.key}
+                  onClick={() => setActiveTestimonialTab(item.key)}
+                >
+                  {item.title}
+                </div>
+              ))}
+            </div>
+            <div className="testimonials--container__content">
+              {TESTIMONIAL_ITEMS[activeTestimonialTab].map((item) => (
+                <div
+                  className="testimonials--container__content__item"
+                  key={item.title}
+                >
+                  <div className="testimonials--container__content__item__heading">
+                    <Image
+                      src={item.image}
+                      width={"60px"}
+                      height={"60px"}
+                      alt="testimonial-image"
+                      objectFit="contain"
+                    />
+                    <div>
+                      <h3>{item.name}</h3>
+                      <h5>{item.role}</h5>
+                    </div>
+                  </div>
+
+                  <div className="testimonials--container__content__item__text">
+                    <p>{item.quote}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* END OF TESTIMONIALS SECTION */}
+
       <Footer />
     </>
   );

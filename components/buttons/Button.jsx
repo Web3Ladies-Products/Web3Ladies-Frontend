@@ -10,8 +10,8 @@ const Button = ({
 }) => {
   return (
     <button
-      className={`${type} ${color && color + "-color"} ${
-        hasIcon && "has-icon"
+      className={`${type} ${color ? color + "-color" : ""} ${
+        hasIcon ? "has-icon" : ""
       }`}
       onClick={() => handleClick()}
     >

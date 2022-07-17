@@ -446,6 +446,8 @@ main {
 
 // CALL FOR SPONSORS SECTION
 .call-for-sponsors {
+  padding-bottom: 0;
+
   @include desktop {
     display: flex;
     justify-content: space-between;
@@ -495,3 +497,327 @@ main {
   }
 }
 // END OF CALL FOR SPONSORS SECTION
+
+// MENTORSHIP SECTION
+.mentorship {
+  background: var(--color-background);
+  position: relative;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+
+    h1 {
+      font-size: 60px;
+      line-height: 72px;
+      text-align: center;
+      letter-spacing: -0.04em;
+
+      @include desktop {
+        width: 704px;
+      }
+
+      span {
+        font-size: 60px;
+        line-height: 72px;
+        text-align: center;
+        letter-spacing: -0.04em;
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+    }
+
+    button {
+      margin-top: 47px;
+    }
+
+    .logo-container {
+      position: absolute;
+      background: var(--color-white);
+      padding: 8px;
+      border-radius: 8px;
+
+      &:nth-of-type(1) {
+        bottom: 12%;
+        left: 11%;
+      }
+
+      &:nth-of-type(2) {
+        top: 10%;
+        left: 6%;
+      }
+
+      &:nth-of-type(3) {
+        bottom: 10%;
+        right: 13%;
+      }
+
+      &:nth-of-type(4) {
+        top: 10%;
+        right: 18%;
+        background: transparent;
+        padding: initial;
+
+        > span {
+          transform: rotate(55deg);
+          width: 196px !important;
+        }
+      }
+    }
+  }
+}
+// END OF MENTORSHIP SECTION
+
+// PLEDGE SECTION
+.pledge {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .container {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    padding: 60px var(--page-container-margin);
+  }
+
+  &--text {
+    @include desktop {
+      width: 427px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 130%;
+      letter-spacing: -0.04em;
+      margin-bottom: 32px;
+    }
+  }
+}
+// END OF PLEDGE SECTION
+
+// EVENTS SECTION
+.events {
+  background: var(--color-background);
+
+  h1 {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.04em;
+    text-align: center;
+  }
+
+  .events-list {
+    .events-item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+
+      &--text {
+        width: 100%;
+
+        h3 {
+          font-size: 39px;
+          line-height: 47px;
+          letter-spacing: -0.04em;
+          margin-bottom: 32px;
+        }
+
+        p {
+          margin-bottom: 32px;
+
+          @include desktop {
+            width: 437px;
+          }
+        }
+
+        button {
+          background: transparent;
+        }
+
+        @include mobile {
+          padding: 32px var(--page-container-margin);
+        }
+      }
+
+      &--image {
+        width: 100%;
+        background: var(--color-background);
+        padding: 90px 0;
+
+        > span {
+          border-radius: 8px !important;
+        }
+      }
+
+      &:nth-child(odd) {
+        .events-item--image {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .events-item--text {
+          @include desktop {
+            padding-left: 119px;
+            order: 2;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .text {
+          display: flex;
+          justify-content: flex-end;
+          @include desktop {
+            padding-right: 119px;
+            order: 1;
+          }
+        }
+
+        .events-item--image {
+          @include desktop {
+            order: 2;
+          }
+        }
+      }
+    }
+  }
+}
+// END OF EVENTS SECTION
+
+// YOUTUBE SECTION
+.youtube {
+  .container {
+    @include desktop {
+      width: 77%;
+    }
+  }
+  h1 {
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.04em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+    }
+  }
+
+  &-container {
+    width: 100%;
+    height: 515px;
+    margin: 60px 0;
+
+    &--video {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+// END OF YOUTUBE SECTION
+
+// TESTIMONIALS SECTION
+.testimonials {
+  &--heading {
+    h1 {
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.04em;
+      margin-bottom: 15px;
+    }
+  }
+
+  &--container {
+    margin-top: 61px;
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__sidebar {
+      @include desktop {
+        width: 23%;
+      }
+
+      &__item {
+        padding: 17px 16px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+
+        &.active {
+          border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__content {
+      @include desktop {
+        width: 77%;
+      }
+      @include mobile {
+        margin-top: 32px;
+      }
+
+      padding: 0 16px;
+      column-count: 3;
+      column-gap: 20px;
+
+      @media (max-width: 962px) {
+        column-count: 2;
+      }
+
+      @media (max-width: 672px) {
+        column-count: 1;
+      }
+
+      &__item {
+        // display: inline-flex;
+        // gap: 16px;
+        width: 100%;
+        height: 100%;
+
+        &__heading {
+          display: flex;
+          align-items: center;
+          margin-bottom: 27px;
+          > div {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+// END OF TESTIMONIALS SECTION
