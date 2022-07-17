@@ -1,9 +1,6 @@
 @import "../scss/mixins";
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
+// HERO SECTION
 main {
   &.header-bg {
     background: url("/assets/images/header-bg.svg"),
@@ -121,7 +118,9 @@ main {
     }
   }
 }
+// END OF HERO SECTION
 
+// SUPPORT SECTION
 .support {
   @include desktop {
     width: 77%;
@@ -129,7 +128,6 @@ main {
   }
 
   &--heading {
-    font-weight: 700;
     font-size: 22px;
     text-align: center;
     color: #969696;
@@ -142,26 +140,35 @@ main {
 
     .first-group {
       display: flex;
-      gap: 64px;
       margin-bottom: 43px;
       margin-top: 29.19px;
+      gap: 64px;
+
+      @include mobile {
+        gap: 32px;
+      }
     }
 
     .second-group {
       display: flex;
       gap: 64px;
+
+      @include mobile {
+        gap: 32px;
+      }
     }
   }
 }
+// END OF SUPPORT SECTION
 
+// INTRODUCTION SECTION
 .introduction {
   @include desktop {
     width: 76%;
     margin: auto;
   }
 
-  &--header {
-    font-weight: 700;
+  &--heading {
     font-size: 50px;
     line-height: 66px;
     letter-spacing: -0.04em;
@@ -177,7 +184,6 @@ main {
 
     &-text {
       margin-top: 30px;
-      font-size: 18px;
       line-height: 150%;
       text-align: center;
       color: #000000;
@@ -188,21 +194,26 @@ main {
     }
   }
 }
+// END OF INTRODUCTION SECTION
 
+// WHO WE ARE SECTION
 .who-we-are {
   &--container {
-    display: flex;
-    justify-content: center;
+    @include desktop {
+      display: flex;
+      justify-content: center;
+    }
     background: #7d0bfe;
     border-radius: 16px;
     padding: 77px 93px;
   }
 
   &--content {
-    width: 465px;
+    @include desktop {
+      width: 465px;
+    }
 
     h3 {
-      font-weight: 700;
       font-size: 54px;
       line-height: 66px;
       letter-spacing: -0.04em;
@@ -210,7 +221,6 @@ main {
     }
     p {
       font-style: normal;
-      font-weight: 400;
       font-size: 20px;
       line-height: 150%;
       color: #ffdcf2;
@@ -225,15 +235,19 @@ main {
   &--img {
     width: 500px;
     height: 500px;
+    @include mobile {
+      display: none;
+    }
     margin-bottom: -120px;
   }
 }
+// END OF WHO WE ARE SECTION
 
+// ANALYTICS SECTION
 .analytics {
   margin-top: 10px;
 
-  &--header {
-    font-weight: 700;
+  &--heading {
     font-size: 50px;
     line-height: 66px;
     letter-spacing: -0.04em;
@@ -250,7 +264,6 @@ main {
     text-align: center;
 
     h3 {
-      font-weight: 700;
       font-size: 54px;
       line-height: 66px;
       letter-spacing: -0.04em;
@@ -275,37 +288,210 @@ main {
     color: purple;
   }
 }
+// END OF ANALYTICS SECTION
 
+// IMPACT SECTION
 .impact-section {
-  display: flex;
-  background-color: #6a00e2;
-  color: #ffffff;
-  width: 100%;
-  padding: 50px 8%;
-  justify-content: space-between;
+  padding: 40px 0;
+
+  .container {
+    @include mobile {
+      padding: 40px var(--page-container-margin);
+    }
+  }
 
   h2 {
     font-size: 48px;
-    font-weight: 700;
-  }
-
-  > div {
-    width: 50%;
+    line-height: 66px;
+    margin-bottom: 30px;
+    text-align: center;
   }
 
   .impact-list {
     .impact-item {
-      display: flex;
-      align-items: baseline;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
 
-      p {
-        font-size: 18px;
-        font-weight: 400;
+      @include mobile {
+        grid-template-columns: 1fr;
       }
 
-      svg {
-        margin-right: 20px;
+      .text {
+        width: 100%;
+        h1 {
+          font-size: 54px;
+          line-height: 66px;
+          letter-spacing: -0.04em;
+          margin-bottom: 11px;
+          color: var(--primary-color);
+        }
+
+        h3 {
+          font-size: 39px;
+          line-height: 47px;
+          letter-spacing: -0.04em;
+          margin-bottom: 32px;
+        }
+
+        p {
+          margin-bottom: 32px;
+
+          @include desktop {
+            width: 437px;
+          }
+        }
+        @include mobile {
+          padding: 32px var(--page-container-margin);
+        }
+      }
+
+      .impact-item--image {
+        width: 100%;
+        background: var(--color-background);
+        padding: 90px 0;
+      }
+
+      &:nth-child(odd) {
+        .impact-item--image {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .text {
+          @include desktop {
+            padding-left: 119px;
+            order: 2;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .text {
+          display: flex;
+          justify-content: flex-end;
+          @include desktop {
+            padding-right: 119px;
+            order: 1;
+          }
+        }
+
+        .impact-item--image {
+          @include desktop {
+            order: 2;
+          }
+          // margin-right: 0;
+          // margin-left: 0;
+
+          // @media (min-width: 800px) {
+          // 	margin-left: 89px;
+          // }
+        }
       }
     }
   }
 }
+// END OF IMPACT SECTION
+
+// HIGHLIGHTS SECTION
+.highlights {
+  &--heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+
+    h1 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.04em;
+    }
+
+    @include mobile {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  &--container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+
+    &-item {
+      &--image {
+        width: 100%;
+        background: #e7d2ff;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      &--text {
+        width: 100%;
+
+        h4 {
+          margin: 32px 0;
+          font-weight: 600;
+          font-size: 28px;
+          line-height: 130%;
+          letter-spacing: -0.04em;
+        }
+      }
+    }
+  }
+}
+// END OF HIGHLIGHTS SECTION
+
+// CALL FOR SPONSORS SECTION
+.call-for-sponsors {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include mobile {
+    padding: 90px 0;
+  }
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--text {
+    background-color: #000000;
+    width: 100%;
+    color: var(--color-white);
+
+    @include mobile {
+      padding: 90px var(--page-container-margin);
+    }
+
+    > div {
+      @include desktop {
+        width: 435px;
+      }
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    p {
+      margin-bottom: 36px;
+    }
+  }
+
+  &--image {
+    width: 100%;
+    background-color: var(--primary-color);
+  }
+}
+// END OF CALL FOR SPONSORS SECTION

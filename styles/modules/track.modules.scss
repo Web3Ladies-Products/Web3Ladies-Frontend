@@ -9,11 +9,6 @@ main {
     letter-spacing: -0.04em;
   }
 
-  p {
-    font-size: 18px;
-    font-weight: 400;
-  }
-
   .note {
     font-size: 14px;
     color: #7d0bfe;
@@ -85,8 +80,6 @@ main {
       }
 
       p {
-        font-size: 18px;
-        font-size: 18px;
         line-height: 150%;
         color: var(--color-white);
       }
@@ -161,8 +154,6 @@ main {
       }
 
       p {
-        font-size: 18px;
-        font-weight: 400;
         margin-left: 12px;
       }
     }
@@ -178,7 +169,6 @@ main {
   }
   .description {
     text-align: left;
-    font-size: 18px;
     margin-bottom: 64px;
 
     @include desktop {
