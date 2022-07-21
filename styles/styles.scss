@@ -14,6 +14,8 @@
 // modules
 @import "./modules/home.module.scss";
 @import "./modules/feedback.module.scss";
+@import "./modules/cohorts.module.scss";
+@import "./modules/cohortOne.module.scss";
 
 :root {
   --color-black: #0f0f0f;
@@ -26,6 +28,7 @@
   --danger-color-rgb: 239, 68, 68;
   --color-white: #ffffff;
   --color-background: #fff3f3;
+  --background-color:#F8F2FF;
   --color-red: #ef4444;
   --secondary-success-color: #a2c438;
   --popup-modal--container-max-width: 300px;
