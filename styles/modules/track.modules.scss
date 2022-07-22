@@ -1,0 +1,214 @@
+@import "../scss/mixins";
+
+/* hero-section styles */
+main {
+  h1 {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 72px;
+    letter-spacing: -0.04em;
+  }
+
+  .note {
+    font-size: 14px;
+    color: #7d0bfe;
+    font-weight: 500;
+  }
+}
+
+/* why-study-blockchain */
+.why-study-blockchain {
+  .container {
+    @include desktop {
+      width: 77%;
+    }
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    padding: 10px 10px;
+    letter-spacing: -0.04em;
+  }
+  .text {
+    display: flex;
+    align-items: center;
+  }
+
+  .text p {
+    padding: 20px 20px 20px 0px;
+  }
+}
+
+/* benefits */
+.benefits {
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  .container {
+    @include desktop {
+      width: 55%;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 66px;
+    letter-spacing: -0.04em;
+    color: var(--color-white);
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-primary-light);
+  }
+
+  .benefits-list {
+    margin-bottom: 32px;
+
+    .benefit {
+      display: flex;
+      align-items: baseline;
+      margin: 19px 0px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        line-height: 150%;
+        color: var(--color-white);
+      }
+
+      svg {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+/* curriculum section */
+.curriculum-section {
+  h2 {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 66px;
+    letter-spacing: -0.04em;
+    color: #000000;
+  }
+}
+
+/* gains section */
+.gains-section {
+  background-color: #6a00e2;
+  color: #ffffff;
+  width: 100%;
+  padding: 50px 8%;
+
+  .container {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .gains_image {
+      position: relative;
+      width: 500px;
+      @include mobile {
+        width: 300px;
+        margin-top: 200px;
+      }
+    }
+
+    .content {
+      h1 {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 66px;
+        letter-spacing: -0.04em;
+        margin-bottom: 27px;
+      }
+
+      .button-container {
+        justify-content: start;
+      }
+    }
+  }
+
+  &--list {
+    margin-bottom: 32px;
+
+    &-item {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-left: 12px;
+      }
+    }
+  }
+}
+
+/* mentors sections */
+.mentors-section {
+  .heading {
+    margin-bottom: 32px;
+    font-size: 54px;
+    font-weight: 700;
+  }
+  .description {
+    text-align: left;
+    margin-bottom: 64px;
+
+    @include desktop {
+      width: 873px;
+    }
+  }
+
+  .mentors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(379px, 1fr));
+    gap: 32px;
+
+    @include mobile {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+}
+
+.mentor-card {
+  background-color: #fafafa;
+  border-radius: 8px;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: flex-start;
+
+  .name {
+    font-size: 22px;
+    font-weight: 700;
+    width: 100%;
+  }
+
+  .role {
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+  }
+
+  .mentor-img {
+    height: 100%;
+    margin-right: 45px;
+  }
+}

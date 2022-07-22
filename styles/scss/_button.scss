@@ -93,14 +93,14 @@ button,
     align-items: center;
     justify-content: center;
 
-    &.icon-right {
-      img {
+    .icon-right {
+      svg {
         margin-left: 10px;
       }
     }
 
-    &.icon-left {
-      img {
+    .icon-left {
+      svg {
         margin-right: 10px;
       }
     }

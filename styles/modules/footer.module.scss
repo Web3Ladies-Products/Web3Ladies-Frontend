@@ -1,0 +1,200 @@
+@import "../scss/mixins";
+
+footer {
+  background-image: url("/assets/images/blockchain-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--color-black);
+  position: relative;
+  padding-top: 55px;
+
+  .footer-content {
+    display: grid;
+    grid-gap: 40px;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+
+    @include mobile {
+      display: block;
+    }
+
+    &_form {
+      .footer-card {
+        border: 1px solid rgba(219, 219, 219, 0.5);
+        border-radius: 12px;
+        background-color: #111111;
+        padding: 32px;
+        width: 463px;
+
+        @include mobile {
+          width: 100%;
+        }
+
+        .card-text {
+          color: #ababab;
+          line-height: 150%;
+          font-weight: 250px;
+          font-style: normal;
+          margin-top: 30px;
+        }
+
+        #user-email {
+          background-color: #232323;
+          border: 1px solid rgba(109, 109, 109, 0.2);
+          border-radius: 4px;
+          color: var(--color-white);
+          padding-left: 10px;
+        }
+
+        form {
+          margin-top: 25px;
+          width: 100%;
+
+          .update-form {
+            width: 100%;
+
+            @include desktop {
+              display: flex;
+
+              .input {
+                margin-right: 11px;
+                margin-bottom: 0;
+
+                input {
+                  margin-top: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+
+      @include phone {
+        display: block;
+      }
+
+      .contact {
+        left: 0;
+      }
+
+      h4 {
+        text-transform: uppercase;
+        color: var(--primary-color);
+        letter-spacing: -0.02em;
+        line-height: 20px;
+        font-weight: 700;
+        margin-bottom: 23px;
+
+        @include mobile {
+          margin-top: 23px;
+        }
+      }
+
+      .footer-list {
+        color: var(--color-white);
+        line-height: 20px;
+        font-size: 16px;
+
+        &.quick-links {
+          display: flex;
+          justify-content: space-between;
+
+          > div {
+            margin-right: 64px;
+          }
+        }
+      }
+
+      .footer-list li:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 100%;
+
+  .vector {
+    width: 120px;
+    height: 100px;
+    position: absolute;
+
+    @media (max-width: 1100px) {
+      width: 70px;
+      height: 50px;
+    }
+
+    &:nth-of-type(1) {
+      bottom: 50%;
+      left: 0px;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(2) {
+      top: 0;
+      left: 45%;
+      > span {
+        transform: rotate(138deg);
+      }
+      @include mobile {
+        left: initial;
+        top: initial;
+        bottom: 15%;
+        right: 0;
+        > span {
+          transform: rotate(325deg);
+        }
+      }
+    }
+
+    &:nth-of-type(3) {
+      bottom: 20%;
+      right: 0;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-of-type(#{$i}) {
+        animation: bounce 2s #{"0." + ($i * 2)}s infinite;
+      }
+    }
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(4px);
+      }
+    }
+  }
+}
+
+.copyright-section {
+  padding-block: 20px;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: var(--color-white);
+  line-height: 19px;
+  margin-top: 20px;
+
+  .container {
+    padding-top: 0;
+  }
+}

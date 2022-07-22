@@ -1,0 +1,88 @@
+@import "./mixins";
+
+.accordion {
+  width: 80%;
+  margin: auto;
+}
+
+.panel {
+  background-color: var(--color-white);
+  border-bottom: 2px solid #000000;
+
+  &__label {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 25px 60px 25px 25px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    letter-spacing: -0.04em;
+    transition: color 0.2s linear;
+    cursor: pointer;
+
+    @include mobile {
+      font-size: 17px;
+      line-height: 24px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      width: 22px;
+      height: 2px;
+      margin-top: -2px;
+      background-color: #372717;
+    }
+
+    &:before {
+      transform: rotate(-90deg);
+      transition: transform 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
+    }
+  }
+
+  &[aria-expanded="true"] &__content {
+    opacity: 1;
+  }
+
+  &[aria-expanded="true"] &__label {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    letter-spacing: -0.04em;
+  }
+
+  &[aria-expanded="true"] &__label:before {
+    transform: rotate(0deg);
+  }
+
+  &__inner {
+    overflow: hidden;
+    will-change: height;
+    transition: height 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+
+  &__content {
+    margin: 5px 25px 25px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    opacity: 0;
+    transition: opacity 0.3s linear 0.18s;
+    width: 80%;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+}
