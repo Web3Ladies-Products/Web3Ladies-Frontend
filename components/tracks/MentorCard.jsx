@@ -15,7 +15,7 @@ const MentorCard = ({ mentor }) => {
       </div>
       <div>
         <p className="name">{mentor.name}</p>
-        <p className="role">{mentor.role}e</p>
+        <p className="role">{mentor.role}</p>
       </div>
     </div>
   );
