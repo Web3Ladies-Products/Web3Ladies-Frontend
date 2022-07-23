@@ -5,11 +5,10 @@ import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
 import Hero from "../../components/tracks/HeroSection";
 import Why from "../../components/tracks/Why";
-import Benefits from "../../components/tracks/BenefitsSection";
-import Curriculum from "../../components/tracks/Curriculum";
-import OngroundMentors from "../../components/tracks/OngroundMentors";
-import WorkshopMentors from "../../components/tracks/WorkshopMentors";
-import Gains from "../../components/tracks/Gains";
+import Benefits from "../../components/BenefitsSection";
+import Curriculum from "../../components/Curriculum";
+import Gains from "../../components/Gains";
+import Mentors from "../../components/Mentors";
 
 const Track = () => {
   const { query } = useRouter();
@@ -33,8 +32,8 @@ const Track = () => {
       <Benefits data={track.benefits} />
       <Curriculum data={track.curriculum} />
       <Gains data={track.gains} />
-      <OngroundMentors data={track.ongroundMentors} />
-      <WorkshopMentors data={track.workshopMentors} />
+      <Mentors data={track.ongroundMentors} />
+      <Mentors data={track.workshopMentors} />
       <Footer />
     </div>
   );

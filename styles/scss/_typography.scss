@@ -3,9 +3,30 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .text-muted {
   color: var(--color-grey) !important;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 66px;
+  letter-spacing: -0.04em;
+}
+
+.sub-section-title {
+  font-weight: 500;
+  font-size: 33px;
+  line-height: 40px;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+
+.section-description {
+  margin-bottom: 28px;
+  font-size: 18px;
+  line-height: 150%;
 }
