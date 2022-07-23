@@ -167,7 +167,7 @@ line-height: 29px;
 
 
 
-.projects-title,title,footer,.highlight-header, .highlights  {
+title,footer,.highlight-header, .highlights  {
   display: flex;
   justify-content: space-between;
   gap:2%;
@@ -222,7 +222,9 @@ line-height: 29px;
 
 .projects-title {
   
-    
+  display: flex;
+  justify-content: space-between;
+  gap:2%;
     h1 {
       font-weight: 700;
       font-size: 48px;
