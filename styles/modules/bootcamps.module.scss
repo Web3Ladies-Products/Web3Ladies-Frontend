@@ -1,0 +1,232 @@
+@import "../scss/mixins";
+
+main {
+  .container {
+    .hero_content.bootcamp {
+      @include desktop {
+        max-width: 540px;
+        h1 {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}
+
+.bootcamps {
+  .sub-section-title {
+    span {
+      font-weight: bold;
+      font-size: inherit;
+    }
+  }
+  .section-description {
+    @include desktop {
+      width: 434px;
+    }
+  }
+}
+
+.about-bootcamp {
+  @include desktop {
+    .about-content {
+      flex-basis: 50%;
+    }
+    .about-image {
+      margin-right: 32px;
+    }
+    .section-description {
+      width: 442px;
+    }
+  }
+  @include mobile {
+    .container {
+      display: block !important;
+    }
+  }
+  .about-image {
+    width: 518px;
+    height: 518px;
+    object-fit: cover;
+  }
+}
+
+.goal {
+  .container {
+    text-align: center;
+  }
+  .section-description {
+    @include desktop {
+      width: 554px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.sponsors {
+  @include desktop {
+    .sponsors-content {
+      flex-basis: 50%;
+    }
+    .sponsors-image {
+      margin-right: 32px;
+    }
+  }
+  @include mobile {
+    .container {
+      display: block !important;
+    }
+  }
+  .sponsors-image {
+    width: 501px;
+    height: 501px;
+    object-fit: cover;
+  }
+}
+
+.analytics {
+  .tracks-analytics {
+    .container {
+      padding-top: 0;
+    }
+  }
+}
+
+.how-it-works {
+  .container {
+    @include desktop {
+      display: flex;
+      align-items: center;
+      .how-it-works--content {
+        flex-basis: 50%;
+      }
+      .how-it-works--image {
+        margin-right: 32px;
+      }
+    }
+
+    .schedule-details {
+      > div {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        margin-bottom: 32px;
+
+        > div {
+          flex-basis: 50%;
+        }
+        h5 {
+          font-weight: 700;
+        }
+        h5,
+        span {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.summary {
+  .container {
+    @include desktop {
+      max-width: 754px;
+    }
+  }
+}
+
+.projects-done {
+  &--heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+
+    @include mobile {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  &--container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  &--item {
+    h3,
+    h5 {
+      font-weight: 600;
+    }
+    .project-header {
+      margin-bottom: 16px;
+
+      &--image {
+        margin-right: 12px;
+      }
+    }
+    .about-project {
+      margin-bottom: 15px;
+      h5 {
+        margin-bottom: 8px;
+      }
+      p {
+        font-weight: 250;
+        font-size: 12px;
+        line-height: 150%;
+      }
+    }
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+
+      &--cta {
+        color: var(--color-primary-light);
+        font-size: 14px;
+      }
+
+      .badge {
+        letter-spacing: initial;
+        text-transform: capitalize;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.testimonials {
+  .container {
+    @include desktop {
+      max-width: none;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: scroll;
+      margin-bottom: 48px;
+
+      &-item {
+        margin-right: 24px;
+        min-width: 350px !important;
+        height: fit-content;
+        .testimonial--header {
+          display: flex;
+          &-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+          }
+
+          h5 {
+            font-size: 18px;
+          }
+          span {
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Button from "../buttons/Button";
-import NumberMarker from "../icons/NumberMarker";
+import Button from "./buttons/Button";
+import NumberMarker from "./icons/NumberMarker";
 
 const Gains = ({ data }) => {
   return (
