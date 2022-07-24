@@ -147,6 +147,8 @@ const cohortThree = () => {
            
           </ul>
       </div>
+
+      
       {/* END OF ANALYTICS SECTION */}
           <div className="mentees--container">
             <div className="mentee">

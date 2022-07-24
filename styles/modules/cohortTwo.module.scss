@@ -127,8 +127,7 @@
 .tracks {
   height: fit-content;
   margin-bottom: 80px;
-  
-  // background-color: var(--primary-color);
+
   background: #6911cc;
 
   position: relative;
@@ -172,7 +171,7 @@
 
       list-style-type: none;
       background-color: #ffffff;
-      display:flex;
+      display: flex;
       flex-direction: column;
       justify-content: space-between;
 
@@ -188,19 +187,17 @@
 
       p {
         font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-margin-bottom:20px ;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 20px;
 
-color: #000000;
+        color: #000000;
       }
 
       .icons {
         display: flex;
         justify-content: space-between;
-
       }
     }
-
   }
 }

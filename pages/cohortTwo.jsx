@@ -2,27 +2,31 @@ import React from "react";
 import Image from "next/image";
 import Navbar from "../components/layouts/Navbar";
 import Button from "../components/buttons/Button";
+import Badge from "../components/Badge";
 
 const cohortTwo = () => {
 
   const TRACKS = [
     {
-      icons:'/assets/images/js.png',
+      icons:['/assets/images/solidity.png','/assets/images/python.png','/assets/images/js.png',],
       title:"Web3 - Blockchain Development",
       description:"The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
       buttonText:"View Track"
     },
     {
+      icons:['/assets/images/html.png','/assets/images/css.png','/assets/images/js.png',],
       title:"Web2 - Blockchain Development",
       description:"This track is for beginners in web development, this track will focus on teaching the basics of web development, such as HTML, CSS, and JavaScript.",
       buttonText:"View Track"
     },
     {
+      icons:'/assets/images/figma.png',
       title:"Product Design",
       description:"This track is designed to evaluate a baseline of visual skills, and analytical thinking, this is for applicants who want to start a career in UI/UX track",
       buttonText:"View Track"
     },
     {
+      icons:'/assets/images/jira.png',
       title:"Product Management",
       description:"Product management is the business process of planning, developing, launching, and managing a product or service. It includes the entire lifecycle of a product, from ideation to development to go to market.",
       buttonText:"View Track"
@@ -35,6 +39,11 @@ const cohortTwo = () => {
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
+            <Badge 
+                badgeText="ONGOING"
+                badgeBackground={"#FFFFFF"}
+                badgeBorderColor={"#000000"}
+              />
               <h1>Cohort Two</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. At
@@ -170,6 +179,11 @@ const cohortTwo = () => {
             {TRACKS.map((item) => (
               <li className="track-item" key={item.title}>
                 <div className="icons">
+                <Image 
+                    src={item.icons}
+                    width={'40px'}
+                    height={'40px'}
+                    objectFit='contain' />
                   {/* <Image 
                     src={item.icons}
                     width={'40px'}
@@ -232,7 +246,7 @@ const cohortTwo = () => {
                 alt="hero-image"
               />
 
-              {/* <iframe width="253" height="280" src="https://www.youtube.com/embed/24D8MqQTP_w" title="Project #LadiesDoTech" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+              
             </div>
           </div>
         </div>
