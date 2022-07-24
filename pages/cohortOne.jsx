@@ -3,6 +3,8 @@ import Button from "../components/buttons/Button";
 import Image from "next/image";
 import Badge from "../components/Badge";
 import ArrowRight from "../components/icons/ArrowRight";
+import Gallery from "../components/Gallery";
+import ArrowCircle from "../components/icons/ArrowCircle";
 
 const cohortOne = () => {
   const HIGHLIGHTS_ITEMS = [
@@ -104,6 +106,33 @@ const cohortOne = () => {
       },
     ];
 
+    const GALLERY = [
+      {
+        image: "/assets/images/gallery-1.png",
+        caption: "Gallery 1"
+      },
+      {
+        image: "/assets/images/gallery-2.png",
+        caption: "Gallery 2"
+      },
+      {
+        image: "/assets/images/gallery-3.png",
+        caption: "Gallery 3"
+      },
+      {
+        image: "/assets/images/gallery-4.png",
+        caption: "Gallery 4"
+      },
+      {
+        image: "/assets/images/gallery-5.png",
+        caption: "Gallery 5"
+      },
+      {
+        image: "/assets/images/gallery-6.png",
+        caption: "Gallery 6"
+      }
+    ];
+
   return (
     <>
       <Navbar />
@@ -198,20 +227,6 @@ const cohortOne = () => {
                   <span className="metrics-text"> Mentors</span>
                 </li>
               </ul>
-              {/* <div className="numbers">
-                <div>
-                  <h2>54</h2>
-                  <p>Mentees</p>
-                </div>
-                <div>
-                  <h2>85</h2>
-                  <p>Alumni</p>
-                </div>
-                <div>
-                  <h2>24</h2>
-                  <p>Mentors</p>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
@@ -267,137 +282,96 @@ const cohortOne = () => {
       </section>
 
       {/* TESTIMONIAL SECTION */}
-       <section>
+      <section className="testimonials">
         <div className="container">
-          <div className="testimonials">
-            <h1>Testimonials</h1>
-            <div className="testimonial-card">
-              {TESTIMONIAL_ITEMS.map((item) => (
-                 <li className="testimonial-content" key={item.name}>
-                 <div className="title">
-                   <div>
-                     <Image
-                       src={item.image}
-                       width={"30px"}
-                       height={"30px"}
-                     />
-                   </div>
-                   <div>
-                     <h1>{item.name}</h1>
-                     <p>{item.role}</p>
-                   </div>
-                 </div>
-                 <div className="about">
-                   <p>{item.quote}</p>
-                 </div>
-                 
-               </li>
-              ))}
-              {/* <div className="testimonial-content">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/student.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                <h1>Student</h1>
-                <p>Web3 Designer</p>
-
-                </div>
-              </div>
-              <div className="about">
-                <p>LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!</p>
-              </div>
-              </div>
-              <div className="testimonial-content">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/student.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                <h1>Student</h1>
-                <p>Web3 Designer</p>
-                
-                </div>
-              </div>
-              <div className="about">
-                <p>LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!</p>
-              </div>
-              </div>
-              <div className="testimonial-content">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/student.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                <h1>Student</h1>
-                <p>Web3 Designer</p>
-
-                </div>
-              </div>
-              <div className="about">
-                <p>LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!</p>
-              </div>
-              </div> */}
-            </div>
-          </div>
-        </div>
-      </section> 
-
-      {/* PROJECTS SECTION */}
-      <section>
-        <div className="container projects">
-          <div className="projects-title">
-            <h1>Projects Done</h1>
-            <Button
-              type={"outline"}
-              buttonText={"View all Projects"}
-              handleClick={() => null}
-            />
-          </div>
-          <div className="project-cards">
-            {PROJECT_ITEMS.map((item) => (
-              <li className="project-card" key={item.type}>
-                <div className="title">
-                  <div>
+          <h2 className="sub-section-title bold">Testimonials</h2>
+          <div className="carousel">
+            {TESTIMONIAL_ITEMS.map((testimonial) => (
+              <div
+                className="carousel-item card card--has-border"
+                key={testimonial.name}
+              >
+                <div className="testimonial--header">
+                  <div className="testimonial--header-image">
                     <Image
-                      src="/assets/images/avatar.png"
-                      width={"30px"}
-                      height={"30px"}
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={60}
+                      height={60}
                     />
                   </div>
                   <div>
-                    <h1>{item.title}</h1>
+                    <h5 className="testimonial-text">{testimonial.role}</h5>
+                    <span className="testimonial-name">{testimonial.name}</span>
                   </div>
                 </div>
-                <div className="about">
-                  <h1>About Project</h1>
-                  <p>{item.about}</p>
+                <div className="testimonial--body">
+                  <p className="testimonial-text">{testimonial.quote}</p>
                 </div>
-                <div className="footer">
-                  <p>View Project</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                  <div className="footer-link">
+      {/* PROJECTS SECTION */}
+      <section className="projects-done">
+        <div className="container">
+          <div className="projects-done--heading">
+            <h1 className="sub-section-title bold">Projects Done</h1>
+            <Button
+              type={"outline"}
+              buttonText={"View all projects"}
+              handleClick={() => null}
+            />
+          </div>
+          <ul className="projects-done--container">
+            {PROJECT_ITEMS.map((project) => (
+              <li
+                key={project.title}
+                className="projects-done--item card card__black d-flex flex-column justify-content-between"
+              >
+                <div className="project-header d-flex align-items-center">
+                  <div className="project-header--image">
+                    <Image
+                      src={project.avatar}
+                      alt={project.title}
+                      width={35}
+                      height={35}
+                    />
+                  </div>
+                  <div className="title">
+                    <h3>{project.title}</h3>
+                  </div>
+                </div>
+                <div className="about-project">
+                  <h5>About Project</h5>
+                  <p>{project.about}</p>
+                </div>
+                <div className="project-footer">
+                  <div className="project-footer--cta">
+                    <Button
+                      type={"clear"}
+                      buttonText={"View project"}
+                      handleClick={() => null}
+                      hasIcon
+                    >
+                      <span className="icon-right d-flex align-items-center">
+                        <ArrowCircle fillColor={"#FF9EDB"} />
+                      </span>
+                    </Button>
+                  </div>
+                  <div className="project-category">
                     <Badge
-                      badgeText={item.type}
-                      badgeBackground={item.typeBackgroound}
+                      badgeText={project.type}
+                      badgeBackground={project.typeBackgroound}
+                      handleClick={() => null}
                     />
                   </div>
                 </div>
               </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -448,62 +422,8 @@ const cohortOne = () => {
         </div>
       </section>
       {/* END OF HIGHLIGHTS SECTION */}
-      <section>
-        <div className="container gallery">
-          <h1>Gallery</h1>
-          <div className="gallery-images">
-            <div className="images">
-              <Image
-                src="/assets/images/gallery-image.png"
-                width={"497px"}
-                height={"350px"}
-                alt="gallery-image"
-              />
-            </div>
-            <div className="images">
-              <Image
-                src="/assets/images/gallery-image.png"
-                width={"497px"}
-                height={"350px"}
-                alt="gallery-image"
-              />
-            </div>
+      <Gallery galleryItems={GALLERY} />
 
-            <div className="images">
-              <Image
-                src="/assets/images/gallery-image-2.png"
-                width={"497px"}
-                height={"350px"}
-                alt="gallery-image"
-              />
-            </div>
-            <div className="images">
-              <Image
-                src="/assets/images/gallery-image-3.png"
-                width={"497px"}
-                height={"350px"}
-                alt="gallery-image"
-              />
-            </div>
-            <div className="images">
-              <Image
-                src="/assets/images/gallery-image-4.png"
-                width={"497px"}
-                height={"350px"}
-                alt="gallery-image"
-              />
-            </div>
-            <div className="images">
-              <Image
-                src="/assets/images/gallery-image-4.png"
-                width={"497px"}
-                height={"350px"}
-                alt="gallery-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="visit container">
         <div className="container">
