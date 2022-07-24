@@ -24,3 +24,15 @@
   letter-spacing: 0.2em;
   width: fit-content;
 }
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.align-center {
+  align-items: center !important;
+}
