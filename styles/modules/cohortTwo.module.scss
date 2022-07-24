@@ -53,6 +53,8 @@
       }
 
       .about-item--text {
+        display: flex;
+        flex-direction: column;
         @include desktop {
           padding-left: 119px;
           order: 2;
@@ -75,6 +77,14 @@
           order: 2;
         }
       }
+    }
+  }
+
+  .analytics {
+    margin-bottom: 32px;
+
+    h3 {
+      font-size: 50px;
     }
   }
 }
@@ -115,8 +125,9 @@
 }
 
 .tracks {
-  height: 1000px;
+  height: fit-content;
   margin-bottom: 80px;
+  
   // background-color: var(--primary-color);
   background: #6911cc;
 
@@ -157,10 +168,13 @@
 
     li {
       padding: 30px;
-    border-radius: 8px;
+      border-radius: 8px;
 
       list-style-type: none;
       background-color: #ffffff;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       h3 {
         font-weight: 700;
@@ -178,17 +192,15 @@ font-size: 16px;
 line-height: 24px;
 margin-bottom:20px ;
 
-
 color: #000000;
       }
 
       .icons {
         display: flex;
         justify-content: space-between;
+
       }
     }
 
-    &-item {
-    }
   }
 }

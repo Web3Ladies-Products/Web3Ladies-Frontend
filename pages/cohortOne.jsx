@@ -73,6 +73,37 @@ const cohortOne = () => {
     },
   ];
 
+  const TESTIMONIAL_ITEMS = [
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+      },
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
+      },
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT",
+      },
+      {
+        name: "Student",
+        role: "Web3 Designer",
+        image: "/assets/images/testimonial-image.png",
+        quote:
+          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
+      },
+    ];
+
   return (
     <>
       <Navbar />
@@ -81,6 +112,11 @@ const cohortOne = () => {
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
+              <Badge 
+                badgeText="PAST"
+                badgeBackground={"#FFFFFF"}
+                badgeBorderColor={"#000000"}
+              />
               <h1>Cohort One</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. At
@@ -231,11 +267,33 @@ const cohortOne = () => {
       </section>
 
       {/* TESTIMONIAL SECTION */}
-      {/* <section>
+       <section>
         <div className="container">
           <div className="testimonials">
+            <h1>Testimonials</h1>
             <div className="testimonial-card">
-              <div className="testimonial-content">
+              {TESTIMONIAL_ITEMS.map((item) => (
+                 <li className="testimonial-content" key={item.name}>
+                 <div className="title">
+                   <div>
+                     <Image
+                       src={item.image}
+                       width={"30px"}
+                       height={"30px"}
+                     />
+                   </div>
+                   <div>
+                     <h1>{item.name}</h1>
+                     <p>{item.role}</p>
+                   </div>
+                 </div>
+                 <div className="about">
+                   <p>{item.quote}</p>
+                 </div>
+                 
+               </li>
+              ))}
+              {/* <div className="testimonial-content">
               <div className="title">
                 <div>
                   <Image
@@ -291,11 +349,11 @@ const cohortOne = () => {
               <div className="about">
                 <p>LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!</p>
               </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-      </section> */}
+      </section> 
 
       {/* PROJECTS SECTION */}
       <section>
@@ -339,118 +397,6 @@ const cohortOne = () => {
                 </div>
               </li>
             ))}
-            {/* <div className="project-card">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/avatar.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                  <h1>Dexa Wallet</h1>
-                </div>
-              </div>
-              <div className="about">
-                <h1>About Project</h1>
-                <p>
-                  LDT has been amazing at helping me break into the tech space.
-                  When I first joined as a member I was welcomed and offered
-                  very useful advice and opportunities!
-                </p>
-              </div>
-              <div className="footer">
-                <p>View Project</p>
-                <div className="footer-link">
-                  <p>Web3-Blockchain Development</p>
-                </div>
-              </div>
-            </div>
-            <div className="project-card">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/avatar.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                  <h1>Dexa Wallet</h1>
-                </div>
-              </div>
-              <div className="about">
-                <h1>About Project</h1>
-                <p>
-                  LDT has been amazing at helping me break into the tech space.
-                  When I first joined as a member I was welcomed and offered
-                  very useful advice and opportunities!
-                </p>
-              </div>
-              <div className="footer">
-                <p>View Project</p>
-                <div className="footer-link">
-                  <p>Web3-Blockchain Development</p>
-                </div>
-              </div>
-            </div>
-            <div className="project-card">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/avatar.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                  <h1>Dexa Wallet</h1>
-                </div>
-              </div>
-              <div className="about">
-                <h1>About Project</h1>
-                <p>
-                  LDT has been amazing at helping me break into the tech space.
-                  When I first joined as a member I was welcomed and offered
-                  very useful advice and opportunities!
-                </p>
-              </div>
-              <div className="footer">
-                <p>View Project</p>
-                <div className="footer-link">
-                  <p>Web3-Blockchain Development</p>
-                </div>
-              </div>
-            </div>
-            <div className="project-card">
-              <div className="title">
-                <div>
-                  <Image
-                    src="/assets/images/avatar.png"
-                    width={"30px"}
-                    height={"30px"}
-                  />
-                </div>
-                <div>
-                  <h1>Dexa Wallet</h1>
-                </div>
-              </div>
-              <div className="about">
-                <h1>About Project</h1>
-                <p>
-                  LDT has been amazing at helping me break into the tech space.
-                  When I first joined as a member I was welcomed and offered
-                  very useful advice and opportunities!
-                </p>
-              </div>
-              <div className="footer">
-                <p>View Project</p>
-                <div className="footer-link">
-                  <p>Web3-Blockchain Development</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -553,6 +499,31 @@ const cohortOne = () => {
                 width={"497px"}
                 height={"350px"}
                 alt="gallery-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="visit container">
+        <div className="container">
+          <div className="hero_content">
+            <h1>
+              Visit our Youtube page <br></br> to see our videos
+            </h1>
+            <Button
+              type={"primary"}
+              buttonText={"Visit"}
+              handleClick={() => null}
+            />
+            <div className="youtube">
+              <Image
+                className="youtube-img"
+                width={"293px"}
+                height={"272px"}
+                objectFit="contain"
+                src="/assets/images/youtube.png"
+                alt="hero-image"
               />
             </div>
           </div>

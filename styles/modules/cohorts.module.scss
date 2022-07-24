@@ -8,11 +8,6 @@ main {
     @include mobile {
       margin-top: 50px;
     }
-    // @media (max-width: 1140px) {
-    //   margin-bottom: 100px;
-    //   width: 100%;
-    // }
-
     & > div {
       position: relative;
 
@@ -81,6 +76,7 @@ main {
   height: 180px;
 
   @include mobile {
+    margin-top: 40px;
     height: 420px;
   }
 
