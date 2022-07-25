@@ -14,6 +14,7 @@ import Mentors from "../../../components/Mentors";
 import Highlights from "../../../components/Highlights";
 import FAQs from "../../../components/FAQs";
 import Testimonials from "../../../components/Testimonials";
+import VisitYoutube from "../../../components/VisitYoutube";
 
 const Bootcamp = () => {
   const { query } = useRouter();
@@ -53,6 +54,7 @@ const Bootcamp = () => {
       <FAQs data={bootcamp.faqs} />
 
       <Testimonials />
+      <VisitYoutube />
       <Footer />
     </>
   );
