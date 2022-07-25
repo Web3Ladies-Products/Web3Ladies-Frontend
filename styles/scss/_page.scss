@@ -97,8 +97,8 @@ footer {
       ul.header-list {
         list-style: none;
         display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         > li {
           text-align: left;
@@ -108,9 +108,12 @@ footer {
             color: var(--primary-color);
           }
           .header-list-item {
-            font-size: 13px;
-            line-height: 16px;
-            color: rgba(var(--color-black-rgb), 0.48);
+            a,
+            div {
+              font-size: 13px;
+              color: rgba(var(--color-black-rgb), 0.48);
+              line-height: 16px;
+            }
           }
         }
       }
@@ -138,6 +141,12 @@ footer {
 }
 
 @media (min-width: 1000px) {
+  header > div {
+    max-width: none;
+    width: 90%;
+    margin: auto;
+  }
+
   .dropdown-item {
     .dropdown-icon {
       display: none;
@@ -207,14 +216,6 @@ footer {
         margin-left: 50px;
         padding: 0;
 
-        a.nuxt-link-exact-active {
-          font-weight: 700;
-
-          .active-sign {
-            display: initial;
-          }
-        }
-
         .angle {
           position: absolute;
           width: 0;
@@ -243,7 +244,11 @@ footer {
         }
         ul {
           li {
-            padding: 15px 40px 15px 0 !important;
+            padding: 15px 0 !important;
+
+            &:not(:last-child) {
+              margin-right: 20px;
+            }
           }
         }
       }
@@ -328,11 +333,11 @@ footer {
           overflow-y: auto;
           li {
             text-align: left;
+            font-size: 16px;
             &:not(:last-child) {
               margin-bottom: 40px;
             }
             a {
-              font-size: 16px;
               line-height: 19.2px;
             }
           }
