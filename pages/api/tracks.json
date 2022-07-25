@@ -84,7 +84,7 @@
         }
       ],
       "buttonText": "Register now",
-      "buttonType": "primary"
+      "buttonType": "outline"
     },
     "ongroundMentors": {
       "title": "On-Ground Mentors",
