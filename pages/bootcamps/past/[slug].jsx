@@ -14,21 +14,14 @@ import Footer from "../../../components/layouts/Footer";
 import MenteeExperience from "../../../components/MenteeExperience";
 import Highlights from "../../../components/Highlights";
 import Gallery from "../../../components/Gallery";
-import Badge from "../../../components/Badge";
-import ArrowCircle from "../../../components/icons/ArrowCircle";
+import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
+import ProjectsDone from "../../../components/ProjectsDone";
 
 const Bootcamp = () => {
   const { query } = useRouter();
   const { slug } = query;
   const bootcamps = bootcampsData.past;
   const bootcamp = bootcamps.find((b) => b.slug === slug);
-
-  const CATEGORY_COLOR = {
-    "blockchain-development": "#7D0BFE",
-    "web-development": "#FE471F",
-    "product-design": "#2652EF",
-    "product-management": "#00B876",
-  };
 
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
@@ -65,97 +58,9 @@ const Bootcamp = () => {
         </div>
       </section>
 
-      <section className="testimonials">
-        <div className="container">
-          <h2 className="sub-section-title bold">Testimonials</h2>
-          <div className="carousel">
-            {bootcamp.testimonials.map((testimonial) => (
-              <div
-                className="carousel-item card card--has-border"
-                key={testimonial.name}
-              >
-                <div className="testimonial--header">
-                  <div className="testimonial--header-image">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={60}
-                      height={60}
-                    />
-                  </div>
-                  <div>
-                    <h5 className="testimonial-text">{testimonial.role}</h5>
-                    <span className="testimonial-name">{testimonial.name}</span>
-                  </div>
-                </div>
-                <div className="testimonial--body">
-                  <p className="testimonial-text">{testimonial.quote}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsCarousel testimonials={bootcamp.testimonials} />
 
-      <section className="projects-done">
-        <div className="container">
-          <div className="projects-done--heading">
-            <h1 className="sub-section-title bold">Projects Done</h1>
-            <Button
-              type={"outline"}
-              buttonText={"View all projects"}
-              handleClick={() => null}
-            />
-          </div>
-          <ul className="projects-done--container">
-            {bootcamp.projectsDone.map((project) => (
-              <li
-                key={project.title}
-                className="projects-done--item card card__black d-flex flex-column justify-content-between"
-              >
-                <div className="project-header d-flex align-items-center">
-                  <div className="project-header--image">
-                    <Image
-                      src={project.imageThumbnail}
-                      alt={project.title}
-                      width={35}
-                      height={35}
-                    />
-                  </div>
-                  <div className="title">
-                    <h3>{project.projectName}</h3>
-                  </div>
-                </div>
-                <div className="about-project">
-                  <h5>{project.aboutTitle}</h5>
-                  <p>{project.aboutDescription}</p>
-                </div>
-                <div className="project-footer">
-                  <div className="project-footer--cta">
-                    <Button
-                      type={"clear"}
-                      buttonText={"View project"}
-                      handleClick={() => null}
-                      hasIcon
-                    >
-                      <span className="icon-right d-flex align-items-center">
-                        <ArrowCircle fillColor={"#FF9EDB"} />
-                      </span>
-                    </Button>
-                  </div>
-                  <div className="project-category">
-                    <Badge
-                      badgeText={project.category}
-                      badgeBackground={CATEGORY_COLOR[project.id]}
-                      handleClick={() => null}
-                    />
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ProjectsDone projectsDone={bootcamp.projectsDone} />
 
       <Highlights
         title={"Highlights of the Cohort"}
