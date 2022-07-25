@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../buttons/Button";
-import Mark from "../icons/Mark";
+import Button from "./buttons/Button";
+import Mark from "./icons/Mark";
 
 const Benefits = ({ data }) => {
   return (

@@ -1,0 +1,895 @@
+{
+  "home": {
+    "hero": {
+      "title": "Learn by doing our live <span>Bootcamps</span>",
+      "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+      "buttonText": "See Bootcamps",
+      "buttonType": "primary",
+      "buttonLink": "#",
+      "image": "/assets/images/bootcamps.png"
+    },
+    "currentBootcamps": {
+      "title": "Current/Upcoming",
+      "bootcamps": [
+        {
+          "name": "Web3Ladies X <br/> <span>Shecodes Africa</span>",
+          "description": "Web3Ladies partners with Shecodes Africa for our next next bootcamp. We aim to train 50 ladies the basics of Web development in 6 weeks.",
+          "buttonText": "Register now",
+          "buttonType": "outline",
+          "buttonLink": "/bootcamps/current/cohort-3",
+          "image": "/assets/images/bootcamp.png"
+        }
+      ]
+    },
+    "pastBootcamps": {
+      "title": "Past",
+      "bootcamps": [
+        {
+          "name": "Web3Ladies X <br/> <span>Shecodes Africa</span>",
+          "description": "Web3Ladies partners with Shecodes Africa for our next next bootcamp. We aim to train 50 ladies the basics of Web development in 6 weeks.",
+          "buttonText": "Register now",
+          "buttonType": "outline",
+          "buttonLink": "/bootcamps/past/cohort-2",
+          "image": "/assets/images/bootcamp.png"
+        },
+        {
+          "name": "Web3Ladies X <br/> <span>Shecodes Africa</span>",
+          "description": "Web3Ladies partners with Shecodes Africa for our next next bootcamp. We aim to train 50 ladies the basics of Web development in 6 weeks.",
+          "buttonText": "Register now",
+          "buttonType": "outline",
+          "buttonLink": "/bootcamps/past/cohort-1",
+          "image": "/assets/images/bootcamp.png"
+        }
+      ]
+    },
+    "slug": "home"
+  },
+  "current": [
+    {
+      "hero": {
+        "title": "Web3Ladies X Shecodes Africa",
+        "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+        "buttonText": "See Bootcamps",
+        "buttonType": "primary",
+        "buttonLink": "/bootcamps/current/cohort-3",
+        "image": "/assets/images/bootcamp.png"
+      },
+      "about": {
+        "aboutImg": "/assets/images/about-bootcamp.png",
+        "aboutTitle": "About Bootcamp",
+        "aboutDescription": "The partnership is a beginner-friendly training and up-skilling program for Blockchain enthusiasts to gain foundational knowledge in blockchain technology.",
+        "aboutButtonText": "Register now",
+        "aboutButtonLink": "/bootcamps/current/cohort-3",
+        "aboutButtonType": "outline"
+      },
+      "goals": {
+        "goalTitle": "Goal",
+        "goalDescription": "The goal is to graduate 10 Ladies, however, we are looking at admitting up to 50 ladies for the bootcamp"
+      },
+      "sponsors": {
+        "sponsorsTitle": "Sponsors",
+        "sponsorsDescription": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final assessment to graduate into the learning phase.",
+        "sponsorsImage": "/assets/images/sponsor.png",
+        "sponsorsButtonText": "Learn more",
+        "sponsorsButtonLink": "#",
+        "sponsorsButtonType": "outline"
+      },
+      "registrationDetails": [
+        {
+          "title": "Registration Opens",
+          "date": "June 20th, <br/>2022"
+        },
+        {
+          "title": "Registration Closes",
+          "date": "July 20th, <br/>2022"
+        },
+        {
+          "title": "Bootcamp Starts",
+          "date": "August 20th, <br/>2022"
+        }
+      ],
+      "tracksDetails": [
+        {
+          "title": "Web3 - Blockchain Development",
+          "number": "12"
+        },
+        {
+          "title": "Web2 - Web Development",
+          "number": "12"
+        },
+        {
+          "title": "Product Design",
+          "number": "12"
+        },
+        {
+          "title": "Product Management",
+          "number": "12"
+        }
+      ],
+      "HIGHLIGHTS_ITEMS": [
+        {
+          "type": "Events",
+          "title": "We had our AMA session on UX Research and Web3",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#FFE6F6"
+        },
+        {
+          "type": "Blog",
+          "title": "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#E7D2FF"
+        },
+        {
+          "type": "Announcements",
+          "title": "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#FFE2E2"
+        }
+      ],
+      "curriculum": {
+        "title": "Curriculum Highlights",
+        "curriculumItems": [
+          {
+            "label": "Module O: Prep phase",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 1: Intro to Blockchain",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 2: Blockchain and the World",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 3: Blockchain and the World",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 4: Blockchain and the World",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          }
+        ]
+      },
+      "mentors": {
+        "title": "Mentors",
+        "description": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly.",
+        "mentorsList": [
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        }
+      ],
+      "slug": "cohort-3"
+    }
+  ],
+  "past": [
+    {
+      "hero": {
+        "title": "Web3Ladies X Shecodes Africa",
+        "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+        "buttonText": "Regiater now",
+        "buttonType": "primary",
+        "buttonLink": "/bootcamps/past/cohort-1",
+        "image": "/assets/images/bootcamp.png"
+      },
+      "about": {
+        "aboutImg": "/assets/images/about-bootcamp.png",
+        "aboutTitle": "About Bootcamp",
+        "aboutDescription": "The partnership is a beginner-friendly training and up-skilling program for Blockchain enthusiasts to gain foundational knowledge in blockchain technology.",
+        "aboutButtonText": "Register now",
+        "aboutButtonLink": "/bootcamps/current/cohort-3",
+        "aboutButtonType": "outline"
+      },
+      "goals": {
+        "goalTitle": "Goal",
+        "goalDescription": "The goal is to graduate 10 Ladies, however, we are looking at admitting up to 50 ladies for the bootcamp"
+      },
+      "sponsors": {
+        "sponsorsTitle": "Sponsors",
+        "sponsorsDescription": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final assessment to graduate into the learning phase.",
+        "sponsorsImage": "/assets/images/sponsor.png",
+        "sponsorsButtonText": "Learn more",
+        "sponsorsButtonLink": "#",
+        "sponsorsButtonType": "outline"
+      },
+      "registrationDetails": [
+        {
+          "title": "Registration Opens",
+          "date": "June 20th, <br/>2022"
+        },
+        {
+          "title": "Registration Closes",
+          "date": "July 20th, <br/>2022"
+        },
+        {
+          "title": "Bootcamp Starts",
+          "date": "August 20th, <br/>2022"
+        }
+      ],
+      "tracksDetails": [
+        {
+          "title": "Web3 - Blockchain Development",
+          "number": "12"
+        },
+        {
+          "title": "Web2 - Web Development",
+          "number": "12"
+        },
+        {
+          "title": "Product Design",
+          "number": "12"
+        },
+        {
+          "title": "Product Management",
+          "number": "12"
+        }
+      ],
+      "summary": {
+        "title": "Summary",
+        "description": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final assessment to graduate into the learning phase."
+      },
+      "mentees": [
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        },
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        },
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        },
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        }
+      ],
+      "HIGHLIGHTS_ITEMS": [
+        {
+          "type": "Events",
+          "title": "We had our AMA session on UX Research and Web3",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#FFE6F6"
+        },
+        {
+          "type": "Blog",
+          "title": "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#E7D2FF"
+        },
+        {
+          "type": "Announcements",
+          "title": "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#FFE2E2"
+        }
+      ],
+      "gallery": [
+        {
+          "image": "/assets/images/gallery-1.png",
+          "caption": "Gallery 1"
+        },
+        {
+          "image": "/assets/images/gallery-2.png",
+          "caption": "Gallery 2"
+        },
+        {
+          "image": "/assets/images/gallery-3.png",
+          "caption": "Gallery 3"
+        },
+        {
+          "image": "/assets/images/gallery-4.png",
+          "caption": "Gallery 4"
+        },
+        {
+          "image": "/assets/images/gallery-5.png",
+          "caption": "Gallery 5"
+        },
+        {
+          "image": "/assets/images/gallery-6.png",
+          "caption": "Gallery 6"
+        }
+      ],
+      "projectsDone": [
+        {
+          "id": "blockchain-development",
+          "category": "Web3 - Blockchain Development",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        },
+        {
+          "id": "web-development",
+          "category": "Web2 - Web Development",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        },
+        {
+          "id": "product-design",
+          "category": "UI/UX - Product Design",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        },
+        {
+          "id": "product-management",
+          "category": "Product Management",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT"
+        }
+      ],
+      "slug": "cohort-1"
+    },
+    {
+      "hero": {
+        "title": "Web3Ladies X Shecodes Africa",
+        "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+        "buttonText": "Regiater now",
+        "buttonType": "primary",
+        "buttonLink": "/bootcamps/past/cohort-2",
+        "image": "/assets/images/bootcamp.png"
+      },
+      "about": {
+        "aboutImg": "/assets/images/about-bootcamp.png",
+        "aboutTitle": "About Bootcamp",
+        "aboutDescription": "The partnership is a beginner-friendly training and up-skilling program for Blockchain enthusiasts to gain foundational knowledge in blockchain technology.",
+        "aboutButtonText": "Register now",
+        "aboutButtonLink": "/bootcamps/current/cohort-3",
+        "aboutButtonType": "outline"
+      },
+      "goals": {
+        "goalTitle": "Goal",
+        "goalDescription": "The goal is to graduate 10 Ladies, however, we are looking at admitting up to 50 ladies for the bootcamp"
+      },
+      "sponsors": {
+        "sponsorsTitle": "Sponsors",
+        "sponsorsDescription": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final assessment to graduate into the learning phase.",
+        "sponsorsImage": "/assets/images/sponsor.png",
+        "sponsorsButtonText": "Learn more",
+        "sponsorsButtonLink": "#",
+        "sponsorsButtonType": "outline"
+      },
+      "registrationDetails": [
+        {
+          "title": "Registration Opens",
+          "date": "June 20th, <br/>2022"
+        },
+        {
+          "title": "Registration Closes",
+          "date": "July 20th, <br/>2022"
+        },
+        {
+          "title": "Bootcamp Starts",
+          "date": "August 20th, <br/>2022"
+        }
+      ],
+      "tracksDetails": [
+        {
+          "title": "Web3 - Blockchain Development",
+          "number": "12"
+        },
+        {
+          "title": "Web2 - Web Development",
+          "number": "12"
+        },
+        {
+          "title": "Product Design",
+          "number": "12"
+        },
+        {
+          "title": "Product Management",
+          "number": "12"
+        }
+      ],
+      "summary": {
+        "title": "Summary",
+        "description": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final assessment to graduate into the learning phase."
+      },
+      "mentees": [
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        },
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        },
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        },
+        {
+          "image": "/assets/images/mentee.png",
+          "name": "Janet Simpso",
+          "title": "Product Design"
+        }
+      ],
+      "HIGHLIGHTS_ITEMS": [
+        {
+          "type": "Events",
+          "title": "We had our AMA session on UX Research and Web3",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#FFE6F6"
+        },
+        {
+          "type": "Blog",
+          "title": "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#E7D2FF"
+        },
+        {
+          "type": "Announcements",
+          "title": "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
+          "buttonText": "Learn More",
+          "buttonLink": null,
+          "image": "/assets/images/ama-session.png",
+          "background": "#FFE2E2"
+        }
+      ],
+      "gallery": [
+        {
+          "image": "/assets/images/gallery-1.png",
+          "caption": "Gallery 1"
+        },
+        {
+          "image": "/assets/images/gallery-2.png",
+          "caption": "Gallery 2"
+        },
+        {
+          "image": "/assets/images/gallery-3.png",
+          "caption": "Gallery 3"
+        },
+        {
+          "image": "/assets/images/gallery-4.png",
+          "caption": "Gallery 4"
+        },
+        {
+          "image": "/assets/images/gallery-5.png",
+          "caption": "Gallery 5"
+        },
+        {
+          "image": "/assets/images/gallery-6.png",
+          "caption": "Gallery 6"
+        }
+      ],
+      "projectsDone": [
+        {
+          "id": "blockchain-development",
+          "category": "Web3 - Blockchain Development",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        },
+        {
+          "id": "web-development",
+          "category": "Web2 - Web Development",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        },
+        {
+          "id": "product-design",
+          "category": "UI/UX - Product Design",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        },
+        {
+          "id": "product-management",
+          "category": "Product Management",
+          "imageThumbnail": "/assets/images/project.png",
+          "projectName": "Dexa Wallet",
+          "aboutTitle": "About project",
+          "aboutDescription": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
+          "ctaTitle": "View project",
+          "ctaLink": "#"
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT"
+        },
+        {
+          "name": "Student",
+          "role": "Web3 Designer",
+          "image": "/assets/images/testimonial-image.png",
+          "quote": "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT"
+        }
+      ],
+      "slug": "cohort-2"
+    }
+  ],
+  "upcoming": [
+    {
+      "hero": {
+        "title": "Web3Ladies X Shecodes Africa",
+        "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+        "buttonText": "Regiater now",
+        "buttonType": "primary",
+        "buttonLink": "/bootcamps/upcoming/cohort-4",
+        "image": "/assets/images/bootcamp.png"
+      },
+      "about": {
+        "aboutImg": "/assets/images/about-bootcamp.png",
+        "aboutTitle": "About Bootcamp",
+        "aboutDescription": "The partnership is a beginner-friendly training and up-skilling program for Blockchain enthusiasts to gain foundational knowledge in blockchain technology.",
+        "aboutButtonText": "Register now",
+        "aboutButtonLink": "/bootcamps/current/cohort-3",
+        "aboutButtonType": "outline"
+      },
+      "goals": {
+        "goalTitle": "Goal",
+        "goalDescription": "The goal is to graduate 10 Ladies, however, we are looking at admitting up to 50 ladies for the bootcamp"
+      },
+      "sponsors": {
+        "sponsorsTitle": "Sponsors",
+        "sponsorsDescription": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will be on the ground to teach, resources will be shared with the participants, assignments will be given as well, and there will be an eviction at the end of this phase upon final assessment to graduate into the learning phase.",
+        "sponsorsImage": "/assets/images/sponsor.png",
+        "sponsorsButtonText": "Learn more",
+        "sponsorsButtonLink": "#",
+        "sponsorsButtonType": "outline"
+      },
+      "registrationDetails": [
+        {
+          "title": "Registration Opens",
+          "date": "June 20th, <br/>2022"
+        },
+        {
+          "title": "Registration Closes",
+          "date": "July 20th, <br/>2022"
+        },
+        {
+          "title": "Bootcamp Starts",
+          "date": "August 20th, <br/>2022"
+        }
+      ],
+      "tracksDetails": [
+        {
+          "title": "Web3 - Blockchain Development",
+          "number": "12"
+        },
+        {
+          "title": "Web2 - Web Development",
+          "number": "12"
+        },
+        {
+          "title": "Product Design",
+          "number": "12"
+        },
+        {
+          "title": "Product Management",
+          "number": "12"
+        }
+      ],
+      "whyApply": {
+        "title": "Why Apply?",
+        "description": "This is an intensive learning phase of the basics/foundations for all tracks, it serves as the introduction to the track for participants. This phase is for 4weeks, classes will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all tracks participants will learn intensively as a beginner, mentors will"
+      },
+      "howItWorks": {
+        "title": "How it works",
+        "image": "/assets/images/how-it-works.png",
+        "description": "The program is focused on introductory to Blockchain Technology and Smart Contracts for a duration of 4 weeks. Week 1 - 3 will be for intense training and week 4 for the general assessment (project). Attendance will be mandatory for participants and assignments will be given weekly.",
+        "scheduleDetails": {
+          "startDetails": {
+            "title": "Program Starts",
+            "date": "Sept 5th 2022"
+          },
+          "endDetails": {
+            "title": "Program Ends",
+            "date": "Sept 30th 2022"
+          },
+          "schedule": {
+            "title": "Training schedule:",
+            "date": "Wednesdays and Fridays 5 - 8 pm(Weekly)"
+          },
+          "workshop": {
+            "title": "One fireside chat (Building a career in Web3):",
+            "date": "Saturday (Date TBD)"
+          }
+        }
+      },
+      "benefits": {
+        "title": "Is this track right for you?",
+        "benefitsListHeader": "You will benefit from this programme if you are:",
+        "benefitsList": [
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment"
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment"
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment"
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment"
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment"
+          }
+        ],
+        "buttonText": "Register now",
+        "buttonType": "primary"
+      },
+      "gains": {
+        "title": "What you will gain",
+        "image": "/assets/images/what-you-will-gain-image.png",
+        "gainsList": [
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment "
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment "
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment "
+          },
+          {
+            "content": "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment "
+          }
+        ],
+        "buttonText": "Register now",
+        "buttonType": "outline"
+      },
+      "curriculum": {
+        "title": "Curriculum Highlights",
+        "curriculumItems": [
+          {
+            "label": "Module O: Prep phase",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 1: Intro to Blockchain",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 2: Blockchain and the World",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 3: Blockchain and the World",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          },
+          {
+            "label": "Module 4: Blockchain and the World",
+            "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+          }
+        ]
+      },
+      "mentors": {
+        "title": "Mentors",
+        "description": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly.",
+        "mentorsList": [
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          },
+          {
+            "name": "Janet Simpson",
+            "role": "Blockchain Developer at Binance",
+            "image": "/assets/images/mentor.png"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        },
+        {
+          "label": "Is the mentorship free?",
+          "content": "These mentors will be on the ground for all the mentorship activities, they are responsible for classes, responding to mentees’ concerns on slack, and grading mentees, they will also be compensated monthly."
+        }
+      ],
+      "slug": "cohort-4"
+    }
+  ]
+}

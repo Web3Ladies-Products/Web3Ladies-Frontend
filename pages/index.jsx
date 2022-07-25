@@ -1,213 +1,14 @@
 import Image from "next/image";
 import React from "react";
-import Badge from "../components/Badge";
+import indexPageData from "./api/home.json";
 import Button from "../components/buttons/Button";
-import ArrowRight from "../components/icons/ArrowRight";
+import Highlights from "../components/Highlights";
 import Footer from "../components/layouts/Footer";
 import Navbar from "../components/layouts/Navbar";
+import Testimonials from "../components/Testimonials";
 
 export default function Home() {
-  const W3L_SUPPORTERS_1 = [
-    {
-      name: "Polygon",
-      logo: "/assets/images/polygon.svg",
-    },
-    {
-      name: "W3D",
-      logo: "/assets/images/w3d.svg",
-    },
-    {
-      name: "FTX",
-      logo: "/assets/images/ftx.svg",
-    },
-    {
-      name: "StackShift",
-      logo: "/assets/images/stackshift.svg",
-    },
-    {
-      name: "Crevatal",
-      logo: "/assets/images/crevatal.svg",
-    },
-  ];
-
-  const W3L_SUPPORTERS_2 = [
-    {
-      name: "Harmony",
-      logo: "/assets/images/harmony.svg",
-    },
-    {
-      name: "Filecoin",
-      logo: "/assets/images/filecoin.svg",
-    },
-    {
-      name: "ChainWhiz",
-      logo: "/assets/images/chainwhiz.svg",
-    },
-  ];
-
-  const IMPACT_ITEMS = [
-    {
-      title: "Mentorship",
-      description:
-        "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
-      image: "/assets/images/mentorship.png",
-    },
-    {
-      title: "Community",
-      description:
-        "We are a community of proactive sisters who come together to achieve a common goal of being self-confident, innovative, and self-aware. All these we encourage and achieve through our various community events.",
-      image: "/assets/images/community.png",
-    },
-    {
-      title: "Events",
-      description:
-        "Through our events, we help create adequate awareness and enlightenment on trending topics in the web3 ecosystem.",
-      image: "/assets/images/events.png",
-    },
-  ];
-
-  const HIGHLIGHTS_ITEMS = [
-    {
-      type: "Events",
-      title: "We had our AMA session on UX Research and Web3",
-      buttonText: "Learn More",
-      buttonLink: null,
-      image: "/assets/images/ama-session.png",
-      background: "#FFE6F6",
-    },
-    {
-      type: "Blog",
-      title:
-        "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
-      buttonText: "Learn More",
-      buttonLink: null,
-      image: "/assets/images/ama-session.png",
-      background: "#E7D2FF",
-    },
-    {
-      type: "Announcements",
-      title:
-        "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
-      buttonText: "Learn More",
-      buttonLink: null,
-      image: "/assets/images/ama-session.png",
-      background: "#FFE2E2",
-    },
-    {
-      type: "Events",
-      title: "We had our AMA session on UX Research and Web3",
-      buttonText: "Learn More",
-      buttonLink: null,
-      image: "/assets/images/ama-session.png",
-      background: "#FFE6F6",
-    },
-    {
-      type: "Blog",
-      title:
-        "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
-      buttonText: "Learn More",
-      buttonLink: null,
-      image: "/assets/images/ama-session.png",
-      background: "#E7D2FF",
-    },
-    {
-      type: "Announcements",
-      title:
-        "Commencement of the Registration for our mentorship Cohort III on Monday 20th June 2022",
-      buttonText: "Learn More",
-      buttonLink: null,
-      image: "/assets/images/ama-session.png",
-      background: "#FFE2E2",
-    },
-  ];
-
-  const LOGOS = [
-    {
-      name: "Polygon",
-      logo: "/assets/images/polygon-colored.svg",
-    },
-    {
-      name: "Ethereum",
-      logo: "/assets/images/ethereum.svg",
-    },
-    {
-      name: "Filecoin",
-      logo: "/assets/images/filecoin-colored.svg",
-    },
-    {
-      name: "Web3Ladies",
-      logo: "/assets/images/web3ladies-vector.png",
-    },
-  ];
-
-  const EVENTS_ITEMS = [
-    {
-      title: "AMA session",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi lacus nulla cursus nulla lacus, cras faucibus nunc. Lacus gravida eget a sit condimentum.",
-      image: "/assets/images/ama-session.png",
-    },
-    {
-      title: "AMA session",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi lacus nulla cursus nulla lacus, cras faucibus nunc. Lacus gravida eget a sit condimentum.",
-      image: "/assets/images/ama-session.png",
-    },
-  ];
-
-  const TESTIMONIAL_TABS = [
-    {
-      key: "shoutouts",
-      title: "Shoutouts",
-    },
-    {
-      key: "community",
-      title: "Community",
-    },
-    {
-      key: "past_mentees",
-      title: "Past Mentees",
-    },
-  ];
-
-  const TESTIMONIAL_ITEMS = {
-    shoutouts: [
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
-      },
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
-      },
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT",
-      },
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
-      },
-    ],
-    community: [],
-    past_mentees: [],
-  };
-
-  const [activeTestimonialTab, setActiveTestimonialTab] =
-    React.useState("shoutouts");
-
+  const indexPage = indexPageData;
   return (
     <>
       <Navbar />
@@ -283,7 +84,7 @@ export default function Home() {
           <h1 className="support--heading"> Our Supporters</h1>
           <div className="support--groups-container">
             <div className="first-group">
-              {W3L_SUPPORTERS_1.map((supporter) => (
+              {indexPage.W3L_SUPPORTERS_1.map((supporter) => (
                 <Image
                   className="support-image"
                   width={"165px"}
@@ -296,7 +97,7 @@ export default function Home() {
             </div>
 
             <div className="second-group">
-              {W3L_SUPPORTERS_2.map((supporter) => (
+              {indexPage.W3L_SUPPORTERS_2.map((supporter) => (
                 <Image
                   className="support-image"
                   width={"165px"}
@@ -411,7 +212,7 @@ export default function Home() {
           <h2>How We Create Impact</h2>
         </div>
         <ul className="impact-list">
-          {IMPACT_ITEMS.map((item, index) => (
+          {indexPage.IMPACT_ITEMS.map((item, index) => (
             <li className="impact-item" key={item.title}>
               <div className="impact-item--image">
                 <Image
@@ -442,51 +243,10 @@ export default function Home() {
       {/* END OF IMPACT SECTION */}
 
       {/* HIGHLIGHTS SECTION */}
-      <section className="highlights">
-        <div className="container">
-          <div className="highlights--heading">
-            <h1>Highlights Of The Week</h1>
-            <Button
-              type={"outline"}
-              buttonText={"View More"}
-              handleClick={() => null}
-            />
-          </div>
-          <ul className="highlights--container">
-            {HIGHLIGHTS_ITEMS.map((item) => (
-              <li className="highlight--container-item" key={item.title}>
-                <div className="highlights--container-item--image">
-                  <Image
-                    src="/assets/images/highlights-image.png"
-                    width={"125px"}
-                    height={"220px"}
-                    objectFit="contain"
-                    alt="highlights-image"
-                  />
-                </div>
-                <div className="highlights--container-item--text">
-                  <Badge
-                    badgeText={item.type}
-                    badgeBackground={item.background}
-                  />
-                  <h4>{item.title}</h4>
-                  <Button
-                    type={"clear"}
-                    color={"primary"}
-                    hasIcon
-                    buttonText={item.buttonText}
-                    handleClick={() => null}
-                  >
-                    <span className="icon-right">
-                      <ArrowRight width={10} height={10} color={"#7D0BFE"} />{" "}
-                    </span>
-                  </Button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Highlights
+        title={"Highlights og the Week"}
+        HIGHLIGHTS_ITEMS={indexPage.HIGHLIGHTS_ITEMS}
+      />
       {/* END OF HIGHLIGHTS SECTION */}
 
       {/* CALL FOR SPONSORS SECTION */}
@@ -529,7 +289,7 @@ export default function Home() {
             buttonText={"Register Now"}
             handleClick={() => null}
           />
-          {LOGOS.map((item) => (
+          {indexPage.LOGOS.map((item) => (
             <div className="logo-container" key={item.title}>
               <Image
                 src={item.logo}
@@ -573,7 +333,7 @@ export default function Home() {
         <div className="container">
           <h1>Upcoming Events</h1>
           <ul className="events-list">
-            {EVENTS_ITEMS.map((item) => (
+            {indexPage.EVENTS_ITEMS.map((item) => (
               <li className="events-item" key={item.title}>
                 <div className="events-item--image">
                   <Image
@@ -644,57 +404,7 @@ export default function Home() {
       {/* END OF YOUTUBE SECTION */}
 
       {/* TESTIMONIALS SECTION */}
-      <section className="testimonials">
-        <div className="container">
-          <div className="testimonials--heading">
-            <h1>Don’t take our word for it</h1>
-            <p className="text-muted">
-              See what people have to say about their experience with Web3Ladies
-            </p>
-          </div>
-          <div className="testimonials--container">
-            <div className="testimonials--container__sidebar">
-              {TESTIMONIAL_TABS.map((item) => (
-                <div
-                  className={`testimonials--container__sidebar__item ${
-                    item.key === activeTestimonialTab ? "active" : ""
-                  }`}
-                  key={item.key}
-                  onClick={() => setActiveTestimonialTab(item.key)}
-                >
-                  {item.title}
-                </div>
-              ))}
-            </div>
-            <div className="testimonials--container__content">
-              {TESTIMONIAL_ITEMS[activeTestimonialTab].map((item) => (
-                <div
-                  className="testimonials--container__content__item"
-                  key={item.title}
-                >
-                  <div className="testimonials--container__content__item__heading">
-                    <Image
-                      src={item.image}
-                      width={"60px"}
-                      height={"60px"}
-                      alt="testimonial-image"
-                      objectFit="contain"
-                    />
-                    <div>
-                      <h3>{item.name}</h3>
-                      <h5>{item.role}</h5>
-                    </div>
-                  </div>
-
-                  <div className="testimonials--container__content__item__text">
-                    <p>{item.quote}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
       {/* END OF TESTIMONIALS SECTION */}
 
       <Footer />

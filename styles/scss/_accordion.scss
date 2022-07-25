@@ -9,6 +9,15 @@
   background-color: var(--color-white);
   border-bottom: 2px solid #000000;
 
+  &--has-border {
+    border: 2px solid #000000;
+    margin-bottom: 64px;
+
+    @include mobile {
+      margin-bottom: 32px;
+    }
+  }
+
   &__label {
     position: relative;
     display: block;
@@ -31,6 +40,10 @@
 
     &:focus {
       outline: none;
+    }
+
+    &--dark:after {
+      background-color: var(--color-white) !important;
     }
 
     &:after,
@@ -60,6 +73,11 @@
     font-size: 24px;
     line-height: 31px;
     letter-spacing: -0.04em;
+
+    &--dark {
+      background: #000000;
+      color: var(--color-white);
+    }
   }
 
   &[aria-expanded="true"] &__label:before {

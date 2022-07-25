@@ -12,12 +12,16 @@ main {
   padding-top: 40px;
   padding-bottom: 120px;
 
+  @include mobile {
+    padding-bottom: 0;
+  }
+
   .hero_image {
     position: relative;
     width: 500px;
     @include mobile {
-      width: 300px;
-      margin-top: 200px;
+      // width: 300px;
+      margin: 60px auto;
     }
     // @media (max-width: 1140px) {
     //   margin-bottom: 100px;
@@ -104,15 +108,15 @@ main {
             max-width: 689px;
             margin-top: 25px;
           }
-          .button-container {
-            margin-top: 38px;
-            display: flex;
-            justify-content: flex-start;
+        }
+      }
+      .button-container {
+        margin-top: 38px;
+        display: flex;
+        justify-content: flex-start;
 
-            & :first-child {
-              margin-right: 16px;
-            }
-          }
+        & :first-child {
+          margin-right: 16px;
         }
       }
     }
@@ -260,7 +264,7 @@ main {
     border-radius: 16px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     text-align: center;
 
     h3 {

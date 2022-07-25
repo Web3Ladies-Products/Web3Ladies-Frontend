@@ -7,6 +7,13 @@ main {
     font-size: 60px;
     line-height: 72px;
     letter-spacing: -0.04em;
+
+    span {
+      color: var(--primary-color);
+      font-weight: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
   }
 
   .note {
@@ -92,17 +99,6 @@ main {
 }
 
 /* curriculum section */
-.curriculum-section {
-  h2 {
-    font-family: "Space Grotesk";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 54px;
-    line-height: 66px;
-    letter-spacing: -0.04em;
-    color: #000000;
-  }
-}
 
 /* gains section */
 .gains-section {

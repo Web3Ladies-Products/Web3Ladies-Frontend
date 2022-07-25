@@ -1,7 +1,7 @@
 import React from "react";
-import MentorCard from "./MentorCard";
+import MentorCard from "./tracks/MentorCard";
 
-const OngroundMentors = ({ data }) => {
+const Mentors = ({ data }) => {
   return (
     <section className="mentors-section">
       <div className="container">
@@ -17,4 +17,4 @@ const OngroundMentors = ({ data }) => {
   );
 };
 
-export default OngroundMentors;
+export default Mentors;
