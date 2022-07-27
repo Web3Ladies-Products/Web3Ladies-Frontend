@@ -1,0 +1,207 @@
+@import "../scss/mixins";
+
+main {
+  //HERO SECTION
+
+  .mentorship-section {
+    width: 77%;
+    margin: 40px auto;
+
+    .mentorship-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .hero-texts {
+        margin-left: 125px;
+
+        h1 {
+          max-width: 546px;
+
+          .colored-text {
+            text-transform: capitalize;
+          }
+        }
+
+        .btn-container {
+          margin-top: 32px;
+
+          & :first-child {
+            margin-right: 16px;
+            line-height: 28px;
+          }
+        }
+      }
+
+      .hero-images {
+        width: 620px;
+        // position: relative;
+
+        @include mobile {
+          margin: 30px auto;
+        }
+
+        & > div {
+          position: relative;
+          //   margin-left: 30px;
+
+          // .web-ladies {
+          //   top: 65%;
+          //   right: 15%;
+          //   position: absolute !important;
+          //   // height: 193px;
+          //   width: 190px;
+          // }
+
+          > span {
+            position: absolute !important;
+
+            &:nth-of-type(1) {
+              position: relative !important;
+              z-index: 0;
+              animation: none !important;
+            }
+
+            &:nth-of-type(2) {
+              bottom: 60%;
+              right: 75%;
+            }
+
+            &:nth-of-type(3) {
+              top: 13%;
+              right: 19%;
+            }
+
+            &:nth-of-type(4) {
+              top: 77%;
+              right: 65%;
+            }
+
+            &:nth-of-type(5) {
+              top: 60%;
+              right: 20%;
+            }
+
+            @for $i from 2 through 5 {
+              &:nth-of-type(#{$i}) {
+                animation: bounce 2s #{"0." + ($i * 2)}s infinite;
+              }
+            }
+
+            @keyframes bounce {
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+
+              50% {
+                transform: translateY(4px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .support-section {
+    margin-top: 150px;
+    margin-bottom: 100px;
+
+    h1 {
+      color: var(--color-black);
+    }
+  }
+}
+
+.about-section {
+  text-align: center;
+  position: relative;
+  // background-color: yellow;
+  .about--heading {
+    h1 {
+      display: inline-block;
+    }
+    > span {
+      transform: rotate(90deg);
+      left: -60px;
+      top: 30px;
+      position: absolute;
+    }
+  }
+
+  .about--content {
+    .about-text {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      text-align: center;
+      color: #000000;
+      margin: 45px auto;
+    }
+  }
+}
+
+// joining criteria section \
+
+.criteria-section-wrapper {
+  margin-top: 50px;
+  margin-right: 0;
+  background-image: url("/assets/images/mentorship-criteria-bg.png");
+  background-position-y: top;
+  background-position-x: left;
+  background-color: #fff;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  .criteria-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    .criteria-img-wrap {
+      margin-left: -50px;
+      margin-top: 30px;
+    }
+    > div {
+      flex: 1;
+    }
+    > .criteria-content {
+      // margin: 100px 0 50px 0;
+      margin-top: 150px;
+      > h1 {
+        font-weight: 700;
+        font-size: 54px;
+        line-height: 66px;
+        letter-spacing: -0.04em;
+        color: #ffd3ef;
+        margin-bottom: 40px;
+      }
+      > div:first-of-type {
+        // background-color: red;
+        margin-bottom: 30px;
+        > div {
+          display: flex;
+          > span {
+            margin-right: 20px;
+            color: var(--color-primary-light);
+          }
+          > p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 150%;
+            margin-bottom: 10px;
+            color: var(--color-white);
+          }
+        }
+      }
+      // > div {
+      //   > p {
+      //     font-weight: 400;
+      //     font-size: 18px;
+      //     line-height: 150%;
+      //     margin-bottom: 10px;
+      //   }
+      // }
+    }
+  }
+}
