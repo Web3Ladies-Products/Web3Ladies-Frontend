@@ -4,7 +4,13 @@ import mentorshipPageData from "./api/home.json";
 import Button from "../components/buttons/Button";
 import Navbar from "/components/layouts/Navbar";
 import Footer from "/components/layouts/Footer";
-import MentorshipCriteria from "../components/mentorship";
+import {
+  Bootcamp,
+  Cohorts,
+  HowItWorks,
+  Training,
+} from "../components/mentorship";
+import Bootcamps from "./bootcamps";
 
 const mentorship = () => {
   const mentorshipPage = mentorshipPageData;
@@ -243,6 +249,12 @@ const mentorship = () => {
             </div>
           </div>
         </div>
+
+        <HowItWorks />
+        <Training />
+        <Cohorts />
+        {/* <Bootcamps /> */}
+        <Bootcamp />
       </main>
 
       <Footer />
