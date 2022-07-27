@@ -234,7 +234,8 @@
     flex: 30;
     background-color: var(--background-color);
     border-radius: 8px;
-    padding: 40px 70px 60px 10px;
+    height: fit-content;
+    padding: 20px 30px 30px 20px;
 
     @include mobile {
       margin-top: 20px;
