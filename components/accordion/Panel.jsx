@@ -1,6 +1,16 @@
 import React from "react";
 
-const Panel = ({ label, content, activeTab, index, activateTab, children }) => {
+const Panel = ({
+  label,
+  content,
+  activeTab,
+  index,
+  activateTab,
+  children,
+  hasActiveBackground,
+  hasFullBorder,
+  fullWidth,
+}) => {
   const [height, setHeight] = React.useState(0);
   const [isActive, setIsActive] = React.useState(null);
 
@@ -27,8 +37,18 @@ const Panel = ({ label, content, activeTab, index, activateTab, children }) => {
 
   return (
     <div>
-      <div className="panel" role="tabpanel" aria-expanded={isActive}>
-        <button className="panel__label" role="tab" onClick={activateTab}>
+      <div
+        className={`panel ${hasFullBorder && "panel--has-border"}`}
+        role="tabpanel"
+        aria-expanded={isActive}
+      >
+        <button
+          className={`panel__label ${
+            isActive && hasActiveBackground && "panel__label--dark"
+          }`}
+          role="tab"
+          onClick={activateTab}
+        >
           {label}
         </button>
         <div
@@ -37,7 +57,7 @@ const Panel = ({ label, content, activeTab, index, activateTab, children }) => {
           style={innerStyle}
           aria-hidden={!isActive}
         >
-          <p className="panel__content">{content}</p>
+          <p className={`panel__content ${fullWidth && "w-full"}`}>{content}</p>
           {children && <div className="panel__children">{children}</div>}
         </div>
       </div>

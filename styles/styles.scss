@@ -18,6 +18,7 @@
 @import "./modules/home.module.scss";
 @import "./modules/footer.module.scss";
 @import "./modules/feedback.module.scss";
+@import "./modules/cohorts.module.scss";
 @import "./modules/track.module.scss";
 @import "./modules/bootcamps.module.scss";
 @import "./modules/waitlist.module.scss";
@@ -33,6 +34,8 @@
   --danger-color: #ef4444;
   --danger-color-rgb: 239, 68, 68;
   --color-white: #ffffff;
+  --color-background: #fff3f3;
+  --background-color: #f8f2ff;
   --color-background: #f8f2ff;
   --color-red: #ef4444;
   --color-grey: #818181;
