@@ -6,7 +6,21 @@ import bootcampsData from "../../../pages/api/bootcamps.json";
 const Bootcamp = () => {
   const bootcampsHome = bootcampsData.home;
   return (
-    <>
+    <div className="mentorship-bootcamp-section">
+      <div className="container mentorship-bootcamp-header">
+        <h1> Bootcamps</h1>
+        <span>
+          <Image
+            className="hero-img"
+            width="147px"
+            height="147px"
+            layout="intrinsic"
+            objectFit="contain"
+            src="/assets/images/mentorship-bootcamp-star.png"
+            alt="arrow-vector"
+          />
+        </span>
+      </div>
       <section className="bootcamps">
         <div className="container">
           <h2 className="sub-section-title bold">
@@ -83,7 +97,7 @@ const Bootcamp = () => {
           </ul>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

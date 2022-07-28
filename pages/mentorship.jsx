@@ -4,11 +4,14 @@ import mentorshipPageData from "./api/home.json";
 import Button from "../components/buttons/Button";
 import Navbar from "/components/layouts/Navbar";
 import Footer from "/components/layouts/Footer";
+import Cohort from "../components/cohorts/HeroSection";
+
 import {
   Bootcamp,
   Cohorts,
   HowItWorks,
   Training,
+  WorkAssistance,
 } from "../components/mentorship";
 import Bootcamps from "./bootcamps";
 
@@ -165,10 +168,7 @@ const mentorship = () => {
           </div>
         </div>
 
-        {/* <MentorshipCriteria /> */}
-
         {/*START OF About Mentorship */}
-        {/* /assets/images/web3vector-img.png */}
         <div className="criteria-section-wrapper">
           <div className="container">
             <div className="criteria-section">
@@ -253,8 +253,8 @@ const mentorship = () => {
         <HowItWorks />
         <Training />
         <Cohorts />
-        {/* <Bootcamps /> */}
         <Bootcamp />
+        <WorkAssistance />
       </main>
 
       <Footer />
