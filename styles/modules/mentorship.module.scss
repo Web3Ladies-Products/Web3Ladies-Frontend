@@ -35,7 +35,6 @@ main {
 
       .hero-images {
         width: 620px;
-        // position: relative;
 
         @include mobile {
           margin: 30px auto;
@@ -43,15 +42,6 @@ main {
 
         & > div {
           position: relative;
-          //   margin-left: 30px;
-
-          // .web-ladies {
-          //   top: 65%;
-          //   right: 15%;
-          //   position: absolute !important;
-          //   // height: 193px;
-          //   width: 190px;
-          // }
 
           > span {
             position: absolute !important;
@@ -116,7 +106,6 @@ main {
   .about-section {
     text-align: center;
     position: relative;
-    // background-color: yellow;
     .about--heading {
       h1 {
         display: inline-block;
@@ -138,10 +127,14 @@ main {
         color: #000000;
         margin: 45px auto;
       }
+
+      button {
+        margin-right: 16px;
+      }
     }
   }
 
-  // joining criteria section \
+  // JOINING CRITERIA SECTION
 
   .criteria-section-wrapper {
     margin-top: 50px;
@@ -152,21 +145,25 @@ main {
     background-color: #fff;
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
+
     .criteria-section {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       padding-bottom: 50px;
+
       .criteria-img-wrap {
         margin-left: -50px;
         margin-top: 30px;
       }
+
       > div {
         flex: 1;
       }
+
       > .criteria-content {
-        // margin: 100px 0 50px 0;
         margin-top: 150px;
+
         > h1 {
           font-weight: 700;
           font-size: 54px;
@@ -175,15 +172,18 @@ main {
           color: #ffd3ef;
           margin-bottom: 40px;
         }
+
         > div:first-of-type {
-          // background-color: red;
           margin-bottom: 30px;
+
           > div {
             display: flex;
+
             > span {
               margin-right: 20px;
               color: var(--color-primary-light);
             }
+
             > p {
               font-weight: 400;
               font-size: 18px;
@@ -197,10 +197,11 @@ main {
     }
   }
 
-  // How it works section
+  // HOW IT WORKS SECTION
 
   .how-it-works-section {
     margin-top: 100px;
+
     .tab-button-line {
       height: 10px;
       background-color: var(--primary-color);
@@ -210,10 +211,12 @@ main {
       margin-top: 50px;
       margin-bottom: -45px;
     }
+
     .tab-button-wrapper {
       display: flex;
       justify-content: space-between;
       width: 100%;
+
       > .tab-button {
         background-color: #000000;
         border-radius: 50%;
@@ -223,6 +226,7 @@ main {
         cursor: pointer;
         border: none;
         outline: none;
+
         > div {
           display: flex;
           justify-content: center;
@@ -237,26 +241,28 @@ main {
         }
       }
     }
+
     .mentorship-phase-content {
-      // border: 2px solid var(---color-black);
       border: 2px solid black;
-      // background-color: red;
       margin-top: 50px;
       padding: 50px;
       border-radius: 16px;
+
       h2 {
         font-size: 32px;
         line-height: 150%;
         color: var(--primary-color);
         margin-bottom: 30px;
       }
+
       > p {
         font-weight: 400;
       }
     }
   }
 
-  // hands on training section
+  //HANDS ON TRAINING SECTION
+
   .training-section {
     display: flex;
     flex-direction: row;
@@ -267,6 +273,7 @@ main {
     > div {
       flex: 1;
     }
+
     > .training-content {
       background-color: var(--color-black);
       display: flex;
@@ -277,23 +284,26 @@ main {
       > div {
         width: 70%;
         min-width: 400px;
+
         > h1 {
           color: var(--color-white);
           margin-bottom: 50px;
+
           > span {
             color: var(--color-primary-light);
           }
         }
       }
     }
+
     > .training-images {
       z-index: 1;
       background-color: var(--primary-color);
       display: flex;
-      // flex-direction: column;
       justify-content: center;
       align-items: center;
     }
+
     > .training-section-icon-right {
       position: absolute;
       right: -30px;
@@ -310,23 +320,96 @@ main {
         }
       }
     }
+
     z-index: -10;
   }
 
-  // mentorship section
+  // Bootcamp SECTION
 
   .mentorship-bootcamp-section {
     background-color: #f8f2ff;
     padding: 100px 0px;
+
     > section {
       background-color: #f8f2ff;
     }
+
     > .mentorship-bootcamp-header {
       display: flex;
       justify-content: space-between;
       margin-bottom: -100px;
+
       > span {
         margin-right: -10%;
+      }
+    }
+  }
+}
+
+// Worktools section
+
+.work-assistance-section {
+  margin: 100px auto;
+  > div {
+    h1 {
+      margin-bottom: 30px;
+    }
+    p {
+      width: 50%;
+      min-width: 300px;
+      font-size: 18px;
+    }
+    .work-assistance-images-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      // justify-content: center;
+      gap: 25px;
+      > div {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+// Tracks section
+
+.mentorship-tracks-section {
+  background-color: var(--primary-color);
+  padding: 50px 0;
+  > div {
+    > h1 {
+      text-align: center;
+      color: var(--color-white);
+      margin-bottom: 50px;
+    }
+  }
+  .track-card-wrap {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 45px;
+
+    > .track-card {
+      width: calc(50% - 45px);
+      background-color: var(--color-white);
+      padding: 25px;
+      height: fit-content;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      // margin: 50px;
+      > div {
+        .icons-wrap {
+          margin-bottom: 20px;
+          img {
+            margin-right: 10px;
+          }
+        }
+        h2 {
+          margin-bottom: 20px;
+        }
       }
     }
   }

@@ -4,7 +4,6 @@ import mentorshipPageData from "./api/home.json";
 import Button from "../components/buttons/Button";
 import Navbar from "/components/layouts/Navbar";
 import Footer from "/components/layouts/Footer";
-import Cohort from "../components/cohorts/HeroSection";
 
 import {
   Bootcamp,
@@ -12,8 +11,10 @@ import {
   HowItWorks,
   Training,
   WorkAssistance,
+  Tracks,
+  Mentors,
 } from "../components/mentorship";
-import Bootcamps from "./bootcamps";
+// import Bootcamps from "./bootcamps";
 
 const mentorship = () => {
   const mentorshipPage = mentorshipPageData;
@@ -156,9 +157,9 @@ const mentorship = () => {
                   handleClick={() => null}
                 />
                 <Image
-                  className="hero-img"
-                  width={"67px"}
-                  height={"63px"}
+                  className="arrow-img"
+                  width="67px"
+                  height="63px"
                   objectFit="contain"
                   src="/assets/images/arrow-img.png"
                   alt="arrow-vector"
@@ -168,7 +169,7 @@ const mentorship = () => {
           </div>
         </div>
 
-        {/*START OF About Mentorship */}
+        {/*START OF ABOUT MENTORSHIP */}
         <div className="criteria-section-wrapper">
           <div className="container">
             <div className="criteria-section">
@@ -252,9 +253,11 @@ const mentorship = () => {
 
         <HowItWorks />
         <Training />
-        <Cohorts />
+        {/* <Cohorts /> */}
         <Bootcamp />
         <WorkAssistance />
+        <Tracks />
+        <Mentors />
       </main>
 
       <Footer />

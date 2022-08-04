@@ -1,11 +1,7 @@
 import React from "react";
+import Cohorts from "../../../pages/cohorts/cohorts/Cohorts";
 
-const Cohorts = () => {
-  return (
-    <div>
-      <h2 className="cohort-title">Cohorts</h2>
-    </div>
-  );
-};
+// Cohort section imported diectly from cohorts page
+const CohortSection = () => <Cohorts />;
 
-export default Cohorts;
+export default CohortSection;
