@@ -72,6 +72,21 @@
   align-items: flex-end !important;
 }
 
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-grey);
+  margin: 40px 0;
+}
+
+.dot {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50%;
+  background-color: var(--primary-color) !important;
+  margin: 0 10px !important;
+}
+
 .registration-analytics {
   .registration-details {
     display: grid;

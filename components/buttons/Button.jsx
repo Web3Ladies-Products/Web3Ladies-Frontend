@@ -7,6 +7,7 @@ const Button = ({
   handleClick,
   color,
   children,
+  ...props
 }) => {
   return (
     <button
@@ -14,6 +15,7 @@ const Button = ({
         hasIcon ? "has-icon" : ""
       }`}
       onClick={() => handleClick()}
+      {...props}
     >
       {buttonText}
       {children && children}
