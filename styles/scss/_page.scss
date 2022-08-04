@@ -104,15 +104,16 @@ footer {
           text-align: left;
           padding: 15px 0;
           position: relative;
-          &.active {
-            color: var(--primary-color);
+          &.active a {
+            color: var(--primary-color) !important;
+            font-weight: bold;
           }
           .header-list-item {
             a,
             div {
-              font-size: 13px;
-              color: rgba(var(--color-black-rgb), 0.48);
-              line-height: 16px;
+              font-size: 16px;
+              color: rgba(var(--color-black-rgb));
+              line-height: 24px;
             }
           }
         }

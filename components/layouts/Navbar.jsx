@@ -89,7 +89,7 @@ const Navbar = () => {
     },
     {
       name: "Blog",
-      route: "/",
+      route: "/blog",
       type: "link",
       isActive: router.pathname === "/blog",
     },

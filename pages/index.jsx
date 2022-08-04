@@ -113,7 +113,7 @@ export default function Home() {
       </section>
       {/* END OF SUPPORT SECTION */}
 
-      {/* INTRODUCTION SECTION */}
+      {/* WHO WE ARE SECTION */}
       <section className="introduction">
         <div className="container">
           <h1 className="introduction--heading"> Who we are</h1>
@@ -140,9 +140,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* END OF INTRODUCTION SECTION */}
+      {/* END OF WHO WE ARE SECTION */}
 
-      {/* WHO WE ARE SECTION */}
+      {/* JOIN OUR COMMUNITY SECTION */}
       <section className="who-we-are">
         <div className="container wrapper">
           <div className="who-we-are--container">
@@ -173,7 +173,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* END OF WHO WE ARE SECTION */}
+      {/* END OF JOIN OUR COMMUNITY SECTION */}
 
       {/* ANALYTICS SECTION */}
       <section className="analytics">
@@ -244,7 +244,7 @@ export default function Home() {
 
       {/* HIGHLIGHTS SECTION */}
       <Highlights
-        title={"Highlights og the Week"}
+        title={"Highlights of the Week"}
         HIGHLIGHTS_ITEMS={indexPage.HIGHLIGHTS_ITEMS}
       />
       {/* END OF HIGHLIGHTS SECTION */}
