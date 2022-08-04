@@ -36,7 +36,7 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
               </div>
               <div className="highlights--container-item--text">
                 <Badge
-                  badgeText={item.category}
+                  badgeText={item.type || item.category}
                   badgeBackground={item.background || "#E7D2FF"}
                 />
                 <h4>{item.title}</h4>
