@@ -199,5 +199,11 @@ footer {
 
   .container {
     padding-top: 0;
+
+    @include mobile {
+      .copyright-text {
+        font-size: 14px;
+      }
+    }
   }
 }
