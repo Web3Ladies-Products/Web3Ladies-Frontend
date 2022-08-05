@@ -2,33 +2,34 @@
   margin-top: 0;
   box-sizing: border-box;
   background: inherit;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-
-  @include mobile {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
 }
 
 .option-tabs--tab {
   color: var(--color-black);
   background-color: rgba(var(--color-grey-rgb), 0.05);
   border: none;
-  font-size: 14px;
-  line-height: 50px;
+  font-size: 16px;
+  line-height: 150%;
   border-radius: 10px 10px 0px 0px;
-  // margin-right: 10px;
   cursor: pointer;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @include desktop {
-    padding: 6px 16px;
+    margin-right: 10px;
+    padding: 13px 21px;
     min-width: 135px;
   }
 
   @include mobile {
+    padding: 9px 15px;
     overflow-x: scroll;
+    justify-self: start;
   }
 
   &-bordered {

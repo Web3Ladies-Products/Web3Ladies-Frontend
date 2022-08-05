@@ -398,7 +398,7 @@ export default function Home() {
               handleClick={() =>
                 window.open(
                   "https://www.youtube.com/channel/UCJHXyL53LLhIqjYI1Gzt9mQ",
-                  _blank
+                  "_blank"
                 )
               }
             />
