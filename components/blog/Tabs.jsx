@@ -41,11 +41,8 @@ const Tabs = ({ onChange }) => {
   ];
 
   return (
-    <section>
-      <div
-        className="container d-flex justify-content-between"
-        style={{ paddingTop: "0" }}
-      >
+    <section className="tab-section">
+      <div className="container" style={{ paddingTop: "0" }}>
         <div className="option-tabs">
           {tabs.map((tab, index) => (
             <div
