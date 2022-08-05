@@ -222,7 +222,7 @@
     margin-right: 16px;
     cursor: pointer;
     &:hover {
-      border: 1px solid var(--primary-color);
+      border: 2px solid var(--primary-color);
     }
   }
 }
@@ -338,7 +338,11 @@
 
 .tab-section {
   @include desktop {
-    display: flex;
-    justify-content: space-between;
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 }
