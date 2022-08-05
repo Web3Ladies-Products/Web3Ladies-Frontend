@@ -118,7 +118,7 @@ export default function Home() {
       {/* WHO WE ARE SECTION */}
       <section className="introduction">
         <div className="container">
-          <h1 className="introduction--heading"> Who we are</h1>
+          <h1 className="introduction--heading section-title"> Who we are</h1>
           <div className="introduction--container">
             <p className="introduction--container-text">
               This is a free intensive learning phase of the basics/foundations
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="container wrapper">
           <div className="who-we-are--container">
             <div className="who-we-are--content">
-              <h3>Join Our Community</h3>
+              <h3 className="section-title">Join Our Community</h3>
               <p>
                 Be part of our Non-Profit community of forward-thinking ladies
                 shaping the future of the web3 ecosystem.
