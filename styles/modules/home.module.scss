@@ -144,9 +144,14 @@ main {
   }
 
   &--heading {
-    font-size: 22px;
+    font-size: 32px;
+    line-height: 72px;
     text-align: center;
-    color: #969696;
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 48px;
+    }
   }
 
   &--groups-container {
