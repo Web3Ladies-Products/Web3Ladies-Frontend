@@ -8,7 +8,7 @@ const Featured = () => {
   return (
     <main>
       <div className="container cta" style={{ paddingTop: "0" }}>
-        <h1>Featured</h1>
+        <h1 className="section-title bold">Featured</h1>
         <div className="content">
           <div className="hero_content bootcamp">
             <Badge badgeText={"press"} badgeBackground={"#E7D2FF"} />

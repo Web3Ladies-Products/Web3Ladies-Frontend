@@ -10,7 +10,7 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
       <div className="container">
         {title && (
           <div className="highlights--heading">
-            <h1>{title}</h1>
+            <h1 className="section-title">{title}</h1>
             <Button
               type={"outline"}
               buttonText={"View More"}

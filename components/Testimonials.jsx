@@ -59,7 +59,7 @@ const Testimonials = () => {
     <section className="testimonials">
       <div className="container">
         <div className="testimonials--heading">
-          <h1>Don’t take our word for it</h1>
+          <h1 className="section-title">Don’t take our word for it</h1>
           <p className="text-muted">
             See what people have to say about their experience with Web3Ladies
           </p>
