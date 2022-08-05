@@ -40,6 +40,12 @@
     @include mobile {
       border-radius: 30px;
     }
+
+    &:hover {
+      color: var(--primary-color);
+      background-color: var(--color-white);
+      transition: all 0.2s ease-in-out;
+    }
   }
 
   &::after {
