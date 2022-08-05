@@ -18,7 +18,9 @@ export default function Home() {
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
-              <h1>Equipping Ladies with relevant Blockchain skills</h1>
+              <h1 className="section-title">
+                Equipping Ladies with relevant Blockchain skills
+              </h1>
               <p>
                 The goal for us is to empower more self-confident and audacious
                 ladies with the required skillset to compete favorably in the
@@ -178,27 +180,27 @@ export default function Home() {
       {/* ANALYTICS SECTION */}
       <section className="analytics">
         <div className="container">
-          <h1 className="analytics--heading"> Our Numbers</h1>
+          <h1 className="analytics--heading section-title"> Our Numbers</h1>
           <ul className="analytics--container">
             <li>
-              <h3>1050</h3>
+              <h3 className="section-title">1050</h3>
               <span className="analytics--text"> Community members</span>
             </li>
             <li>
-              <h3>3</h3>
+              <h3 className="section-title">3</h3>
               <span className="analytics--text"> Cohorts</span>
             </li>
             <li>
-              <h3>54</h3>
+              <h3 className="section-title">54</h3>
               <span className="analytics--text"> Graduated mentees</span>
             </li>
             <li>
-              <h3>52</h3>
+              <h3 className="section-title">52</h3>
               <span className="analytics--text"> Worktools given</span>
             </li>
 
             <li>
-              <h3>24</h3>
+              <h3 className="section-title">24</h3>
               <span className="analytics--text"> Projects</span>
             </li>
           </ul>
@@ -209,7 +211,7 @@ export default function Home() {
       {/* IMPACT SECTION */}
       <section className="impact-section">
         <div className="container">
-          <h2>How We Create Impact</h2>
+          <h2 className="section-title">How We Create Impact</h2>
         </div>
         <ul className="impact-list">
           {indexPage.IMPACT_ITEMS.map((item, index) => (
@@ -226,7 +228,9 @@ export default function Home() {
               </div>
               <div className="text">
                 <div>
-                  <h1>{(index < 9 ? "0" : "") + (index + 1)}</h1>
+                  <h1 className="section-title">
+                    {(index < 9 ? "0" : "") + (index + 1)}
+                  </h1>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                   <Button
@@ -281,7 +285,7 @@ export default function Home() {
       {/* MENTORSHIP SECTION */}
       <section className="mentorship">
         <div className="container">
-          <h1>
+          <h1 className="section-title">
             Get mentored by the best in the <span>Web3 Ecosystem</span>
           </h1>
           <Button
@@ -308,7 +312,7 @@ export default function Home() {
       <section className="pledge">
         <div className="container card card__black">
           <div className="pledge--text">
-            <h1>Support us by taking our plegde</h1>
+            <h1 className="section-title">Support us by taking our plegde</h1>
             <Button
               type={"outline"}
               buttonText={"Take the pledge"}
@@ -331,7 +335,7 @@ export default function Home() {
       {/* EVENTS SECTION */}
       <section className="events">
         <div className="container">
-          <h1>Upcoming Events</h1>
+          <h1 className="section-title">Upcoming Events</h1>
           <ul className="events-list">
             {indexPage.EVENTS_ITEMS.map((item) => (
               <li className="events-item" key={item.title}>
@@ -364,7 +368,7 @@ export default function Home() {
       {/* YOUTUBE SECTION */}
       <section className="youtube">
         <div className="container">
-          <h1>
+          <h1 className="section-title">
             Check us out on{" "}
             <span>
               <Image

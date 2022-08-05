@@ -335,3 +335,10 @@
     height: 300px;
   }
 }
+
+.tab-section {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+}

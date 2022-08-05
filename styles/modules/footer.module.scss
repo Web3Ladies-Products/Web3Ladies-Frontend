@@ -154,6 +154,9 @@ footer {
         right: 0;
         > span {
           transform: rotate(325deg);
+          position: absolute !important;
+          right: 13px !important;
+          width: 70px !important;
         }
       }
     }
