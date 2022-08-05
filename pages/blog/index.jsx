@@ -9,7 +9,9 @@ import blogData from "../api/blog.json";
 import Pagination from "../../components/Pagination";
 import { strapiService } from "../../services";
 
-const Blog = ({}) => {
+const Blog = ({ posts, meta }) => {
+  console.log("🚀 ~ file: index.jsx ~ line 13 ~ Blog ~ meta", meta);
+  console.log("🚀 ~ file: index.jsx ~ line 13 ~ Blog ~ posts", posts);
   const allPosts = blogData.blog;
   const router = useRouter();
   const tab = router.query.tab || "all";
@@ -79,6 +81,22 @@ const Blog = ({}) => {
       <Footer />
     </>
   );
+};
+
+Blog.getInitialProps = async (ctx) => {
+  try {
+    const blogPosts = await strapiService.getBlogPosts();
+    console.log(
+      "🚀 ~ file: index.jsx ~ line 89 ~ Blog.getInitialProps= ~ blogPosts",
+      blogPosts
+    );
+    return {
+      posts: blogPosts.data,
+      meta: blogPosts.meta,
+    };
+  } catch (error) {
+    return { error };
+  }
 };
 
 export default Blog;
