@@ -12,12 +12,38 @@ import blogData from "../api/blog.json";
 import Badge from "../../components/Badge";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { strapiService } from "../../services";
+import Custom404Error from "../404";
 // import Prompt from "../../components/prompt/Prompt";
 // import { alertService } from "../../services";
 
-const Slug = ({ article, similarArticles }) => {
+const Slug = ({ article }) => {
   const router = useRouter();
   const [loading, setLoading] = React.useState(null);
+  // const [article, setArticle] = React.useState(null);
+  const [similarArticles, setSimilarArticles] = React.useState(null);
+
+  React.useEffect(() => {
+    const getArticle = async () => {
+      try {
+        const response = await strapiService.getPostBySlug(router.query.slug);
+        const data = response[0].attributes;
+        const content = await markdownToHtml(data.content || "");
+        const imageUrl = data.featured_image_url;
+
+        const similar = await strapiService.getSimilarPosts(data.author);
+        setSimilarArticles(similar);
+
+        const article = {
+          ...data,
+          content,
+          imageUrl,
+        };
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getArticle();
+  }, []);
 
   const src = (articleData) => {
     if (articleData?.imageUrl) {
@@ -97,6 +123,7 @@ const Slug = ({ article, similarArticles }) => {
                           alt={article?.title}
                           layout="fill"
                           objectFit="cover"
+                          priority={true}
                           unoptimized={true}
                         />
                       </div>
@@ -139,11 +166,7 @@ const Slug = ({ article, similarArticles }) => {
                 </div> */}
             </>
           ) : (
-            <Custom404Error
-              customPageTitle={"article"}
-              showRedirectText={true}
-              isFullWidth={true}
-            />
+            <Custom404Error customPageTitle={"post"} />
           )}
           {similarArticles && similarArticles.length > 0 && (
             <>
@@ -151,7 +174,7 @@ const Slug = ({ article, similarArticles }) => {
               <div className="more-articles">
                 <h2 className="more-acticles--title">
                   {article
-                    ? `More posts from ${article?.title}`
+                    ? `More posts from ${article?.author}`
                     : "Other Articles"}
                 </h2>
                 <ul className="more-acticles--list">
@@ -167,6 +190,7 @@ const Slug = ({ article, similarArticles }) => {
                           alt={articleData?.title}
                           layout="fill"
                           objectFit="cover"
+                          priority={true}
                           unoptimized={true}
                         />
                       </div>
@@ -268,18 +292,33 @@ const ShareButtons = ({ article, style }) => {
 
 export default Slug;
 
-export async function getServerSideProps({ query }) {
+// get a single post by slug
+export async function getStaticProps({ params }) {
   const articleData = blogData.blog.find(
-    (article) => article.slug === query.slug
+    (article) => article.slug === params.slug
   );
-  const data = await strapiService.getPostBySlug(query.slug);
-  console.log(
-    "🚀 ~ file: [slug].jsx ~ line 277 ~ getServerSideProps ~ data",
-    data
-  );
+  const getArticle = async () => {
+    try {
+      const response = await strapiService.getPostBySlug(params.slug);
+      const data = response[0].attributes;
+      const content = await markdownToHtml(data.content || "");
+      const imageUrl = data.featured_image_url;
 
-  // const content = await markdownToHtml(articleData.content || "");
-  const imageUrl = data.featured_image_url;
+      const article = {
+        ...data,
+        content,
+        imageUrl,
+      };
+      console.log(
+        "🚀 ~ file: [slug].jsx ~ line 310 ~ getArticle ~ article",
+        article
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getArticle();
 
   return {
     props: {

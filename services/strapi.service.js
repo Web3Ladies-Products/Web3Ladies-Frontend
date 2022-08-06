@@ -6,10 +6,18 @@ const parseJSON = (resp) => (resp.json ? resp.json() : resp);
 // Checks if a network request came back fine, and throws an error if not
 const checkStatus = (resp) => {
   if (resp.status >= 200 && resp.status < 300) {
+    console.log(
+      "🚀 ~ file: strapi.service.js ~ line 9 ~ checkStatus ~ resp",
+      resp
+    );
     return resp;
   }
 
   return parseJSON(resp).then((resp) => {
+    console.log(
+      "🚀 ~ file: strapi.service.js ~ line 14 ~ returnparseJSON ~ resp",
+      resp
+    );
     throw resp;
   });
 };
@@ -75,7 +83,21 @@ const searchBlogPosts = async ({ title }) => {
 };
 
 const getPostBySlug = (slug) =>
-  fetch(`${STRAPI_URL}/api/blogs/${slug}`, {
+  fetch(`${STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}`, {
+    headers,
+    method: "GET",
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      return error;
+    });
+
+const getSimilarPosts = (author) =>
+  fetch(`${STRAPI_URL}/api/blogs?filters[author][$eq]=${author}`, {
     headers,
     method: "GET",
   })
@@ -93,4 +115,5 @@ export const strapiService = {
   getPostBySlug,
   getSortedBlogPosts,
   searchBlogPosts,
+  getSimilarPosts,
 };

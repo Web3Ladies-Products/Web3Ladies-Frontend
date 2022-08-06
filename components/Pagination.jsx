@@ -11,17 +11,17 @@ const Pagination = ({ noPagination, paginationData, updateData }) => {
         className={`container pagination ${noPagination ? "display-none" : ""}`}
       >
         <div className="summary">
-          {paginationData.currentPage * 10 - 9} -
-          {paginationData?.totalPages === paginationData?.currentPage
+          {paginationData?.page * 10 - 9} -
+          {paginationData?.pageCount === paginationData?.page
             ? paginationData?.total
-            : paginationData.currentPage * 10}{" "}
+            : paginationData.page * 10}{" "}
           of {paginationData?.total} items
         </div>
         <div className="navigation">
           <Button
             // type={"darkOutline"}
-            disabled={paginationData.currentPage === 1}
-            onClick={() => updateData(paginationData.currentPage - 1)}
+            disabled={paginationData?.page === 1}
+            onClick={() => updateData(paginationData?.page - 1)}
           >
             <span className="icon-left">
               <ChevronLeft />
@@ -30,51 +30,41 @@ const Pagination = ({ noPagination, paginationData, updateData }) => {
           </Button>
           {paginationData && (
             <ul>
-              {paginationData.totalPages >= 1 && (
-                <li
-                  className={`${paginationData?.currentPage === 1 && "active"}`}
-                >
+              {paginationData?.pageCount >= 1 && (
+                <li className={`${paginationData?.page === 1 && "active"}`}>
                   <Button onClick={() => updateData(1)}>1</Button>
                 </li>
               )}
-              {paginationData.totalPages >= 2 && (
-                <li
-                  className={`${paginationData?.currentPage === 2 && "active"}`}
-                >
+              {paginationData.pageCount >= 2 && (
+                <li className={`${paginationData?.page === 2 && "active"}`}>
                   <Button onClick={() => updateData(2)}>2</Button>
                 </li>
               )}
-              {paginationData.totalPages >= 3 && (
-                <li
-                  className={`${paginationData?.currentPage === 3 && "active"}`}
-                >
+              {paginationData.pageCount >= 3 && (
+                <li className={`${paginationData?.page === 3 && "active"}`}>
                   <Button onClick={() => updateData(3)}>3</Button>
                 </li>
               )}
-              {paginationData.totalPages >= 4 && (
-                <li
-                  className={`${paginationData?.currentPage === 4 && "active"}`}
-                >
+              {paginationData.pageCount >= 4 && (
+                <li className={`${paginationData?.page === 4 && "active"}`}>
                   <Button onClick={() => updateData(4)}>4</Button>
                 </li>
               )}
-              {paginationData.totalPages >= 5 && (
-                <li
-                  className={`${paginationData?.currentPage === 5 && "active"}`}
-                >
+              {paginationData.pageCount >= 5 && (
+                <li className={`${paginationData?.page === 5 && "active"}`}>
                   <Button onClick={() => updateData(5)}>5</Button>
                 </li>
               )}
-              {paginationData.totalPages > 6 && <li>...</li>}
-              {paginationData.totalPages > 5 && (
+              {paginationData.pageCount > 6 && <li>...</li>}
+              {paginationData.pageCount > 5 && (
                 <li
                   className={`${
-                    paginationData?.currentPage === paginationData.totalPages &&
+                    paginationData?.page === paginationData.pageCount &&
                     "active"
                   }`}
                 >
-                  <Button onClick={() => updateData(paginationData.totalPages)}>
-                    {paginationData.totalPages}
+                  <Button onClick={() => updateData(paginationData.pageCount)}>
+                    {paginationData.pageCount}
                   </Button>
                 </li>
               )}
@@ -82,10 +72,8 @@ const Pagination = ({ noPagination, paginationData, updateData }) => {
           )}
           <Button
             // type={"primary"}
-            disabled={
-              paginationData?.currentPage === paginationData?.totalPages
-            }
-            onClick={() => updateData(paginationData.currentPage + 1)}
+            disabled={paginationData?.page === paginationData?.pageCount}
+            onClick={() => updateData(paginationData.page + 1)}
             hasIcon
           >
             {/* <span>Next</span> */}
