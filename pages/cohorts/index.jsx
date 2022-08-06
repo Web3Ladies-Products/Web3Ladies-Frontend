@@ -7,6 +7,7 @@ import Accordion from "../../components/accordion/Accordion";
 import VisitYoutube from "../../components/VisitYoutube";
 import Summary from "../../components/cohorts/Summary";
 import MenteeExperience from "../../components/MenteeExperience";
+import CohortSummary from "../../components/cohorts/CohortSummary";
 
 const Cohorts = () => {
   const cohortsDetails = [
@@ -92,9 +93,10 @@ const Content = ({ cohortLink }) => {
   const cohortDetails = cohortsData.home;
 
   return (
-    <div className="cohort-content container">
-      <Summary />
-      <MenteeExperience menteeDetails={cohortDetails.mentees} />
+    <div className="cohort-content">
+      < CohortSummary menteeDetails={cohortDetails.mentees}/>
+      {/* <Summary />
+      <MenteeExperience menteeDetails={cohortDetails.mentees} /> */}
       <div className="button-container">
         <Button
           type={"outline"}

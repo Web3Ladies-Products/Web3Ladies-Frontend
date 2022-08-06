@@ -295,8 +295,20 @@
 }
 
 .cohort-content {
+  width: 95%;
+  margin: 0 auto;
   .container {
     padding: 0;
     width: 100%;
   }
 }
+
+.summary-cohort-content {
+  width:100%;
+  .container {
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
