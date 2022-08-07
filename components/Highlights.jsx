@@ -19,10 +19,10 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
           </div>
         )}
         <ul className="highlights--container">
-          {HIGHLIGHTS_ITEMS.map((item) => (
+          {HIGHLIGHTS_ITEMS.map((item, index) => (
             <li
+              key={index}
               className="highlight--container-item"
-              key={item.id}
               onClick={() => handleClick(item.slug)}
             >
               <div className="highlights--container-item--image">

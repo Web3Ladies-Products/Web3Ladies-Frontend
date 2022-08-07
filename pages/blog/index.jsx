@@ -8,6 +8,8 @@ import Pagination from "../../components/Pagination";
 import { strapiService } from "../../services";
 import Article from "../../components/blog/Article";
 import Banner from "../../components/blog/Banner";
+import HeadSeo from "../../components/HeadSeo";
+import siteMetadata from "../../lib/data/siteMetadata";
 
 const Blog = ({ blogData }) => {
   const router = useRouter();
@@ -62,6 +64,15 @@ const Blog = ({ blogData }) => {
 
   return (
     <>
+      <HeadSeo
+        title={`${siteMetadata.companyName} | Blog`}
+        description={siteMetadata.description}
+        canonicalUrl={`${siteMetadata.siteUrl}`}
+        ogImageUrl={`${siteMetadata.siteUrl}/logo.png`}
+        ogTwitterImage={`${siteMetadata.siteUrl}/logo.png`}
+        ogType={"website"}
+      ></HeadSeo>
+
       <Navbar />
       <section
         className="blog"
