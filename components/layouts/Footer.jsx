@@ -88,19 +88,9 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-content_form">
             <div className="footer-card">
-              <Image
-                src={"/assets/images/Web3Ladies-white.png"}
-                alt="web3ladies-logo"
-                objectFit="contain"
-                width={"123px"}
-                height={"52.3px"}
-                className="logo"
-              />
-
               <p className="card-text">
                 Get the latest updates about Web3Ladies activities and events.
               </p>
-
               <form action="">
                 <div className="update-form">
                   <div className="input">
@@ -202,13 +192,13 @@ const Footer = () => {
           </div>
 
           <div className="vector">
-            <Image
+            {/* <Image
               src={"/assets/images/web3ladies-vector.png"}
               alt="Web3ladies-vector"
               width={"100%"}
               height={"100%"}
               objectFit="contain"
-            />
+            /> */}
           </div>
 
           <div className="vector">

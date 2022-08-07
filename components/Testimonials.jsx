@@ -1,7 +1,11 @@
 import Image from "next/image";
 import React from "react";
 
-const Testimonials = () => {
+const Testimonials = ({
+  testimonial_title,
+  testimonial_description,
+  testimonial_items,
+}) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
     React.useState("shoutouts");
 
@@ -19,41 +23,6 @@ const Testimonials = () => {
       title: "Past Mentees",
     },
   ];
-
-  const TESTIMONIAL_ITEMS = {
-    shoutouts: [
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities!",
-      },
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
-      },
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT.  I hope other women get the same experience with LDT",
-      },
-      {
-        name: "Student",
-        role: "Web3 Designer",
-        image: "/assets/images/testimonial-image.png",
-        quote:
-          "LDT has been amazing at helping me break into the tech space. When I first joined as a member I was welcomed and offered very useful advice and opportunities! I am gratefully for the support I received whilst starting my journey into tech. I hope other women get the same experience with LDT",
-      },
-    ],
-    community: [],
-    past_mentees: [],
-  };
 
   return (
     <section className="testimonials">
@@ -79,7 +48,7 @@ const Testimonials = () => {
             ))}
           </div>
           <div className="testimonials--container__content">
-            {TESTIMONIAL_ITEMS[activeTestimonialTab].map((item) => (
+            {testimonial_items[activeTestimonialTab].map((item) => (
               <div
                 className="testimonials--container__content__item"
                 key={item.title}
