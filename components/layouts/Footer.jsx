@@ -192,13 +192,13 @@ const Footer = () => {
           </div>
 
           <div className="vector">
-            <Image
+            {/* <Image
               src={"/assets/images/web3ladies-vector.png"}
               alt="Web3ladies-vector"
               width={"100%"}
               height={"100%"}
               objectFit="contain"
-            />
+            /> */}
           </div>
 
           <div className="vector">

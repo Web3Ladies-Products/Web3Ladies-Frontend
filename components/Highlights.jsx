@@ -11,11 +11,11 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
         {title && (
           <div className="highlights--heading">
             <h1 className="section-title">{title}</h1>
-            <Button
+            {/* <Button
               type={"outline"}
               buttonText={"View More"}
               handleClick={() => null}
-            />
+            /> */}
           </div>
         )}
         <ul className="highlights--container">
