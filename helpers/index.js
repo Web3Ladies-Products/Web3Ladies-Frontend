@@ -6,9 +6,13 @@ export const convertDateToWords = (date) => {
   return dobFormat;
 };
 
-export const getReadingTime = (textRef) => {
-  const article = document.getElementById(textRef);
-  // loop through textRef to get text from child nodes
+export const getReadingTime = (elementId) => {
+  // check document is defined
+  if (!document || document === undefined) {
+    return 0;
+  }
+  const article = document.getElementById(elementId);
+  // loop through elementId to get text from child nodes
   let text = "";
   for (let i = 0; i < article.childNodes.length; i++) {
     text += article.childNodes[i].textContent;

@@ -21,7 +21,6 @@ const Slug = ({ article }) => {
   const [loading, setLoading] = React.useState(null);
   // const [article, setArticle] = React.useState(null);
   const [similarArticles, setSimilarArticles] = React.useState(null);
-  const articleContentRef = React.useRef(null);
 
   React.useEffect(() => {
     const getArticle = async () => {
@@ -88,7 +87,9 @@ const Slug = ({ article }) => {
                         badgeBackground={"#7D0BFE"}
                       />
                       <span className="dot"></span>
-                      <p>{getReadingTime("article-content")} min read</p>
+                      {getReadingTime("article-content") && (
+                        <p>{getReadingTime("article-content")}-min read</p>
+                      )}
                     </div>
                   </>
 
@@ -127,7 +128,6 @@ const Slug = ({ article }) => {
                   </div>
                   <div className="article-body--content">
                     <div
-                      ref={articleContentRef}
                       id="article-content"
                       dangerouslySetInnerHTML={{
                         __html: article?.content,
