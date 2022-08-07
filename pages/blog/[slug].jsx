@@ -87,9 +87,7 @@ const Slug = ({ article }) => {
                         badgeBackground={"#7D0BFE"}
                       />
                       <span className="dot"></span>
-                      {getReadingTime("article-content") && (
-                        <p>{getReadingTime("article-content")}-min read</p>
-                      )}
+                      <p>{article.readingTime}-min read</p>
                     </div>
                   </>
 
@@ -303,11 +301,13 @@ export async function getStaticProps({ params }) {
   const data = response[0].attributes;
   const content = await markdownToHtml(data.content || "");
   const imageUrl = data.featured_image_url;
+  const readingTime = getReadingTime(data.content);
 
   const article = {
     ...data,
     content,
     imageUrl,
+    readingTime,
   };
 
   return {

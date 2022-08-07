@@ -6,23 +6,14 @@ export const convertDateToWords = (date) => {
   return dobFormat;
 };
 
-export const getReadingTime = (elementId) => {
-  // check document is defined
-  if (!document || document === undefined) {
-    return 0;
-  }
-  const article = document.getElementById(elementId);
-  // loop through elementId to get text from child nodes
-  let text = "";
-  for (let i = 0; i < article.childNodes.length; i++) {
-    text += article.childNodes[i].textContent;
-  }
+export const getReadingTime = (content) => {
   // split text into words
-  const words = text.split(" ");
+  const words = content.trim().split(/\s+/);
   // get number of words
   const wordCount = words.length;
   // get number of minutes
-  const minutes = Math.round(wordCount / 200);
+  const wordsPerMinute = 225;
+  const minutes = Math.round(wordCount / wordsPerMinute);
   // return number of minutes
   return minutes;
 };
