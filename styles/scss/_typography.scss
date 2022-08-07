@@ -22,6 +22,14 @@
     font-size: 40px;
     line-height: 50px;
   }
+
+  span {
+    color: var(--primary-color);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
 }
 
 .sub-section-title {

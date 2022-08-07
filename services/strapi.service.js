@@ -18,6 +18,20 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+const getHomePageData = async () => {
+  try {
+    const homePage = await fetch(`${STRAPI_URL}/api/home-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return homePage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getBlogPosts = async ({ page, pageSize, category }) => {
   try {
     const blogPosts = await fetch(
@@ -124,4 +138,5 @@ export const strapiService = {
   getSortedBlogPosts,
   searchBlogPosts,
   getSimilarPosts,
+  getHomePageData,
 };
