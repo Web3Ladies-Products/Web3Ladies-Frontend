@@ -33,7 +33,7 @@ const Featured = ({ featuredPost }) => {
             </div>
           </div>
 
-          <div className="hero_image">
+          <div className="hero_image featured">
             <div>
               <Image
                 className="hero-image"
