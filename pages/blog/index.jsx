@@ -2,21 +2,18 @@ import React from "react";
 import { useRouter } from "next/router";
 import Featured from "../../components/blog/Featured";
 import Tabs from "../../components/blog/Tabs";
-import Highlights from "../../components/Highlights";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
-import blogData from "../api/blog.json";
 import Pagination from "../../components/Pagination";
 import { strapiService } from "../../services";
 import Article from "../../components/blog/Article";
+import Banner from "../../components/blog/Banner";
 
-const Blog = () => {
-  const allPosts = blogData.blog;
+const Blog = ({ blogData }) => {
   const router = useRouter();
   const tab = router.query.tab || "all";
   const [activeTabContent, setActiveTabContent] = React.useState([]);
   const [posts, setPosts] = React.useState([]);
-  // const paginationData = blogData.paginationData;
   const [paginationData, setPaginationData] = React.useState(null);
 
   const [featuredPost, setFeaturedPost] = React.useState(null);
@@ -26,41 +23,37 @@ const Blog = () => {
 
   const updateData = (data) => {
     console.log("🚀 ~ file: index.jsx ~ line 25 ~ updateData ~ data", data);
-    // setActiveTabContent(data);
+    getBlogPosts(data, 10);
   };
 
-  const goToArticle = (slug) => {
-    router.push(`/blog/${slug}`);
-  };
-
-  const getPosts = async () => {
-    const res = await strapiService.getBlogPosts(tab);
-    console.log("🚀 ~ file: index.jsx ~ line 38 ~ getPosts ~ res", res);
-    setPosts(res.data);
-    setPaginationData(res.meta.pagination);
-    const featuredPost = res.data.filter(
-      (item) => item["attributes"].isFeatured === true
-    );
-    console.log(
-      "🚀 ~ file: index.jsx ~ line 44 ~ getPosts ~ featuredPost",
-      featuredPost
-    );
-    setFeaturedPost(featuredPost[0]);
+  const handleSearch = async (title) => {
+    console.log("🚀 ~ file: index.jsx ~ line 30 ~ handleSearch ~ title", title);
+    const res = await strapiService.searchBlogPosts(title);
+    console.log("🚀 ~ file: index.jsx ~ line 39 ~ handleSearch ~ res", res);
   };
 
   React.useEffect(() => {
     if (!tab || tab === "all") {
-      setActiveTabContent(allPosts);
+      setActiveTabContent(posts);
     } else {
-      const content = allPosts.filter((post) => post.category === tab);
+      const content = posts.filter(
+        (post) => post["attributes"].category === tab
+      );
       setActiveTabContent(content);
     }
   }, [tab]);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
-    getPosts();
-  }, []);
+    setPosts(blogData.data);
+    setPaginationData(blogData.meta?.pagination);
+    const featuredPost = blogData.data?.filter(
+      (item) => item["attributes"].isFeatured === true
+    );
+    if (featuredPost) {
+      setFeaturedPost(featuredPost[0]);
+    }
+  }, [blogData]);
 
   return (
     <>
@@ -70,14 +63,10 @@ const Blog = () => {
         style={{ paddingTop: "0", minHeight: "calc(100vh - 530px)" }}
       >
         <div>
-          <Tabs onChange={onChange} />
+          <Tabs onChange={onChange} handleSearch={handleSearch} />
+          {tab && tab !== "all" && <Banner category={tab} />}
           <Featured featuredPost={featuredPost} />
-          <Article HIGHLIGHTS_ITEMS={posts} handleClick={goToArticle} />
-          <Highlights
-            title={""}
-            HIGHLIGHTS_ITEMS={activeTabContent}
-            handleClick={goToArticle}
-          />
+          <Article HIGHLIGHTS_ITEMS={activeTabContent} />
           {activeTabContent && (
             <Pagination
               paginationData={paginationData}
@@ -91,35 +80,13 @@ const Blog = () => {
   );
 };
 
-// Blog.getInitialProps = async (ctx) => {
-//   try {
-//     const blogPosts = await strapiService.getBlogPosts();
-//     console.log(
-//       "🚀 ~ file: index.jsx ~ line 89 ~ Blog.getInitialProps= ~ blogPosts",
-//       blogPosts
-//     );
-//     return {
-//       posts: blogPosts.data,
-//       meta: blogPosts.meta,
-//     };
-//   } catch (error) {
-//     return { error };
-//   }
-// };
-
 export default Blog;
 
-export async function getStaticPaths() {
-  const blogPosts = await strapiService.getBlogPosts();
-  console.log(
-    "🚀 ~ file: index.jsx ~ line 89 ~ getStaticPaths= ~ blogPosts",
-    blogPosts
-  );
-  const paths = blogPosts.data.map((post) => ({
-    params: { slug: post.slug },
-  }));
+export async function getStaticProps() {
+  const blogData = await strapiService.getBlogPosts(1, 20);
   return {
-    paths,
-    fallback: false,
+    props: {
+      blogData,
+    },
   };
 }

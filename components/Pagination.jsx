@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import React from "react";
 import Button from "./buttons/Button";
 import ChevronLeft from "./icons/ChevronLeft";
@@ -11,11 +11,18 @@ const Pagination = ({ noPagination, paginationData, updateData }) => {
         className={`container pagination ${noPagination ? "display-none" : ""}`}
       >
         <div className="summary">
-          {paginationData?.page * 10 - 9} -
-          {paginationData?.pageCount === paginationData?.page
-            ? paginationData?.total
-            : paginationData.page * 10}{" "}
-          of {paginationData?.total} items
+          <span>
+            {paginationData?.total > 0
+              ? `${paginationData?.page * 10 - 9} -
+            ${
+              paginationData?.pageCount === paginationData?.page
+                ? paginationData?.total
+                : paginationData.page * 10
+            }${" "}
+            of ${paginationData?.total}`
+              : 0}
+          </span>{" "}
+          item{paginationData?.total > 1 ? "s" : ""}
         </div>
         <div className="navigation">
           <Button

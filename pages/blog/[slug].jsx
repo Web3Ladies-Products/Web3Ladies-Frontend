@@ -143,10 +143,10 @@ const Slug = ({ article }) => {
                 </div>
                 <div className="article-footer">
                   <div className="article-footer--subscribe">
-                    <h6>{article?.title}</h6>
+                    {/* <h6>{article?.title}</h6> */}
                   </div>
                   <div className="article-footer--share">
-                    <span className="share-text">Share</span>
+                    {/* <span className="share-text">Share</span> */}
                     <ShareButtons
                       article={article}
                       style={{ display: "flex" }}
@@ -168,7 +168,7 @@ const Slug = ({ article }) => {
           ) : (
             <Custom404Error customPageTitle={"post"} />
           )}
-          {similarArticles && similarArticles.length > 0 && (
+          {/* {similarArticles && similarArticles.length > 0 && (
             <>
               <div className="divider" />
               <div className="more-articles">
@@ -215,7 +215,7 @@ const Slug = ({ article }) => {
                 </ul>
               </div>
             </>
-          )}
+          )} */}
           {article && (
             <div className="floating-share-buttons">
               <ShareButtons article={article} />
@@ -292,39 +292,33 @@ const ShareButtons = ({ article, style }) => {
 
 export default Slug;
 
-// get a single post by slug
-export async function getStaticProps({ params }) {
-  const articleData = blogData.blog.find(
-    (article) => article.slug === params.slug
-  );
-  const getArticle = async () => {
-    try {
-      const response = await strapiService.getPostBySlug(params.slug);
-      const data = response[0].attributes;
-      const content = await markdownToHtml(data.content || "");
-      const imageUrl = data.featured_image_url;
-
-      const article = {
-        ...data,
-        content,
-        imageUrl,
-      };
-      console.log(
-        "🚀 ~ file: [slug].jsx ~ line 310 ~ getArticle ~ article",
-        article
-      );
-    } catch (error) {
-      console.log(error);
-    }
+export async function getStaticPaths() {
+  const paths = blogData.blog.map((article) => ({
+    params: {
+      slug: article.slug,
+    },
+  }));
+  return {
+    paths,
+    fallback: false,
   };
+}
 
-  getArticle();
+export async function getStaticProps({ params }) {
+  const response = await strapiService.getPostBySlug(params.slug);
+  const data = response[0].attributes;
+  const content = await markdownToHtml(data.content || "");
+  const imageUrl = data.featured_image_url;
+
+  const article = {
+    ...data,
+    content,
+    imageUrl,
+  };
 
   return {
     props: {
-      article: articleData,
-      // article: { ...data, imageUrl },
-      // similarArticles: articleData.others,
+      article,
     },
   };
 }
