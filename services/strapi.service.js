@@ -60,26 +60,16 @@ const getSortedBlogPosts = async ({ page, pageSize }) => {
 
 const searchBlogPosts = async (title) => {
   try {
-    // const entries = await strapi.db.query("api::blog.article").findMany({
-    //   select: ["title", "description", "slug"],
-    //   where: {
-    //     title: {
-    //       $containsi: title,
-    //     },
-    //   },
-    //   orderBy: { publishedAt: "createdAt" },
-    //   populate: { category: true },
-    // });
-    // return entries;
-    fetch(`${STRAPI_URL}/api/blogs?filters[category][$containsi]=${title}`, {
-      headers,
-      method: "GET",
-    })
+    const searchData = await fetch(
+      `${STRAPI_URL}/api/blogs?filters[title][$containsi]=${title}`,
+      {
+        headers,
+        method: "GET",
+      }
+    )
       .then(checkStatus)
-      .then(parseJSON)
-      .then(({ data }) => {
-        return data;
-      });
+      .then(parseJSON);
+    return searchData;
   } catch (error) {
     console.error(error);
   }

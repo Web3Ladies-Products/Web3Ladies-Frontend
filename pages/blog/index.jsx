@@ -22,14 +22,19 @@ const Blog = ({ blogData }) => {
   }
 
   const updateData = (data) => {
-    console.log("🚀 ~ file: index.jsx ~ line 25 ~ updateData ~ data", data);
     getBlogPosts(data, 10);
   };
 
   const handleSearch = async (title) => {
-    console.log("🚀 ~ file: index.jsx ~ line 30 ~ handleSearch ~ title", title);
-    const res = await strapiService.searchBlogPosts(title);
-    console.log("🚀 ~ file: index.jsx ~ line 39 ~ handleSearch ~ res", res);
+    await strapiService
+      .searchBlogPosts(title)
+      .then((res) => {
+        setPosts(res.data);
+        setPaginationData(res.meta?.pagination);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   React.useEffect(() => {
@@ -41,7 +46,7 @@ const Blog = ({ blogData }) => {
       );
       setActiveTabContent(content);
     }
-  }, [tab]);
+  }, [tab, posts]);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);

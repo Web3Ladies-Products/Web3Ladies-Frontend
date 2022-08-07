@@ -37,6 +37,7 @@ const Panel = ({
 
   return (
     <div>
+      {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
       <div
         className={`panel ${hasFullBorder && "panel--has-border"}`}
         role="tabpanel"

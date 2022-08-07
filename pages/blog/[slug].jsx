@@ -43,7 +43,7 @@ const Slug = ({ article }) => {
       }
     };
     getArticle();
-  }, []);
+  }, [router.query.slug]);
 
   const src = (articleData) => {
     if (articleData?.imageUrl) {

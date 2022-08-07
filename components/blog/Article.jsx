@@ -9,8 +9,8 @@ const Article = ({ HIGHLIGHTS_ITEMS }) => {
       <div className="container">
         <ul className="highlights--container">
           {HIGHLIGHTS_ITEMS.map((item) => (
-            <Link href={`/blog/${item["attributes"].slug}`}>
-              <a key={item.id}>
+            <Link href={`/blog/${item["attributes"].slug}`} key={item.id}>
+              <a>
                 <li className="highlight--container-item">
                   <div className="highlights--container-item--image">
                     <Image
