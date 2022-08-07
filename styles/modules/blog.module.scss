@@ -56,30 +56,21 @@
       }
     }
 
-    figure {
-      width: 100%;
+    figcaption {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey);
+      text-align: center;
+    }
+
+    img {
       margin: 40px 0;
+      max-width: 100%;
       border-radius: 16px;
-      overflow: hidden;
-
-      figcaption {
-        margin-top: 16px;
-        font-size: 16px;
-        line-height: 24px;
-        color: var(--color-grey);
-        text-align: center;
-      }
-
-      img {
-        max-width: 100%;
-        border-radius: 16px;
-        height: auto;
-        object-fit: contain;
-      }
-
-      > img {
-        object-fit: scale-down;
-      }
+      height: auto;
+      object-fit: contain;
+      margin: 40px 0;
     }
 
     h2 {
@@ -330,7 +321,6 @@
 .image--wrapper {
   position: relative;
   height: 450px;
-
   @media (max-width: 768px) {
     height: 300px;
   }

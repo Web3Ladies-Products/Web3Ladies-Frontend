@@ -14,10 +14,10 @@ const Article = ({ HIGHLIGHTS_ITEMS }) => {
                 <li className="highlight--container-item">
                   <div className="highlights--container-item--image">
                     <Image
-                      src="/assets/images/highlights-image.png"
-                      width={"125px"}
+                      src={item["attributes"].featured_image_url}
+                      width={"400px"}
                       height={"220px"}
-                      objectFit="contain"
+                      objectFit="cover"
                       alt="highlights-image"
                     />
                   </div>

@@ -37,9 +37,12 @@ const Featured = ({ featuredPost }) => {
             <div>
               <Image
                 className="hero-image"
-                width={"493px"}
-                height={"472px"}
-                src={featuredPost?.attributes?.preview_image_url}
+                width={"641px"}
+                height={"445px"}
+                src={
+                  featuredPost?.attributes?.featured_image_url ||
+                  featuredPost?.attributes?.image_url
+                }
                 alt="featured-image"
               />
             </div>

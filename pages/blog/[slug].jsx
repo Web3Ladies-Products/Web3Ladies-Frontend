@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import HeadSeo from "../../components/HeadSeo";
 import Navbar from "../../components/layouts/Navbar";
@@ -13,6 +12,7 @@ import Badge from "../../components/Badge";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { strapiService } from "../../services";
 import Custom404Error from "../404";
+// import Link from "next/link";
 // import Prompt from "../../components/prompt/Prompt";
 // import { alertService } from "../../services";
 
@@ -28,7 +28,7 @@ const Slug = ({ article }) => {
         const response = await strapiService.getPostBySlug(router.query.slug);
         const data = response[0].attributes;
         const content = await markdownToHtml(data.content || "");
-        const imageUrl = data.featured_image_url;
+        const imageUrl = data.image_url;
 
         const similar = await strapiService.getSimilarPosts(data.author);
         setSimilarArticles(similar);
@@ -71,7 +71,7 @@ const Slug = ({ article }) => {
                           "image": [
                             "${src(article)}"
                           ],
-                          "datePublished": "${article?.datePublished}",
+                          "datePublished": "${article?.publishedAt}",
                           "author": [{
                               "@type": "Person",
                               "name": "${article?.author}"
@@ -109,7 +109,7 @@ const Slug = ({ article }) => {
                     </span>
                     <span className="dot"></span>
                     <span className="article-header--meta_date">
-                      Published {convertDateToWords(article?.datePublished)}
+                      Published {convertDateToWords(article?.publishedAt)}
                     </span>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ const Slug = ({ article }) => {
                           src={src(article)}
                           alt={article?.title}
                           layout="fill"
-                          objectFit="cover"
+                          objectFit="contain"
                           priority={true}
                           unoptimized={true}
                         />
@@ -205,7 +205,7 @@ const Slug = ({ article }) => {
                           <div className="more-acticles--list_item_footer">
                             <span>{articleData.title}</span>
                             <span>
-                              {convertDateToWords(articleData.datePublished)}
+                              {convertDateToWords(articleData.publishedAt)}
                             </span>
                           </div>
                         </a>
