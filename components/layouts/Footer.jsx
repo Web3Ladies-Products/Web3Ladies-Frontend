@@ -49,7 +49,7 @@ const Footer = () => {
     },
   ];
 
-  const CONTACT_NAVIGATION = [
+  const CONTACT_NAVIGATION_ONE = [
     {
       name: "Contact",
       route: "/",
@@ -64,6 +64,20 @@ const Footer = () => {
     },
     {
       name: "Facebook",
+      route: "/",
+    },
+  ];
+  const CONTACT_NAVIGATION_TWO = [
+    {
+      name: "Discord",
+      route: "/",
+    },
+    {
+      name: "Medium",
+      route: "/",
+    },
+    {
+      name: "Youtube",
       route: "/",
     },
   ];
@@ -144,19 +158,33 @@ const Footer = () => {
 
             <div className="contact">
               <h4 className="contact-links">reach out to us</h4>
-
-              <ul className="footer-list contacts">
-                {CONTACT_NAVIGATION.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <Link href={item.route}>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                          {item.name}
-                        </a>
-                      </Link>
-                    </li>
-                  );
-                })}
+              <ul className="footer-list quick-links">
+                <div>
+                  {CONTACT_NAVIGATION_ONE.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <Link href={item.route}>
+                          <a href="#" target="_blank" rel="noopener noreferrer">
+                            {item.name}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </div>
+                <div>
+                  {CONTACT_NAVIGATION_TWO.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <Link href={item.route}>
+                          <a href="#" target="_blank" rel="noopener noreferrer">
+                            {item.name}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </div>
               </ul>
             </div>
           </div>

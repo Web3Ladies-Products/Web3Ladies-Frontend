@@ -12,7 +12,7 @@ footer {
     display: grid;
     grid-gap: 40px;
     gap: 40px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     align-items: flex-start;
 
     @include mobile {
@@ -25,11 +25,7 @@ footer {
         border-radius: 12px;
         background-color: #111111;
         padding: 32px;
-        width: 463px;
-
-        @include mobile {
-          width: 100%;
-        }
+        width: 100%;
 
         .card-text {
           color: #ababab;
