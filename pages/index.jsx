@@ -10,7 +10,6 @@ import { strapiService } from "../services/strapi.service";
 import { useRouter } from "next/router";
 
 export default function Home({ indexPage }) {
-  console.log("🚀 ~ file: index.jsx ~ line 13 ~ Home ~ indexPage", indexPage);
   const router = useRouter();
   return (
     <>
