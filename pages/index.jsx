@@ -6,6 +6,7 @@ import Highlights from "../components/Highlights";
 import Footer from "../components/layouts/Footer";
 import Navbar from "../components/layouts/Navbar";
 import Testimonials from "../components/Testimonials";
+import Slack from "../components/icons/Slack";
 
 export default function Home() {
   const indexPage = indexPageData;
@@ -19,7 +20,8 @@ export default function Home() {
           <div className="content">
             <div className="hero_content">
               <h1 className="section-title">
-                Equipping Ladies with relevant Blockchain skills
+                Equipping Ladies with relevant{" "}
+                <span className="primary-color">Blockchain skills</span>
               </h1>
               <p>
                 The goal for us is to empower more self-confident and audacious
@@ -158,9 +160,14 @@ export default function Home() {
                 <Button
                   type={"outline"}
                   width={"243px"}
-                  buttonText={"Join our community"}
                   handleClick={() => null}
-                />
+                  hasIcon
+                >
+                  <span className="icon-left">
+                    <Slack />
+                  </span>
+                  Join our community
+                </Button>
               </div>
             </div>
             <div className="who-we-are--img">
@@ -184,24 +191,24 @@ export default function Home() {
           <ul className="analytics--container">
             <li>
               <h3 className="section-title">1050</h3>
-              <span className="analytics--text"> Community members</span>
+              <h6 className="analytics--text"> Community members</h6>
             </li>
             <li>
               <h3 className="section-title">3</h3>
-              <span className="analytics--text"> Cohorts</span>
+              <h6 className="analytics--text"> Cohorts</h6>
             </li>
             <li>
               <h3 className="section-title">54</h3>
-              <span className="analytics--text"> Graduated mentees</span>
+              <h6 className="analytics--text"> Graduated mentees</h6>
             </li>
             <li>
               <h3 className="section-title">52</h3>
-              <span className="analytics--text"> Worktools given</span>
+              <h6 className="analytics--text"> Worktools given</h6>
             </li>
 
             <li>
               <h3 className="section-title">24</h3>
-              <span className="analytics--text"> Projects</span>
+              <h6 className="analytics--text"> Projects</h6>
             </li>
           </ul>
         </div>
@@ -264,7 +271,6 @@ export default function Home() {
             </p>
             <Button
               type={"outline"}
-              color={"primary"}
               buttonText={"Become a Sponsor"}
               handleClick={() => null}
             />

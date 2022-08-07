@@ -10,6 +10,7 @@ button,
   font-weight: 700;
   border-radius: 4px;
   white-space: nowrap;
+  font-family: "Space Grotesk";
 
   &.primary {
     --btn-color: var(--primary-color);
@@ -54,7 +55,7 @@ button,
     --btn-bg-color: var(--primary-color-inverse);
     --btn-text-color: var(--color-black);
     letter-spacing: 0.2px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
     color: var(--btn-text-color, --btn-color);
     background-color: var(--btn-bg-color, transparent);
