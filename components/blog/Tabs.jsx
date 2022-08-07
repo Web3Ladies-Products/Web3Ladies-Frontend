@@ -7,7 +7,7 @@ import News from "../icons/News";
 import Press from "../icons/Press";
 import SearchField from "./SearchField";
 
-const Tabs = ({ onChange }) => {
+const Tabs = ({ onChange, handleSearch }) => {
   const router = useRouter();
   const tab = router.query.tab;
   const currentTab = React.useMemo(() => (tab ? tab : "all"), [tab]);
@@ -59,7 +59,7 @@ const Tabs = ({ onChange }) => {
             </div>
           ))}
         </div>
-        <SearchField />
+        <SearchField handleChange={handleSearch} />
       </div>
     </section>
   );

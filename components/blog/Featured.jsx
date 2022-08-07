@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import Badge from "../Badge";
 import Button from "../buttons/Button";
 import ArrowRight from "../icons/ArrowRight";
 
-const Featured = () => {
+const Featured = ({ featuredPost }) => {
+  const router = useRouter();
   return (
     <main>
       <div className="container cta" style={{ paddingTop: "0" }}>
@@ -12,10 +14,7 @@ const Featured = () => {
         <div className="content">
           <div className="hero_content bootcamp">
             <Badge badgeText={"press"} badgeBackground={"#E7D2FF"} />
-            <h2 className="section-title">
-              Binance patners with Web3Ladies to bring more ladies into Web3 in
-              Africa
-            </h2>
+            <h2 className="section-title">{featuredPost?.attributes?.title}</h2>
 
             <div className="button-container">
               <Button
@@ -24,7 +23,7 @@ const Featured = () => {
                 buttonText={"Read more"}
                 hasIcon
                 handleClick={() => {
-                  null;
+                  router.push(`/blog/${featuredPost?.attributes?.slug}`);
                 }}
               >
                 <span className="icon-right">
@@ -34,14 +33,17 @@ const Featured = () => {
             </div>
           </div>
 
-          <div className="hero_image">
+          <div className="hero_image featured">
             <div>
               <Image
                 className="hero-image"
-                width={"493px"}
-                height={"472px"}
-                src="/assets/images/featured.png"
-                alt="cohort-image"
+                width={"641px"}
+                height={"445px"}
+                src={
+                  featuredPost?.attributes?.featured_image_url ||
+                  featuredPost?.attributes?.image_url
+                }
+                alt="featured-image"
               />
             </div>
           </div>

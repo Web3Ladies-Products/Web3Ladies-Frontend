@@ -23,7 +23,7 @@ export const postData = async (url = "", data = {}) => {
   return res;
 };
 
-export const http = async (requestDetails) => {
+export const httpCall = async (requestDetails) => {
   const response = await fetch(requestDetails.url, {
     method: requestDetails.type,
     mode: "cors",
@@ -31,6 +31,9 @@ export const http = async (requestDetails) => {
     redirect: "follow",
     referrerPolicy: "no-referrer",
     body: JSON.stringify(requestDetails.data),
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   const res = await response.json();
   return res;

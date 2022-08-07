@@ -185,6 +185,17 @@
   }
 }
 
+.banner {
+  .container {
+    background-color: var(--color-background);
+    padding: 80px;
+
+    @include mobile {
+      padding: 40px;
+    }
+  }
+}
+
 .visit-youtube {
   .container {
     background-color: #fff4fb;

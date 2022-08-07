@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import HeadSeo from "../../components/HeadSeo";
 import Navbar from "../../components/layouts/Navbar";
@@ -12,12 +11,39 @@ import blogData from "../api/blog.json";
 import Badge from "../../components/Badge";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { strapiService } from "../../services";
+import Custom404Error from "../404";
+// import Link from "next/link";
 // import Prompt from "../../components/prompt/Prompt";
 // import { alertService } from "../../services";
 
-const Slug = ({ article, similarArticles }) => {
+const Slug = ({ article }) => {
   const router = useRouter();
   const [loading, setLoading] = React.useState(null);
+  // const [article, setArticle] = React.useState(null);
+  const [similarArticles, setSimilarArticles] = React.useState(null);
+
+  React.useEffect(() => {
+    const getArticle = async () => {
+      try {
+        const response = await strapiService.getPostBySlug(router.query.slug);
+        const data = response[0].attributes;
+        const content = await markdownToHtml(data.content || "");
+        const imageUrl = data.image_url;
+
+        const similar = await strapiService.getSimilarPosts(data.author);
+        setSimilarArticles(similar);
+
+        const article = {
+          ...data,
+          content,
+          imageUrl,
+        };
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getArticle();
+  }, [router.query.slug]);
 
   const src = (articleData) => {
     if (articleData?.imageUrl) {
@@ -45,7 +71,7 @@ const Slug = ({ article, similarArticles }) => {
                           "image": [
                             "${src(article)}"
                           ],
-                          "datePublished": "${article?.datePublished}",
+                          "datePublished": "${article?.publishedAt}",
                           "author": [{
                               "@type": "Person",
                               "name": "${article?.author}"
@@ -83,7 +109,7 @@ const Slug = ({ article, similarArticles }) => {
                     </span>
                     <span className="dot"></span>
                     <span className="article-header--meta_date">
-                      Published {convertDateToWords(article?.datePublished)}
+                      Published {convertDateToWords(article?.publishedAt)}
                     </span>
                   </div>
                 </div>
@@ -96,7 +122,8 @@ const Slug = ({ article, similarArticles }) => {
                           src={src(article)}
                           alt={article?.title}
                           layout="fill"
-                          objectFit="cover"
+                          objectFit="contain"
+                          priority={true}
                           unoptimized={true}
                         />
                       </div>
@@ -116,10 +143,10 @@ const Slug = ({ article, similarArticles }) => {
                 </div>
                 <div className="article-footer">
                   <div className="article-footer--subscribe">
-                    <h6>{article?.title}</h6>
+                    {/* <h6>{article?.title}</h6> */}
                   </div>
                   <div className="article-footer--share">
-                    <span className="share-text">Share</span>
+                    {/* <span className="share-text">Share</span> */}
                     <ShareButtons
                       article={article}
                       style={{ display: "flex" }}
@@ -139,19 +166,15 @@ const Slug = ({ article, similarArticles }) => {
                 </div> */}
             </>
           ) : (
-            <Custom404Error
-              customPageTitle={"article"}
-              showRedirectText={true}
-              isFullWidth={true}
-            />
+            <Custom404Error customPageTitle={"post"} />
           )}
-          {similarArticles && similarArticles.length > 0 && (
+          {/* {similarArticles && similarArticles.length > 0 && (
             <>
               <div className="divider" />
               <div className="more-articles">
                 <h2 className="more-acticles--title">
                   {article
-                    ? `More posts from ${article?.title}`
+                    ? `More posts from ${article?.author}`
                     : "Other Articles"}
                 </h2>
                 <ul className="more-acticles--list">
@@ -167,6 +190,7 @@ const Slug = ({ article, similarArticles }) => {
                           alt={articleData?.title}
                           layout="fill"
                           objectFit="cover"
+                          priority={true}
                           unoptimized={true}
                         />
                       </div>
@@ -181,7 +205,7 @@ const Slug = ({ article, similarArticles }) => {
                           <div className="more-acticles--list_item_footer">
                             <span>{articleData.title}</span>
                             <span>
-                              {convertDateToWords(articleData.datePublished)}
+                              {convertDateToWords(articleData.publishedAt)}
                             </span>
                           </div>
                         </a>
@@ -191,7 +215,7 @@ const Slug = ({ article, similarArticles }) => {
                 </ul>
               </div>
             </>
-          )}
+          )} */}
           {article && (
             <div className="floating-share-buttons">
               <ShareButtons article={article} />
@@ -268,24 +292,33 @@ const ShareButtons = ({ article, style }) => {
 
 export default Slug;
 
-export async function getServerSideProps({ query }) {
-  const articleData = blogData.blog.find(
-    (article) => article.slug === query.slug
-  );
-  const data = await strapiService.getPostBySlug(query.slug);
-  console.log(
-    "🚀 ~ file: [slug].jsx ~ line 277 ~ getServerSideProps ~ data",
-    data
-  );
+export async function getStaticPaths() {
+  const paths = blogData.blog.map((article) => ({
+    params: {
+      slug: article.slug,
+    },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
-  // const content = await markdownToHtml(articleData.content || "");
+export async function getStaticProps({ params }) {
+  const response = await strapiService.getPostBySlug(params.slug);
+  const data = response[0].attributes;
+  const content = await markdownToHtml(data.content || "");
   const imageUrl = data.featured_image_url;
+
+  const article = {
+    ...data,
+    content,
+    imageUrl,
+  };
 
   return {
     props: {
-      article: articleData,
-      // article: { ...data, imageUrl },
-      // similarArticles: articleData.others,
+      article,
     },
   };
 }

@@ -99,7 +99,7 @@ const Navbar = () => {
       name: "Blog",
       route: "/blog",
       type: "link",
-      isActive: router.pathname === "/blog",
+      isActive: router.pathname.includes("/blog"),
     },
   ]);
 

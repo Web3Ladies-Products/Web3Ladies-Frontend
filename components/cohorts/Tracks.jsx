@@ -48,6 +48,7 @@ const Tracks = () => {
           src="/assets/images/round-vector.png"
           width={"100%"}
           height={"100%"}
+          alt="round-vector"
         />
       </div>
       <div className="crescent-vector">
@@ -55,6 +56,7 @@ const Tracks = () => {
           src="/assets/images/crescent-vector.png"
           width={"100%"}
           height={"100%"}
+          alt="crescent-vector"
         />
       </div>
       <div className="cylindrical">
@@ -62,16 +64,18 @@ const Tracks = () => {
           src="/assets/images/cylindrical.png"
           width={"100%"}
           height={"100%"}
+          alt="cylindrical"
         />
       </div>
       <h1>Tracks</h1>
       <div className="track-items">
-        {TRACKS.map((item) => (
+        {TRACKS.map((item, index) => (
           <li className="track-item" key={item.title}>
             <div className="icons">
               {item.icons.map((icon) => {
                 return (
                   <Image
+                    key={index}
                     src={icon}
                     width={"40px"}
                     height={"40px"}
