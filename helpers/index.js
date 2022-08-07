@@ -6,6 +6,23 @@ export const convertDateToWords = (date) => {
   return dobFormat;
 };
 
+export const getReadingTime = (textRef) => {
+  const article = document.getElementById(textRef);
+  // loop through textRef to get text from child nodes
+  let text = "";
+  for (let i = 0; i < article.childNodes.length; i++) {
+    text += article.childNodes[i].textContent;
+  }
+  // split text into words
+  const words = text.split(" ");
+  // get number of words
+  const wordCount = words.length;
+  // get number of minutes
+  const minutes = Math.round(wordCount / 200);
+  // return number of minutes
+  return minutes;
+};
+
 export const postData = async (url = "", data = {}) => {
   const response = await fetch(url, {
     method: "POST",
