@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import HeadSeo from "../../components/HeadSeo";
 import Navbar from "../../components/layouts/Navbar";
-import { convertDateToWords } from "../../helpers";
+import { convertDateToWords, getReadingTime } from "../../helpers";
 import { useCopy } from "../../hooks/useCopy";
 import siteMetadata from "../../lib/data/siteMetadata";
 import Footer from "../../components/layouts/Footer";
@@ -27,17 +27,8 @@ const Slug = ({ article }) => {
       try {
         const response = await strapiService.getPostBySlug(router.query.slug);
         const data = response[0].attributes;
-        const content = await markdownToHtml(data.content || "");
-        const imageUrl = data.image_url;
-
         const similar = await strapiService.getSimilarPosts(data.author);
         setSimilarArticles(similar);
-
-        const article = {
-          ...data,
-          content,
-          imageUrl,
-        };
       } catch (error) {
         console.log(error);
       }
@@ -83,7 +74,7 @@ const Slug = ({ article }) => {
 
       <Navbar />
       <section>
-        <div className="container">
+        <div className="container" style={{ paddingTop: "0" }}>
           {article ? (
             <>
               <div className="articles">
@@ -96,7 +87,7 @@ const Slug = ({ article }) => {
                         badgeBackground={"#7D0BFE"}
                       />
                       <span className="dot"></span>
-                      <p>14 min read</p>
+                      <p>{article.readingTime}-min read</p>
                     </div>
                   </>
 
@@ -135,6 +126,7 @@ const Slug = ({ article }) => {
                   </div>
                   <div className="article-body--content">
                     <div
+                      id="article-content"
                       dangerouslySetInnerHTML={{
                         __html: article?.content,
                       }}
@@ -309,11 +301,13 @@ export async function getStaticProps({ params }) {
   const data = response[0].attributes;
   const content = await markdownToHtml(data.content || "");
   const imageUrl = data.featured_image_url;
+  const readingTime = getReadingTime(data.content);
 
   const article = {
     ...data,
     content,
     imageUrl,
+    readingTime,
   };
 
   return {
