@@ -370,7 +370,7 @@ export default function Home({ indexPage }) {
                   <Button
                     type={"outline"}
                     buttonText={item.button_text}
-                    handleClick={() => window.open(item.link, "_blank")}
+                    handleClick={() => window.open(item.button_link, "_blank")}
                   />
                 </div>
               </li>

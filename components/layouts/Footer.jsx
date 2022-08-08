@@ -28,21 +28,21 @@ const Footer = () => {
       name: "Blog",
       route: "/blog",
     },
-    {
-      name: "Team",
-      route: "#",
-    },
-    {
-      name: "Career",
-      route: "#",
-    },
+    // {
+    //   name: "Team",
+    //   route: "#",
+    // },
+    // {
+    //   name: "Career",
+    //   route: "#",
+    // },
   ];
 
   const FOOTER_NAVIGATIONLINKS = [
-    {
-      name: "Token",
-      route: "#",
-    },
+    // {
+    //   name: "Token",
+    //   route: "#",
+    // },
     {
       name: "Events",
       route: "/#events",

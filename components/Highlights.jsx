@@ -46,8 +46,13 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
                     type={"clear"}
                     color={"primary"}
                     hasIcon
-                    buttonText={item.buttonText}
-                    handleClick={() => null}
+                    buttonText={item.button_text}
+                    handleClick={() =>
+                      window.open(
+                        item.button_link,
+                        item.button_link.includes("http") ? "_blank" : "_self"
+                      )
+                    }
                   >
                     <span className="icon-right">
                       <ArrowRight width={10} height={10} color={"#7D0BFE"} />{" "}
