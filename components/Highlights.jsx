@@ -41,7 +41,7 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
                 />
                 <h4>{item.title}</h4>
                 {item.description && <p>{item.description}</p>}
-                {item.buttonText && (
+                {item.button_text && (
                   <Button
                     type={"clear"}
                     color={"primary"}
