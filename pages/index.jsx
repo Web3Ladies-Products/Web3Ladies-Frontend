@@ -88,9 +88,9 @@ export default function Home({ indexPage }) {
             className="support--heading"
             dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
           />
-          <div className="support--groups-container">
+          <div className="groups-container">
             {indexPage.supporters_images?.map((supporter) => (
-              <div className="support--group-item" key={supporter.name}>
+              <div className="group-item" key={supporter.name}>
                 <Image
                   className="support-image"
                   width={"165px"}
@@ -190,9 +190,9 @@ export default function Home({ indexPage }) {
             className="analytics--heading section-title"
             dangerouslySetInnerHTML={{ __html: indexPage.our_numbers_title }}
           />
-          <ul className="analytics--container">
+          <ul className="analytics--container groups-container">
             {indexPage.our_numbers?.map((number) => (
-              <li key={number.title}>
+              <li key={number.title} className="group-item">
                 <h3 className="section-title">{number.number}</h3>
                 <h6 className="analytics--text"> {number.title} </h6>
               </li>
