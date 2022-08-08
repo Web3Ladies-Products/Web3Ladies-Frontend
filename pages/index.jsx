@@ -106,7 +106,7 @@ export default function Home({ indexPage }) {
       {/* END OF SUPPORT SECTION */}
 
       {/* WHO WE ARE SECTION */}
-      <section className="introduction">
+      <section className="introduction" id="who-we-are">
         <div className="container">
           <h1
             className="introduction--heading section-title"
@@ -286,7 +286,7 @@ export default function Home({ indexPage }) {
       {/* END OF CALL FOR SPONSORS SECTION */}
 
       {/* MENTORSHIP SECTION */}
-      <section className="mentorship">
+      <section className="mentorship" id="mentorship">
         <div className="container">
           <h1
             className="section-title"
@@ -345,7 +345,7 @@ export default function Home({ indexPage }) {
       {/* END OF PLEDGE SECTION */}
 
       {/* EVENTS SECTION */}
-      <section className="events">
+      <section className="events" id="events">
         <div className="container">
           <h1
             className="section-title"

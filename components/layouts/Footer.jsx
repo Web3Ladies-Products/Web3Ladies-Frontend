@@ -2,6 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "/components/buttons/Button";
+import {
+  DISCORD_URL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  MEDIUM_URL,
+  TWITTER_URL,
+  YOUTUBE_URL,
+} from "../../lib/constants";
 
 const Footer = () => {
   // get year util
@@ -10,75 +18,75 @@ const Footer = () => {
   const FOOTER_NAVIGATION = [
     {
       name: "About",
-      route: "/",
+      route: "/#who-we-are",
     },
     {
       name: "Sponsor",
-      route: "/",
+      route: "/#sponsor-us",
     },
     {
       name: "Blog",
-      route: "/",
+      route: "/blog",
     },
     {
       name: "Team",
-      route: "/",
+      route: "#",
     },
     {
       name: "Career",
-      route: "/",
+      route: "#",
     },
   ];
 
   const FOOTER_NAVIGATIONLINKS = [
     {
       name: "Token",
-      route: "/",
+      route: "#",
     },
     {
       name: "Events",
-      route: "/",
+      route: "/#events",
     },
     {
       name: "Mentorship",
-      route: "/",
+      route: "/#mentorship",
     },
     {
       name: "Community",
-      route: "/",
+      route: "/#join-our-community",
     },
   ];
 
   const CONTACT_NAVIGATION_ONE = [
     {
       name: "Contact",
-      route: "/",
+      link: "mailto:hello@web3ladies.com",
     },
     {
       name: "Instagram",
-      route: "/",
+      link: INSTAGRAM_URL,
     },
     {
       name: "Twitter",
-      route: "/",
+      link: TWITTER_URL,
     },
     {
       name: "Facebook",
-      route: "/",
+      link: FACEBOOK_URL,
     },
   ];
   const CONTACT_NAVIGATION_TWO = [
     {
       name: "Discord",
-      route: "/",
+      link: DISCORD_URL,
     },
     {
       name: "Medium",
-      route: "/",
+      link: MEDIUM_URL,
     },
     {
       name: "Youtube",
-      route: "/",
+      link: YOUTUBE_URL,
     },
   ];
 
@@ -153,11 +161,13 @@ const Footer = () => {
                   {CONTACT_NAVIGATION_ONE.map((item, index) => {
                     return (
                       <li key={index}>
-                        <Link href={item.route}>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
-                            {item.name}
-                          </a>
-                        </Link>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.name}
+                        </a>
                       </li>
                     );
                   })}
@@ -166,11 +176,13 @@ const Footer = () => {
                   {CONTACT_NAVIGATION_TWO.map((item, index) => {
                     return (
                       <li key={index}>
-                        <Link href={item.route}>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
-                            {item.name}
-                          </a>
-                        </Link>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.name}
+                        </a>
                       </li>
                     );
                   })}

@@ -34,8 +34,11 @@ main {
 }
 
 // Navbar
-img {
-  width: initial;
+header {
+  img {
+    width: initial !important;
+    min-width: initial !important;
+  }
 }
 
 .nav-lg {
