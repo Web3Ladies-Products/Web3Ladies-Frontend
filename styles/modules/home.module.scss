@@ -71,6 +71,11 @@ main {
           bottom: 23px;
           right: -5px;
 
+          img {
+            width: initial !important;
+            min-width: initial !important;
+          }
+
           @include mobile {
             width: 100px !important;
           }
