@@ -232,8 +232,8 @@ export default function Home({ indexPage }) {
                   <p>{item.description}</p>
                   <Button
                     type={"outline"}
-                    buttonText={"Learn More"}
-                    handleClick={() => null}
+                    buttonText={item.button_text}
+                    handleClick={() => router.push(item.button_link)}
                   />
                 </div>
               </div>
@@ -369,8 +369,8 @@ export default function Home({ indexPage }) {
                   <p>{item.description}</p>
                   <Button
                     type={"outline"}
-                    buttonText={"Learn More"}
-                    handleClick={() => null}
+                    buttonText={item.button_text}
+                    handleClick={() => window.open(item.link, "_blank")}
                   />
                 </div>
               </li>
