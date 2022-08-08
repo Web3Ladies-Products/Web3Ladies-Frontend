@@ -71,6 +71,11 @@ main {
           bottom: 23px;
           right: -5px;
 
+          img {
+            width: initial !important;
+            min-width: initial !important;
+          }
+
           @include mobile {
             width: 100px !important;
           }
@@ -165,23 +170,6 @@ main {
       line-height: 48px;
     }
   }
-
-  &--groups-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 40px;
-
-    .support--group-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      justify-self: start;
-    }
-  }
 }
 // END OF SUPPORT SECTION
 
@@ -236,6 +224,10 @@ main {
       width: 465px;
     }
 
+    @include mobile {
+      text-align: center;
+    }
+
     h3 {
       color: #ffffff;
     }
@@ -247,6 +239,11 @@ main {
 
     &-cta {
       margin-top: 30px;
+
+      @include mobile {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 
@@ -274,13 +271,10 @@ main {
   &--container {
     background: #0f0f0f;
     border-radius: 16px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    text-align: center;
 
     @include desktop {
       padding: 80px;
+      justify-content: space-evenly;
     }
 
     @include mobile {
@@ -301,6 +295,7 @@ main {
       display: flex;
       flex-direction: column;
       font-size: 25px;
+      margin-right: 20px;
     }
   }
 

@@ -88,9 +88,9 @@ export default function Home({ indexPage }) {
             className="support--heading"
             dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
           />
-          <div className="support--groups-container">
+          <div className="groups-container">
             {indexPage.supporters_images?.map((supporter) => (
-              <div className="support--group-item" key={supporter.name}>
+              <div className="group-item" key={supporter.name}>
                 <Image
                   className="support-image"
                   width={"165px"}
@@ -106,7 +106,7 @@ export default function Home({ indexPage }) {
       {/* END OF SUPPORT SECTION */}
 
       {/* WHO WE ARE SECTION */}
-      <section className="introduction">
+      <section className="introduction" id="who-we-are">
         <div className="container">
           <h1
             className="introduction--heading section-title"
@@ -190,9 +190,9 @@ export default function Home({ indexPage }) {
             className="analytics--heading section-title"
             dangerouslySetInnerHTML={{ __html: indexPage.our_numbers_title }}
           />
-          <ul className="analytics--container">
+          <ul className="analytics--container groups-container">
             {indexPage.our_numbers?.map((number) => (
-              <li key={number.title}>
+              <li key={number.title} className="group-item">
                 <h3 className="section-title">{number.number}</h3>
                 <h6 className="analytics--text"> {number.title} </h6>
               </li>
@@ -232,8 +232,8 @@ export default function Home({ indexPage }) {
                   <p>{item.description}</p>
                   <Button
                     type={"outline"}
-                    buttonText={"Learn More"}
-                    handleClick={() => null}
+                    buttonText={item.button_text}
+                    handleClick={() => router.push(item.button_link)}
                   />
                 </div>
               </div>
@@ -286,7 +286,7 @@ export default function Home({ indexPage }) {
       {/* END OF CALL FOR SPONSORS SECTION */}
 
       {/* MENTORSHIP SECTION */}
-      <section className="mentorship">
+      <section className="mentorship" id="mentorship">
         <div className="container">
           <h1
             className="section-title"
@@ -345,7 +345,7 @@ export default function Home({ indexPage }) {
       {/* END OF PLEDGE SECTION */}
 
       {/* EVENTS SECTION */}
-      <section className="events">
+      <section className="events" id="events">
         <div className="container">
           <h1
             className="section-title"
@@ -369,8 +369,8 @@ export default function Home({ indexPage }) {
                   <p>{item.description}</p>
                   <Button
                     type={"outline"}
-                    buttonText={"Learn More"}
-                    handleClick={() => null}
+                    buttonText={item.button_text}
+                    handleClick={() => window.open(item.button_link, "_blank")}
                   />
                 </div>
               </li>
