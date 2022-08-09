@@ -3,6 +3,10 @@ const path = require("path");
 
 const nextConfig = {
   reactStrictMode: true,
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },

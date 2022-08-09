@@ -82,15 +82,19 @@ export default function Home({ indexPage }) {
       {/* END OF HERO SECTION */}
 
       {/* SUPPORT SECTION */}
-      <section className="support">
-        <div className="container">
+      <section className="support" style={{ paddingTop: "0" }}>
+        <div className="container" style={{ paddingTop: "0" }}>
           <h1
             className="support--heading"
             dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
           />
           <div className="groups-container">
             {indexPage.supporters_images?.map((supporter) => (
-              <div className="group-item" key={supporter.name}>
+              <div
+                className="group-item pointer-cursor"
+                key={supporter.name}
+                onClick={() => window.open(supporter.website_url, "_blank")}
+              >
                 <Image
                   className="support-image"
                   width={"165px"}
@@ -107,7 +111,7 @@ export default function Home({ indexPage }) {
 
       {/* WHO WE ARE SECTION */}
       <section className="introduction" id="who-we-are">
-        <div className="container">
+        <div className="container" style={{ paddingTop: "0" }}>
           <h1
             className="introduction--heading section-title"
             dangerouslySetInnerHTML={{ __html: indexPage.who_we_are_title }}
@@ -315,7 +319,7 @@ export default function Home({ indexPage }) {
       {/* END OF MENTORSHIP SECTION */}
 
       {/* PLEDGE SECTION */}
-      <section className="pledge">
+      {/* <section className="pledge">
         <div className="container card card__black">
           <div className="pledge--text">
             <h1
@@ -341,7 +345,7 @@ export default function Home({ indexPage }) {
             />
           </div>
         </div>
-      </section>
+      </section> */}
       {/* END OF PLEDGE SECTION */}
 
       {/* EVENTS SECTION */}
@@ -424,6 +428,7 @@ export default function Home({ indexPage }) {
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
+        hasMaxWidth={true}
       />
       {/* END OF TESTIMONIALS SECTION */}
 

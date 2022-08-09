@@ -96,6 +96,15 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-content_form">
             <div className="footer-card">
+              <div className="logo">
+                <Image
+                  src="/assets/images/web3ladies-white.png"
+                  width={"100px"}
+                  height={"100px"}
+                  objectFit="contain"
+                  alt="web3ladies-logo"
+                />
+              </div>
               <p className="card-text">
                 Get the latest updates about Web3Ladies activities and events.
               </p>

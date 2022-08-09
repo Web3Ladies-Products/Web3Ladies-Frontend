@@ -12,6 +12,10 @@ button,
   white-space: nowrap;
   font-family: "Space Grotesk";
 
+  @include mobile {
+    padding: 12px 24px;
+  }
+
   &.primary {
     --btn-color: var(--primary-color);
     background-color: var(--primary-color);
