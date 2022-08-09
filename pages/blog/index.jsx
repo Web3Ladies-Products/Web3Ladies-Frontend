@@ -68,8 +68,8 @@ const Blog = ({ blogData }) => {
         title={`${siteMetadata.companyName} | Blog`}
         description={siteMetadata.description}
         canonicalUrl={`${siteMetadata.siteUrl}`}
-        ogImageUrl={`${siteMetadata.siteUrl}/logo.png`}
-        ogTwitterImage={`${siteMetadata.siteUrl}/logo.png`}
+        ogImageUrl={`${siteMetadata.siteUrl}/logo.jpg`}
+        ogTwitterImage={`${siteMetadata.siteUrl}/logo.jpg`}
         ogType={"website"}
       ></HeadSeo>
 

@@ -5,6 +5,7 @@ const Testimonials = ({
   testimonial_title,
   testimonial_description,
   testimonial_items,
+  hasMaxWidth,
 }) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
     React.useState("shoutouts");
@@ -26,7 +27,10 @@ const Testimonials = ({
 
   return (
     <section className="testimonials">
-      <div className="container">
+      <div
+        className="container"
+        style={{ maxWidth: hasMaxWidth ? "" : "none" }}
+      >
         <div className="testimonials--heading">
           <h1 className="section-title">Don’t take our word for it</h1>
           <p className="text-muted">

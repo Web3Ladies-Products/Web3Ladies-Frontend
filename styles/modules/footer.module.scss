@@ -15,6 +15,10 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     align-items: flex-start;
 
+    @include desktop {
+      margin-bottom: 70px;
+    }
+
     @include mobile {
       display: block;
     }
@@ -26,6 +30,10 @@ footer {
         background-color: #111111;
         padding: 32px;
         width: 100%;
+
+        @include desktop {
+          width: 470px;
+        }
 
         .card-text {
           color: #ababab;

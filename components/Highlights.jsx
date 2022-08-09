@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowRight from "./icons/ArrowRight";
 
 const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
+  const router = useRouter();
   return (
     <section className="highlights">
       <div className="container">
@@ -41,17 +43,16 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
                 />
                 <h4>{item.title}</h4>
                 {item.description && <p>{item.description}</p>}
-                {item.buttonText && (
+                {item.button_text && (
                   <Button
                     type={"clear"}
                     color={"primary"}
                     hasIcon
                     buttonText={item.button_text}
                     handleClick={() =>
-                      window.open(
-                        item.button_link,
-                        item.button_link.includes("http") ? "_blank" : "_self"
-                      )
+                      item.button_link.includes("http")
+                        ? window.open(item.button_link, "_blank")
+                        : router.push(item.button_link)
                     }
                   >
                     <span className="icon-right">
