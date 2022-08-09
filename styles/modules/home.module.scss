@@ -681,6 +681,10 @@ main {
         background: var(--color-background);
         padding: 90px 0;
 
+        @include mobile {
+          padding: 30px 0;
+        }
+
         > span {
           border-radius: 8px !important;
         }
