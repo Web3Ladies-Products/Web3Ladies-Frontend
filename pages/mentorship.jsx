@@ -13,6 +13,12 @@ import {
   WorkAssistance,
   Tracks,
   Mentors,
+  WhyLearn,
+  FeaturedMentees,
+  JoinAsMentor,
+  MentorshipFAQ,
+  Feedback,
+  CTACard,
 } from "../components/mentorship";
 // import Bootcamps from "./bootcamps";
 
@@ -258,6 +264,12 @@ const mentorship = () => {
         <WorkAssistance />
         <Tracks />
         <Mentors />
+        <WhyLearn />
+        <FeaturedMentees />
+        <JoinAsMentor />
+        <MentorshipFAQ />
+        <Feedback />
+        <CTACard />
       </main>
 
       <Footer />
