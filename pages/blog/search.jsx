@@ -8,12 +8,12 @@ const Search = () => {
 
 export default Search;
 
-export async function getStaticProps(ctx) {
-  const keyword = ctx.query.keyword;
-  const blogData = await strapiService.searchBlogPosts(title);
-  return {
-    props: {
-      blogData,
-    },
-  };
-}
+// export async function getStaticProps(ctx) {
+//   const keyword = ctx.query.keyword;
+//   const blogData = await strapiService.searchBlogPosts(title);
+//   return {
+//     props: {
+//       blogData,
+//     },
+//   };
+// }
