@@ -12,8 +12,12 @@ footer {
     display: grid;
     grid-gap: 40px;
     gap: 40px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     align-items: flex-start;
+
+    @include desktop {
+      margin-bottom: 70px;
+    }
 
     @include mobile {
       display: block;
@@ -25,10 +29,10 @@ footer {
         border-radius: 12px;
         background-color: #111111;
         padding: 32px;
-        width: 463px;
+        width: 100%;
 
-        @include mobile {
-          width: 100%;
+        @include desktop {
+          width: 470px;
         }
 
         .card-text {
@@ -154,6 +158,9 @@ footer {
         right: 0;
         > span {
           transform: rotate(325deg);
+          position: absolute !important;
+          right: 13px !important;
+          width: 70px !important;
         }
       }
     }
@@ -196,5 +203,11 @@ footer {
 
   .container {
     padding-top: 0;
+
+    @include mobile {
+      .copyright-text {
+        font-size: 14px;
+      }
+    }
   }
 }

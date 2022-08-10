@@ -11,87 +11,95 @@ const Navbar = () => {
   const router = useRouter();
   const [showMobileNav, setShowMobileNav] = React.useState(false);
   const [navigationItems, setNavigationItems] = React.useState([
+    // {
+    //   name: "About Us",
+    //   route: "/",
+    //   type: "dropdown",
+    //   showDropdown: false,
+    //   isActive: router.pathname === "/about-us",
+    //   dropdown: [
+    //     {
+    //       name: "About Us",
+    //       link: "/about-us",
+    //       isActive: router.pathname === "/about-us",
+    //     },
+    //     {
+    //       name: "Community",
+    //       link: "/community",
+    //       isActive: router.pathname === "/community",
+    //     },
+    //     {
+    //       name: "Events",
+    //       link: "/events",
+    //       isActive: router.pathname === "/events",
+    //     },
+    //     {
+    //       name: "Become a Contributor",
+    //       link: "/contributors",
+    //       isActive: router.pathname === "/contributors",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Mentorship",
+    //   route: "/",
+    //   type: "dropdown",
+    //   showDropdown: false,
+    //   isActive: router.pathname === "/mentorship",
+    //   dropdown: [
+    //     {
+    //       name: "Register for our cohort",
+    //       link: "/cohorts/register",
+    //       isActive: router.pathname === "/cohorts/register",
+    //     },
+    //     {
+    //       name: "Join our community",
+    //       link: "/community",
+    //       isActive: router.pathname === "/community",
+    //     },
+    //     {
+    //       name: "Become a Mentor",
+    //       link: "/mentors",
+    //       isActive: router.pathname === "/mentors",
+    //     },
+    //     {
+    //       name: "Become a Contributor",
+    //       link: "/contributors",
+    //       isActive: router.pathname === "/contributors",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Sponsorship",
+    //   route: "/",
+    //   type: "link",
+    //   isActive: router.pathname === "/sponsorship",
+    // },
+    // {
+    //   name: "Hire Talent",
+    //   route: "/",
+    //   type: "link",
+    //   isActive: router.pathname === "/hire-talent",
+    // },
+    // {
+    //   name: "Contact Us",
+    //   route: "/",
+    //   type: "link",
+    //   isActive: router.pathname === "/contact-us",
+    // },
     {
-      name: "About Us",
-      route: "/",
-      type: "dropdown",
-      showDropdown: false,
-      isActive: router.pathname === "/about-us",
-      dropdown: [
-        {
-          name: "About Us",
-          link: "/about-us",
-          isActive: router.pathname === "/about-us",
-        },
-        {
-          name: "Community",
-          link: "/community",
-          isActive: router.pathname === "/community",
-        },
-        {
-          name: "Events",
-          link: "/events",
-          isActive: router.pathname === "/events",
-        },
-        {
-          name: "Become a Contributor",
-          link: "/contributors",
-          isActive: router.pathname === "/contributors",
-        },
-      ],
-    },
-    {
-      name: "Mentorship",
-      route: "/",
-      type: "dropdown",
-      showDropdown: false,
-      isActive: router.pathname === "/mentorship",
-      dropdown: [
-        {
-          name: "Register for our cohort",
-          link: "/cohorts/register",
-          isActive: router.pathname === "/cohorts/register",
-        },
-        {
-          name: "Join our community",
-          link: "/community",
-          isActive: router.pathname === "/community",
-        },
-        {
-          name: "Become a Mentor",
-          link: "/mentors",
-          isActive: router.pathname === "/mentors",
-        },
-        {
-          name: "Become a Contributor",
-          link: "/contributors",
-          isActive: router.pathname === "/contributors",
-        },
-      ],
-    },
-    {
-      name: "Sponsorship",
+      id: 1,
+      name: "Home",
       route: "/",
       type: "link",
-      isActive: router.pathname === "/sponsorship",
+      isActive: router.pathname === "/",
     },
     {
-      name: "Hire Talent",
-      route: "/",
-      type: "link",
-      isActive: router.pathname === "/hire-talent",
-    },
-    {
-      name: "Contact Us",
-      route: "/",
-      type: "link",
-      isActive: router.pathname === "/contact-us",
-    },
-    {
+      id: 2,
       name: "Blog",
-      route: "/",
+      route: "/blog",
       type: "link",
-      isActive: router.pathname === "/blog",
+      isActive: router.pathname.includes("/blog"),
     },
   ]);
 
@@ -125,9 +133,9 @@ const Navbar = () => {
 
           <nav className="nav">
             <ul className="header-list">
-              {navigationItems.map((item, index) => {
+              {navigationItems.map((item) => {
                 return (
-                  <li key={index} className={item.isActive ? "active" : ""}>
+                  <li key={item.id} className={item.isActive ? "active" : ""}>
                     {item.type === "link" ? (
                       <span className="header-list-item">
                         <Link href={item.route}>
@@ -168,20 +176,20 @@ const Navbar = () => {
                 );
               })}
             </ul>
-            <div className="nav-cta">
+            {/* <div className="nav-cta">
               <a href="/" target="_blank" className="button outline">
                 Join Us Today
                 <ChevronDown />
               </a>
-            </div>
+            </div> */}
           </nav>
         </div>
-        <div className="nav-cta">
+        {/* <div className="nav-cta">
           <a href="/" target="_blank" className="button outline">
             Join Us Today
             <ChevronDown style={{ marginLeft: "4px" }} />
           </a>
-        </div>
+        </div> */}
 
         <div id="header" className="nav-container nav-sm">
           <Link href="/">
@@ -263,11 +271,11 @@ const Navbar = () => {
                   );
                 })}
               </ul>
-              <div className="nav-cta">
+              {/* <div className="nav-cta">
                 <a href="/" target="_blank" className="button outline">
                   Join Us Today
                 </a>
-              </div>
+              </div> */}
             </nav>
           )}
         </div>

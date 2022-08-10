@@ -2,6 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "/components/buttons/Button";
+import {
+  DISCORD_URL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  MEDIUM_URL,
+  TWITTER_URL,
+  YOUTUBE_URL,
+} from "../../lib/constants";
 
 const Footer = () => {
   // get year util
@@ -10,61 +18,75 @@ const Footer = () => {
   const FOOTER_NAVIGATION = [
     {
       name: "About",
-      route: "/",
+      route: "/#who-we-are",
     },
     {
       name: "Sponsor",
-      route: "/",
+      route: "/#sponsor-us",
     },
     {
       name: "Blog",
-      route: "/",
+      route: "/blog",
     },
-    {
-      name: "Team",
-      route: "/",
-    },
-    {
-      name: "Career",
-      route: "/",
-    },
+    // {
+    //   name: "Team",
+    //   route: "#",
+    // },
+    // {
+    //   name: "Career",
+    //   route: "#",
+    // },
   ];
 
   const FOOTER_NAVIGATIONLINKS = [
-    {
-      name: "Token",
-      route: "/",
-    },
+    // {
+    //   name: "Token",
+    //   route: "#",
+    // },
     {
       name: "Events",
-      route: "/",
+      route: "/#events",
     },
     {
       name: "Mentorship",
-      route: "/",
+      route: "/#mentorship",
     },
     {
       name: "Community",
-      route: "/",
+      route: "/#join-our-community",
     },
   ];
 
-  const CONTACT_NAVIGATION = [
+  const CONTACT_NAVIGATION_ONE = [
     {
       name: "Contact",
-      route: "/",
+      link: "mailto:hello@web3ladies.com",
     },
     {
       name: "Instagram",
-      route: "/",
+      link: INSTAGRAM_URL,
     },
     {
       name: "Twitter",
-      route: "/",
+      link: TWITTER_URL,
     },
     {
       name: "Facebook",
-      route: "/",
+      link: FACEBOOK_URL,
+    },
+  ];
+  const CONTACT_NAVIGATION_TWO = [
+    {
+      name: "Discord",
+      link: DISCORD_URL,
+    },
+    {
+      name: "Medium",
+      link: MEDIUM_URL,
+    },
+    {
+      name: "Youtube",
+      link: YOUTUBE_URL,
     },
   ];
 
@@ -74,19 +96,18 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-content_form">
             <div className="footer-card">
-              <Image
-                src={"/assets/images/Web3Ladies-white.png"}
-                alt="web3ladies-logo"
-                objectFit="contain"
-                width={"123px"}
-                height={"52.3px"}
-                className="logo"
-              />
-
+              <div className="logo">
+                <Image
+                  src="/assets/images/web3ladies-white.png"
+                  width={"100px"}
+                  height={"100px"}
+                  objectFit="contain"
+                  alt="web3ladies-logo"
+                />
+              </div>
               <p className="card-text">
                 Get the latest updates about Web3Ladies activities and events.
               </p>
-
               <form action="">
                 <div className="update-form">
                   <div className="input">
@@ -144,19 +165,37 @@ const Footer = () => {
 
             <div className="contact">
               <h4 className="contact-links">reach out to us</h4>
-
-              <ul className="footer-list contacts">
-                {CONTACT_NAVIGATION.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <Link href={item.route}>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+              <ul className="footer-list quick-links">
+                <div>
+                  {CONTACT_NAVIGATION_ONE.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           {item.name}
                         </a>
-                      </Link>
-                    </li>
-                  );
-                })}
+                      </li>
+                    );
+                  })}
+                </div>
+                <div>
+                  {CONTACT_NAVIGATION_TWO.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </div>
               </ul>
             </div>
           </div>
@@ -174,13 +213,13 @@ const Footer = () => {
           </div>
 
           <div className="vector">
-            <Image
+            {/* <Image
               src={"/assets/images/web3ladies-vector.png"}
               alt="Web3ladies-vector"
               width={"100%"}
               height={"100%"}
               objectFit="contain"
-            />
+            /> */}
           </div>
 
           <div className="vector">

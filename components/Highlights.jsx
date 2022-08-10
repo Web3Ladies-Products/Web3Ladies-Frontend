@@ -1,24 +1,32 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowRight from "./icons/ArrowRight";
 
-const Highlights = ({ title, HIGHLIGHTS_ITEMS }) => {
+const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
+  const router = useRouter();
   return (
     <section className="highlights">
       <div className="container">
-        <div className="highlights--heading">
-          <h1>{title}</h1>
-          <Button
-            type={"outline"}
-            buttonText={"View More"}
-            handleClick={() => null}
-          />
-        </div>
+        {title && (
+          <div className="highlights--heading">
+            <h1 className="section-title">{title}</h1>
+            {/* <Button
+              type={"outline"}
+              buttonText={"View More"}
+              handleClick={() => null}
+            /> */}
+          </div>
+        )}
         <ul className="highlights--container">
-          {HIGHLIGHTS_ITEMS.map((item) => (
-            <li className="highlight--container-item" key={item.title}>
+          {HIGHLIGHTS_ITEMS?.map((item, index) => (
+            <li
+              key={index}
+              className="highlight--container-item"
+              onClick={() => handleClick(item.slug)}
+            >
               <div className="highlights--container-item--image">
                 <Image
                   src="/assets/images/highlights-image.png"
@@ -30,21 +38,28 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS }) => {
               </div>
               <div className="highlights--container-item--text">
                 <Badge
-                  badgeText={item.type}
-                  badgeBackground={item.background}
+                  badgeText={item.type || item.category}
+                  badgeBackground={item.background || "#E7D2FF"}
                 />
                 <h4>{item.title}</h4>
-                <Button
-                  type={"clear"}
-                  color={"primary"}
-                  hasIcon
-                  buttonText={item.buttonText}
-                  handleClick={() => null}
-                >
-                  <span className="icon-right">
-                    <ArrowRight width={10} height={10} color={"#7D0BFE"} />{" "}
-                  </span>
-                </Button>
+                {item.description && <p>{item.description}</p>}
+                {item.button_text && (
+                  <Button
+                    type={"clear"}
+                    color={"primary"}
+                    hasIcon
+                    buttonText={item.button_text}
+                    handleClick={() =>
+                      item.button_link.includes("http")
+                        ? window.open(item.button_link, "_blank")
+                        : router.push(item.button_link)
+                    }
+                  >
+                    <span className="icon-right">
+                      <ArrowRight width={10} height={10} color={"#7D0BFE"} />{" "}
+                    </span>
+                  </Button>
+                )}
               </div>
             </li>
           ))}

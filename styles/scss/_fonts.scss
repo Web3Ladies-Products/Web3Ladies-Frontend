@@ -17,7 +17,6 @@
   src: local("Space Grotesk Medium"), local("SpaceGrotesk-Medium"),
     url("/assets/fonts/SpaceGrotesk-Medium.eot?#iefix")
       format("embedded-opentype"),
-    url("/assets/fonts/SpaceGrotesk-Medium.woff") format("woff"),
     url("/assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
@@ -30,7 +29,6 @@
   src: local("Space Grotesk Regular"), local("SpaceGrotesk-Regular"),
     url("/assets/fonts/SpaceGrotesk-Regular.eot?#iefix")
       format("embedded-opentype"),
-    url("/assets/fonts/SpaceGrotesk-Regular.woff") format("woff"),
     url("/assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -43,7 +41,6 @@
   src: local("Space Grotesk Regular"), local("SpaceGrotesk-Regular"),
     url("/assets/fonts/SpaceGrotesk-Regular.eot?#iefix")
       format("embedded-opentype"),
-    url("/assets/fonts/SpaceGrotesk-Regular.woff") format("woff"),
     url("/assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
@@ -83,7 +80,7 @@
     url("/assets/fonts/SpaceGrotesk-Bold.woff") format("woff"),
     url("/assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
   font-weight: 800;
-  font-style: bolder;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -96,6 +93,70 @@
     url("/assets/fonts/SpaceGrotesk-Bold.woff") format("woff"),
     url("/assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
   font-weight: 900;
-  font-style: bolder;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Light.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Light.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Bold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/Aeonik-Black.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
   font-display: swap;
 }
