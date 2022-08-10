@@ -10,6 +10,8 @@ import Article from "../../components/blog/Article";
 import Banner from "../../components/blog/Banner";
 import HeadSeo from "../../components/HeadSeo";
 import siteMetadata from "../../lib/data/siteMetadata";
+import SearchResults from "../../components/blog/SearchResults";
+import NoData from "../../components/NoData";
 
 const Blog = ({ blogData }) => {
   const router = useRouter();
@@ -17,6 +19,8 @@ const Blog = ({ blogData }) => {
   const [activeTabContent, setActiveTabContent] = React.useState([]);
   const [posts, setPosts] = React.useState([]);
   const [paginationData, setPaginationData] = React.useState(null);
+  const [searchResults, setSearchResults] = React.useState(null);
+  const [isSearch, setIsSearch] = React.useState(false);
 
   const [featuredPost, setFeaturedPost] = React.useState(null);
   function onChange(key) {
@@ -31,7 +35,8 @@ const Blog = ({ blogData }) => {
     await strapiService
       .searchBlogPosts(title)
       .then((res) => {
-        setPosts(res.data);
+        setIsSearch(true);
+        setSearchResults(res.data);
         setPaginationData(res.meta?.pagination);
       })
       .catch((error) => {
@@ -42,11 +47,27 @@ const Blog = ({ blogData }) => {
   React.useEffect(() => {
     if (!tab || tab === "all") {
       setActiveTabContent(posts);
+      const featuredPost = posts?.filter(
+        (item) => item["attributes"].isFeatured === true
+      );
+      if (featuredPost) {
+        setFeaturedPost(featuredPost[0]);
+      }
     } else {
       const content = posts.filter(
         (post) => post["attributes"].category === tab
       );
       setActiveTabContent(content);
+      const featuredPost = posts?.filter(
+        (item) =>
+          item["attributes"].isFeatured === true &&
+          item["attributes"].category === tab
+      );
+      if (featuredPost) {
+        setFeaturedPost(featuredPost[0]);
+      } else {
+        setFeaturedPost(null);
+      }
     }
   }, [tab, posts]);
 
@@ -54,12 +75,6 @@ const Blog = ({ blogData }) => {
     window.scrollTo(0, 0);
     setPosts(blogData.data);
     setPaginationData(blogData.meta?.pagination);
-    const featuredPost = blogData.data?.filter(
-      (item) => item["attributes"].isFeatured === true
-    );
-    if (featuredPost) {
-      setFeaturedPost(featuredPost[0]);
-    }
   }, [blogData]);
 
   return (
@@ -79,11 +94,33 @@ const Blog = ({ blogData }) => {
         style={{ paddingTop: "0", minHeight: "calc(100vh - 530px)" }}
       >
         <div>
-          <Tabs onChange={onChange} handleSearch={handleSearch} />
-          {tab && tab !== "all" && <Banner category={tab} />}
-          <Featured featuredPost={featuredPost} />
-          <Article HIGHLIGHTS_ITEMS={activeTabContent} />
-          {activeTabContent && (
+          {!isSearch && (
+            <Tabs onChange={onChange} handleSearch={handleSearch} />
+          )}
+          {tab && tab !== "all" && <Banner type={"category"} category={tab} />}
+          {isSearch && searchResults ? (
+            <>
+              <SearchResults
+                results={searchResults}
+                handleSearch={() => {
+                  setIsSearch(false);
+                  setSearchResults(null);
+                }}
+              />
+            </>
+          ) : activeTabContent.length > 0 ? (
+            <Article
+              HIGHLIGHTS_ITEMS={activeTabContent}
+              featuredPost={featuredPost}
+            />
+          ) : (
+            <NoData
+              imageSrc={"/assets/images/no-blog.svg"}
+              title={"Nothing to read now"}
+              description={"Please check back later"}
+            />
+          )}
+          {activeTabContent.length > 0 && (
             <Pagination
               paginationData={paginationData}
               updateData={updateData}
