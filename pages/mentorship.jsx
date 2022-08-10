@@ -268,7 +268,6 @@ const mentorship = () => {
         <FeaturedMentees />
         <JoinAsMentor />
         <MentorshipFAQ />
-        <Feedback />
         <CTACard />
       </main>
 
