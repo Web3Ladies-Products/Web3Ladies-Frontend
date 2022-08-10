@@ -1,81 +1,88 @@
-import React from "react";
-import { useRouter } from "next/router";
-import Featured from "../../components/blog/Featured";
-import Tabs from "../../components/blog/Tabs";
-import Footer from "../../components/layouts/Footer";
-import Navbar from "../../components/layouts/Navbar";
-import Pagination from "../../components/Pagination";
-import { strapiService } from "../../services";
-import Article from "../../components/blog/Article";
-import Banner from "../../components/blog/Banner";
-import HeadSeo from "../../components/HeadSeo";
-import siteMetadata from "../../lib/data/siteMetadata";
-import SearchResults from "../../components/blog/SearchResults";
-import NoData from "../../components/NoData";
+import React from 'react'
+import { useRouter } from 'next/router'
+import Featured from '../../components/blog/Featured'
+import Tabs from '../../components/blog/Tabs'
+import Footer from '../../components/layouts/Footer'
+import Navbar from '../../components/layouts/Navbar'
+import Pagination from '../../components/Pagination'
+import { strapiService } from '../../services'
+import Article from '../../components/blog/Article'
+import Banner from '../../components/blog/Banner'
+import HeadSeo from '../../components/HeadSeo'
+import siteMetadata from '../../lib/data/siteMetadata'
+import SearchResults from '../../components/blog/SearchResults'
+import NoData from '../../components/NoData'
 
 const Blog = ({ blogData }) => {
-  const router = useRouter();
-  const tab = router.query.tab || "all";
-  const [activeTabContent, setActiveTabContent] = React.useState([]);
-  const [posts, setPosts] = React.useState([]);
-  const [paginationData, setPaginationData] = React.useState(null);
-  const [searchResults, setSearchResults] = React.useState(null);
-  const [isSearch, setIsSearch] = React.useState(false);
+  const router = useRouter()
+  const tab = router.query.tab || 'all'
+  const [activeTabContent, setActiveTabContent] = React.useState([])
+  const [posts, setPosts] = React.useState([])
+  const [paginationData, setPaginationData] = React.useState(null)
+  const [searchResults, setSearchResults] = React.useState(null)
+  const [isSearch, setIsSearch] = React.useState(false)
 
-  const [featuredPost, setFeaturedPost] = React.useState(null);
+  const [featuredPost, setFeaturedPost] = React.useState(null)
   function onChange(key) {
-    router.push(`/blog?tab=${key}`);
+    router.push(`/blog?tab=${key}`)
   }
 
   const updateData = (data) => {
-    getBlogPosts(data, 10);
-  };
+    getBlogPosts(data, 10)
+  }
 
   const handleSearch = async (title) => {
     await strapiService
       .searchBlogPosts(title)
       .then((res) => {
-        setIsSearch(true);
-        setSearchResults(res.data);
-        setPaginationData(res.meta?.pagination);
+        setIsSearch(true)
+        setSearchResults(res.data)
+        setPaginationData(res.meta?.pagination)
       })
       .catch((error) => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+      })
+
+    // router.push(`/blog?search=${title}`)
+    router.push({
+      pathname: '/blog/',
+      query: { search: title },
+    })
+    console.log(title)
+  }
 
   React.useEffect(() => {
-    if (!tab || tab === "all") {
-      setActiveTabContent(posts);
+    if (!tab || tab === 'all') {
+      setActiveTabContent(posts)
       const featuredPost = posts?.filter(
-        (item) => item["attributes"].isFeatured === true
-      );
+        (item) => item['attributes'].isFeatured === true,
+      )
       if (featuredPost) {
-        setFeaturedPost(featuredPost[0]);
+        setFeaturedPost(featuredPost[0])
       }
     } else {
       const content = posts.filter(
-        (post) => post["attributes"].category === tab
-      );
-      setActiveTabContent(content);
+        (post) => post['attributes'].category === tab,
+      )
+      setActiveTabContent(content)
       const featuredPost = posts?.filter(
         (item) =>
-          item["attributes"].isFeatured === true &&
-          item["attributes"].category === tab
-      );
+          item['attributes'].isFeatured === true &&
+          item['attributes'].category === tab,
+      )
       if (featuredPost) {
-        setFeaturedPost(featuredPost[0]);
+        setFeaturedPost(featuredPost[0])
       } else {
-        setFeaturedPost(null);
+        setFeaturedPost(null)
       }
     }
-  }, [tab, posts]);
+  }, [tab, posts])
 
   React.useEffect(() => {
-    window.scrollTo(0, 0);
-    setPosts(blogData.data);
-    setPaginationData(blogData.meta?.pagination);
-  }, [blogData]);
+    window.scrollTo(0, 0)
+    setPosts(blogData.data)
+    setPaginationData(blogData.meta?.pagination)
+  }, [blogData])
 
   return (
     <>
@@ -85,26 +92,26 @@ const Blog = ({ blogData }) => {
         canonicalUrl={`${siteMetadata.siteUrl}`}
         ogImageUrl={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
         ogTwitterImage={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogType={"website"}
+        ogType={'website'}
       ></HeadSeo>
 
       <Navbar />
       <section
         className="blog"
-        style={{ paddingTop: "0", minHeight: "calc(100vh - 530px)" }}
+        style={{ paddingTop: '0', minHeight: 'calc(100vh - 530px)' }}
       >
         <div>
           {!isSearch && (
             <Tabs onChange={onChange} handleSearch={handleSearch} />
           )}
-          {tab && tab !== "all" && <Banner type={"category"} category={tab} />}
+          {tab && tab !== 'all' && <Banner type={'category'} category={tab} />}
           {isSearch && searchResults ? (
             <>
               <SearchResults
                 results={searchResults}
                 handleSearch={() => {
-                  setIsSearch(false);
-                  setSearchResults(null);
+                  setIsSearch(false)
+                  setSearchResults(null)
                 }}
               />
             </>
@@ -115,9 +122,9 @@ const Blog = ({ blogData }) => {
             />
           ) : (
             <NoData
-              imageSrc={"/assets/images/no-blog.svg"}
-              title={"Nothing to read now"}
-              description={"Please check back later"}
+              imageSrc={'/assets/images/no-blog.svg'}
+              title={'Nothing to read now'}
+              description={'Please check back later'}
             />
           )}
           {activeTabContent.length > 0 && (
@@ -130,16 +137,37 @@ const Blog = ({ blogData }) => {
       </section>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog
 
-export async function getStaticProps() {
-  const blogData = await strapiService.getBlogPosts(1, 20);
+// export async function getStaticProps() {
+//   const blogData = await strapiService.getBlogPosts(1, 20)
+//   return {
+//     props: {
+//       blogData,
+//     },
+//   }
+// }
+
+export async function getServerSideProps(ctx) {
+  const { query } = ctx
+  console.log(ctx)
+  const { search } = query
+  if (search) {
+    const searchResults = await strapiService.searchBlogPosts(search)
+    console.log(search)
+    return {
+      props: {
+        blogData: searchResults,
+      },
+    }
+  }
+  const blogData = await strapiService.getBlogPosts(1, 20)
   return {
     props: {
       blogData,
     },
-  };
+  }
 }

@@ -1,29 +1,30 @@
-import Image from "next/image";
-import React from "react";
-import Button from "../buttons/Button";
-import Close from "../icons/Close";
+import Image from 'next/image'
+import React from 'react'
+import Button from '../buttons/Button'
+import Close from '../icons/Close'
 
 const SearchField = ({ handleChange, isSearch }) => {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('')
   const handleEntry = (e) => {
-    e.preventDefault();
-    handleChange(search);
-  };
+    e.preventDefault()
+    handleChange(search)
+  }
 
   const handleChangeSearch = (e) => {
-    setSearch(e.target.value);
-  };
+    console.log(search)
+    setSearch(e.target.value)
+  }
   return (
     <form onSubmit={handleEntry}>
-      <div className="search-input input" style={{ marginBottom: "0" }}>
+      <div className="search-input input" style={{ marginBottom: '0' }}>
         <input
           type="text"
           className="form-control"
           placeholder="Search"
-          style={{ borderRadius: "42px" }}
+          style={{ borderRadius: '42px' }}
           onChange={handleChangeSearch}
         />
-        <Button className="clear icon" onClick={() => setSearch("")}>
+        <Button className="clear icon" onClick={() => setSearch('')}>
           {!isSearch ? (
             <Image
               src="/assets/images/search.svg"
@@ -43,7 +44,7 @@ const SearchField = ({ handleChange, isSearch }) => {
         </Button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default SearchField;
+export default SearchField
