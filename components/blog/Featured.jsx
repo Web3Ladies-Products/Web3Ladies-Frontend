@@ -13,7 +13,10 @@ const Featured = ({ featuredPost }) => {
         <h1 className="section-title bold">Featured</h1>
         <div className="content">
           <div className="hero_content bootcamp">
-            <Badge badgeText={"press"} badgeBackground={"#E7D2FF"} />
+            <Badge
+              badgeText={featuredPost?.attributes?.category}
+              badgeBackground={"#E7D2FF"}
+            />
             <h2 className="section-title">{featuredPost?.attributes?.title}</h2>
 
             <div className="button-container">

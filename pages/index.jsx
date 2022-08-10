@@ -11,6 +11,11 @@ import { useRouter } from "next/router";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar />

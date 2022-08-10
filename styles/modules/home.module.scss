@@ -377,6 +377,10 @@ main {
         .impact-item--image {
           display: flex;
           justify-content: flex-end;
+
+          img {
+            padding-left: 20px !important;
+          }
         }
 
         .text {
@@ -415,6 +419,10 @@ main {
           // @media (min-width: 800px) {
           // 	margin-left: 89px;
           // }
+
+          img {
+            padding-right: 20px !important;
+          }
         }
       }
     }
