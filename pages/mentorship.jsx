@@ -4,6 +4,7 @@ import mentorshipPageData from "./api/home.json";
 import Button from "../components/buttons/Button";
 import Navbar from "/components/layouts/Navbar";
 import Footer from "/components/layouts/Footer";
+import { strapiService } from "../services/strapi.service";
 
 import {
   Bootcamp,
@@ -20,9 +21,10 @@ import {
   Feedback,
   CTACard,
 } from "../components/mentorship";
+import Testimonials from "../components/Testimonials";
 // import Bootcamps from "./bootcamps";
 
-const mentorship = () => {
+const mentorship = ({ indexPage }) => {
   const mentorshipPage = mentorshipPageData;
 
   return (
@@ -268,6 +270,13 @@ const mentorship = () => {
         <FeaturedMentees />
         <JoinAsMentor />
         <MentorshipFAQ />
+        {/* <Feedback /> */}
+        <Testimonials
+          testimonial_title={indexPage.testimonial_title}
+          testimonial_description={indexPage.testimonial_description}
+          testimonial_items={indexPage.testimonial_items}
+          hasMaxWidth={true}
+        />
         <CTACard />
       </main>
 
@@ -277,3 +286,13 @@ const mentorship = () => {
 };
 
 export default mentorship;
+
+//get home page data
+export async function getStaticProps() {
+  const indexPage = await strapiService.getHomePageData();
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}

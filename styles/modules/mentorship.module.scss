@@ -714,6 +714,25 @@ main {
   }
 }
 
+// feedback section
+
+.mentorship-feedback-section {
+  padding: 0 5%;
+  > h1 {
+    font-size: 48px;
+  }
+  > p {
+    color: #818181;
+  }
+
+  .feedback-content-wrap {
+    .feedback-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
 // Call to action section
 
 .cta-card-section {

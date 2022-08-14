@@ -16,9 +16,7 @@ const WhyLearn = () => {
           <div className="why-badge">
             <img src="/assets/images/ball-icon.png" /> Team Work
           </div>
-          <div className="why-badge">
-            <img src="/assets/images/ball-icon.png" /> Hands-on experience
-          </div>
+          <div className="why-badge">Hands-on experience</div>
           <div className="why-badge">
             <img src="/assets/images/ball-icon.png" /> Fun/Games
           </div>

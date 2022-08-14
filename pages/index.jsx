@@ -10,6 +10,7 @@ import { strapiService } from "../services/strapi.service";
 import { useRouter } from "next/router";
 
 export default function Home({ indexPage }) {
+  console.log(indexPage, "index page here bitches");
   const router = useRouter();
 
   React.useEffect(() => {
