@@ -37,7 +37,7 @@ const getBlogPosts = async ({ page, pageSize, category }) => {
     const blogPosts = await fetch(
       `${STRAPI_URL}/api/blogs?pagination[page]=${
         page ? page : 1
-      }&pagination[pageSize]=${pageSize ? pageSize : 1}&filter[category]=${
+      }&pagination[pageSize]=${pageSize ? pageSize : 10}&filter[category]=${
         category ? category : ""
       }`,
       {
@@ -103,11 +103,18 @@ const getPostBySlug = (slug) =>
       return error;
     });
 
-const getPostsByCategory = (category) =>
-  fetch(`${STRAPI_URL}/api/blogs?filters[category][$eq]=${category}`, {
-    headers,
-    method: "GET",
-  })
+const getPostsByCategory = (page, pageSize, category) =>
+  fetch(
+    `${STRAPI_URL}/api/blogs?pagination[page]=${
+      page ? page : 1
+    }&pagination[pageSize]=${
+      pageSize ? pageSize : 10
+    }&filters[category][$eq]=${category}`,
+    {
+      headers,
+      method: "GET",
+    }
+  )
     .then(checkStatus)
     .then(parseJSON)
     .then(({ data }) => {
