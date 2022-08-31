@@ -72,10 +72,12 @@ const getSortedBlogPosts = async ({ page, pageSize }) => {
   }
 };
 
-const searchBlogPosts = async (title) => {
+const searchBlogPosts = async (page, keyword) => {
   try {
     const searchData = await fetch(
-      `${STRAPI_URL}/api/blogs?filters[title][$containsi]=${title}`,
+      `${STRAPI_URL}/api/blogs?filters[title][$containsi]=${keyword}&pagination[page]=${
+        page ? page : 1
+      }`,
       {
         headers,
         method: "GET",
