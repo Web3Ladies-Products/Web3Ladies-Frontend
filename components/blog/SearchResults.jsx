@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { WEB3LADIES_URL } from "../../lib/constants";
 import Button from "../buttons/Button";
 import ChevronLeft from "../icons/ChevronLeft";
 import NoData from "../NoData";
@@ -34,7 +35,7 @@ const SearchResults = ({ results, handleSearch }) => {
                           {result.attributes.title}
                         </h2>
                         <small>
-                          {process.env.NEXT_PUBLIC_WEB3LADIES_URL}/blog/
+                          {WEB3LADIES_URL}/blog/
                           {result.attributes.slug}
                         </small>
                         <p>{result.attributes.description}</p>
