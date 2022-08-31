@@ -139,9 +139,7 @@ const Footer = () => {
                     return (
                       <li key={index}>
                         <Link href={item.route}>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
-                            {item.name}
-                          </a>
+                          <a href={item.route}>{item.name}</a>
                         </Link>
                       </li>
                     );
@@ -152,9 +150,7 @@ const Footer = () => {
                     return (
                       <li key={index}>
                         <Link href={item.route}>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
-                            {item.name}
-                          </a>
+                          <a href={item.route}>{item.name}</a>
                         </Link>
                       </li>
                     );

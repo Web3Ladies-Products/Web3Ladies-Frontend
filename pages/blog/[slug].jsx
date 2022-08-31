@@ -12,9 +12,6 @@ import Badge from "../../components/Badge";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { strapiService } from "../../services";
 import Custom404Error from "../404";
-// import Link from "next/link";
-// import Prompt from "../../components/prompt/Prompt";
-// import { alertService } from "../../services";
 
 const Slug = ({ article }) => {
   const router = useRouter();
@@ -30,7 +27,7 @@ const Slug = ({ article }) => {
         const similar = await strapiService.getSimilarPosts(data.author);
         setSimilarArticles(similar);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     getArticle();

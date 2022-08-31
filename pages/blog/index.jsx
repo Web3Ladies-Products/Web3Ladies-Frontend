@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Featured from "../../components/blog/Featured";
 import Tabs from "../../components/blog/Tabs";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
@@ -10,7 +9,6 @@ import Article from "../../components/blog/Article";
 import Banner from "../../components/blog/Banner";
 import HeadSeo from "../../components/HeadSeo";
 import siteMetadata from "../../lib/data/siteMetadata";
-import SearchResults from "../../components/blog/SearchResults";
 import NoData from "../../components/NoData";
 
 const Blog = ({ blogData }) => {
@@ -18,8 +16,6 @@ const Blog = ({ blogData }) => {
   const tab = router.query.tab || "all";
   const [posts, setPosts] = React.useState([]);
   const [paginationData, setPaginationData] = React.useState(null);
-  const [searchResults, setSearchResults] = React.useState(null);
-  const [isSearch, setIsSearch] = React.useState(false);
 
   const [featuredPost, setFeaturedPost] = React.useState(null);
   function onChange(key) {
@@ -31,16 +27,7 @@ const Blog = ({ blogData }) => {
   };
 
   const handleSearch = async (title) => {
-    await strapiService
-      .searchBlogPosts(title)
-      .then((res) => {
-        setIsSearch(true);
-        setSearchResults(res.data);
-        setPaginationData(res.meta?.pagination);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    router.push(`/blog/search?keyword=${title}`);
   };
 
   React.useEffect(() => {
@@ -83,21 +70,11 @@ const Blog = ({ blogData }) => {
         style={{ paddingTop: "0", minHeight: "calc(100vh - 530px)" }}
       >
         <div>
-          {!isSearch && (
-            <Tabs onChange={onChange} handleSearch={handleSearch} />
-          )}
-          {tab && tab !== "all" && <Banner type={"category"} category={tab} />}
-          {isSearch && searchResults ? (
-            <>
-              <SearchResults
-                results={searchResults}
-                handleSearch={() => {
-                  setIsSearch(false);
-                  setSearchResults(null);
-                }}
-              />
-            </>
-          ) : posts?.length > 0 ? (
+          <Tabs onChange={onChange} handleSearch={handleSearch} />
+          {tab && tab !== "all" && (
+            <Banner type={"category"} category={tab} />
+          )}{" "}
+          {posts?.length > 0 ? (
             <Article HIGHLIGHTS_ITEMS={posts} featuredPost={featuredPost} />
           ) : (
             <NoData
