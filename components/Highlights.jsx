@@ -29,7 +29,7 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
             >
               <div className="highlights--container-item--image">
                 <Image
-                  src="/assets/images/highlights-image.png"
+                  src={item.image}
                   width={"125px"}
                   height={"220px"}
                   objectFit="contain"
