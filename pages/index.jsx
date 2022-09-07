@@ -362,8 +362,8 @@ export default function Home({ indexPage }) {
             dangerouslySetInnerHTML={{ __html: indexPage.events_title }}
           />
           <ul className="events-list">
-            {indexPage.events_items?.map((item) => (
-              <li className="events-item" key={item.title}>
+            {indexPage.events_items?.map((item, idx) => (
+              <li className="events-item" key={idx}>
                 <div className="events-item--image">
                   <Image
                     src={item.image}

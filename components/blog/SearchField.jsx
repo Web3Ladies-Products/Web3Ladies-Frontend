@@ -4,14 +4,15 @@ import Button from "../buttons/Button";
 import Close from "../icons/Close";
 
 const SearchField = ({ handleChange, isSearch }) => {
-  const [search, setSearch] = React.useState("");
+  const [searchQuery, setSearchQuery] = React.useState("");
   const handleEntry = (e) => {
     e.preventDefault();
-    handleChange(search);
+    handleChange(searchQuery);
   };
 
   const handleChangeSearch = (e) => {
-    setSearch(e.target.value);
+    const key = e.target.value;
+    setSearchQuery(key);
   };
   return (
     <form onSubmit={handleEntry}>
@@ -23,7 +24,10 @@ const SearchField = ({ handleChange, isSearch }) => {
           style={{ borderRadius: "42px" }}
           onChange={handleChangeSearch}
         />
-        <Button className="clear icon" onClick={() => setSearch("")}>
+        <Button
+          className="clear icon"
+          handleClick={() => (isSearch ? handleEntry : handleEntry)}
+        >
           {!isSearch ? (
             <Image
               src="/assets/images/search.svg"
@@ -39,7 +43,6 @@ const SearchField = ({ handleChange, isSearch }) => {
               height={20}
             />
           )}
-          {/* <Close handleClick={null} /> */}
         </Button>
       </div>
     </form>

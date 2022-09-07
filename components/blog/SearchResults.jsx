@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { WEB3LADIES_URL } from "../../lib/constants";
 import Button from "../buttons/Button";
 import ChevronLeft from "../icons/ChevronLeft";
 import NoData from "../NoData";
@@ -21,17 +22,27 @@ const SearchResults = ({ results, handleSearch }) => {
             <span style={{ fontWeight: "400" }}>Back to blog</span>
           </Button>
           <ul className="list-group" style={{ marginTop: "16px" }}>
-            {results ? (
-              results.map((result, index) => {
+            {results.length > 0 ? (
+              results.map((result) => {
                 return (
-                  <li key={index} className="list-group-item">
-                    <a href={result.attributes.slug}>
-                      <h2 className="sub-section-title bold">
-                        {result.attributes.title}
-                      </h2>
-                      <p>{result.attributes.description}</p>
-                    </a>
-                  </li>
+                  <>
+                    <li
+                      key={result.attributes.slug}
+                      className="list-group-item"
+                    >
+                      <a href={`/blog/${result.attributes.slug}`}>
+                        <h2 className="sub-section-title bold">
+                          {result.attributes.title}
+                        </h2>
+                        <small>
+                          {WEB3LADIES_URL}/blog/
+                          {result.attributes.slug}
+                        </small>
+                        <p>{result.attributes.description}</p>
+                      </a>
+                    </li>
+                    <div className="divider" />
+                  </>
                 );
               })
             ) : (

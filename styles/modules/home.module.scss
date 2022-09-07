@@ -460,6 +460,7 @@ main {
         display: flex;
         justify-content: center;
         margin-bottom: 16px;
+        overflow: hidden;
       }
       &--text {
         width: 100%;

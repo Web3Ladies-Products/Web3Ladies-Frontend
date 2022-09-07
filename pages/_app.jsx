@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }) {
         title={`${siteMetadata.companyName} `}
         description={siteMetadata.description}
         canonicalUrl={`${siteMetadata.siteUrl}`}
-        ogImageUrl={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogTwitterImage={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
+        ogImageUrl={siteMetadata.siteLogo}
+        ogTwitterImage={siteMetadata.siteLogo}
         ogType={"website"}
       ></HeadSeo>
 
