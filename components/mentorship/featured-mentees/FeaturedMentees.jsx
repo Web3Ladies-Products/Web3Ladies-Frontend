@@ -20,32 +20,18 @@ const availableMentees = [
   },
   {
     id: 3,
-    name: " Mentee Cult",
+    name: " Mentee Jackson",
     jobRole: "Blockchain developer",
     company: "forgo",
     imageURL: "talk to me daddy",
   },
   {
     id: 4,
-    name: " Mentee Cult",
+    name: " Mentee Jackson",
     jobRole: "Blockchain developer",
     company: "alegra",
     imageURL: "talk to me daddy",
-  },
-  {
-    id: 5,
-    name: " Mentee Cult",
-    jobRole: "Blockchain developer",
-    company: "alegra",
-    imageURL: "talk to me daddy",
-  },
-  {
-    id: 6,
-    name: " Mentee Cult",
-    jobRole: "Blockchain developer",
-    company: "alegra",
-    imageURL: "talk to me daddy",
-  },
+  }
 ];
 
 const FeaturedMentees = () => {

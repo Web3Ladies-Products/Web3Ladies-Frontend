@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { phaseData } from "../assets/constants";
 import TabButton from "./TabButton";
 import PhaseContent from "./PhaseContent";
+import styled from "styled-components";
 
 const HowItWorks = () => {
   const [activeTab, setActiveTab] = useState("one");
 
   return (
-    <div className="how-it-works-section">
+    <div className="how-it-works-section ">
       <div className="container">
         <h1> How It Works</h1>
         <div>
@@ -26,8 +27,12 @@ const HowItWorks = () => {
         </div>
         <PhaseContent data={phaseData[activeTab]} />
       </div>
+
+     
     </div>
   );
 };
-
+//
 export default HowItWorks;
+
+

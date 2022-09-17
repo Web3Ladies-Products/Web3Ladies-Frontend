@@ -8,6 +8,7 @@ import Testimonials from "../components/Testimonials";
 import Slack from "../components/icons/Slack";
 import { strapiService } from "../services/strapi.service";
 import { useRouter } from "next/router";
+import AboutSection from "../components/AboutSection";
 
 export default function Home({ indexPage }) {
   console.log(indexPage, "index page here bitches");
@@ -142,6 +143,7 @@ export default function Home({ indexPage }) {
           </div>
         </div>
       </section>
+
       {/* END OF WHO WE ARE SECTION */}
 
       {/* JOIN OUR COMMUNITY SECTION */}

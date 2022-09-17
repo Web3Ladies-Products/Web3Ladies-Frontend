@@ -23,7 +23,8 @@ const WorkAssistance = () => {
               src="/assets/images/worktool-1.png"
               alt="arrow-vector"
             />
-          </div>
+          </div
+          >
           <div>
             <Image
               className="arrow-img"

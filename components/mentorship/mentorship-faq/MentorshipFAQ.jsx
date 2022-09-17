@@ -50,7 +50,7 @@ const FaqBox = ({ id, question, answer }) => {
   return (
     <div key={id} className="faq-box">
       <div className="faq-content">
-        <h2>{question} jk</h2>
+        <h2>{question}</h2>
         {showAnswer && <p>{answer}</p>}
       </div>
       <div
@@ -67,7 +67,7 @@ const MentorshipFAQ = () => {
   return (
     <div className="mentorship-faq-section">
       <div className="container">
-        <h1> Frequently Asked Questions </h1>
+        <h1 className="section-title"> Frequently Asked Questions </h1>
         <div>
           {FAQ_DATA.map((data) => (
             <FaqBox {...data} />

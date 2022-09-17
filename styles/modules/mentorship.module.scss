@@ -3,6 +3,68 @@
 main {
   //HERO SECTION
 
+
+  .hero_images {
+    // width: 620px;
+     position: relative;
+    width: 500px;
+
+    @include mobile {
+      margin: 30px auto;
+    }
+
+    & > div {
+      position: relative;
+
+      > span {
+        position: absolute !important;
+
+        &:nth-of-type(1) {
+          position: relative !important;
+          z-index: 0;
+          animation: none !important;
+        }
+
+        &:nth-of-type(2) {
+          bottom: 60%;
+          right: 75%;
+        }
+
+        &:nth-of-type(3) {
+          top: 13%;
+          right: -2%;
+        }
+
+        &:nth-of-type(4) {
+          top: 72%;
+          right: 65%;
+        }
+
+        &:nth-of-type(5) {
+          top: 63%;
+          right: 3%;
+        }
+
+        @for $i from 2 through 5 {
+          &:nth-of-type(#{$i}) {
+            animation: bounce 2s #{"0." + ($i * 2)}s infinite;
+          }
+        }
+
+        @keyframes bounce {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(4px);
+          }
+        }
+      }
+    }
+  }
+
   .mentorship-section {
     width: 77%;
     margin: 40px auto;
@@ -33,64 +95,7 @@ main {
         }
       }
 
-      .hero-images {
-        width: 620px;
-
-        @include mobile {
-          margin: 30px auto;
-        }
-
-        & > div {
-          position: relative;
-
-          > span {
-            position: absolute !important;
-
-            &:nth-of-type(1) {
-              position: relative !important;
-              z-index: 0;
-              animation: none !important;
-            }
-
-            &:nth-of-type(2) {
-              bottom: 60%;
-              right: 75%;
-            }
-
-            &:nth-of-type(3) {
-              top: 13%;
-              right: 19%;
-            }
-
-            &:nth-of-type(4) {
-              top: 77%;
-              right: 65%;
-            }
-
-            &:nth-of-type(5) {
-              top: 60%;
-              right: 20%;
-            }
-
-            @for $i from 2 through 5 {
-              &:nth-of-type(#{$i}) {
-                animation: bounce 2s #{"0." + ($i * 2)}s infinite;
-              }
-            }
-
-            @keyframes bounce {
-              0%,
-              100% {
-                transform: translateY(0);
-              }
-
-              50% {
-                transform: translateY(4px);
-              }
-            }
-          }
-        }
-      }
+    
     }
   }
 
@@ -104,6 +109,44 @@ main {
   }
 
   .about-section {
+    //  position: relative;
+
+    // @include desktop {
+    //   width: 76%;
+    //   margin: auto;
+    // }
+  
+    // &--heading {
+    //   h1{
+    //      text-align: center;
+    //   color: #000000;
+    //   }
+     
+
+    //   > span {
+    //         transform: rotate(90deg);
+    //         left: -60px;
+    //         top: 30px;
+    //         position: absolute;
+    //       }
+    // }
+  
+    // &--container {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   justify-content: space-between;
+  
+    //   &-text {
+    //     margin-top: 30px;
+    //     line-height: 150%;
+    //     text-align: center;
+    //     color: #000000;
+    //   }
+  
+    //   &-cta {
+    //     margin-top: 30px;
+    //   }
     text-align: center;
     position: relative;
     .about--heading {
@@ -131,7 +174,7 @@ main {
       button {
         margin-right: 16px;
       }
-    }
+     }
   }
 
   // JOINING CRITERIA SECTION
@@ -199,6 +242,29 @@ main {
 
   // HOW IT WORKS SECTION
 
+  .caret-ct {
+    padding:50px;
+    background-color: #cb3a2d;
+
+  }
+
+  .caret:after {
+    // background-color: #cb3a2d;
+    border: 2px solid black;
+
+    top: 5px;
+    content: '';
+    display: block;
+    height: 40px;
+    left: 30%;
+    margin-left: -20px;
+    position: relative;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 40px;
+    z-index: 1;
+  }
   .how-it-works-section {
     margin-top: 100px;
 
@@ -244,7 +310,7 @@ main {
 
     .mentorship-phase-content {
       border: 2px solid black;
-      margin-top: 50px;
+      margin-top: 30px;
       padding: 50px;
       border-radius: 16px;
 
@@ -338,6 +404,7 @@ main {
       display: flex;
       justify-content: space-between;
       margin-bottom: -100px;
+      align-items: center;
 
       > span {
         margin-right: -10%;
@@ -349,9 +416,11 @@ main {
 // Worktools section
 
 .work-assistance-section {
+ 
   margin: 100px auto;
   > div {
     h1 {
+      text-align: center;
       margin-bottom: 30px;
     }
     p {
@@ -360,10 +429,8 @@ main {
       font-size: 18px;
     }
     .work-assistance-images-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      // justify-content: center;
-      gap: 25px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
       > div {
         margin-right: 20px;
       }
@@ -479,14 +546,17 @@ main {
   }
 
   .mentor-card-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 60px 30px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 60px 30px;
     > .top-mentors-card {
       img {
         border-radius: 10px;
       }
-      width: 356px;
+      // width: 356px;
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -671,6 +741,10 @@ main {
 // mentorship-faq-section
 
 .mentorship-faq-section {
+  padding:100px;
+  h1 {
+    text-align: center;
+  }
   > .container {
     > div {
       margin: 50px 0;

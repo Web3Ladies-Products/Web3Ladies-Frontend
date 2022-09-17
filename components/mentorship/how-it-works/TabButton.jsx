@@ -13,13 +13,14 @@ const TabButton = ({ name, index, activeTab, setActiveTab }) => {
       </div>
       {name === activeTab && (
         <div>
-          <Image
-            className=""
+
+          {/* <Image
+            className="" 
             width="50px"
             height="50px"
             src="/assets/images/x.png"
             alt=""
-          />
+          /> */}
         </div>
       )}
     </button>

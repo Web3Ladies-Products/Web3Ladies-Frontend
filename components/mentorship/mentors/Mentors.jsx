@@ -6,7 +6,7 @@ import Button from "../../buttons/Button";
 const availableMentors = [
   {
     id: 1,
-    name: " Nzewi OCultist dummy",
+    name: " Nzewi OCultist ",
     jobRole: "Blockchain developer",
     company: "tramadol",
     imageURL: "talk to me daddy",
@@ -20,32 +20,18 @@ const availableMentors = [
   },
   {
     id: 3,
-    name: " Mentor Cult",
+    name: " Mentor ",
     jobRole: "Blockchain developer",
     company: "forgo",
     imageURL: "talk to me daddy",
   },
   {
     id: 4,
-    name: " Mentor Cult",
+    name: " Mentor ",
     jobRole: "Blockchain developer",
     company: "alegra",
     imageURL: "talk to me daddy",
-  },
-  {
-    id: 5,
-    name: " Mentor Cult",
-    jobRole: "Blockchain developer",
-    company: "alegra",
-    imageURL: "talk to me daddy",
-  },
-  {
-    id: 6,
-    name: " Mentor Cult",
-    jobRole: "Blockchain developer",
-    company: "alegra",
-    imageURL: "talk to me daddy",
-  },
+  }
 ];
 
 const Mentors = () => {
@@ -89,11 +75,11 @@ const Mentors = () => {
               {/* <div> */}
               <Image
                 className="arrow-img"
-                width="356px"
-                height="456px"
+                width="256px"
+                height="266px"
                 layout="fixed"
                 objectFit="cover"
-                src="/assets/images/help-mentor.png"
+                src="/assets/images/available-mentor.png"
                 alt="arrow-vector"
               />
               {/* </div> */}
