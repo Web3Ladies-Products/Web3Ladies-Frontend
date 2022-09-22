@@ -9,7 +9,7 @@ const JoinAsMentor = () => {
           <div className="">
             <h1>Help us mentor more Ladies</h1>
             <p>Become a sponsor of Web3Ladies</p>
-            <Button type="outlined-clear" buttonText="join us now" />
+            <Button type="outlined-clear" buttonText="Join us now" />
           </div>
           <div className="">
             <h1>HAVE WHAT IT TAKES TO BE A MENTOR</h1>

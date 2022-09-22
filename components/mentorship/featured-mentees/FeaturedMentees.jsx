@@ -49,8 +49,8 @@ const FeaturedMentees = () => {
             <div key={id} className="featured-mentee-card">
               <Image
                 className="arrow-img"
-                width="272px"
-                height="294px"
+                width="252px"
+                height="274px"
                 layout="fixed"
                 objectFit="cover"
                 src="/assets/images/lone-woman.png"

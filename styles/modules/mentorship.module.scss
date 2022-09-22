@@ -644,8 +644,8 @@ main {
 // Featured mentees section
 
 .featured-mentees-section {
-  // background-color: red;
-  // height: 100vainerh;
+  margin-top:150px;
+  margin-bottom:150px;
   .container {
     .featured-mentees-header {
       display: flex;
@@ -655,9 +655,9 @@ main {
     }
 
     .mentee-card-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 25px;
+      display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap:20px;
       > .featured-mentee-card {
         img {
           border-radius: 10px;
