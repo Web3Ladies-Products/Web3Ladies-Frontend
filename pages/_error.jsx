@@ -3,8 +3,33 @@ import Image from "next/image";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import Button from "../components/buttons/Button";
+import {
+  INSTAGRAM_URL,
+  TWITTER_URL,
+  LINKEDIN_URL,
+  SLACK_URL,
+} from "../lib/constants";
 
 const CustomError = ({ pageTitle, message, statusCode, redirectText }) => {
+  const SOCIAL_LINKS = [
+    {
+      name: "instagram",
+      link: INSTAGRAM_URL,
+    },
+    {
+      name: "twitter",
+      link: TWITTER_URL,
+    },
+    {
+      name: "linkedIn",
+      link: LINKEDIN_URL,
+    },
+    {
+      name: "slack",
+      link: SLACK_URL,
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -59,30 +84,21 @@ const CustomError = ({ pageTitle, message, statusCode, redirectText }) => {
               />
 
               <div className="icons-container">
-                <Image
-                  width={"20px"}
-                  height={"20px"}
-                  src="/assets/images/instagram.png"
-                  alt="instagram-icon"
-                />
-                <Image
-                  width={"20px"}
-                  height={"20px"}
-                  src="/assets/images/twitter.png"
-                  alt="twitter-icon"
-                />
-                <Image
-                  width={"20px"}
-                  height={"20px"}
-                  src="/assets/images/linkedin.png"
-                  alt="linkedin-icon"
-                />
-                <Image
-                  width={"20px"}
-                  height={"20px"}
-                  src="/assets/images/slack.png"
-                  alt="slack-icon"
-                />
+                {SOCIAL_LINKS.map((socialLink, index) => (
+                  <a
+                    key={index}
+                    href={socialLink.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      width={"20px"}
+                      height={"20px"}
+                      src={`/assets/images/${socialLink.name}.png`}
+                      alt={socialLink.name}
+                    />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
