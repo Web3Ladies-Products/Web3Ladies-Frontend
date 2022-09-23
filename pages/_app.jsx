@@ -1,8 +1,14 @@
+import React from "react";
 import HeadSeo from "../components/HeadSeo";
 import siteMetadata from "../lib/data/siteMetadata";
 import "../styles/styles.scss";
+import TagManager from "react-gtm-module";
 
 function MyApp({ Component, pageProps }) {
+  React.useEffect(() => {
+    TagManager.initialize({ gtmId: "G-FMMXX7EJPE" });
+  }, []);
+
   return (
     <>
       <HeadSeo
