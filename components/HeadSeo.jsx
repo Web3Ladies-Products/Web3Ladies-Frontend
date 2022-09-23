@@ -53,7 +53,7 @@ const HeadSeo = ({
         key="og-image"
       />
       <meta property="og:url" content={canonicalUrl} key="og-url" />
-      <link rel="icon" href="/icons/favicon.ico" />
+      <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       <link rel="manifest" href="/icons/site.webmanifest" />
       {children}
