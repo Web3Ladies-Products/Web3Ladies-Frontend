@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import Button from "../../buttons/Button";
+import Button from "../buttons/Button";
 
 const WhyLearn = () => {
   return (
     <div className="why-learn-section">
       <div className="why-learn-content">
-        <h1>Why learn with us</h1>
+        <h1 className="section-title">Why learn with us</h1>
         <p>
           These mentors will be on the ground for all the mentorship activities,
           they are responsible for classes, responding to mentees’ concerns on
@@ -14,14 +14,32 @@ const WhyLearn = () => {
         </p>
         <div className="badges-wrap">
           <div className="why-badge">
-            <img src="/assets/images/ball-icon.png" /> Team Work
+            <Image
+              src="/assets/images/ball-icon.png"
+              alt="ball-icon"
+              width={50}
+              height={50}
+            />{" "}
+            Team Work
           </div>
           <div className="why-badge">Hands-on experience</div>
           <div className="why-badge">
-            <img src="/assets/images/ball-icon.png" /> Fun/Games
+            <Image
+              width={50}
+              height={50}
+              src="/assets/images/ball-icon.png"
+              alt="ball-icon"
+            />{" "}
+            Fun/Games
           </div>
           <div className="why-badge">
-            <img src="/assets/images/ball-icon.png" /> Mentorship
+            <Image
+              width={50}
+              height={50}
+              alt="ball-icon"
+              src="/assets/images/ball-icon.png"
+            />{" "}
+            Mentorship
           </div>
         </div>
         <Button buttonText="Register Now" type="primary-inverse" />

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Button from "../../buttons/Button";
+import Button from "../buttons/Button";
 
 // TODO:edit image URL
 const availableMentees = [
@@ -31,19 +31,18 @@ const availableMentees = [
     jobRole: "Blockchain developer",
     company: "alegra",
     imageURL: "talk to me daddy",
-  }
+  },
 ];
 
 const FeaturedMentees = () => {
   return (
-    <div className="featured-mentees-section">
+    <section className="featured-mentees-section">
       <div className="container">
         <div className="featured-mentees-header">
-          <h1> Featured Mentees</h1>
+          <h1 className="section-title"> Featured Mentees</h1>
           <Button buttonText="View More" type="outline" />
         </div>
 
-        {/* start mentee */}
         <div className="mentee-card-wrapper">
           {availableMentees.map(({ id, name, jobRole, company, imageURL }) => (
             <div key={id} className="featured-mentee-card">
@@ -65,10 +64,8 @@ const FeaturedMentees = () => {
             </div>
           ))}
         </div>
-
-        {/* end mentees */}
       </div>
-    </div>
+    </section>
   );
 };
 

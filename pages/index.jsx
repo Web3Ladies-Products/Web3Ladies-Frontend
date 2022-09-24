@@ -9,6 +9,7 @@ import Slack from "../components/icons/Slack";
 import { strapiService } from "../services/strapi.service";
 import { useRouter } from "next/router";
 import AboutSection from "../components/AboutSection";
+import Supporters from "../components/Supporters";
 
 export default function Home({ indexPage }) {
   console.log(indexPage, "index page here bitches");
@@ -89,31 +90,7 @@ export default function Home({ indexPage }) {
       {/* END OF HERO SECTION */}
 
       {/* SUPPORT SECTION */}
-      <section className="support" style={{ paddingTop: "0" }}>
-        <div className="container" style={{ paddingTop: "0" }}>
-          <h1
-            className="support--heading"
-            dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
-          />
-          <div className="groups-container">
-            {indexPage.supporters_images?.map((supporter) => (
-              <div
-                className="group-item pointer-cursor"
-                key={supporter.name}
-                onClick={() => window.open(supporter.website_url, "_blank")}
-              >
-                <Image
-                  className="support-image"
-                  width={"165px"}
-                  height={"60px"}
-                  src={supporter.logo}
-                  alt={supporter.name}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Supporters indexPage={indexPage} />
       {/* END OF SUPPORT SECTION */}
 
       {/* WHO WE ARE SECTION */}

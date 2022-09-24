@@ -3,10 +3,9 @@
 main {
   //HERO SECTION
 
-
   .hero_images {
     // width: 620px;
-     position: relative;
+    position: relative;
     width: 500px;
 
     @include mobile {
@@ -94,8 +93,6 @@ main {
           }
         }
       }
-
-    
     }
   }
 
@@ -115,13 +112,12 @@ main {
     //   width: 76%;
     //   margin: auto;
     // }
-  
+
     // &--heading {
     //   h1{
     //      text-align: center;
     //   color: #000000;
     //   }
-     
 
     //   > span {
     //         transform: rotate(90deg);
@@ -130,20 +126,20 @@ main {
     //         position: absolute;
     //       }
     // }
-  
+
     // &--container {
     //   display: flex;
     //   flex-direction: column;
     //   align-items: center;
     //   justify-content: space-between;
-  
+
     //   &-text {
     //     margin-top: 30px;
     //     line-height: 150%;
     //     text-align: center;
     //     color: #000000;
     //   }
-  
+
     //   &-cta {
     //     margin-top: 30px;
     //   }
@@ -174,7 +170,7 @@ main {
       button {
         margin-right: 16px;
       }
-     }
+    }
   }
 
   // JOINING CRITERIA SECTION
@@ -243,9 +239,8 @@ main {
   // HOW IT WORKS SECTION
 
   .caret-ct {
-    padding:50px;
+    padding: 50px;
     background-color: #cb3a2d;
-
   }
 
   .caret:after {
@@ -253,7 +248,7 @@ main {
     border: 2px solid black;
 
     top: 5px;
-    content: '';
+    content: "";
     display: block;
     height: 40px;
     left: 30%;
@@ -400,15 +395,10 @@ main {
       background-color: #f8f2ff;
     }
 
-    > .mentorship-bootcamp-header {
+    .mentorship-bootcamp-header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: -100px;
       align-items: center;
-
-      > span {
-        margin-right: -10%;
-      }
     }
   }
 }
@@ -416,11 +406,8 @@ main {
 // Worktools section
 
 .work-assistance-section {
- 
-  margin: 100px auto;
   > div {
     h1 {
-      text-align: center;
       margin-bottom: 30px;
     }
     p {
@@ -429,8 +416,8 @@ main {
       font-size: 18px;
     }
     .work-assistance-images-wrap {
-      display:grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       > div {
         margin-right: 20px;
       }
@@ -546,9 +533,9 @@ main {
   }
 
   .mentor-card-wrapper {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-    gap:10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
     // display: flex;
     // flex-wrap: wrap;
     // gap: 60px 30px;
@@ -595,7 +582,7 @@ main {
   display: flex;
   gap: 12%;
   background-color: var(--primary-color);
-  justify-content: end;
+  justify-content: flex-end;
   padding-bottom: 40px;
   > div {
     width: 38%;
@@ -644,8 +631,8 @@ main {
 // Featured mentees section
 
 .featured-mentees-section {
-  margin-top:150px;
-  margin-bottom:150px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   .container {
     .featured-mentees-header {
       display: flex;
@@ -655,9 +642,9 @@ main {
     }
 
     .mentee-card-wrapper {
-      display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-    gap:20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
       > .featured-mentee-card {
         img {
           border-radius: 10px;
@@ -741,7 +728,7 @@ main {
 // mentorship-faq-section
 
 .mentorship-faq-section {
-  padding:100px;
+  padding: 100px;
   h1 {
     text-align: center;
   }

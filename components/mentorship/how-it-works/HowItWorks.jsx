@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { phaseData } from "../assets/constants";
+import { phaseData } from "../../../pages/api/feedback";
 import TabButton from "./TabButton";
 import PhaseContent from "./PhaseContent";
-import styled from "styled-components";
 
 const HowItWorks = () => {
   const [activeTab, setActiveTab] = useState("one");
@@ -27,12 +26,8 @@ const HowItWorks = () => {
         </div>
         <PhaseContent data={phaseData[activeTab]} />
       </div>
-
-     
     </div>
   );
 };
 //
 export default HowItWorks;
-
-

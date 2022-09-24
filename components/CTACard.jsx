@@ -1,13 +1,18 @@
 import React from "react";
-import Button from "../../buttons/Button";
+import Button from "./buttons/Button";
 
 const CTACard = () => {
   return (
-    <div className="cta-card-section">
+    <section className="cta-card-section">
       <div className="container">
         <div>
           <h1>
-            Get free <span> hands-on-training</span> from the best minds
+            Get free{" "}
+            <span style={{ font: "inherit" }} className="primary-color">
+              {" "}
+              hands-on-training
+            </span>{" "}
+            from the best minds
           </h1>
           <p> Join our Mentorship Cohort</p>
           <div>
@@ -15,7 +20,7 @@ const CTACard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

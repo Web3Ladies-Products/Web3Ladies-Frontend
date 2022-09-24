@@ -1,39 +1,26 @@
 import React from "react";
 import Image from "next/image";
-// import mentorshipPageData from "./api/mentorship.json";
-import mentorshipPageData from '../api/mentorship.json'
-// import Button from "../components/buttons/Button";
 import Button from "../../components/buttons/Button";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
 import { strapiService } from "../../services";
-// import { strapiService } from "../services/strapi.service";
-
-import {
-  Bootcamp,
-  Cohorts,
-  HowItWorks,
-  Training,
-  WorkAssistance,
-  Mentors,
-  WhyLearn,
-  FeaturedMentees,
-  JoinAsMentor,
-  MentorshipFAQ,
-  Feedback,
-  CTACard,
-} from "../../components/mentorship";
+import { FAQ_DATA } from "../../pages/api/feedback";
 import Tracks from "../../components/cohorts/Tracks";
 import Testimonials from "../../components/Testimonials";
 import AboutSection from "../../components/AboutSection";
 import DualColorBanner from "../../components/DualColorBanner";
-// import Bootcamps from "./bootcamps";
+import FAQs from "../../components/FAQs";
+import Supporters from "../../components/Supporters";
+import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
+import WorkAssistance from "../../components/mentorship/WorkAssistance";
+import Mentors from "../../components/mentorship/Mentors";
+import WhyLearn from "../../components/mentorship/WhyLearn";
+import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
+import CTACard from "../../components/CTACard";
+import Bootcamps from "../../components/mentorship/Bootcamps";
 
 const mentorship = ({ indexPage }) => {
-  console.log(indexPage, "index page here bitches");
-
-  const mentorshipPage = mentorshipPageData;
-
   return (
     <>
       <Navbar />
@@ -43,9 +30,10 @@ const mentorship = ({ indexPage }) => {
         <div className="container cta">
           <div className=" content">
             <div className=" hero_content">
-             
-              <h1 className="title section-title "  dangerouslySetInnerHTML={{ __html: indexPage.mentorship_title }}>
-              </h1>
+              <h1
+                className="title section-title "
+                dangerouslySetInnerHTML={{ __html: indexPage.mentorship_title }}
+              ></h1>
               <div className="button-container">
                 <Button
                   type={"primary"}
@@ -95,93 +83,22 @@ const mentorship = ({ indexPage }) => {
                   width="100"
                   height="150"
                   layout="fixed"
-                  src='/assets/images/web3vector-img.png'
+                  src="/assets/images/web3vector-img.png"
                   alt="web3ladies-vector"
                 />
               </div>
             </div>
           </div>
         </div>
-      
         {/*END OF HERO SECTION*/}
+      </main>
 
-            {/* SUPPORT SECTION */}
-      <section className="support" style={{ paddingTop: "0" }}>
-        <div className="container" style={{ paddingTop: "0" }}>
-          <h1
-            className="support--heading"
-            dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
-          />
-          <div className="groups-container">
-            {indexPage.supporters_images?.map((supporter) => (
-              <div
-                className="group-item pointer-cursor"
-                key={supporter.name}
-                onClick={() => window.open(supporter.website_url, "_blank")}
-              >
-                <Image
-                  className="support-image"
-                  width={"165px"}
-                  height={"60px"}
-                  src={supporter.logo}
-                  alt={supporter.name}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* END OF SUPPORT SECTION */}
+      <Supporters indexPage={indexPage} />
 
-        {/*START OF About Mentorship */}
-        {/* <div className="about-section">
-          <div className="container">
-            <div className="about--heading">
-              <h1>About Mentorship </h1>
-              <Image
-                className="hero-img"
-                width="100"
-                height="150"
-                src="/assets/images/web3vector-img.png"
-                alt="web3ladies-vector"
-              />
-            </div>
-            <div className="about--content">
-              <p className="about-text">
-                This is a free intensive learning phase of the
-                basics/foundations for all tracks, it serves as the introduction
-                to the track for participants. This phase is for 4weeks, classes
-                will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all
-                tracks participants will learn intensively as a beginner,
-                mentors will be on the ground to teach, resources will be shared
-                with the participants, assignments will be given as well, and
-                there will be an eviction at the end of this phase upon final
-                assessment to graduate into the learning phase.
-              </p>
-              <div className="introduction--container-cta">
-                <Button
-                  type={"primary"}
-                  buttonText={"Register Now"}
-                  handleClick={() => null}
-                />
-                <Image
-                  className="arrow-img"
-                  width="67px"
-                  height="63px"
-                  objectFit="contain"
-                  src="/assets/images/arrow-img.png"
-                  alt="arrow-vector"
-                />
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-
-        {/*START OF ABOUT MENTORSHIP */}
-        <AboutSection 
-         title='About Mentorship '
-         description={` This is a free intensive learning phase of the
+      {/*ABOUT MENTORSHIP */}
+      <AboutSection
+        title="About Mentorship "
+        description={` This is a free intensive learning phase of the
          basics/foundations for all tracks, it serves as the introduction
          to the track for participants. This phase is for 4weeks, classes
          will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all
@@ -190,115 +107,95 @@ const mentorship = ({ indexPage }) => {
          with the participants, assignments will be given as well, and
          there will be an eviction at the end of this phase upon final
          assessment to graduate into the learning phase.`}
-         buttonText="Register Now"
-        />
-        <div className="criteria-section-wrapper">
-          <div className="container">
-            <div className="criteria-section">
-              <div className="criteria-img-wrap">
-                <Image
-                  className=""
-                  width={"490px"}
-                  height={"520px"}
-                  objectFit="contain"
-                  src="/assets/images/mentorship-criteria-img.png"
-                  alt="Criteria image"
+        buttonText="Register Now"
+      />
+
+      <section className="criteria-section-wrapper">
+        <div className="container">
+          <div className="criteria-section">
+            <div className="criteria-img-wrap">
+              <Image
+                className=""
+                width={"490px"}
+                height={"520px"}
+                objectFit="contain"
+                src="/assets/images/mentorship-criteria-img.png"
+                alt="Criteria image"
+              />
+            </div>
+            <div className="criteria-content">
+              <h1> Who is it for? </h1>
+              <ul className="list-group">
+                <li className="list-group-item">
+                  A professional looking for deeper knowledge about the impact
+                  and applications of blockchain technologies in a business
+                  environment
+                </li>
+                <li className="list-group-item">
+                  A professional looking for deeper knowledge about the impact
+                  and applications of blockchain technologies in a business
+                  environment
+                </li>
+                <li className="list-group-item">
+                  A professional looking for deeper knowledge about the impact
+                  and applications of blockchain technologies in a business
+                  environment
+                </li>
+              </ul>
+              <div>
+                <Button
+                  type="outline"
+                  buttonText={"Register Now"}
+                  handleClick={() => null}
                 />
-              </div>
-              <div className="criteria-content">
-                <h1> Who is it for? </h1>
-                <div>
-                  <div>
-                    <span>
-                      <Image
-                        className=""
-                        width="17px"
-                        height="14px"
-                        layout="fixed"
-                        src="/assets/images/tick.png"
-                        alt=""
-                      />
-                    </span>
-                    <p>
-                      A professional looking for deeper knowledge about the
-                      impact and applications of blockchain technologies in a
-                      business environment
-                    </p>
-                  </div>
-                  <div>
-                    <span>
-                      <Image
-                        className=""
-                        width="17px"
-                        height="14px"
-                        layout="fixed"
-                        src="/assets/images/tick.png"
-                        alt=""
-                      />
-                    </span>
-                    <p>
-                      A professional looking for deeper knowledge about the
-                      impact and applications of blockchain technologies in a
-                      business environment
-                    </p>
-                  </div>
-                  <div>
-                    <span>
-                      <Image
-                        className=""
-                        width="17px"
-                        height="14px"
-                        layout="fixed"
-                        src="/assets/images/tick.png"
-                        alt=""
-                      />
-                    </span>
-                    <p>
-                      A professional looking for deeper knowledge about the
-                      impact and applications of blockchain technologies in a
-                      business environment
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <Button
-                    type="outline"
-                    buttonText={"Register Now"}
-                    handleClick={() => null}
-                    color="#7D0BFE"
-                  />
-                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <HowItWorks />
-        <DualColorBanner 
-          title='Get hands-on training from the best minds'
-          buttonText="Register Now"
-          buttonType='outline'
-          image={"/assets/images/mentorship-training.png"}
-        />
-        {/* <Training /> */}
-        {/* <Cohorts /> */}
-        <Bootcamp />
-        <WorkAssistance />
-        <Tracks />
-        <Mentors />
-        <WhyLearn />
-        <FeaturedMentees />
-        <JoinAsMentor />
-        <MentorshipFAQ />
-        {/* <Feedback /> */}
-        <Testimonials
-          testimonial_title={indexPage.testimonial_title}
-          testimonial_description={indexPage.testimonial_description}
-          testimonial_items={indexPage.testimonial_items}
-          hasMaxWidth={true}
-        />
-        <CTACard />
-      </main>
+      <HowItWorks />
+
+      <DualColorBanner
+        title="Get hands-on training from the best minds"
+        buttonText="Register Now"
+        buttonType="outline"
+        image={"/assets/images/mentorship-training.png"}
+      />
+
+      <section className="mentorship-bootcamp-section">
+        <div className="container mentorship-bootcamp-header">
+          <h1 className="section-title"> Bootcamps</h1>
+          <div>
+            <Image
+              className="hero-img"
+              width="147px"
+              height="147px"
+              layout="intrinsic"
+              objectFit="contain"
+              src="/assets/images/mentorship-bootcamp-star.png"
+              alt="arrow-vector"
+            />
+          </div>
+        </div>
+        <Bootcamps />
+      </section>
+
+      <WorkAssistance />
+      <Tracks />
+      <Mentors />
+      <WhyLearn />
+      <FeaturedMentees />
+      <JoinAsMentor />
+      <FAQs data={FAQ_DATA} />
+
+      <Testimonials
+        testimonial_title={indexPage.testimonial_title}
+        testimonial_description={indexPage.testimonial_description}
+        testimonial_items={indexPage.testimonial_items}
+      />
+
+      <CTACard />
 
       <Footer />
     </>
