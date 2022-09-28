@@ -46,7 +46,7 @@ const Slug = ({ article }) => {
       <HeadSeo
         title={`${article?.title} | ${siteMetadata.companyName} `}
         description={article?.description || siteMetadata.description}
-        canonicalUrl={`${siteMetadata.siteUrl}/articles/${article?.slug}`}
+        canonicalUrl={`${siteMetadata.siteUrl}/blog/${article?.slug}`}
         ogImageUrl={src(article)}
         ogType={"article"}
       >
@@ -183,7 +183,7 @@ const Slug = ({ article }) => {
                           unoptimized={true}
                         />
                       </div>
-                      <Link href={`/articles/${articleData.slug}`}>
+                      <Link href={`/blog/${articleData.slug}`}>
                         <a>
                           <h2 className="more-acticles--list_item_title">
                             {articleData.title}
@@ -223,7 +223,7 @@ const ShareButtons = ({ article, style }) => {
   return (
     <div className="share-buttons-container" style={style}>
       <a
-        href={`https://www.facebook.com/v5.0/dialog/share?app_id=542599432471018&href=${siteMetadata.siteUrl}/articles/${article?.slug}&display=page&quote=${article?.title}`}
+        href={`https://www.facebook.com/v5.0/dialog/share?app_id=542599432471018&href=${siteMetadata.siteUrl}/blog/${article?.slug}&display=page&quote=${article?.title}`}
         rel="noreferrer"
         target="_blank"
       >
@@ -235,7 +235,7 @@ const ShareButtons = ({ article, style }) => {
         />
       </a>
       <a
-        href={`https://twitter.com/intent/tweet?url=${siteMetadata.siteUrl}/articles/${article?.slug}/%0A&text=${article?.title}%0A&via=${siteMetadata.twitterHandle}`}
+        href={`https://twitter.com/intent/tweet?url=${siteMetadata.siteUrl}/blog/${article?.slug}/%0A&text=${article?.title}%0A&via=${siteMetadata.twitterHandle}`}
         rel="noreferrer"
         target="_blank"
       >
@@ -247,7 +247,7 @@ const ShareButtons = ({ article, style }) => {
         />
       </a>
       <a
-        href={`https://www.linkedin.com/shareArticle?url=${siteMetadata.siteUrl}/articles/${article?.slug}&title=${article?.title}&summary=${article?.description}&source=${siteMetadata.siteUrl}`}
+        href={`https://www.linkedin.com/shareArticle?url=${siteMetadata.siteUrl}/blog/${article?.slug}&title=${article?.title}&summary=${article?.description}&source=${siteMetadata.siteUrl}`}
         rel="noreferrer"
         target="_blank"
       >
