@@ -105,136 +105,6 @@ main {
     }
   }
 
-  .about-section {
-    //  position: relative;
-
-    // @include desktop {
-    //   width: 76%;
-    //   margin: auto;
-    // }
-
-    // &--heading {
-    //   h1{
-    //      text-align: center;
-    //   color: #000000;
-    //   }
-
-    //   > span {
-    //         transform: rotate(90deg);
-    //         left: -60px;
-    //         top: 30px;
-    //         position: absolute;
-    //       }
-    // }
-
-    // &--container {
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    //   justify-content: space-between;
-
-    //   &-text {
-    //     margin-top: 30px;
-    //     line-height: 150%;
-    //     text-align: center;
-    //     color: #000000;
-    //   }
-
-    //   &-cta {
-    //     margin-top: 30px;
-    //   }
-    text-align: center;
-    position: relative;
-    .about--heading {
-      h1 {
-        display: inline-block;
-      }
-      > span {
-        transform: rotate(90deg);
-        left: -60px;
-        top: 30px;
-        position: absolute;
-      }
-    }
-
-    .about--content {
-      .about-text {
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 150%;
-        text-align: center;
-        color: #000000;
-        margin: 45px auto;
-      }
-
-      button {
-        margin-right: 16px;
-      }
-    }
-  }
-
-  // JOINING CRITERIA SECTION
-
-  .criteria-section-wrapper {
-    margin-top: 50px;
-    margin-right: 0;
-    background-image: url("/assets/images/mentorship-criteria-bg.png");
-    background-position-y: top;
-    background-position-x: left;
-    background-color: #fff;
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-
-    .criteria-section {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: 50px;
-
-      .criteria-img-wrap {
-        margin-left: -50px;
-        margin-top: 30px;
-      }
-
-      > div {
-        flex: 1;
-      }
-
-      > .criteria-content {
-        margin-top: 150px;
-
-        > h1 {
-          font-weight: 700;
-          font-size: 54px;
-          line-height: 66px;
-          letter-spacing: -0.04em;
-          color: #ffd3ef;
-          margin-bottom: 40px;
-        }
-
-        > div:first-of-type {
-          margin-bottom: 30px;
-
-          > div {
-            display: flex;
-
-            > span {
-              margin-right: 20px;
-              color: var(--color-primary-light);
-            }
-
-            > p {
-              font-weight: 400;
-              font-size: 18px;
-              line-height: 150%;
-              margin-bottom: 10px;
-              color: var(--color-white);
-            }
-          }
-        }
-      }
-    }
-  }
 
   // HOW IT WORKS SECTION
 
@@ -402,6 +272,75 @@ main {
     }
   }
 }
+
+// JOINING CRITERIA SECTION
+
+  .criteria-section-wrapper {
+    margin-top: 50px;
+    margin-right: 0;
+    background-image: url("/assets/images/mentorship-criteria-bg.png");
+    background-position-y: top;
+    background-position-x: left;
+    background-color: #fff;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+
+    .criteria-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 50px;
+
+      .criteria-img-wrap {
+        margin-left: -50px;
+        margin-top: 30px;
+      }
+
+      > div {
+        flex: 1;
+      }
+
+      > .criteria-content {
+        margin-top: 150px;
+
+        > h1 {
+          font-weight: 700;
+          font-size: 54px;
+          line-height: 66px;
+          letter-spacing: -0.04em;
+          color: #ffd3ef;
+          margin-bottom: 40px;
+        }
+
+        .content {
+          display: flex;
+
+          > p {
+            margin-left: 25px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 27px;
+            color: #fff;
+            font-style: normal;
+          }
+        }
+
+        > div:last-of-type {
+          margin-top: 30px;
+
+          > div {
+            display: flex;
+
+            > span {
+              margin-right: 20px;
+              color: var(--color-primary-light);
+            }
+          }
+        }
+      }
+    }
+  }
 
 // Worktools section
 
