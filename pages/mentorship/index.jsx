@@ -20,6 +20,7 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 
+
 const mentorship = ({ indexPage }) => {
   return (
 		<>
@@ -105,6 +106,7 @@ const mentorship = ({ indexPage }) => {
 				buttonText='Register Now'
 			/>
 
+			{/* Criteria for Mentorship  */}
 			<section className='criteria-section-wrapper'>
 				<div className='container'>
 					<div className='criteria-section'>
@@ -122,14 +124,14 @@ const mentorship = ({ indexPage }) => {
 							<h1> Who is it for? </h1>
 
 							<div className='content'>
-								{/* <Image
-									className=''
-									width={"17px"}
-									height={"14px"}
+								<Image
+									className='check'
+									width={"28px"}
+									height={"24px"}
 									objectFit='contain'
-									src='/../../components/icons/Mark.jsx'
+									src='/assets/images/Checkmark.png'
 									alt='check'
-								/> */}
+								/>
 								<p>
 									A professional looking for deeper knowledge about the impact and applications of
 									blockchain technologies in a business environment
@@ -137,14 +139,14 @@ const mentorship = ({ indexPage }) => {
 							</div>
 
 							<div className='content'>
-								{/* <Image
-									className=''
-									width={"17px"}
-									height={"14px"}
+								<Image
+									className='check'
+									width={"28px"}
+									height={"24px"}
 									objectFit='contain'
-									src='/../../components/icons/Mark.jsx'
+									src='/assets/images/Checkmark.png'
 									alt='check'
-								/> */}
+								/>
 								<p>
 									A professional looking for deeper knowledge about the impact and applications of
 									blockchain technologies in a business environment
@@ -152,14 +154,14 @@ const mentorship = ({ indexPage }) => {
 							</div>
 
 							<div className='content'>
-								{/* <Image
-									className=''
-									width={"17px"}
-									height={"14px"}
+								<Image
+									className='check'
+									width={"28px"}
+									height={"24px"}
 									objectFit='contain'
-									src='/../../components/icons/Mark.jsx'
+									src='/assets/images/Checkmark.png'
 									alt='check'
-								/> */}
+								/>
 								<p>
 									A professional looking for deeper knowledge about the impact and applications of
 									blockchain technologies in a business environment
@@ -169,6 +171,15 @@ const mentorship = ({ indexPage }) => {
 							<div>
 								<Button type='primary-inverse' buttonText={"Register Now"} handleClick={() => {}} />
 							</div>
+
+							<Image
+								className=''
+								width={"160px"}
+								height={"125px"}
+								objectFit='contain'
+								src='/assets/images/box-register-img.png'
+								alt='box-img'
+							/>
 						</div>
 					</div>
 				</div>
