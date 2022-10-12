@@ -70,12 +70,6 @@ const Navbar = () => {
     //   ],
     // },
     // {
-    //   name: "Sponsorship",
-    //   route: "/",
-    //   type: "link",
-    //   isActive: router.pathname === "/sponsorship",
-    // },
-    // {
     //   name: "Hire Talent",
     //   route: "/",
     //   type: "link",
@@ -96,6 +90,13 @@ const Navbar = () => {
     },
     {
       id: 2,
+      name: "Sponsorship",
+      route: "/sponsorship",
+      type: "link",
+      isActive: router.pathname === "/sponsorship",
+    },
+    {
+      id: 3,
       name: "Blog",
       route: "/blog",
       type: "link",

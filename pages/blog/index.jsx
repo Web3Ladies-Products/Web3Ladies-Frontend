@@ -18,6 +18,10 @@ const Blog = ({ blogData }) => {
   const [paginationData, setPaginationData] = React.useState(null);
 
   const [featuredPost, setFeaturedPost] = React.useState(null);
+  console.log(
+    "🚀 ~ file: index.jsx ~ line 21 ~ Blog ~ featuredPost",
+    featuredPost
+  );
   function onChange(key) {
     router.push(`/blog?tab=${key}`);
   }

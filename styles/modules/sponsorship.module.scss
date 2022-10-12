@@ -1,0 +1,119 @@
+.mentorship.sponsor {
+  .logo-container {
+    background: transparent;
+    &:nth-of-type(2) {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.events.donation {
+  background: var(--primary-color-inverse);
+  .events-list {
+    .events-item {
+      &--text .button-container {
+        justify-content: flex-start;
+        gap: 17px;
+        .primary {
+          background-color: var(--primary-color);
+        }
+      }
+      .events-item--image {
+        background-color: var(--primary-color-inverse);
+        display: flex;
+        justify-content: center;
+      }
+      &:nth-child(odd) {
+        .events-item--image {
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        .events-item--text {
+          @include desktop {
+            padding-left: 119px;
+            order: 1;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .text {
+          display: flex;
+          justify-content: flex-start;
+          @include desktop {
+            padding-right: 119px;
+            order: 2;
+          }
+        }
+
+        .events-item--image {
+          @include desktop {
+            order: 1;
+          }
+        }
+        .events-item--text {
+          @include desktop {
+            padding-right: 119px;
+          }
+        }
+      }
+      .events-item--text--extra {
+        margin-bottom: 32px;
+        h4 {
+          margin-bottom: 10px;
+        }
+
+        .achievements {
+          background: var(--color-background);
+          @include desktop {
+            display: grid;
+            padding: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          }
+
+          li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            @include desktop {
+              border-right: 1px solid var(--color-black);
+            }
+            @include mobile {
+              &:not(:last-child) {
+                padding: 20px 0;
+                margin-bottom: 10px;
+                border-bottom: 1px solid var(--color-black);
+              }
+            }
+
+            &:last-child {
+              border-right: none;
+            }
+
+            p {
+              margin-bottom: 8px;
+            }
+            h6 {
+              font-size: 24px;
+              line-height: 31px;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .pill-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          .pill {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
