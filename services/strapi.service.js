@@ -126,7 +126,7 @@ const getPostsByCategory = (page, pageSize, category) =>
       return error;
     });
 
-const getSimilarPosts = (author) =>
+const getSimilarPosts = (author) => {
   fetch(`${STRAPI_URL}/api/blogs?filters[author][$eq]=${author}`, {
     headers,
     method: "GET",
@@ -139,6 +139,7 @@ const getSimilarPosts = (author) =>
     .catch((error) => {
       return error;
     });
+};
 
 export const strapiService = {
   getBlogPosts,

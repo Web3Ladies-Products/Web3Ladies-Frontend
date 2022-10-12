@@ -7,32 +7,12 @@ import { convertDateToWords, getReadingTime } from "../../helpers";
 import { useCopy } from "../../hooks/useCopy";
 import siteMetadata from "../../lib/data/siteMetadata";
 import Footer from "../../components/layouts/Footer";
-import blogData from "../api/blog.json";
 import Badge from "../../components/Badge";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { strapiService } from "../../services";
 import Custom404Error from "../404";
 
-const Slug = ({ article }) => {
-  const router = useRouter();
-  const [loading, setLoading] = React.useState(null);
-  // const [article, setArticle] = React.useState(null);
-  const [similarArticles, setSimilarArticles] = React.useState(null);
-
-  React.useEffect(() => {
-    const getArticle = async () => {
-      try {
-        const response = await strapiService.getPostBySlug(router.query.slug);
-        const data = response[0].attributes;
-        const similar = await strapiService.getSimilarPosts(data.author);
-        setSimilarArticles(similar);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getArticle();
-  }, [router.query.slug]);
-
+const Slug = ({ article, notFound }) => {
   const src = (articleData) => {
     if (articleData?.imageUrl) {
       return articleData.imageUrl;
@@ -41,12 +21,14 @@ const Slug = ({ article }) => {
     }
   };
 
-  return (
+  return notFound || !article ? (
+    <Custom404Error customPageTitle={"Blog post"} />
+  ) : (
     <>
       <HeadSeo
         title={`${article?.title} | ${siteMetadata.companyName} `}
         description={article?.description || siteMetadata.description}
-        canonicalUrl={`${siteMetadata.siteUrl}/articles/${article?.slug}`}
+        canonicalUrl={`${siteMetadata.siteUrl}/blog/${article?.slug}`}
         ogImageUrl={src(article)}
         ogType={"article"}
       >
@@ -68,95 +50,78 @@ const Slug = ({ article }) => {
           }}
         ></script>
       </HeadSeo>
-
       <Navbar />
       <section>
         <div className="container" style={{ paddingTop: "0" }}>
-          {article ? (
-            <>
-              <div className="articles">
-                <div className="article-header">
-                  <>
-                    <div className="article-header--subscribe">
-                      <Badge
-                        badgeText={article.category}
-                        textColor={"#FFFFFF"}
-                        badgeBackground={"#7D0BFE"}
-                      />
-                      <span className="dot"></span>
-                      <p>{article.readingTime}-min read</p>
-                    </div>
-                  </>
-
-                  <div className="article-header--title">
-                    <h1>{article?.title}</h1>
-                  </div>
-                  <div className="article-header--meta">
-                    <span className="article-header--meta_title">
-                      {article?.author}
-                    </span>
+          <>
+            <div className="articles">
+              <div className="article-header">
+                <>
+                  <div className="article-header--subscribe">
+                    <Badge
+                      badgeText={article.category}
+                      textColor={"#FFFFFF"}
+                      badgeBackground={"#7D0BFE"}
+                    />
                     <span className="dot"></span>
-                    <span className="article-header--meta_date">
-                      Published {convertDateToWords(article?.publishedAt)}
-                    </span>
+                    <p>{article.readingTime}-min read</p>
                   </div>
-                </div>
-                <div className="article-body">
-                  <div className="article-body--image">
-                    <figure>
-                      <div className="image--wrapper">
-                        <Image
-                          loader={() => src(article)}
-                          src={src(article)}
-                          alt={article?.title}
-                          layout="fill"
-                          objectFit="contain"
-                          priority={true}
-                          unoptimized={true}
-                        />
-                      </div>
+                </>
 
-                      <figcaption className="article-body--image_caption">
-                        {article?.title}
-                      </figcaption>
-                    </figure>
-                  </div>
-                  <div className="article-body--content">
-                    <div
-                      id="article-content"
-                      dangerouslySetInnerHTML={{
-                        __html: article?.content,
-                      }}
-                    />
-                  </div>
+                <div className="article-header--title">
+                  <h1>{article?.title}</h1>
                 </div>
-                <div className="article-footer">
-                  <div className="article-footer--subscribe">
-                    {/* <h6>{article?.title}</h6> */}
-                  </div>
-                  <div className="article-footer--share">
-                    {/* <span className="share-text">Share</span> */}
-                    <ShareButtons
-                      article={article}
-                      style={{ display: "flex" }}
-                    />
-                  </div>
+                <div className="article-header--meta">
+                  <span className="article-header--meta_title">
+                    {article?.author}
+                  </span>
+                  <span className="dot"></span>
+                  <span className="article-header--meta_date">
+                    Published {convertDateToWords(article?.publishedAt)}
+                  </span>
                 </div>
               </div>
+              <div className="article-body">
+                <div className="article-body--image">
+                  <figure>
+                    <div className="image--wrapper">
+                      <Image
+                        loader={() => src(article)}
+                        src={src(article)}
+                        alt={article?.title}
+                        layout="fill"
+                        objectFit="contain"
+                        priority={true}
+                        unoptimized={true}
+                      />
+                    </div>
 
-              {/* <div style={{ margin: "84px 0" }}>
-                  <Prompt
-                    heading="Want to stay up to date?"
-                    bodyText={`Be the first to know when ${article.title} publishes content`}
-                    action="Sign Up"
-                    href="/auth/signup"
-                    radius="16px"
+                    <figcaption className="article-body--image_caption">
+                      {article?.title}
+                    </figcaption>
+                  </figure>
+                </div>
+                <div className="article-body--content">
+                  <div
+                    id="article-content"
+                    dangerouslySetInnerHTML={{
+                      __html: article?.content,
+                    }}
                   />
-                </div> */}
-            </>
-          ) : (
-            <Custom404Error customPageTitle={"post"} />
-          )}
+                </div>
+              </div>
+              <div className="article-footer">
+                <div className="article-footer--subscribe">
+                  {/* <h6>{article?.title}</h6> */}
+                </div>
+                <div className="article-footer--share">
+                  {/* <span className="share-text">Share</span> */}
+                  <ShareButtons article={article} style={{ display: "flex" }} />
+                </div>
+              </div>
+            </div>
+          </>
+
           {/* {similarArticles && similarArticles.length > 0 && (
             <>
               <div className="divider" />
@@ -183,7 +148,7 @@ const Slug = ({ article }) => {
                           unoptimized={true}
                         />
                       </div>
-                      <Link href={`/articles/${articleData.slug}`}>
+                      <Link href={`/blog/${articleData.slug}`}>
                         <a>
                           <h2 className="more-acticles--list_item_title">
                             {articleData.title}
@@ -223,7 +188,7 @@ const ShareButtons = ({ article, style }) => {
   return (
     <div className="share-buttons-container" style={style}>
       <a
-        href={`https://www.facebook.com/v5.0/dialog/share?app_id=542599432471018&href=${siteMetadata.siteUrl}/articles/${article?.slug}&display=page&quote=${article?.title}`}
+        href={`https://www.facebook.com/v5.0/dialog/share?app_id=542599432471018&href=${siteMetadata.siteUrl}/blog/${article?.slug}&display=page&quote=${article?.title}`}
         rel="noreferrer"
         target="_blank"
       >
@@ -235,7 +200,7 @@ const ShareButtons = ({ article, style }) => {
         />
       </a>
       <a
-        href={`https://twitter.com/intent/tweet?url=${siteMetadata.siteUrl}/articles/${article?.slug}/%0A&text=${article?.title}%0A&via=${siteMetadata.twitterHandle}`}
+        href={`https://twitter.com/intent/tweet?url=${siteMetadata.siteUrl}/blog/${article?.slug}/%0A&text=${article?.title}%0A&via=${siteMetadata.twitterHandle}`}
         rel="noreferrer"
         target="_blank"
       >
@@ -247,7 +212,7 @@ const ShareButtons = ({ article, style }) => {
         />
       </a>
       <a
-        href={`https://www.linkedin.com/shareArticle?url=${siteMetadata.siteUrl}/articles/${article?.slug}&title=${article?.title}&summary=${article?.description}&source=${siteMetadata.siteUrl}`}
+        href={`https://www.linkedin.com/shareArticle?url=${siteMetadata.siteUrl}/blog/${article?.slug}&title=${article?.title}&summary=${article?.description}&source=${siteMetadata.siteUrl}`}
         rel="noreferrer"
         target="_blank"
       >
@@ -282,34 +247,53 @@ const ShareButtons = ({ article, style }) => {
 export default Slug;
 
 export async function getStaticPaths() {
-  const paths = blogData.blog.map((article) => ({
-    params: {
-      slug: article.slug,
-    },
-  }));
+  const response = await strapiService.getBlogPosts(1000);
+  const paths = response.data.map((article) => {
+    return {
+      params: {
+        slug: article.attributes.slug,
+      },
+    };
+  });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const response = await strapiService.getPostBySlug(params.slug);
-  const data = response[0].attributes;
-  const content = await markdownToHtml(data.content || "");
-  const imageUrl = data.featured_image_url;
-  const readingTime = getReadingTime(data.content);
+  try {
+    const response = await strapiService.getPostBySlug(params.slug);
+    const data = response[0]?.attributes;
 
-  const article = {
-    ...data,
-    content,
-    imageUrl,
-    readingTime,
-  };
-
-  return {
-    props: {
-      article,
-    },
-  };
+    if (data) {
+      const content = await markdownToHtml(data?.content || "");
+      const imageUrl = data?.featured_image_url;
+      const readingTime = getReadingTime(data?.content);
+      return {
+        props: {
+          article: {
+            ...data,
+            content,
+            imageUrl,
+            readingTime,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        article: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        article: null,
+        notFound: true,
+      },
+    };
+  }
 }
