@@ -65,7 +65,7 @@ const Mentors = () => {
       <section className="top-mentors-section">
         <div className="container">
           <h1 className="section-title">Meet Our Top Mentors</h1>
-          <p>
+          <p className="section-description">
             These mentors will be on the ground for all the mentorship
             activities, they are responsible for classes, responding to mentees’
             concerns on slack, and grading mentees, they will also be

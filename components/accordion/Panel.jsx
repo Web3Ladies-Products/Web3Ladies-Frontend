@@ -58,7 +58,9 @@ const Panel = ({
           style={innerStyle}
           aria-hidden={!isActive}
         >
-          <p className={`panel__content ${fullWidth && "w-full"}`}>{content}</p>
+          <div className={`panel__content ${fullWidth && "w-full"}`}>
+            {typeof content === "object" ? <>{content}</> : <p>{content}</p>}
+          </div>
           {children && <div className="panel__children">{children}</div>}
         </div>
       </div>

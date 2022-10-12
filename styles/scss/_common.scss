@@ -312,8 +312,7 @@
   }
 }
 
-// loop to create margin classes
-@for $i from 1 through 10 {
+@for $i from 1 through 20 {
   .m-#{$i} {
     margin: #{$i}px !important;
   }
@@ -334,6 +333,30 @@
     margin-right: #{$i}px !important;
   }
   .my-#{$i} {
+    margin-top: #{$i}px !important;
+    margin-bottom: #{$i}px !important;
+  }
+
+  .p-#{$i} {
+    margin: #{$i}px !important;
+  }
+  .pt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .pb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .pl-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .pr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .px-#{$i} {
+    margin-left: #{$i}px !important;
+    margin-right: #{$i}px !important;
+  }
+  .py-#{$i} {
     margin-top: #{$i}px !important;
     margin-bottom: #{$i}px !important;
   }
