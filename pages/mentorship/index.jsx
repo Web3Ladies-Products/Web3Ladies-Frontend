@@ -20,8 +20,16 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
+// import { useRouter } from "next/router";
 
 const mentorship = ({ indexPage }) => {
+  // const router = useRouter();
+
+  // React.useEffect(() => {
+  //   router.push("/");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
   return (
     <>
       <Navbar />
