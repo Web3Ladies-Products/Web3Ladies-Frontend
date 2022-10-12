@@ -8,7 +8,7 @@ const Summary = () => {
           <h1>Summary</h1>
         </div>
         <div className="summary-content">
-          <div className="summary-text">
+          <div className="summary-content-text">
             <p>
               This is an intensive learning phase of the basics/foundations for
               all tracks, it serves as the introduction to the track for
