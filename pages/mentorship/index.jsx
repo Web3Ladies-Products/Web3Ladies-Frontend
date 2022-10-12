@@ -20,15 +20,15 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 const mentorship = ({ indexPage }) => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // React.useEffect(() => {
-  //   router.push("/");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  React.useEffect(() => {
+    router.push("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -46,7 +46,7 @@ const mentorship = ({ indexPage }) => {
               <div className="button-container">
                 <Button
                   type={"primary"}
-                  buttonText={"Register Now"}
+                  buttonText={indexPage.button_one_text}
                   handleClick={() => null}
                 />
                 <Button
@@ -117,6 +117,7 @@ const mentorship = ({ indexPage }) => {
          there will be an eviction at the end of this phase upon final
          assessment to graduate into the learning phase.`}
         buttonText="Register Now"
+        handleClick={() => null}
       />
 
       {/* Criteria for Mentorship  */}

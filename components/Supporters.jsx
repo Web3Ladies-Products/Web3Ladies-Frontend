@@ -1,13 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
-const Supporters = ({ indexPage }) => {
+const Supporters = ({ indexPage, title }) => {
   return (
     <section className="support" style={{ paddingTop: "0" }}>
       <div className="container" style={{ paddingTop: "0" }}>
         <h1
           className="support--heading"
-          dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
+          dangerouslySetInnerHTML={{
+            __html: title || indexPage.supporters_title,
+          }}
         />
         <div className="groups-container">
           {indexPage.supporters_images?.map((supporter) => (

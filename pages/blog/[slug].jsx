@@ -288,7 +288,7 @@ export async function getStaticProps({ params }) {
       },
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
       props: {
         article: null,

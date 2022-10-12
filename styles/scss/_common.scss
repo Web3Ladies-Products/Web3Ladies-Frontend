@@ -25,6 +25,18 @@
   width: fit-content;
 }
 
+.pill {
+  padding: 8px 13px;
+  background: var(--color-background);
+  border-radius: 4px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  width: fit-content;
+}
+
 .w-full {
   width: 100% !important;
 }
