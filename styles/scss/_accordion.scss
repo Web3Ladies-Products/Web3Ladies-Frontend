@@ -11,10 +11,10 @@
 
   &--has-border {
     border: 2px solid #000000;
-    margin-bottom: 64px;
+    margin-bottom: 16px;
 
     @include mobile {
-      margin-bottom: 32px;
+      margin-bottom: 8px;
     }
   }
 
@@ -91,13 +91,15 @@
   }
 
   &__content {
-    margin: 5px 25px 25px;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     opacity: 0;
     transition: opacity 0.3s linear 0.18s;
     width: 80%;
+    > p {
+      margin: 5px 25px 25px;
+    }
   }
 
   &:not(:last-child) {

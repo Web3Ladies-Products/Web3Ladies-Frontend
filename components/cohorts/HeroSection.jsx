@@ -9,11 +9,13 @@ const HeroSection = ({ heroDetails, badgeText }) => {
       <div className="container cta">
         <div className="content">
           <div className="hero_content bootcamp">
-            <Badge
-              badgeText={badgeText}
-              badgeBackground={"#FFFFFF"}
-              badgeBorderColor={"#000000"}
-            />
+            {badgeText && (
+              <Badge
+                badgeText={badgeText}
+                badgeBackground={"#FFFFFF"}
+                badgeBorderColor={"#000000"}
+              />
+            )}
             <h1 dangerouslySetInnerHTML={{ __html: heroDetails.title }} />
             <p>{heroDetails.description}</p>
 

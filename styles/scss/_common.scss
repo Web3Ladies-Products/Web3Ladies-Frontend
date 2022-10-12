@@ -89,8 +89,10 @@
 
 .registration-analytics {
   .registration-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 
     &--list {
       display: flex;
@@ -98,7 +100,16 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      border-right: 1px solid var(--color-black);
+      @include desktop {
+        border-right: 1px solid var(--color-black);
+      }
+      @include mobile {
+        &:not(:last-child) {
+          padding: 20px 0;
+          margin-bottom: 10px;
+          border-bottom: 1px solid var(--color-black);
+        }
+      }
 
       &:last-child {
         border-right: none;
@@ -145,7 +156,7 @@
 
 .mentee-experience--list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 32px;
 
   &-item {
@@ -315,5 +326,55 @@
     &:not(:last-child) {
       margin-bottom: 16px;
     }
+  }
+}
+
+@for $i from 1 through 20 {
+  .m-#{$i} {
+    margin: #{$i}px !important;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .mx-#{$i} {
+    margin-left: #{$i}px !important;
+    margin-right: #{$i}px !important;
+  }
+  .my-#{$i} {
+    margin-top: #{$i}px !important;
+    margin-bottom: #{$i}px !important;
+  }
+
+  .p-#{$i} {
+    margin: #{$i}px !important;
+  }
+  .pt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .pb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .pl-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .pr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .px-#{$i} {
+    margin-left: #{$i}px !important;
+    margin-right: #{$i}px !important;
+  }
+  .py-#{$i} {
+    margin-top: #{$i}px !important;
+    margin-bottom: #{$i}px !important;
   }
 }

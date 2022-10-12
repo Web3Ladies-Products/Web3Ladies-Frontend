@@ -2,10 +2,8 @@
 
 .tracks {
   height: fit-content;
-  margin-bottom: 80px;
-
+  padding-bottom: 80px;
   background: #6911cc;
-
   position: relative;
 
   .round-vector {
@@ -218,7 +216,7 @@
     &-text {
       flex: 70;
       margin-right: 50px;
-  
+
       p {
         margin-top: 25px;
         font-weight: 400;
@@ -227,8 +225,6 @@
       }
     }
   }
-
-  
 
   .metrics {
     flex: 30;
@@ -262,16 +258,15 @@
           font-size: 58px;
           line-height: 87px;
         }
-
         span {
           font-weight: 500;
-          font-size: 13.0588px;
+          font-size: 13px;
           line-height: 134%;
-          /* or 17px */
-
           text-align: center;
+        }
 
-          color: #0f0f0f;
+        &:not(:last-child) {
+          padding-right: 20px;
         }
       }
     }
@@ -294,21 +289,20 @@
   }
 }
 
-.cohort-content {
-  width: 95%;
-  margin: 0 auto;
-  .container {
-    padding: 0;
-    width: 100%;
-  }
-}
+// .cohort-content {
+//   width: 95%;
+//   margin: 0 auto;
+//   .container {
+//     padding: 0;
+//     width: 100%;
+//   }
+// }
 
-.summary-cohort-content {
-  width:100%;
-  .container {
-    padding: 0;
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
+// .summary-cohort-content {
+//   width:100%;
+//   .container {
+//     padding: 0;
+//     width: 90%;
+//     margin: 0 auto;
+//   }
+// }

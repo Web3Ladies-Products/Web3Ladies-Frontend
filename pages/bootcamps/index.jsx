@@ -3,9 +3,10 @@ import React from "react";
 import Button from "../../components/buttons/Button";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
+import Bootcamps from "../../components/mentorship/Bootcamps";
 import bootcampsData from "../api/bootcamps.json";
 
-const Bootcamps = () => {
+const BootcampPage = () => {
   const bootcampsHome = bootcampsData.home;
 
   return (
@@ -82,48 +83,10 @@ const Bootcamps = () => {
         </div>
       </section>
 
-      <section className="bootcamps">
-        <div className="container">
-          <h2 className="sub-section-title bold">
-            {bootcampsHome.pastBootcamps.title}
-          </h2>
-          <ul>
-            {bootcampsHome.pastBootcamps.bootcamps.map((bootcamp) => (
-              <li
-                className="card card--has-border card-content--has-image"
-                key={bootcamp.id}
-              >
-                <div className="card-text">
-                  <h3
-                    className="sub-section-title"
-                    dangerouslySetInnerHTML={{ __html: bootcamp.name }}
-                  />
-                  <p className="section-description">{bootcamp.description}</p>
-                  <Button
-                    type={bootcamp.buttonType}
-                    buttonText={bootcamp.buttonText}
-                    handleClick={() => {
-                      window.location.href = bootcamp.buttonLink;
-                    }}
-                  />
-                </div>
-                <div className="card-img">
-                  <Image
-                    src={bootcamp.image}
-                    width={"439px"}
-                    height={"283px"}
-                    objectFit="contain"
-                    alt="bootcamp-img"
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Bootcamps />
       <Footer />
     </>
   );
 };
 
-export default Bootcamps;
+export default BootcampPage;
