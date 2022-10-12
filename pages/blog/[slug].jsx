@@ -7,32 +7,12 @@ import { convertDateToWords, getReadingTime } from "../../helpers";
 import { useCopy } from "../../hooks/useCopy";
 import siteMetadata from "../../lib/data/siteMetadata";
 import Footer from "../../components/layouts/Footer";
-import blogData from "../api/blog.json";
 import Badge from "../../components/Badge";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { strapiService } from "../../services";
 import Custom404Error from "../404";
 
-const Slug = ({ article }) => {
-  const router = useRouter();
-  const [loading, setLoading] = React.useState(null);
-  // const [article, setArticle] = React.useState(null);
-  const [similarArticles, setSimilarArticles] = React.useState(null);
-
-  React.useEffect(() => {
-    const getArticle = async () => {
-      try {
-        const response = await strapiService.getPostBySlug(router.query.slug);
-        const data = response[0].attributes;
-        const similar = await strapiService.getSimilarPosts(data.author);
-        setSimilarArticles(similar);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getArticle();
-  }, [router.query.slug]);
-
+const Slug = ({ article, notFound }) => {
   const src = (articleData) => {
     if (articleData?.imageUrl) {
       return articleData.imageUrl;
@@ -41,7 +21,9 @@ const Slug = ({ article }) => {
     }
   };
 
-  return (
+  return notFound ? (
+    <Custom404Error customPageTitle={"Blog post"} />
+  ) : (
     <>
       <HeadSeo
         title={`${article?.title} | ${siteMetadata.companyName} `}
@@ -282,34 +264,53 @@ const ShareButtons = ({ article, style }) => {
 export default Slug;
 
 export async function getStaticPaths() {
-  const paths = blogData.blog.map((article) => ({
-    params: {
-      slug: article.slug,
-    },
-  }));
+  const response = await strapiService.getBlogPosts(1000);
+  const paths = response.data.map((article) => {
+    return {
+      params: {
+        slug: article.attributes.slug,
+      },
+    };
+  });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const response = await strapiService.getPostBySlug(params.slug);
-  const data = response[0].attributes;
-  const content = await markdownToHtml(data.content || "");
-  const imageUrl = data.featured_image_url;
-  const readingTime = getReadingTime(data.content);
+  try {
+    const response = await strapiService.getPostBySlug(params.slug);
+    const data = response[0]?.attributes;
 
-  const article = {
-    ...data,
-    content,
-    imageUrl,
-    readingTime,
-  };
-
-  return {
-    props: {
-      article,
-    },
-  };
+    if (data) {
+      const content = await markdownToHtml(data?.content || "");
+      const imageUrl = data?.featured_image_url;
+      const readingTime = getReadingTime(data?.content);
+      return {
+        props: {
+          article: {
+            ...data,
+            content,
+            imageUrl,
+            readingTime,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        article: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        article: null,
+        notFound: true,
+      },
+    };
+  }
 }
