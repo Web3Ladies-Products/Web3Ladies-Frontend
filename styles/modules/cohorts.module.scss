@@ -212,24 +212,28 @@
     @include mobile {
       flex-direction: column;
     }
-  }
 
-  &-text {
-    flex: 70;
-    margin-right: 30px;
-
-    p {
-      margin-top: 18px;
-
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 150%;
+    &-text {
+      flex: 70;
+      margin-right: 50px;
+  
+      p {
+        margin-top: 25px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+      }
     }
   }
 
+  
+
   .metrics {
+    flex: 30;
     background-color: var(--background-color);
-    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+    padding: 20px 30px 30px 20px;
 
     @include mobile {
       margin-top: 20px;
@@ -287,3 +291,22 @@
     }
   }
 }
+
+// .cohort-content {
+//   width: 95%;
+//   margin: 0 auto;
+//   .container {
+//     padding: 0;
+//     width: 100%;
+//   }
+// }
+
+// .summary-cohort-content {
+//   width:100%;
+//   .container {
+//     padding: 0;
+//     width: 90%;
+//     margin: 0 auto;
+//   }
+// }
+
