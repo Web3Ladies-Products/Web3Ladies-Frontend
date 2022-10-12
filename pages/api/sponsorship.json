@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Web3 - Blockchain Development",
+    "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+    "image": "/assets/images/blockchain-dev.png",
+    "buttonTextOne": "View curriculum",
+    "buttonLinkOne": "/tracks/blockchain",
+    "buttonTypeOne": "outline",
+    "buttonTextTwo": "Register now",
+    "buttonLinkTwo": "/tracks/blockchain",
+    "buttonTypeTwo": "primary",
+    "note": "*Registration ongoing for next cohort"
+  },
+  "W3L_SUPPORTERS": [
+    {
+      "name": "Polygon",
+      "logo": "/assets/images/polygon.svg"
+    },
+    {
+      "name": "W3D",
+      "logo": "/assets/images/w3d.svg"
+    },
+    {
+      "name": "FTX",
+      "logo": "/assets/images/ftx.svg"
+    },
+    {
+      "name": "StackShift",
+      "logo": "/assets/images/stackshift.svg"
+    },
+    {
+      "name": "Crevatal",
+      "logo": "/assets/images/crevatal.svg"
+    },
+    {
+      "name": "Harmony",
+      "logo": "/assets/images/harmony.svg"
+    },
+    {
+      "name": "Filecoin",
+      "logo": "/assets/images/filecoin.svg"
+    },
+    {
+      "name": "ChainWhiz",
+      "logo": "/assets/images/chainwhiz.svg"
+    }
+  ]
+}
