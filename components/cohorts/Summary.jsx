@@ -3,7 +3,7 @@ import React from "react";
 const Summary = () => {
   return (
     <section className="cohort-summary">
-      <div className="container">
+      <div className="">
         <div className="summary-title">
           <h1>Summary</h1>
         </div>

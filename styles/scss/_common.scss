@@ -89,8 +89,10 @@
 
 .registration-analytics {
   .registration-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 
     &--list {
       display: flex;
@@ -98,7 +100,16 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      border-right: 1px solid var(--color-black);
+      @include desktop {
+        border-right: 1px solid var(--color-black);
+      }
+      @include mobile {
+        &:not(:last-child) {
+          padding: 20px 0;
+          margin-bottom: 10px;
+          border-bottom: 1px solid var(--color-black);
+        }
+      }
 
       &:last-child {
         border-right: none;
@@ -145,7 +156,7 @@
 
 .mentee-experience--list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 32px;
 
   &-item {

@@ -216,7 +216,7 @@
     &-text {
       flex: 70;
       margin-right: 50px;
-  
+
       p {
         margin-top: 25px;
         font-weight: 400;
@@ -225,8 +225,6 @@
       }
     }
   }
-
-  
 
   .metrics {
     flex: 30;
@@ -260,16 +258,15 @@
           font-size: 58px;
           line-height: 87px;
         }
-
         span {
           font-weight: 500;
-          font-size: 13.0588px;
+          font-size: 13px;
           line-height: 134%;
-          /* or 17px */
-
           text-align: center;
+        }
 
-          color: #0f0f0f;
+        &:not(:last-child) {
+          padding-right: 20px;
         }
       }
     }
@@ -309,4 +306,3 @@
 //     margin: 0 auto;
 //   }
 // }
-
