@@ -76,6 +76,13 @@ button,
     background: transparent;
     padding: 0;
   }
+  &.outlined-clear {
+    font-size: 14px;
+    line-height: 25px;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+    background: transparent;
+  }
 
   &.full {
     width: 90%;

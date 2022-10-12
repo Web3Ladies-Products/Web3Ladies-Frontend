@@ -1,5 +1,16 @@
 @import "../scss/mixins";
 
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
 // HERO SECTION
 main {
   &.header-bg {
@@ -85,17 +96,6 @@ main {
       @for $i from 1 through 4 {
         &:nth-of-type(#{$i}) {
           animation: bounce 2s #{"0." + ($i * 2)}s infinite;
-        }
-      }
-
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(4px);
         }
       }
 
@@ -190,6 +190,16 @@ main {
   &--heading {
     text-align: center;
     color: #000000;
+    position: relative;
+    > span {
+      right: 15%;
+      top: -85% !important;
+      position: absolute !important;
+      animation: bounce 2s infinite;
+      img {
+        transform: rotate(130deg) !important;
+      }
+    }
   }
 
   &--container {
@@ -207,6 +217,9 @@ main {
 
     &-cta {
       margin-top: 30px;
+      > span {
+        animation: bounce 2s infinite;
+      }
     }
   }
 }
