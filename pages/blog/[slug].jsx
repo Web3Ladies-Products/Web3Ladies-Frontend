@@ -21,7 +21,7 @@ const Slug = ({ article, notFound }) => {
     }
   };
 
-  return notFound ? (
+  return notFound || !article ? (
     <Custom404Error customPageTitle={"Blog post"} />
   ) : (
     <>
@@ -50,95 +50,78 @@ const Slug = ({ article, notFound }) => {
           }}
         ></script>
       </HeadSeo>
-
       <Navbar />
       <section>
         <div className="container" style={{ paddingTop: "0" }}>
-          {article ? (
-            <>
-              <div className="articles">
-                <div className="article-header">
-                  <>
-                    <div className="article-header--subscribe">
-                      <Badge
-                        badgeText={article.category}
-                        textColor={"#FFFFFF"}
-                        badgeBackground={"#7D0BFE"}
-                      />
-                      <span className="dot"></span>
-                      <p>{article.readingTime}-min read</p>
-                    </div>
-                  </>
-
-                  <div className="article-header--title">
-                    <h1>{article?.title}</h1>
-                  </div>
-                  <div className="article-header--meta">
-                    <span className="article-header--meta_title">
-                      {article?.author}
-                    </span>
+          <>
+            <div className="articles">
+              <div className="article-header">
+                <>
+                  <div className="article-header--subscribe">
+                    <Badge
+                      badgeText={article.category}
+                      textColor={"#FFFFFF"}
+                      badgeBackground={"#7D0BFE"}
+                    />
                     <span className="dot"></span>
-                    <span className="article-header--meta_date">
-                      Published {convertDateToWords(article?.publishedAt)}
-                    </span>
+                    <p>{article.readingTime}-min read</p>
                   </div>
-                </div>
-                <div className="article-body">
-                  <div className="article-body--image">
-                    <figure>
-                      <div className="image--wrapper">
-                        <Image
-                          loader={() => src(article)}
-                          src={src(article)}
-                          alt={article?.title}
-                          layout="fill"
-                          objectFit="contain"
-                          priority={true}
-                          unoptimized={true}
-                        />
-                      </div>
+                </>
 
-                      <figcaption className="article-body--image_caption">
-                        {article?.title}
-                      </figcaption>
-                    </figure>
-                  </div>
-                  <div className="article-body--content">
-                    <div
-                      id="article-content"
-                      dangerouslySetInnerHTML={{
-                        __html: article?.content,
-                      }}
-                    />
-                  </div>
+                <div className="article-header--title">
+                  <h1>{article?.title}</h1>
                 </div>
-                <div className="article-footer">
-                  <div className="article-footer--subscribe">
-                    {/* <h6>{article?.title}</h6> */}
-                  </div>
-                  <div className="article-footer--share">
-                    {/* <span className="share-text">Share</span> */}
-                    <ShareButtons
-                      article={article}
-                      style={{ display: "flex" }}
-                    />
-                  </div>
+                <div className="article-header--meta">
+                  <span className="article-header--meta_title">
+                    {article?.author}
+                  </span>
+                  <span className="dot"></span>
+                  <span className="article-header--meta_date">
+                    Published {convertDateToWords(article?.publishedAt)}
+                  </span>
                 </div>
               </div>
+              <div className="article-body">
+                <div className="article-body--image">
+                  <figure>
+                    <div className="image--wrapper">
+                      <Image
+                        loader={() => src(article)}
+                        src={src(article)}
+                        alt={article?.title}
+                        layout="fill"
+                        objectFit="contain"
+                        priority={true}
+                        unoptimized={true}
+                      />
+                    </div>
 
-              {/* <div style={{ margin: "84px 0" }}>
-                  <Prompt
-                    heading="Want to stay up to date?"
-                    bodyText={`Be the first to know when ${article.title} publishes content`}
-                    action="Sign Up"
-                    href="/auth/signup"
-                    radius="16px"
+                    <figcaption className="article-body--image_caption">
+                      {article?.title}
+                    </figcaption>
+                  </figure>
+                </div>
+                <div className="article-body--content">
+                  <div
+                    id="article-content"
+                    dangerouslySetInnerHTML={{
+                      __html: article?.content,
+                    }}
                   />
-                </div> */}
-            </>
-          ) : (
-            <Custom404Error customPageTitle={"post"} />
-          )}
+                </div>
+              </div>
+              <div className="article-footer">
+                <div className="article-footer--subscribe">
+                  {/* <h6>{article?.title}</h6> */}
+                </div>
+                <div className="article-footer--share">
+                  {/* <span className="share-text">Share</span> */}
+                  <ShareButtons article={article} style={{ display: "flex" }} />
+                </div>
+              </div>
+            </div>
+          </>
+
           {/* {similarArticles && similarArticles.length > 0 && (
             <>
               <div className="divider" />
