@@ -7,13 +7,14 @@ const Button = ({
   handleClick,
   color,
   children,
+  fullWidth,
   ...props
 }) => {
   return (
     <button
       className={`${variant} ${color ? color + "-color" : ""} ${
         hasIcon ? "has-icon" : ""
-      }`}
+      } ${fullWidth ? "w-full" : ""}`}
       onClick={() => (props.type === "submit" ? null : handleClick())}
       {...props}
     >

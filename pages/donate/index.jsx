@@ -1,11 +1,8 @@
 import React from "react";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
-import BaseInput from "../../components/UI/BaseInput";
-import Button from "../../components/buttons/Button";
 import { useRouter } from "next/router";
 import { generateInputChangeHandler } from "../../helpers";
-import BaseSelect from "../../components/UI/BaseSelect";
 import DonationForm from "../../components/donation/DonationForm";
 import PaymentMethod from "../../components/donation/PaymentMethod";
 
@@ -18,7 +15,6 @@ const DEFAULT_ERRORS = {
 };
 
 const Donate = () => {
-  const router = useRouter();
   const [showLoader, setShowLoader] = React.useState(false);
   const [errors, setErrors] = React.useState(DEFAULT_ERRORS);
   const [activeView, setActiveView] = React.useState("donation-form");
