@@ -74,14 +74,14 @@ const Sponsorship = ({ indexPage, highlightsPosts, featuredPost }) => {
                   )}
                   <div className="button-container">
                     <Button
-                      type={item.button_type_one}
+                      variant={item.button_type_one}
                       buttonText={item.button_text_one}
                       handleClick={() => {
                         window.location.href = item.button_link_one;
                       }}
                     />
                     <Button
-                      type={item.button_type_two}
+                      variant={item.button_type_two}
                       buttonText={item.button_text_two}
                       handleClick={() => {
                         window.location.href = item.button_link_two;

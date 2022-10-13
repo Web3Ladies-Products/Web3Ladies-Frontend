@@ -45,12 +45,12 @@ const mentorship = ({ indexPage }) => {
               ></h1>
               <div className="button-container">
                 <Button
-                  type={"primary"}
+                  variant={"primary"}
                   buttonText={indexPage.button_one_text}
                   handleClick={() => null}
                 />
                 <Button
-                  type={"outline"}
+                  variant={"outline"}
                   buttonText={indexPage.button_two_text}
                   handleClick={() => null}
                 />

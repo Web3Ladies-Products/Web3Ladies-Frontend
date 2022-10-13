@@ -32,7 +32,7 @@ const Featured = ({ featuredPost, imageLeft, ...props }) => {
 
             <div className="button-container">
               <Button
-                type={"clear"}
+                variant={"clear"}
                 color={"primary"}
                 buttonText={"Read more"}
                 hasIcon

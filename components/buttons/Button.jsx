@@ -1,20 +1,21 @@
 import React from "react";
 
 const Button = ({
-  type,
+  variant,
   hasIcon,
   buttonText,
   handleClick,
   color,
   children,
+  fullWidth,
   ...props
 }) => {
   return (
     <button
-      className={`${type} ${color ? color + "-color" : ""} ${
+      className={`${variant} ${color ? color + "-color" : ""} ${
         hasIcon ? "has-icon" : ""
-      }`}
-      onClick={() => handleClick()}
+      } ${fullWidth ? "w-full" : ""}`}
+      onClick={() => (props.type === "submit" ? null : handleClick())}
       {...props}
     >
       {buttonText}

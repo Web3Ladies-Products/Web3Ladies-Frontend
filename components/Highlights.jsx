@@ -22,7 +22,7 @@ const Highlights = ({
             <h1 className="section-title">{title}</h1>
             {viewMore && (
               <Button
-                type={"outline"}
+                variant={"outline"}
                 buttonText={"View More"}
                 handleClick={() => router.push(viewMoreLink)}
               />
@@ -55,7 +55,7 @@ const Highlights = ({
                 {item.description && <p>{item.description}</p>}
                 {item.button_text && (
                   <Button
-                    type={"clear"}
+                    variant={"clear"}
                     color={"primary"}
                     hasIcon
                     buttonText={item.button_text}

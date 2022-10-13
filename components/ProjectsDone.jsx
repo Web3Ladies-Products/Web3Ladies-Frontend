@@ -18,7 +18,7 @@ const ProjectsDone = ({ projectsDone }) => {
         <div className="projects-done--heading">
           <h1 className="sub-section-title bold">Projects Done</h1>
           <Button
-            type={"outline"}
+            variant={"outline"}
             buttonText={"View all projects"}
             handleClick={() => null}
           />
@@ -49,7 +49,7 @@ const ProjectsDone = ({ projectsDone }) => {
               <div className="project-footer">
                 <div className="project-footer--cta">
                   <Button
-                    type={"clear"}
+                    variant={"clear"}
                     buttonText={"View project"}
                     handleClick={() => null}
                     hasIcon

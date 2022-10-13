@@ -119,7 +119,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <Button
-                      type={"primary"}
+                      variant={"primary"}
                       buttonText={"Submit"}
                       handleClick={() => null}
                     />

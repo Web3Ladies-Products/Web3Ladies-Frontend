@@ -3,6 +3,7 @@ import HeadSeo from "../components/HeadSeo";
 import siteMetadata from "../lib/data/siteMetadata";
 import "../styles/styles.scss";
 import TagManager from "react-gtm-module";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -17,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         canonicalUrl={`${siteMetadata.siteUrl}`}
         ogImageUrl={siteMetadata.siteLogo}
         ogTwitterImage={siteMetadata.siteLogo}
-        ogType={"website"}
+        ogvariant={"website"}
       ></HeadSeo>
 
       <Component {...pageProps} />

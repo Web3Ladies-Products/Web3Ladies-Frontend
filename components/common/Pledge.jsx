@@ -14,7 +14,7 @@ const Pledge = ({ indexPage }) => {
             }}
           />
           <Button
-            type={"outline"}
+            variant={"outline"}
             buttonText={indexPage.our_pledge_button_text}
             handleClick={() => router.push(our_pledge_button_link)}
             disabled={!indexPage.our_pledge_button_link}

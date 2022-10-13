@@ -117,3 +117,40 @@
     }
   }
 }
+
+.payment-method {
+  margin-top: 32px;
+  &--fiat {
+    display: flex;
+
+    @include mobile {
+      display: block;
+    }
+    .card {
+      border-width: 3px;
+      width: 362px;
+      height: 119px;
+      &:not(:last-child) {
+        @include mobile {
+          margin-bottom: 20px;
+        }
+        @include desktop {
+          margin-right: 20px;
+        }
+      }
+      &:hover {
+        border-color: var(--primary-color);
+      }
+    }
+    @include mobile {
+      .card {
+        width: 100%;
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  // &--crypto {
+  // }
+}

@@ -50,3 +50,31 @@ export const httpCall = async (requestDetails) => {
   const res = await response.json();
   return res;
 };
+
+export const formatApiErrors = (errors) => {
+  const groupedErrors = {};
+  errors.forEach((error) => {
+    error = {
+      key: error.field,
+      value: error.message,
+    };
+
+    if (groupedErrors[error.key]) groupedErrors[error.key].push(error.value);
+    else groupedErrors[error.key] = [error.value];
+  });
+
+  return groupedErrors;
+};
+
+export const generateInputChangeHandler = (setFormData) => {
+  return ({ currentTarget: { name, value } }) => {
+    setFormData((data) => ({ ...data, [name]: value }));
+  };
+};
+
+export const getFirstLetter = (name) => {
+  return name.charAt(0).toUpperCase();
+};
+
+export const handleFormInputChange = (setFormData) =>
+  generateInputChangeHandler(setFormData);

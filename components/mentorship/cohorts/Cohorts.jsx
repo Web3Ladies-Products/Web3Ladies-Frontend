@@ -108,7 +108,7 @@ const Content = ({ cohortLink, isAccordion }) => {
       <MenteeExperience menteeDetails={cohortDetails.mentees} />
       <div className="button-container mb-20">
         <Button
-          type={"outline"}
+          variant={"outline"}
           buttonText={"Learn More"}
           handleClick={() => (window.location.href = cohortLink)}
         />

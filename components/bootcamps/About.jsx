@@ -20,7 +20,7 @@ const About = ({ aboutDetails }) => {
           <h2 className="sub-section-title bold">{aboutDetails.aboutTitle}</h2>
           <p className="section-description">{aboutDetails.aboutDescription}</p>
           <Button
-            type={aboutDetails.aboutButtonType}
+            variant={aboutDetails.aboutButtonType}
             buttonText={aboutDetails.aboutButtonText}
             handleClick={() => {
               window.location.href = aboutDetails.aboutButtonLink;
