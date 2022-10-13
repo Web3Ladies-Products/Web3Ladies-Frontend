@@ -24,7 +24,7 @@ const Bootcamps = () => {
                 />
                 <p className="section-description">{bootcamp.description}</p>
                 <Button
-                  type={bootcamp.buttonType}
+                  variant={bootcamp.buttonType}
                   buttonText={bootcamp.buttonText}
                   handleClick={() => {
                     window.location.href = bootcamp.buttonLink;

@@ -23,7 +23,7 @@ const BootcampPage = () => {
 
               <div className="button-container">
                 <Button
-                  type={bootcampsHome.hero.buttonType}
+                  variant={bootcampsHome.hero.buttonType}
                   buttonText={bootcampsHome.hero.buttonText}
                   handleClick={() => {
                     window.location.href = bootcampsHome.hero.buttonLink;
@@ -61,7 +61,7 @@ const BootcampPage = () => {
                   />
                   <p className="section-description">{bootcamp.description}</p>
                   <Button
-                    type={bootcamp.buttonType}
+                    variant={bootcamp.buttonType}
                     buttonText={bootcamp.buttonText}
                     handleClick={() => {
                       window.location.href = bootcamp.buttonLink;

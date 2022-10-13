@@ -40,12 +40,12 @@ export default function Home({ indexPage }) {
 
               <div className="button-container">
                 <Button
-                  type={"primary"}
+                  variant={"primary"}
                   buttonText={indexPage.button_one_text}
                   handleClick={() => router.push(indexPage.button_one_link)}
                 />
                 <Button
-                  type={"outline"}
+                  variant={"outline"}
                   buttonText={indexPage.button_two_text}
                   handleClick={() => router.push(indexPage.button_two_link)}
                 />
@@ -121,7 +121,7 @@ export default function Home({ indexPage }) {
               />
               <div className="who-we-are--content-cta">
                 <Button
-                  type={"outline"}
+                  variant={"outline"}
                   width={"243px"}
                   handleClick={() =>
                     window.open(
@@ -200,7 +200,7 @@ export default function Home({ indexPage }) {
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                   <Button
-                    type={"outline"}
+                    variant={"outline"}
                     buttonText={item.button_text}
                     handleClick={() => router.push(item.button_link)}
                   />
@@ -234,7 +234,7 @@ export default function Home({ indexPage }) {
               }}
             />
             <Button
-              type={"outline"}
+              variant={"outline"}
               buttonText={indexPage.become_a_sponsor_button_text}
               handleClick={() =>
                 window.open(indexPage.become_a_sponsor_button_link, "_blank")
@@ -262,7 +262,7 @@ export default function Home({ indexPage }) {
             dangerouslySetInnerHTML={{ __html: indexPage.mentorship_title }}
           />
           <Button
-            type={"primary"}
+            variant={"primary"}
             buttonText={indexPage.mentorship_button_text}
             handleClick={() =>
               window.open(indexPage.mentorship_button_link, "_blank")
@@ -311,7 +311,7 @@ export default function Home({ indexPage }) {
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                   <Button
-                    type={"outline"}
+                    variant={"outline"}
                     buttonText={item.button_text}
                     handleClick={() => window.open(item.button_link, "_blank")}
                   />
@@ -351,7 +351,7 @@ export default function Home({ indexPage }) {
           </div>
           <div className="btn-container">
             <Button
-              type={"outline"}
+              variant={"outline"}
               buttonText={indexPage.youtube_button_text}
               handleClick={() =>
                 window.open(indexPage.youtube_button_link, "_blank")

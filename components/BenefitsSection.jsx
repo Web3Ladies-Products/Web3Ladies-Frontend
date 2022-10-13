@@ -19,7 +19,7 @@ const Benefits = ({ data }) => {
           })}
         </ul>
         <Button
-          type={data.buttonType}
+          variant={data.buttonType}
           buttonText={data.buttonText}
           handleClick={() => null}
         />

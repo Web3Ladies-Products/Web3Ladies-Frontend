@@ -22,7 +22,7 @@ const Gains = ({ data }) => {
 
           <div className="button-container">
             <Button
-              type={data?.buttonType}
+              variant={data?.buttonType}
               buttonText={data?.buttonText}
               color={"primary"}
               handleClick={() => null}

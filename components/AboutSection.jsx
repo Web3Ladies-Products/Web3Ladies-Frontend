@@ -36,7 +36,7 @@ export default function AboutSection({
           {buttonText && (
             <div className="introduction--container-cta">
               <Button
-                type={"primary"}
+                variant={"primary"}
                 buttonText={buttonText}
                 handleClick={handleClick}
               />

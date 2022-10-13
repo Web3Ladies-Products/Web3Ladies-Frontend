@@ -14,7 +14,7 @@ const Sponsors = ({ sponsorsDetails }) => {
             {sponsorsDetails.sponsorsDescription}
           </p>
           <Button
-            type={sponsorsDetails.sponsorsButtonType}
+            variant={sponsorsDetails.sponsorsButtonType}
             buttonText={sponsorsDetails.sponsorsButtonText}
             handleClick={() => {
               window.location.href = sponsorsDetails.sponsorsButtonLink;

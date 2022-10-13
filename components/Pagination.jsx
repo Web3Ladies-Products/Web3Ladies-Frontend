@@ -26,7 +26,7 @@ const Pagination = ({ noPagination, paginationData, updateData }) => {
         </div>
         <div className="navigation">
           <Button
-            // type={"darkOutline"}
+            // variant={"darkOutline"}
             disabled={paginationData?.page === 1}
             onClick={() => updateData(paginationData?.page - 1)}
           >
@@ -78,7 +78,7 @@ const Pagination = ({ noPagination, paginationData, updateData }) => {
             </ul>
           )}
           <Button
-            // type={"primary"}
+            // variant={"primary"}
             disabled={paginationData?.page === paginationData?.pageCount}
             onClick={() => updateData(paginationData.page + 1)}
             hasIcon

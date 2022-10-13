@@ -3,6 +3,11 @@ form {
   flex-wrap: wrap;
   justify-content: space-between;
 
+  @include desktop {
+    max-width: 766px;
+    margin: auto;
+  }
+
   h4 {
     font-family: Space Grotesk;
     font-weight: 600;
@@ -31,12 +36,11 @@ form {
     }
 
     label {
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
       letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: rgba(30, 17, 71, 0.4);
+      color: var(--color-black);
       width: 100%;
       order: 1;
     }
@@ -61,14 +65,14 @@ form {
     datalist {
       margin-top: 8px;
       background: #ffffff;
-      border: 1px solid #e4e9f2;
+      border: 2px solid var(--color-black);
       border-radius: 4px;
       padding: 15px;
       width: 100%;
       order: 2;
       appearance: none;
 
-      &.ng-dirty.ng-invalid {
+      &.invalid {
         border: 1px solid var(--color-red);
       }
 
@@ -81,6 +85,19 @@ form {
         + label {
           color: var(--color-black);
         }
+      }
+    }
+
+    .base-input__select {
+      order: 2;
+      width: 100%;
+      position: relative;
+      &__arrow {
+        position: absolute;
+        right: 15px;
+        top: 70%;
+        transform: translateY(-50%);
+        pointer-events: none;
       }
     }
 

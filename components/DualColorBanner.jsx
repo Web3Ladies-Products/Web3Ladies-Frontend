@@ -1,7 +1,13 @@
-import React from 'react'
-import Button from './buttons/Button'
-import Image from 'next/image'
-const DualColorBanner = ({title,description,buttonText,buttonType,image}) => {
+import React from "react";
+import Button from "./buttons/Button";
+import Image from "next/image";
+const DualColorBanner = ({
+  title,
+  description,
+  buttonText,
+  buttonType,
+  image,
+}) => {
   return (
     <div>
       <section className="call-for-sponsors" id="sponsor-us">
@@ -12,14 +18,16 @@ const DualColorBanner = ({title,description,buttonText,buttonType,image}) => {
                 __html: title,
               }}
             />
-            {description && <p
-              dangerouslySetInnerHTML={{
-                __html: {description},
-              }}
-            />}
-            
+            {description && (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: { description },
+                }}
+              />
+            )}
+
             <Button
-              type={buttonType}
+              variant={buttonType}
               buttonText={buttonText}
               handleClick={() =>
                 window.open(indexPage.become_a_sponsor_button_link, "_blank")
@@ -38,7 +46,7 @@ const DualColorBanner = ({title,description,buttonText,buttonType,image}) => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default DualColorBanner
+export default DualColorBanner;
