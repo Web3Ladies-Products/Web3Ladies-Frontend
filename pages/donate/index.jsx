@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import { generateInputChangeHandler } from "../../helpers";
 import DonationForm from "../../components/donation/DonationForm";
 import PaymentMethod from "../../components/donation/PaymentMethod";
+import { addDoc, getDocs } from "firebase/firestore";
+import { useEffect } from "react";
+import { colRef } from "../firebase";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -45,6 +48,14 @@ const Donate = () => {
     // }
     setActiveView("payment-method");
   };
+
+  React.useEffect(() => {
+    const getDonors = async () => {
+      const response = await getDocs(colRef);
+      console.log(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getDonors();
+  }, []);
 
   return (
     <>

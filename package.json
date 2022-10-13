@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase": "^9.12.1",
     "next": "^12.2.4",
     "qr-code-styling": "^1.6.0-rc.1",
     "react": "18.2.0",
