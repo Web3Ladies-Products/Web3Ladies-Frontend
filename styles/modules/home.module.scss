@@ -199,6 +199,11 @@ main {
       img {
         transform: rotate(130deg) !important;
       }
+
+      @include mobile {
+        width: 70px !important;
+        right: 0;
+      }
     }
   }
 

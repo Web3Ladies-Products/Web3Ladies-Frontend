@@ -115,8 +115,8 @@ const Sponsorship = ({
             <div className="logo-container" key={item.name}>
               <Image
                 src={item.logo}
-                width={"204px"}
-                height={"146px"}
+                width={"100%"}
+                height={"100%"}
                 alt={item.title}
                 objectFit="contain"
               />
