@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import { generateInputChangeHandler } from "../../helpers";
 import DonationForm from "../../components/donation/DonationForm";
 import PaymentMethod from "../../components/donation/PaymentMethod";
+import { addDoc, getDocs } from "firebase/firestore";
+import { useEffect } from "react";
+import { colRef } from "../../firebase";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -29,7 +32,7 @@ const Donate = () => {
   const handleFormInputChange = generateInputChangeHandler(setFormData);
 
   const submitDonation = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // setShowLoader(true);
     // setErrors(DEFAULT_ERRORS);
     // try {
@@ -43,8 +46,21 @@ const Donate = () => {
     // finally {
     //   setShowLoader(false);
     // }
-    setActiveView("payment-method");
+    // await addDoc(colRef, formData);
+
+    // setActiveView("payment-method");
+    console.log(formData);
   };
+
+  React.useEffect(() => {
+    const getDonors = async () => {
+      const response = await getDocs(colRef);
+      console.log(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getDonors();
+  }, []);
+
+  console.log("hello world");
 
   return (
     <>
@@ -64,10 +80,7 @@ const Donate = () => {
                 formData={formData}
                 errors={errors}
                 handleFormInputChange={handleFormInputChange}
-                submitDonation={(e) => {
-                  e.preventDefault();
-                  setActiveView("payment-method");
-                }}
+                submitDonation={submitDonation}
                 showLoader={showLoader}
               />
             )}

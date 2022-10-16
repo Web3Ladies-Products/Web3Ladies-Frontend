@@ -1,5 +1,5 @@
 import React from "react";
-
+import cn from "classnames";
 const Button = ({
   variant,
   hasIcon,
@@ -12,9 +12,13 @@ const Button = ({
 }) => {
   return (
     <button
-      className={`${variant} ${color ? color + "-color" : ""} ${
-        hasIcon ? "has-icon" : ""
-      } ${fullWidth ? "w-full" : ""}`}
+      className={cn(
+        props.className,
+        variant,
+        color ? color + "-color" : "",
+        hasIcon ? "has-icon" : "",
+        fullWidth ? "w-full" : ""
+      )}
       onClick={() => (props.type === "submit" ? null : handleClick())}
       {...props}
     >

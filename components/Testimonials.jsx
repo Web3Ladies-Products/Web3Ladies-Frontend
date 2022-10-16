@@ -50,7 +50,7 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {testimonial_items[activeTestimonialTab].map((item, idx) => (
+            {testimonial_items[activeTestimonialTab]?.map((item, idx) => (
               <div className="testimonials--container__content__item" key={idx}>
                 <div className="testimonials--container__content__item__heading">
                   <Image

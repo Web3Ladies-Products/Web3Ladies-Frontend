@@ -1,24 +1,16 @@
 section {
   background: var(--primary-color-inverse);
-  .container {
-    // @include tablet {
-    //   padding-top: 180px;
-    // }
+  position: relative;
 
+  .container {
     @include mobile {
       .cylindrical {
         display: none;
       }
     }
 
-    padding-top: 80px;
-
     .feedback {
-      @include mobile {
-        width: 80%;
-        margin-top: 13px;
-      }
-      width: 40%;
+      width: 100%;
       margin: 0px auto 0px auto;
       .success {
         display: flex;
@@ -52,14 +44,12 @@ section {
         }
 
         .icons-container {
-          @include mobile {
-            width: 50%;
-            height: 50px;
-          }
-          background-color: #f8f2ff;
-          width: 30%;
-          height: 40px;
-          margin: 11px auto;
+          background-color: var(--color-background);
+          border: 1px solid var(--primary-color);
+          border-radius: 8px;
+          padding: 22px;
+          width: 352px;
+          margin: 0 auto;
           display: flex;
           justify-content: space-evenly;
           align-items: center;
@@ -75,26 +65,32 @@ section {
         margin: 0 auto;
 
         .vector {
+          position: absolute;
           @include mobile {
             width: 40px;
             height: 40px;
           }
           width: 80px;
           height: 80px;
+          &:nth-child(1) {
+            top: 5%;
+            left: 10%;
+          }
+          &:nth-child(2) {
+            top: 5%;
+            right: 20%;
+          }
         }
       }
     }
 
     .cylindrical-images {
       padding-top: 170px;
-      position: relative;
       width: 100%;
       @include mobile {
         margin-top: 200px;
       }
       & > div {
-        position: relative;
-
         > span {
           position: absolute !important;
 

@@ -15,7 +15,7 @@ const Accordion = ({
 
   return (
     <div className="accordion" role="tablist">
-      {panels.map((panel, index) => (
+      {panels?.map((panel, index) => (
         <Panel
           key={index}
           activeTab={activeTab}

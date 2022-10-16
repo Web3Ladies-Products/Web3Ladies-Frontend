@@ -98,7 +98,7 @@ const Footer = () => {
             <div className="footer-card">
               <div className="logo">
                 <Image
-                  src="/assets/images/web3ladies-white.png"
+                  src="/assets/images/web3Ladies-white.png"
                   width={"100px"}
                   height={"100px"}
                   objectFit="contain"

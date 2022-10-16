@@ -1,7 +1,6 @@
 import React from "react";
 import HeroSection from "../../components/sponsorship/HeroSection";
 import Navbar from "../../components/layouts/Navbar";
-import sponsorshipData from "../api/sponsorship.json";
 import Supporters from "../../components/Supporters";
 import { strapiService } from "../../services";
 import AboutSection from "../../components/AboutSection";
@@ -14,24 +13,36 @@ import FAQs from "../../components/FAQs";
 import Testimonials from "../../components/Testimonials";
 import Button from "../../components/buttons/Button";
 
-const Sponsorship = ({ indexPage, highlightsPosts, featuredPost }) => {
-  const heroDetails = sponsorshipData.hero;
+const Sponsorship = ({
+  indexPage,
+  sponsorshipData,
+  highlightsPosts,
+  featuredPost,
+}) => {
+  const heroDetails = {
+    title: sponsorshipData.hero_title,
+    description: sponsorshipData.hero_description,
+    image: sponsorshipData.hero_image,
+    buttonText: sponsorshipData.hero_button_text,
+    buttonLink: sponsorshipData.hero_button_link,
+    buttonType: sponsorshipData.hero_button_type,
+  };
   return (
     <>
       <Navbar />
       <HeroSection heroDetails={heroDetails} />
       <Supporters
-        title={sponsorshipData.supportersTitle}
+        title={sponsorshipData.supporters_title}
         indexPage={indexPage}
       />
       <AboutSection
-        title={sponsorshipData.aboutTitle}
-        description={sponsorshipData.aboutDescription}
+        title={sponsorshipData.about_title}
+        description={sponsorshipData.about_description}
       />
       <section className="events donation">
         <div className="container">
           <ul className="events-list">
-            {sponsorshipData.donationItems?.map((item, idx) => (
+            {sponsorshipData.donation_items?.map((item, idx) => (
               <li className="events-item" key={idx}>
                 <div className="events-item--image">
                   <Image
@@ -98,9 +109,9 @@ const Sponsorship = ({ indexPage, highlightsPosts, featuredPost }) => {
         <div className="container">
           <h1
             className="section-title"
-            dangerouslySetInnerHTML={{ __html: sponsorshipData.helpTitle }}
+            dangerouslySetInnerHTML={{ __html: sponsorshipData.help_title }}
           />
-          {sponsorshipData.helpLogos?.map((item) => (
+          {sponsorshipData.help_logos?.map((item) => (
             <div className="logo-container" key={item.name}>
               <Image
                 src={item.logo}
@@ -119,7 +130,7 @@ const Sponsorship = ({ indexPage, highlightsPosts, featuredPost }) => {
         <Highlights
           viewMore={true}
           viewMoreLink="/blog?tab=press"
-          title={sponsorshipData.highlightsTitle}
+          title={sponsorshipData.highlights_title}
           HIGHLIGHTS_ITEMS={highlightsPosts}
         >
           {featuredPost && (
@@ -148,6 +159,7 @@ export default Sponsorship;
 export async function getStaticProps() {
   try {
     const indexPage = await strapiService.getHomePageData();
+    const sponsorshipPage = await strapiService.getSponsorshipData();
     const pressReleasePosts = await strapiService.getPostsByCategory(
       1,
       10,
@@ -170,6 +182,7 @@ export async function getStaticProps() {
     return {
       props: {
         indexPage: indexPage.data.attributes,
+        sponsorshipData: sponsorshipPage.data.attributes,
         highlightsPosts,
         ...(featuredPost && { featuredPost: featuredPost[0] }),
       },
@@ -178,6 +191,7 @@ export async function getStaticProps() {
     return {
       props: {
         indexPage: {},
+        sponsorshipData: {},
         highlightsPosts: [],
         featuredPost: null,
       },
