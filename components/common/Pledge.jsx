@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import Button from "../buttons/Button";
 
 const Pledge = ({ indexPage }) => {
+  const router = useRouter();
   return (
     <section className="pledge">
       <div className="container card card__black">
@@ -16,7 +18,7 @@ const Pledge = ({ indexPage }) => {
           <Button
             variant={"outline"}
             buttonText={indexPage.our_pledge_button_text}
-            handleClick={() => router.push(our_pledge_button_link)}
+            handleClick={() => router.push(indexPage.our_pledge_button_link)}
             disabled={!indexPage.our_pledge_button_link}
           />
         </div>

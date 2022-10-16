@@ -48,7 +48,6 @@ const PledgeForm = ({
           value={formData.email}
           onChange={handleFormInputChange}
           errors={[errors.email]}
-          autoFocus={true}
           required={true}
         />
       </div>
