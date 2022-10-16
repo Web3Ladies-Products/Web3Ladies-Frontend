@@ -79,6 +79,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            word-break: break-word;
+            padding: 10px;
             @include desktop {
               border-right: 1px solid var(--color-black);
             }
@@ -96,6 +98,7 @@
 
             p {
               margin-bottom: 8px;
+              width: 100%;
             }
             h6 {
               font-size: 24px;
