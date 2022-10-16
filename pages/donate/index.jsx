@@ -48,19 +48,17 @@ const Donate = () => {
     // }
     // await addDoc(colRef, formData);
 
-    // setActiveView("payment-method");
     console.log(formData);
+    setActiveView("payment-method");
   };
 
-  React.useEffect(() => {
-    const getDonors = async () => {
-      const response = await getDocs(colRef);
-      console.log(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getDonors();
-  }, []);
-
-  console.log("hello world");
+  // React.useEffect(() => {
+  //   const getDonors = async () => {
+  //     const response = await getDocs(colRef);
+  //     console.log(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   };
+  //   getDonors();
+  // }, []);
 
   return (
     <>
