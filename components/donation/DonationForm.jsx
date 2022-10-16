@@ -75,6 +75,7 @@ const DonationForm = ({
           options={[
             { label: "Mentorship", value: "mentorship" },
             { label: "Worktools", value: "worktools" },
+            { label: "IRLs", value: "irl" },
           ]}
           onChange={handleFormInputChange}
           errors={[errors.area_of_sponsorship]}
