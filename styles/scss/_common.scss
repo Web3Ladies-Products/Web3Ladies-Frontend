@@ -330,6 +330,11 @@
 }
 
 .list-group {
+  margin: 30px 0 30px 28px;
+
+  &__with-icon {
+    list-style: url(/assets/caret-right.svg) !important;
+  }
   &-item {
     h2 {
       margin-bottom: 8px;
@@ -346,7 +351,37 @@
   }
 }
 
-@for $i from 1 through 20 {
+.hexagon {
+  width: 340px;
+  height: 380px;
+  margin: 0 auto;
+  background: url("/assets/images/pledge--img-bg.png") no-repeat 50% 50%;
+  background-size: 340px 360px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: color 500ms ease, text-shadow 500ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 10px white;
+  }
+  -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  -moz-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  -ms-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+  h4 {
+    width: 200px;
+  }
+}
+
+@for $i from 0 through 20 {
   .m-#{$i} {
     margin: #{$i}px !important;
   }

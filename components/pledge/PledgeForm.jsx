@@ -1,64 +1,67 @@
 import React from "react";
 import Button from "../buttons/Button";
 import BaseInput from "../UI/BaseInput";
-import BaseSelect from "../UI/BaseSelect";
+import { generateInputChangeHandler } from "../../helpers";
 
-const PledgeForm = ({
-  showLoader,
-  submitDonation,
-  handleFormInputChange,
-  formData,
-  errors,
-  ...props
-}) => {
+const DEFAULT_ERRORS = {
+  full_name: [],
+  email: [],
+};
+
+const PledgeForm = ({ handleFormSubmit, ...props }) => {
+  const [formData, setFormData] = React.useState({
+    full_name: "",
+    email: "",
+  });
+  const [errors, setErrors] = React.useState(DEFAULT_ERRORS);
+  const [showLoader, setShowLoader] = React.useState(false);
+
+  const handleFormInputChange = generateInputChangeHandler(setFormData);
+
   return (
-    <form onSubmit={submitDonation} {...props}>
-      <div className="input full-40">
-        <BaseInput
-          placeholder="Johanna Doe"
-          label={null}
-          name="name"
-          value={formData.name}
-          onChange={handleFormInputChange}
-          errors={[errors.name]}
-          autoFocus={true}
-          required={true}
-        />
+    <form
+      onSubmit={(e) => handleFormSubmit(e, formData)}
+      {...props}
+      className="d-flex flex-column align-items-center"
+    >
+      <div className="d-flex align-center mb-20">
+        <span className="mr-11">I </span>
+        <div className="input mb-0">
+          <BaseInput
+            placeholder="Jen Eche"
+            name="full_name"
+            value={formData.full_name}
+            onChange={handleFormInputChange}
+            errors={[errors.full_name]}
+            required={true}
+            autoFocus={true}
+          />
+        </div>
       </div>
-      <div>
-        <p>
-          hereby take a pledge to support, share and donate to the <br />{" "}
-          Web3Ladies vision. To:{" "}
-        </p>
-      </div>
-      <div>
-        <ul>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing eli. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing eli. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing eli. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing eli. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing eli. </li>
-        </ul>
-      </div>
-      <div className="input full-40">
-        <BaseInput
-          placeholder="Email"
-          label={null}
-          name="email"
-          value={formData.email}
-          onChange={handleFormInputChange}
-          errors={[errors.email]}
-          required={true}
-        />
-      </div>
+      <div
+        className="mb-20"
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      />
+      <div className="d-flex align-center mt-20 w-full">
+        <div className="input mb-0">
+          <BaseInput
+            placeholder="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleFormInputChange}
+            errors={[errors.email]}
+            required={true}
+          />
+        </div>
 
-      <div className="w-full mt-15">
-        <Button
-          buttonText={showLoader ? "Loading..." : "Take the pledge"}
-          variant={"primary"}
-          disabled={showLoader}
-          type="submit"
-        />
+        <div className="ml-11 mt-8">
+          <Button
+            buttonText={showLoader ? "Loading..." : "Take the pledge"}
+            variant={"primary"}
+            disabled={showLoader}
+            type="submit"
+          />
+        </div>
       </div>
     </form>
   );

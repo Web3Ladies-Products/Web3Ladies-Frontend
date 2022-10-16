@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
+    "dom-to-image": "^2.6.0",
     "firebase": "^9.12.1",
     "next": "^12.2.4",
     "qr-code-styling": "^1.6.0-rc.1",

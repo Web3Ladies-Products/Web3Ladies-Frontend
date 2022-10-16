@@ -46,6 +46,20 @@ const getSponsorshipData = async () => {
   }
 };
 
+const getPledgePageData = async () => {
+  try {
+    const pledgePage = await fetch(`${STRAPI_URL}/api/pledge-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return pledgePage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getMentorshipPageData = async () => {
   try {
     const mentorshipPage = await fetch(`${STRAPI_URL}/api/mentorship-page`, {
@@ -178,5 +192,6 @@ export const strapiService = {
   getSimilarPosts,
   getHomePageData,
   getSponsorshipData,
+  getPledgePageData,
   getMentorshipPageData,
 };
