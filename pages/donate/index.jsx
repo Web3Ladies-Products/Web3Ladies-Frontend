@@ -39,10 +39,10 @@ const Donate = () => {
       const response = await strapiService.sendDonationRequest({
         data: formData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
+      // console.log(
+      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
+      //   response
+      // );
       alertService.alertMethod("success", "Donation request sent successfully");
     } catch (error) {
       console.error(error);
