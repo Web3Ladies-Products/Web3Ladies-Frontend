@@ -52,7 +52,6 @@ const DonationForm = ({
           value={formData.company_name}
           onChange={handleFormInputChange}
           errors={[errors.company_name]}
-          autoFocus={true}
           required={true}
         />
       </div>
@@ -60,11 +59,10 @@ const DonationForm = ({
         <BaseInput
           placeholder="example@web3ladies.com"
           label="Company’s email"
-          name="email"
+          name="company_email"
           value={formData.company_email}
           onChange={handleFormInputChange}
           errors={[errors.company_email]}
-          autoFocus={true}
           required={true}
         />
       </div>
@@ -72,6 +70,7 @@ const DonationForm = ({
         <BaseSelect
           placeholder="Select area of sponsorship"
           label="Area of Sponsorship"
+          name="area_of_sponsorship"
           options={[
             { label: "Mentorship", value: "mentorship" },
             { label: "Worktools", value: "worktools" },

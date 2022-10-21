@@ -9,7 +9,7 @@ import {
   IconContainer,
 } from "./ModalStyles";
 
-const Modal = ({ children, closeModal, dataTestId, style, type }) => {
+const Modal = ({ children, closeModal, style, type }) => {
   let width;
   switch (type) {
     case "small":
@@ -32,7 +32,6 @@ const Modal = ({ children, closeModal, dataTestId, style, type }) => {
   return (
     <Backdrop onClick={closeModal}>
       <ModalContainer
-        data-testid={dataTestId}
         style={style}
         onClick={(e) => {
           e.stopPropagation();

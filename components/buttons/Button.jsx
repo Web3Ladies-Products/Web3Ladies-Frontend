@@ -14,7 +14,7 @@ const Button = ({
     <button
       className={cn(
         props.className,
-        variant,
+        variant ? variant : "primary",
         color ? color + "-color" : "",
         hasIcon ? "has-icon" : "",
         fullWidth ? "w-full" : ""

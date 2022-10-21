@@ -4,20 +4,36 @@ import Vector from "../../components/icons/Vector";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 import markdownToHtml from "../../lib/markdownToHtml";
-import { strapiService } from "../../services";
+import { alertService, strapiService } from "../../services";
 import PledgeForm from "./../../components/pledge/PledgeForm";
 import domtoimage from "dom-to-image";
 import Button from "../../components/buttons/Button";
 import Download from "../../components/icons/Download";
+import AppLoader from "../../components/UI/AppLoader";
 
-const Pledge = ({ content }) => {
+const Pledge = ({ content, title }) => {
+  const [showLoader, setShowLoader] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
   const [formData, setFormData] = React.useState(null);
-  const handleFormSubmit = (e, formData) => {
+  const handleFormSubmit = async (e, formData) => {
     e.preventDefault();
     setFormData(formData);
-    console.log("form submitted");
-    setShowSuccess(true);
+    setShowLoader(true);
+    console.log(formData);
+    try {
+      const response = await strapiService.sendPledge({ data: formData });
+      console.log(
+        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
+        response
+      );
+      alertService.alertMethod("success", "Donation request sent successfully");
+      setShowSuccess(true);
+    } catch (error) {
+      console.error(error);
+      alertService.alertMethod("error", "Donation request failed");
+    } finally {
+      setShowLoader(false);
+    }
   };
   const downloadBadge = () => {
     const node = document.getElementById("my-badge");
@@ -37,6 +53,7 @@ const Pledge = ({ content }) => {
 
   return (
     <>
+      {showLoader && <AppLoader />}
       <Navbar />
       <div className="app-container">
         {showSuccess ? (
@@ -89,15 +106,18 @@ export async function getStaticProps() {
     const pledgePage = await strapiService.getPledgePageData();
     const pledge = pledgePage.data.attributes;
     const content = await markdownToHtml(pledge?.body || "");
+    const title = pledge?.form_title || "";
     return {
       props: {
         content,
+        title,
       },
     };
   } catch (error) {
     return {
       props: {
         content: null,
+        title: null,
       },
     };
   }

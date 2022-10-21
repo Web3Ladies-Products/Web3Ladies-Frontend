@@ -183,6 +183,36 @@ const getSimilarPosts = (author) => {
     });
 };
 
+const sendDonationRequest = async (data) => {
+  try {
+    const donationRequest = await fetch(`${STRAPI_URL}/api/donations`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return donationRequest;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const sendPledge = async (data) => {
+  try {
+    const pledge = await fetch(`${STRAPI_URL}/api/pledges`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return pledge;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBlogPosts,
   getPostBySlug,
@@ -194,4 +224,6 @@ export const strapiService = {
   getSponsorshipData,
   getPledgePageData,
   getMentorshipPageData,
+  sendDonationRequest,
+  sendPledge,
 };
