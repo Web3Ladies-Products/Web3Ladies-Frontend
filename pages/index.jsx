@@ -8,6 +8,9 @@ import Testimonials from "../components/Testimonials";
 import Slack from "../components/icons/Slack";
 import { strapiService } from "../services/strapi.service";
 import { useRouter } from "next/router";
+import AboutSection from "../components/AboutSection";
+import Supporters from "../components/Supporters";
+import Pledge from "../components/common/Pledge";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
@@ -37,12 +40,12 @@ export default function Home({ indexPage }) {
 
               <div className="button-container">
                 <Button
-                  type={"primary"}
+                  variant={"primary"}
                   buttonText={indexPage.button_one_text}
                   handleClick={() => router.push(indexPage.button_one_link)}
                 />
                 <Button
-                  type={"outline"}
+                  variant={"outline"}
                   buttonText={indexPage.button_two_text}
                   handleClick={() => router.push(indexPage.button_two_link)}
                 />
@@ -87,60 +90,17 @@ export default function Home({ indexPage }) {
       {/* END OF HERO SECTION */}
 
       {/* SUPPORT SECTION */}
-      <section className="support" style={{ paddingTop: "0" }}>
-        <div className="container" style={{ paddingTop: "0" }}>
-          <h1
-            className="support--heading"
-            dangerouslySetInnerHTML={{ __html: indexPage.supporters_title }}
-          />
-          <div className="groups-container">
-            {indexPage.supporters_images?.map((supporter) => (
-              <div
-                className="group-item pointer-cursor"
-                key={supporter.name}
-                onClick={() => window.open(supporter.website_url, "_blank")}
-              >
-                <Image
-                  className="support-image"
-                  width={"165px"}
-                  height={"60px"}
-                  src={supporter.logo}
-                  alt={supporter.name}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Supporters indexPage={indexPage} />
       {/* END OF SUPPORT SECTION */}
 
       {/* WHO WE ARE SECTION */}
-      <section className="introduction" id="who-we-are">
-        <div className="container" style={{ paddingTop: "0" }}>
-          <h1
-            className="introduction--heading section-title"
-            dangerouslySetInnerHTML={{ __html: indexPage.who_we_are_title }}
-          />
-          <div className="introduction--container">
-            <p
-              className="introduction--container-text"
-              dangerouslySetInnerHTML={{
-                __html: indexPage.who_we_are_description,
-              }}
-            />
+      <AboutSection
+        title={indexPage.who_we_are_title}
+        description={indexPage.who_we_are_description}
+        buttonText={indexPage.who_we_are_button_text}
+        handleClick={() => router.push(indexPage.who_we_are_button_link)}
+      />
 
-            <div className="introduction--container-cta">
-              <Button
-                type={"primary"}
-                buttonText={indexPage.who_we_are_button_text}
-                handleClick={() =>
-                  router.push(indexPage.who_we_are_button_link)
-                }
-              />
-            </div>
-          </div>
-        </div>
-      </section>
       {/* END OF WHO WE ARE SECTION */}
 
       {/* JOIN OUR COMMUNITY SECTION */}
@@ -161,7 +121,7 @@ export default function Home({ indexPage }) {
               />
               <div className="who-we-are--content-cta">
                 <Button
-                  type={"outline"}
+                  variant={"outline"}
                   width={"243px"}
                   handleClick={() =>
                     window.open(
@@ -240,7 +200,7 @@ export default function Home({ indexPage }) {
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                   <Button
-                    type={"outline"}
+                    variant={"outline"}
                     buttonText={item.button_text}
                     handleClick={() => router.push(item.button_link)}
                   />
@@ -274,7 +234,7 @@ export default function Home({ indexPage }) {
               }}
             />
             <Button
-              type={"outline"}
+              variant={"outline"}
               buttonText={indexPage.become_a_sponsor_button_text}
               handleClick={() =>
                 window.open(indexPage.become_a_sponsor_button_link, "_blank")
@@ -302,7 +262,7 @@ export default function Home({ indexPage }) {
             dangerouslySetInnerHTML={{ __html: indexPage.mentorship_title }}
           />
           <Button
-            type={"primary"}
+            variant={"primary"}
             buttonText={indexPage.mentorship_button_text}
             handleClick={() =>
               window.open(indexPage.mentorship_button_link, "_blank")
@@ -324,33 +284,7 @@ export default function Home({ indexPage }) {
       {/* END OF MENTORSHIP SECTION */}
 
       {/* PLEDGE SECTION */}
-      {/* <section className="pledge">
-        <div className="container card card__black">
-          <div className="pledge--text">
-            <h1
-              className="section-title"
-              dangerouslySetInnerHTML={{
-                __html: indexPage.our_pledge_title,
-              }}
-            />
-            <Button
-              type={"outline"}
-              buttonText={indexPage.our_pledge_button_text}
-              handleClick={() => router.push(our_pledge_button_link)}
-              disabled={!indexPage.our_pledge_button_link}
-            />
-          </div>
-          <div className="pledge--image">
-            <Image
-              src={indexPage.our_pledge_image_url}
-              width={"532px"}
-              height={"500px"}
-              objectFit="contain"
-              alt="pledge-image"
-            />
-          </div>
-        </div>
-      </section> */}
+      <Pledge indexPage={indexPage} />
       {/* END OF PLEDGE SECTION */}
 
       {/* EVENTS SECTION */}
@@ -377,7 +311,7 @@ export default function Home({ indexPage }) {
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                   <Button
-                    type={"outline"}
+                    variant={"outline"}
                     buttonText={item.button_text}
                     handleClick={() => window.open(item.button_link, "_blank")}
                   />
@@ -417,7 +351,7 @@ export default function Home({ indexPage }) {
           </div>
           <div className="btn-container">
             <Button
-              type={"outline"}
+              variant={"outline"}
               buttonText={indexPage.youtube_button_text}
               handleClick={() =>
                 window.open(indexPage.youtube_button_link, "_blank")

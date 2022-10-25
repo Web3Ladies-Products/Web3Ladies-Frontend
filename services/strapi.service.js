@@ -32,6 +32,48 @@ const getHomePageData = async () => {
   }
 };
 
+const getSponsorshipData = async () => {
+  try {
+    const sponsorship = await fetch(`${STRAPI_URL}/api/sponsorship`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return sponsorship;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getPledgePageData = async () => {
+  try {
+    const pledgePage = await fetch(`${STRAPI_URL}/api/pledge-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return pledgePage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getMentorshipPageData = async () => {
+  try {
+    const mentorshipPage = await fetch(`${STRAPI_URL}/api/mentorship-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return mentorshipPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getBlogPosts = async ({ page, pageSize, category }) => {
   try {
     const blogPosts = await fetch(
@@ -141,6 +183,36 @@ const getSimilarPosts = (author) => {
     });
 };
 
+const sendDonationRequest = async (data) => {
+  try {
+    const donationRequest = await fetch(`${STRAPI_URL}/api/donations`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return donationRequest;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const sendPledge = async (data) => {
+  try {
+    const pledge = await fetch(`${STRAPI_URL}/api/pledges`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return pledge;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBlogPosts,
   getPostBySlug,
@@ -149,4 +221,9 @@ export const strapiService = {
   searchBlogPosts,
   getSimilarPosts,
   getHomePageData,
+  getSponsorshipData,
+  getPledgePageData,
+  getMentorshipPageData,
+  sendDonationRequest,
+  sendPledge,
 };

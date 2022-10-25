@@ -9,14 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
+    "dom-to-image": "^2.6.0",
+    "firebase": "^9.12.1",
     "next": "^12.2.4",
+    "qr-code-styling": "^1.6.0-rc.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-gtm-module": "^2.0.11",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
+    "rxjs": "^7.5.7",
     "sharp": "^0.30.7",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "eslint": "8.19.0",

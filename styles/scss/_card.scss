@@ -16,6 +16,12 @@
         flex-basis: 50%;
       }
     }
+    @include mobile {
+      text-align: center;
+      .card-text {
+        margin-bottom: 32px;
+      }
+    }
   }
 
   &--has-border {

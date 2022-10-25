@@ -14,14 +14,14 @@ const Hero = ({ data, handleViewCurriculum }) => {
 
             <div className="button-container">
               <Button
-                type={data.buttonTypeOne}
+                variant={data.buttonTypeOne}
                 buttonText={data.buttonTextOne}
                 handleClick={() => {
                   handleViewCurriculum();
                 }}
               />
               <Button
-                type={data.buttonTypeTwo}
+                variant={data.buttonTypeTwo}
                 buttonText={data.buttonTextTwo}
                 handleClick={() => {
                   window.location.href = data.buttonLinkTwo;

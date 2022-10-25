@@ -3,6 +3,10 @@
 .accordion {
   width: 80%;
   margin: auto;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .panel {
@@ -11,10 +15,10 @@
 
   &--has-border {
     border: 2px solid #000000;
-    margin-bottom: 64px;
+    margin-bottom: 16px !important;
 
     @include mobile {
-      margin-bottom: 32px;
+      margin-bottom: 8px;
     }
   }
 
@@ -32,10 +36,13 @@
     letter-spacing: -0.04em;
     transition: color 0.2s linear;
     cursor: pointer;
+    width: 100%;
 
     @include mobile {
       font-size: 17px;
       line-height: 24px;
+      word-break: break-word;
+      white-space: normal;
     }
 
     &:focus {
@@ -91,13 +98,19 @@
   }
 
   &__content {
-    margin: 5px 25px 25px;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     opacity: 0;
     transition: opacity 0.3s linear 0.18s;
     width: 80%;
+    word-break: break-word;
+    > p {
+      margin: 5px 25px 25px;
+    }
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &:not(:last-child) {

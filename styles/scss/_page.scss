@@ -1,5 +1,9 @@
 @import "./mixins";
 
+.app-container {
+  min-height: calc(100vh - 572px);
+}
+
 header {
   background: var(--primary-color-inverse);
   padding: 8px 1rem;
@@ -195,9 +199,6 @@ footer {
   }
 
   header {
-    > div {
-      // padding: 15px 0;
-    }
     .nav-container {
       .close-icon {
         display: none;

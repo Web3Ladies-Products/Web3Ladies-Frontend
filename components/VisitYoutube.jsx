@@ -11,7 +11,7 @@ const VisitYoutube = () => {
             Visit our Youtube page <br></br> to see our videos
           </h1>
           <Button
-            type={"primary"}
+            variant={"primary"}
             buttonText={"Visit"}
             handleClick={() => null}
           />

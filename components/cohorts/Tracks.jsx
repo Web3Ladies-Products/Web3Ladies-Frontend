@@ -93,7 +93,7 @@ const Tracks = () => {
             </div>
             <div>
               <Button
-                type={"outline"}
+                variant={"outline"}
                 buttonText={item.buttonText}
                 handleClick={() => null}
               ></Button>

@@ -36,7 +36,7 @@ const Panel = ({
   };
 
   return (
-    <div>
+    <>
       {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
       <div
         className={`panel ${hasFullBorder && "panel--has-border"}`}
@@ -58,11 +58,17 @@ const Panel = ({
           style={innerStyle}
           aria-hidden={!isActive}
         >
-          <p className={`panel__content ${fullWidth && "w-full"}`}>{content}</p>
+          <div className={`panel__content ${fullWidth && "w-full"}`}>
+            {typeof content === "object" ? (
+              <>{content}</>
+            ) : (
+              <p dangerouslySetInnerHTML={{ __html: content }} />
+            )}
+          </div>
           {children && <div className="panel__children">{children}</div>}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

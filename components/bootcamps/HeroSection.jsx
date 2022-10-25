@@ -13,7 +13,7 @@ const HeroSection = ({ heroDetails }) => {
 
             <div className="button-container">
               <Button
-                type={heroDetails.buttonType}
+                variant={heroDetails.buttonType}
                 buttonText={heroDetails.buttonText}
                 handleClick={() => {
                   window.location.href = heroDetails.buttonLink;

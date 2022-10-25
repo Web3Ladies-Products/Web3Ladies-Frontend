@@ -76,7 +76,7 @@ const CustomError = ({ pageTitle, message, statusCode, redirectText }) => {
                 }}
               />
               <Button
-                type={"primary"}
+                variant={"primary"}
                 buttonText={redirectText || "Go back home"}
                 handleClick={() => {
                   window.location.href = "/";

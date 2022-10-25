@@ -1,0 +1,30 @@
+.pledge-section {
+  @include desktop {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  ul {
+    margin: 30px 0 30px 28px;
+    list-style: url(/assets/caret-right.svg) !important;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.pledge-badge {
+  width: 100%;
+  position: relative;
+  margin-bottom: 35px;
+
+  .icon {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}

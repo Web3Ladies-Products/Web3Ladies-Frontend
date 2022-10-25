@@ -11,6 +11,7 @@
 @import "./scss/typography";
 @import "./scss/tab";
 @import "./scss/pagination";
+@import "./scss/qr-code";
 @import "./scss/common";
 
 @import "./scss/accordion";
@@ -22,7 +23,10 @@
 @import "./modules/cohorts.module.scss";
 @import "./modules/track.module.scss";
 @import "./modules/bootcamps.module.scss";
+@import "./modules//mentorship.module.scss";
+@import "./modules//sponsorship.module.scss";
 @import "./modules/blog.module.scss";
+@import "./modules/pledge.module.scss";
 
 :root {
   --color-black: #0f0f0f;
@@ -31,6 +35,7 @@
   --primary-color-rgb: 125, 11, 254;
   --primary-color-inverse: #ffffff;
   --color-primary-light: #ff9edb;
+  --color-primary-extra-light: #ffecf8;
   --success-color: #32cc0e;
   --danger-color: #ef4444;
   --danger-color-rgb: 239, 68, 68;

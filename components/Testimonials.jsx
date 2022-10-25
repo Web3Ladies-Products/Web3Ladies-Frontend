@@ -8,9 +8,13 @@ const Testimonials = ({
   hasMaxWidth,
 }) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
-    React.useState("shoutouts");
+    React.useState("past_mentees");
 
   const TESTIMONIAL_TABS = [
+    {
+      key: "past_mentees",
+      title: "Past Mentees",
+    },
     {
       key: "shoutouts",
       title: "Shoutouts",
@@ -18,10 +22,6 @@ const Testimonials = ({
     {
       key: "community",
       title: "Community",
-    },
-    {
-      key: "past_mentees",
-      title: "Past Mentees",
     },
   ];
 
@@ -32,10 +32,8 @@ const Testimonials = ({
         style={{ maxWidth: hasMaxWidth ? "" : "none" }}
       >
         <div className="testimonials--heading">
-          <h1 className="section-title">Don’t take our word for it</h1>
-          <p className="text-muted">
-            See what people have to say about their experience with Web3Ladies
-          </p>
+          <h1 className="section-title">{testimonial_title}</h1>
+          <p className="text-muted">{testimonial_description}</p>
         </div>
         <div className="testimonials--container">
           <div className="testimonials--container__sidebar">
@@ -52,7 +50,7 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {testimonial_items[activeTestimonialTab].map((item, idx) => (
+            {testimonial_items[activeTestimonialTab]?.map((item, idx) => (
               <div className="testimonials--container__content__item" key={idx}>
                 <div className="testimonials--container__content__item__heading">
                   <Image

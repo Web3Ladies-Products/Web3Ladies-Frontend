@@ -4,24 +4,35 @@ import React from "react";
 import Badge from "../Badge";
 import Button from "../buttons/Button";
 import ArrowRight from "../icons/ArrowRight";
+import styled from "styled-components";
 
-const Featured = ({ featuredPost }) => {
+const Featured = ({ featuredPost, imageLeft, ...props }) => {
   const router = useRouter();
   return (
-    <main>
-      <div className="container cta" style={{ paddingTop: "0" }}>
-        <h1 className="section-title bold">Featured</h1>
+    <FeaturedContainer imageLeft={imageLeft} {...props}>
+      <div
+        className={`container cta ${props.fullWidth ? "w-full" : ""}`}
+        style={{ paddingTop: "0" }}
+      >
+        {!imageLeft && <h1 className="section-title bold">Featured</h1>}
         <div className="content">
           <div className="hero_content bootcamp">
             <Badge
               badgeText={featuredPost?.attributes?.category}
               badgeBackground={"#E7D2FF"}
             />
-            <h2 className="section-title">{featuredPost?.attributes?.title}</h2>
+            <h2
+              className="section-title semibold"
+              style={{
+                margin: "28px 0",
+              }}
+            >
+              {featuredPost?.attributes?.title}
+            </h2>
 
             <div className="button-container">
               <Button
-                type={"clear"}
+                variant={"clear"}
                 color={"primary"}
                 buttonText={"Read more"}
                 hasIcon
@@ -52,8 +63,14 @@ const Featured = ({ featuredPost }) => {
           </div>
         </div>
       </div>
-    </main>
+    </FeaturedContainer>
   );
 };
 
 export default Featured;
+
+const FeaturedContainer = styled.main`
+  .content {
+    ${({ imageLeft }) => imageLeft && "flex-direction: row-reverse;"}
+  }
+`;

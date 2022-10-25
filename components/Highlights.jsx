@@ -5,7 +5,14 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowRight from "./icons/ArrowRight";
 
-const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
+const Highlights = ({
+  title,
+  HIGHLIGHTS_ITEMS,
+  handleClick,
+  viewMore,
+  viewMoreLink,
+  children,
+}) => {
   const router = useRouter();
   return (
     <section className="highlights">
@@ -13,13 +20,16 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
         {title && (
           <div className="highlights--heading">
             <h1 className="section-title">{title}</h1>
-            {/* <Button
-              type={"outline"}
-              buttonText={"View More"}
-              handleClick={() => null}
-            /> */}
+            {viewMore && (
+              <Button
+                variant={"outline"}
+                buttonText={"View More"}
+                handleClick={() => router.push(viewMoreLink)}
+              />
+            )}
           </div>
         )}
+        {children}
         <ul className="highlights--container">
           {HIGHLIGHTS_ITEMS?.map((item, index) => (
             <li
@@ -45,7 +55,7 @@ const Highlights = ({ title, HIGHLIGHTS_ITEMS, handleClick }) => {
                 {item.description && <p>{item.description}</p>}
                 {item.button_text && (
                   <Button
-                    type={"clear"}
+                    variant={"clear"}
                     color={"primary"}
                     hasIcon
                     buttonText={item.button_text}
