@@ -29,7 +29,7 @@ export default function Home({ indexPage }) {
           <div className="content">
             <div className="hero_content">
               <h1
-                className="section-title"
+                className="section-title" 
                 dangerouslySetInnerHTML={{ __html: indexPage.hero_title }}
               />
               <p

@@ -53,7 +53,7 @@ const Footer = () => {
     },
     {
       name: "Community",
-      route: "/#join-our-community",
+      route: "/community",
     },
   ];
 

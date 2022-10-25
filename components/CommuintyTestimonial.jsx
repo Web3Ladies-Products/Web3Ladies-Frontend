@@ -1,15 +1,15 @@
 import Image from "next/image";
 import React from "react";
+import communityData from "../pages/api/community.json";
 
 
 const Testimonials = ({
-  testimonial_title,
-  testimonial_description,
-  testimonial_items,
   hasMaxWidth,
 }) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
     React.useState("past_mentees");
+    const communityHome = communityData.home;
+    
 
   const TESTIMONIAL_TABS = [
     {
@@ -33,8 +33,8 @@ const Testimonials = ({
         style={{ maxWidth: hasMaxWidth ? "" : "none" }}
       >
         <div className="testimonials--heading">
-          <h1 className="section-title">{testimonial_title}</h1>
-          <p className="text-muted">{testimonial_description}</p>
+          <h1 className="section-title">{communityHome.feedback.testimonial_title}</h1>
+          <p className="text-muted">{communityHome.feedback.testimonial_description}</p>
         </div>
         <div className="testimonials--container">
           <div className="testimonials--container__sidebar">
@@ -51,7 +51,7 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {testimonial_items[activeTestimonialTab]?.map((item, idx) => (
+            {communityHome.testimonial?.map((item, idx) => (
               <div className="testimonials--container__content__item" key={idx}>
                 <div className="testimonials--container__content__item__heading">
                   <Image
