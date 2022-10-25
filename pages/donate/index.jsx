@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 import { generateInputChangeHandler } from "../../helpers";
 import DonationForm from "../../components/donation/DonationForm";
 import PaymentMethod from "../../components/donation/PaymentMethod";
-import { addDoc, getDocs } from "firebase/firestore";
-import { useEffect } from "react";
-import { colRef } from "../../firebase";
+import AppLoader from "../../components/UI/AppLoader";
+import { strapiService } from "../../services/strapi.service";
+import { alertService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -24,7 +24,7 @@ const Donate = () => {
   const [formData, setFormData] = React.useState({
     full_name: "",
     company_name: "",
-    email: "",
+    company_email: "",
     area_of_sponsorship: "",
     payment_frequency: "one-off",
   });
@@ -33,35 +33,29 @@ const Donate = () => {
 
   const submitDonation = async (e) => {
     e.preventDefault();
-    // setShowLoader(true);
-    // setErrors(DEFAULT_ERRORS);
-    // try {
-    //   router.push("/");
-    // } catch (error) {
-    //   const errorMessage = error?.response?.data?.message;
-    //   if (typeof errorMessage === "object") {
-    //     setErrors(formatApiErrors(errorMessage));
-    //   }
-    // }
-    // finally {
-    //   setShowLoader(false);
-    // }
-    // await addDoc(colRef, formData);
-
-    console.log(formData);
-    setActiveView("payment-method");
+    console.log({ data: formData });
+    setShowLoader(true);
+    try {
+      const response = await strapiService.sendDonationRequest({
+        data: formData,
+      });
+      // console.log(
+      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
+      //   response
+      // );
+      alertService.alertMethod("success", "Donation request sent successfully");
+    } catch (error) {
+      console.error(error);
+      alertService.alertMethod("error", "Donation request failed");
+    } finally {
+      setShowLoader(false);
+      setActiveView("payment-method");
+    }
   };
-
-  // React.useEffect(() => {
-  //   const getDonors = async () => {
-  //     const response = await getDocs(colRef);
-  //     console.log(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //   };
-  //   getDonors();
-  // }, []);
 
   return (
     <>
+      {showLoader && <AppLoader />}
       <Navbar />
       <div className="app-container">
         <section>

@@ -10,12 +10,11 @@ const GenericModal = ({
   description,
   image,
   buttonsArray,
-  dataTestId,
   children,
   closeModal,
 }) => {
   return (
-    <Modal closeModal={closeModal} dataTestId={dataTestId} type={type}>
+    <Modal closeModal={closeModal} type={type}>
       {title && <h3>{title}</h3>}
       {image && (
         <ModalImage>
@@ -35,7 +34,6 @@ const GenericModal = ({
                 target={button.target && button.target}
                 rel={button.rel && button.rel}
                 variant={button.variant && button.variant}
-                dataTestId={button.dataTestId && button.dataTestId}
                 className={button.className && button.className}
                 fullWidth={button.fullWidth && button.fullWidth}
                 onClick={button.onClick && button.onClick}
