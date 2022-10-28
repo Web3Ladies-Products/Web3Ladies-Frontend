@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import AboutSection from "../components/AboutSection";
 import Supporters from "../components/Supporters";
 import Pledge from "../components/common/Pledge";
+import Community from "../components/analytics/Community";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function Home({ indexPage }) {
           <div className="content">
             <div className="hero_content">
               <h1
-                className="section-title" 
+                className="section-title"
                 dangerouslySetInnerHTML={{ __html: indexPage.hero_title }}
               />
               <p
@@ -153,22 +154,10 @@ export default function Home({ indexPage }) {
       {/* END OF JOIN OUR COMMUNITY SECTION */}
 
       {/* ANALYTICS SECTION */}
-      <section className="analytics">
-        <div className="container">
-          <h1
-            className="analytics--heading section-title"
-            dangerouslySetInnerHTML={{ __html: indexPage.our_numbers_title }}
-          />
-          <ul className="analytics--container groups-container">
-            {indexPage.our_numbers?.map((number) => (
-              <li key={number.title} className="group-item">
-                <h3 className="section-title">{number.number}</h3>
-                <h6 className="analytics--text"> {number.title} </h6>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Community
+        our_numbers_title={indexPage.our_numbers_title}
+        our_numbers={indexPage.our_numbers}
+      />
       {/* END OF ANALYTICS SECTION */}
 
       {/* IMPACT SECTION */}

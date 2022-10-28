@@ -13,6 +13,7 @@ import Gallery from "../../components/Gallery";
 import FAQs from "../../components/FAQs";
 import Testimonials from "../../components/Testimonials";
 import CommunityTestimonial from "../../components/CommuintyTestimonial";
+import VisitYoutube from "../../components/VisitYoutube";
 
 const Community = () => {
   const communityHome = communityData.home;
@@ -99,7 +100,7 @@ const Community = () => {
 
       {/* HOW TO JOIN SECTION */}
 
-      <main className="community">
+      <section className="community">
         <div className="container why">
           <div className>
             <h1 className="why--heading">{communityHome.join.title}</h1>
@@ -143,7 +144,7 @@ const Community = () => {
             </div>
           </div>
         </div>
-      </main>
+      </section>
       {/* END OF JOIN  SECTION */}
 
       {/* COMMUINTY CLUB SECTION */}
@@ -152,7 +153,7 @@ const Community = () => {
 
       {/* YOUTUBE SECTION */}
 
-      <section className="con-cta">
+      {/* <section className="con-cta">
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
@@ -185,7 +186,8 @@ const Community = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <VisitYoutube />
       {/* END OF YOUTUBE SECTION */}
 
       {/* COMMUINTY SECTION */}

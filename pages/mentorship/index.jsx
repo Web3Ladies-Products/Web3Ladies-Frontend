@@ -25,10 +25,10 @@ import { useRouter } from "next/router";
 const mentorship = ({ indexPage }) => {
   const router = useRouter();
 
-  React.useEffect(() => {
-    router.push("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // React.useEffect(() => {
+  //   router.push("/");
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <>
