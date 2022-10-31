@@ -1,7 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import { useCopy } from "../../../hooks/useCopy";
-import { BANK_ACCOUNT_NAME, BANK_ACCOUNT_NUMBER } from "../../../lib/constants";
+import {
+  BANK_ACCOUNT_NAME,
+  BANK_ACCOUNT_NUMBER,
+  BANK_NAME,
+} from "../../../lib/constants";
 import GenericModal from "../../modals/GenericModal";
 
 const BankTransferModal = ({ closeModal, openThankYou }) => {
@@ -27,6 +31,7 @@ const BankTransferModal = ({ closeModal, openThankYou }) => {
             onClick={() => copyToClipBoard(BANK_ACCOUNT_NUMBER)}
           >
             <h3>{BANK_ACCOUNT_NUMBER}</h3>
+            <h3>{BANK_NAME}</h3>
             <span className="link">
               {copied ? (
                 <Image
