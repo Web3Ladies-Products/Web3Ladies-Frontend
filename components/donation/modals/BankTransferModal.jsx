@@ -31,7 +31,6 @@ const BankTransferModal = ({ closeModal, openThankYou }) => {
             onClick={() => copyToClipBoard(BANK_ACCOUNT_NUMBER)}
           >
             <h3>{BANK_ACCOUNT_NUMBER}</h3>
-            <h3>{BANK_NAME}</h3>
             <span className="link">
               {copied ? (
                 <Image
@@ -51,6 +50,7 @@ const BankTransferModal = ({ closeModal, openThankYou }) => {
             </span>
           </div>
           <p>{BANK_ACCOUNT_NAME}</p>
+          <h3>{BANK_NAME}</h3>
         </div>
       </div>
     </GenericModal>
