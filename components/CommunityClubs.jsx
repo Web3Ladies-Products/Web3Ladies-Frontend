@@ -45,9 +45,9 @@ const CommunityClubs = () => {
                       {item.location}
                     </h4>
                     <p id="text-desc">{item.description}</p>
-                    <div className="btn-btn">
-                      <Button
+                    <Button
                         variant={"outline"}
+                        style={{ marginLeft: '13px'}}
                         buttonText={communityHome.community_clubs.buttonText}
                         handleClick={() =>
                           router.push(communityHome.community_clubs.buttonLink)
@@ -55,7 +55,7 @@ const CommunityClubs = () => {
                       />
                     </div>
                   </div>
-                </div>
+                
               </li>
             ))}
           </ul>
@@ -87,9 +87,10 @@ const CommunityClubs = () => {
                       {item.location}
                     </h4>
                     <p id="text-desc">{item.description}</p>
-                    <div className="btn-btn">
+                  
                       <Button
                         variant={"outline"}
+                        style={{ marginLeft: '13px'}}
                         buttonText={communityHome.community_clubs.buttonText}
                         handleClick={() =>
                           router.push(communityHome.community_clubs.buttonLink)
@@ -97,7 +98,7 @@ const CommunityClubs = () => {
                       />
                     </div>
                   </div>
-                </div>
+             
               </li>
             ))}
           </ul>

@@ -242,10 +242,15 @@ main {
   }
 }
 
-// .introduction--dark {
-//   @extend .introduction;
-//   background-color: black;
-// }
+.introduction--dark {
+  background-color: black;
+  margin-top: 20px;
+  #header{
+    color: #ffffff;
+  }
+  
+ 
+}
 // END OF INTRODUCTION SECTION
 
 // WHO WE ARE SECTION

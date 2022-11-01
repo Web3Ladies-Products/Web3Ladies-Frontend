@@ -1,21 +1,25 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../components/layouts/Navbar";
+import { FAQ_DATA } from "../../pages/api/feedback";
+import FAQs from "../../components/FAQs";
+import { strapiService } from "../../services/strapi.service";
 import communityData from "../../pages/api/community.json";
 import Image from "next/image";
 import Footer from "../../components/layouts/Footer";
 import Button from "../../components/buttons/Button";
 import WhyUsSection from "../../components/WhyUsSection";
-import CommunityEvents from "../../components/CommunityEvents";
-import Slack from "../../components/icons/Slack";
-import CommunityClubs from "../../components/CommunityClubs";
-import Gallery from "../../components/Gallery";
-import FAQs from "../../components/FAQs";
 import Testimonials from "../../components/Testimonials";
-import CommunityTestimonial from "../../components/CommuintyTestimonial";
+import CommunityEvents from "../../components/CommunityEvents";
+import CommunityClubs from "../../components/CommunityClubs";
+import Analytics from "../../components/analytics/Community";
+import Gallery from "../../components/Gallery";
 import VisitYoutube from "../../components/VisitYoutube";
+import HowToJoin from "../../components/HowToJoin";
+import CTACard from "../../components/CTACard";
+import JoinCommunity from "../../components/JoinCommunity";
 
-const Community = () => {
+const Community = ({ indexPage }) => {
   const communityHome = communityData.home;
   const router = useRouter();
 
@@ -29,6 +33,7 @@ const Community = () => {
       <Navbar />
 
       {/* HERO SECTION */}
+
       <section>
         <div className="container cta">
           <div className="content">
@@ -48,7 +53,7 @@ const Community = () => {
               <div>
                 <Image
                   className="hero-image"
-                  width={"380px"}
+                  width={"400px"}
                   height={"438px"}
                   src="/assets/images/community-polygon.png"
                   alt="hero-image"
@@ -76,75 +81,33 @@ const Community = () => {
       {/* END OF HERO SECTION */}
 
       {/* WHYUS SECTION */}
-      <WhyUsSection />
+      <WhyUsSection
+        title={communityHome.why.title}
+        highlights={communityHome.highlights}
+        buttonText={communityHome.why.buttonText}
+        handleClick={communityHome.why.buttonLink}
+      />
       {/* END OF WHYUS SECTION */}
 
       {/* ANALYTICS SECTION */}
-      <section className="analytics">
-        <div className="container">
-          <ul className="analytics--container groups-container">
-            {communityHome.analytics.no_number?.map((number) => (
-              <li key={number.title} className="group-item">
-                <h3 className="section-title">{number.noOfNumber}</h3>
-                <h6 className="analytics--text"> {number.title} </h6>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Analytics our_numbers={indexPage.our_numbers} />
       {/* END OF ANALYTICS SECTION */}
 
       {/* COMMUINTY EVENT SECTION */}
-      <CommunityEvents />
+      <CommunityEvents
+        title={communityHome.events.title}
+        events_items={communityHome.events.events_items}
+      />
       {/* END OF COMMUINTY EVENT  SECTION */}
 
       {/* HOW TO JOIN SECTION */}
 
-      <section className="community">
-        <div className="container why">
-          <div className>
-            <h1 className="why--heading">{communityHome.join.title}</h1>
-          </div>
-        </div>
+      <HowToJoin
+        title={communityHome.join.title}
+        how_to_join={communityHome.how_to_join}
+        buttonText={communityHome.join.buttonText}
+      />
 
-        <div style={{ marginTop: "30px" }}>
-          <ul className=" container highlights--container">
-            {communityHome.how_to_join?.map((item, index) => (
-              <li key={index} className="highlight--container-item">
-                <div className="grid-container">
-                  <div className="">
-                    <img src={item.image} className="grid-container--image" />
-                  </div>
-                  <div className="highlights--container-item--text">
-                    <h4 className="item-text">{item.step}</h4>
-                    <p>{item.description}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <div className="container why">
-            <div className="sub-heading">
-              <h1 className="">
-                <Button
-                  variant={"outline"}
-                  width={"243px"}
-                  handleClick={() =>
-                    window.open(communityHome.join.buttonLink, "_blank")
-                  }
-                  hasIcon
-                >
-                  <span className="icon-left">
-                    <Slack />
-                  </span>
-                  {communityHome.join.buttonText}
-                </Button>
-              </h1>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* END OF JOIN  SECTION */}
 
       {/* COMMUINTY CLUB SECTION */}
@@ -152,168 +115,50 @@ const Community = () => {
       {/* END OF COMMUINTY CLUB  SECTION */}
 
       {/* YOUTUBE SECTION */}
-
-      {/* <section className="con-cta">
-        <div className="container cta">
-          <div className="content">
-            <div className="hero_content">
-              <h1 className="section-title">
-                {communityHome.youtube_section.title}
-              </h1>
-
-              <div className="button-container">
-                <Button
-                  variant={"primary"}
-                  style={{ width: "165px" }}
-                  buttonText={communityHome.youtube_section.buttonText}
-                  handleClick={() =>
-                    router.push(communityHome.youtube_section.buttonLink)
-                  }
-                />
-              </div>
-            </div>
-
-            <div className="hero_image">
-              <div>
-                <Image
-                  className="hero-image"
-                  width={"380px"}
-                  height={"400px"}
-                  src="/assets/images/youtube.png"
-                  alt="hero-image"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <VisitYoutube />
       {/* END OF YOUTUBE SECTION */}
 
       {/* COMMUINTY SECTION */}
-      <section>
-        <div className="container-join">
-          <div className="container why">
-            <div>
-              <h1 className="why--heading" id="why--heading">
-                {communityHome.join.buttonText}
-              </h1>
-
-              <p className="why--text">{communityHome.join.description}</p>
-            </div>
-          </div>
-          <div className="container why">
-            <div className="sub-heading">
-              <h1 className="">
-                <Button
-                  variant={"outline"}
-                  width={"243px"}
-                  handleClick={() =>
-                    window.open(communityHome.join.buttonLink, "_blank")
-                  }
-                  hasIcon
-                >
-                  <span className="icon-left">
-                    <Slack />
-                  </span>
-                  {communityHome.join.buttonText}
-                </Button>
-              </h1>
-            </div>
-          </div>
-        </div>
-      </section>
+      <JoinCommunity
+        title={communityHome.join.buttonText}
+        description={communityHome.join.description}
+        handleClick={() => window.open(communityHome.join.buttonLink, "_blank")}
+        buttonText={communityHome.join.buttonText}
+      />
       {/* END OF COMMUINTY  SECTION */}
 
       {/* GALLERY SECTION */}
-      <section className="gallery">
-        <div className="container">
-          <div className="gallery--heading">
-            <h1 className="sub-section-title bold">
-              {" "}
-              {communityHome.galleryItem.title}
-            </h1>
-          </div>
-          <ul className="gallery--container">
-            {communityHome.gallery.map((item, index) => (
-              <li className="gallery--container-item" key={index}>
-                <div className="gallery--container-item--image">
-                  <Image
-                    src={item.image}
-                    width={"415px"}
-                    height={"314px"}
-                    objectFit="contain"
-                    alt="gallery-image"
-                  />
-                </div>
-                <div className="gallery--container-item--text">
-                  <h4>{item.title}</h4>
-                  <p>{item.description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Gallery galleryItems={communityHome.gallery} />
+
       {/*END OF GALLERY SECTION */}
 
       {/*FAQ */}
-      <FAQs data={communityHome.faqs} />
+      <FAQs data={FAQ_DATA} />
       {/*FAQ */}
 
       {/* TESTIMONIALS SECTION */}
-      <CommunityTestimonial />
+      <Testimonials
+        testimonial_title={indexPage.testimonial_title}
+        testimonial_description={indexPage.testimonial_description}
+        testimonial_items={indexPage.testimonial_items}
+        hasMaxWidth={true}
+      />
       {/* END OF TESTIMONIALS SECTION */}
 
-      {/* END OF TRANING SECTION */}
-      <section className="hands-training">
-        <div className="container">
-          <div className="hands-training--container groups-container">
-            <div className="crescent-vector">
-              {/* <Image
-                src="/assets/images/crescent-vector.png"
-                width={"100%"}
-                height={"100%"}
-                alt="crescent-vector"
-              /> */}
-
-              {/* <div className="round-vector">
-                <Image
-                  src="/assets/images/down-pyramid.png"
-                  width={"100%"}
-                  height={"100%"}
-                  alt="crescent-vector"
-                />
-              </div> */}
-            </div>
-            <div className="container cta">
-              <div className="content">
-                <div className="hero_content">
-                  <h1 className="section-title">{communityHome.train.title}</h1>
-                  <p className="">{communityHome.train.description}</p>
-                  <div className="container why">
-                    <div className="sub-heading">
-                      <h1 style={{ marginRight: "30px" }}>
-                        <img
-                          src="/assets/images/spiral.png"
-                          className="spiral-vector"
-                        />
-                        <Button variant={"primary"} width={"243px"}>
-                          {communityHome.train.buttonText}
-                        </Button>
-                      </h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* END OF TRAINING SECTION */}
+      <CTACard />
 
       <Footer />
     </>
   );
 };
 export default Community;
+
+//get home page data
+export async function getStaticProps() {
+  const indexPage = await strapiService.getHomePageData();
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}

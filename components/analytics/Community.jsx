@@ -22,3 +22,4 @@ const Community = ({ our_numbers_title, our_numbers }) => {
 };
 
 export default Community;
+

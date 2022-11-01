@@ -4,7 +4,10 @@ import React from "react";
 import communityData from "../pages/api/community.json";
 import Button from "../components/buttons/Button";
 
-const CommunityEvents = () => {
+const CommunityEvents = ({
+  title,
+  events_items
+}) => {
   const communityHome = communityData.home;
   const router = useRouter();
   return (
@@ -12,13 +15,14 @@ const CommunityEvents = () => {
     <div className="container">
      
         <div className="highlights--heading">
-          <h2 className="section-title">{communityHome.events.title}</h2>
+          <h2 className="section-title"
+            dangerouslySetInnerHTML={{ __html: title }}/>
          
         </div>
   
 
       <ul className="highlights--container">
-      {communityHome.events_items?.map((item, index) => (
+      {events_items?.map((item, index) => (
             <li
               key={index}
               className="highlight--container-item"

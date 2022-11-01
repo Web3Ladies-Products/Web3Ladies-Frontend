@@ -5,20 +5,28 @@ import communityData from "../pages/api/community.json";
 import Badge from "./Badge";
 import Button from "../components/buttons/Button";
 
-const WhyUs = () => {
+const WhyUs = ({
+  title,
+  highlights,
+  handleClick,
+  buttonText
+}) => {
   const communityHome = communityData.home;
   const router = useRouter();
   return (
     <main className="">
       <div className="container why">
         <div className>
-          <h1 className="why--heading">{communityHome.why.title}</h1>
+          <h1 className="why--heading"
+            dangerouslySetInnerHTML={{ __html: title }}/>
+            
+        
         </div>
       </div>
 
       <div style={{ marginTop: "30px" }}>
         <ul className=" container highlights--container">
-          {communityHome.highlights?.map((item, index) => (
+          {highlights?.map((item, index) => (
             <li key={index} className="highlight--container-item">
               <div className="grid-container">
                 <div className="">
@@ -37,8 +45,8 @@ const WhyUs = () => {
           <h1 className="btn">
             <Button
               variant={"outline"}
-              buttonText={communityHome.why.buttonText}
-              handleClick={() => router.push(communityHome.why.buttonLink)}
+              buttonText={buttonText}
+              handleClick={handleClick}
             />
           </h1>
         </div>
