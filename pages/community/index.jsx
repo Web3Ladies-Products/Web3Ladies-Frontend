@@ -96,7 +96,7 @@ const Community = ({ indexPage }) => {
       {/* COMMUINTY EVENT SECTION */}
       <CommunityEvents
         title={communityHome.events.title}
-        events_items={communityHome.events.events_items}
+        events_items={communityHome.events_items}
       />
       {/* END OF COMMUINTY EVENT  SECTION */}
 
