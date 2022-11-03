@@ -45,7 +45,7 @@ const Footer = () => {
     // },
     {
       name: "Events",
-      route: "/#events",
+      route: "/events",
     },
     {
       name: "Mentorship",

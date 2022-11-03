@@ -61,6 +61,7 @@
 .align-center {
   align-items: center !important;
 }
+
 .flex-column {
   flex-direction: column !important;
 }
@@ -117,9 +118,11 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+
       @include desktop {
         border-right: 1px solid var(--color-black);
       }
+
       @include mobile {
         &:not(:last-child) {
           padding: 20px 0;
@@ -162,6 +165,7 @@
 
     &--list {
       padding: 20px 28px;
+
       .number {
         font-size: 60px;
         line-height: 72px;
@@ -251,16 +255,21 @@
   .container {
     background-color: #fff4fb;
     display: flex;
+
     @include desktop {
       position: relative;
       padding: 55px 40px;
       justify-content: space-between;
     }
+
     @include mobile {
       flex-direction: column;
       align-items: center;
     }
   }
+
+
+
 
   .hero_content {
     @include mobile {
@@ -268,6 +277,7 @@
       font-size: 20px;
     }
   }
+
   h1 {
     margin-bottom: 19px;
   }
@@ -285,6 +295,7 @@
 
 .testimonials {
   .container {
+
     // @include desktop {
     //   max-width: none;
     // }
@@ -297,8 +308,10 @@
         margin-right: 24px;
         min-width: 350px !important;
         height: fit-content;
+
         .testimonial--header {
           display: flex;
+
           &-image {
             width: 60px;
             height: 60px;
@@ -309,6 +322,7 @@
           h5 {
             font-size: 18px;
           }
+
           span {
             font-size: 16px;
             line-height: 19px;
@@ -321,6 +335,7 @@
 
 .search-input {
   position: relative;
+
   .icon {
     position: absolute;
     top: 60%;
@@ -335,16 +350,20 @@
   &__with-icon {
     list-style: url(/assets/caret-right.svg) !important;
   }
+
   &-item {
     h2 {
       margin-bottom: 8px;
     }
+
     small {
       text-decoration: underline;
     }
+
     p {
       margin-top: 8px;
     }
+
     &:not(:last-child) {
       margin-bottom: 16px;
     }
@@ -371,6 +390,7 @@
     color: #fff;
     text-shadow: 0 0 10px white;
   }
+
   -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   -moz-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
   -ms-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
@@ -385,22 +405,28 @@
   .m-#{$i} {
     margin: #{$i}px !important;
   }
+
   .mt-#{$i} {
     margin-top: #{$i}px !important;
   }
+
   .mb-#{$i} {
     margin-bottom: #{$i}px !important;
   }
+
   .ml-#{$i} {
     margin-left: #{$i}px !important;
   }
+
   .mr-#{$i} {
     margin-right: #{$i}px !important;
   }
+
   .mx-#{$i} {
     margin-left: #{$i}px !important;
     margin-right: #{$i}px !important;
   }
+
   .my-#{$i} {
     margin-top: #{$i}px !important;
     margin-bottom: #{$i}px !important;
@@ -409,24 +435,59 @@
   .p-#{$i} {
     margin: #{$i}px !important;
   }
+
   .pt-#{$i} {
     margin-top: #{$i}px !important;
   }
+
   .pb-#{$i} {
     margin-bottom: #{$i}px !important;
   }
+
   .pl-#{$i} {
     margin-left: #{$i}px !important;
   }
+
   .pr-#{$i} {
     margin-right: #{$i}px !important;
   }
+
   .px-#{$i} {
     margin-left: #{$i}px !important;
     margin-right: #{$i}px !important;
   }
+
   .py-#{$i} {
     margin-top: #{$i}px !important;
     margin-bottom: #{$i}px !important;
+  }
+}
+
+.events-hero {
+  .container {
+    background-color: #fff4fb;
+    display: flex;
+
+    @include desktop {
+      position: relative;
+      padding: 55px 40px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .event-sub,.event-text {
+    font-size: 24px;
+    color: #7D0BFE;
+    font-weight: 500;
+  }
+  .event-text{
+    font-size: 54px;
+    font-weight: 600;
   }
 }

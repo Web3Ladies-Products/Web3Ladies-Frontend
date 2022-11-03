@@ -1,0 +1,22 @@
+{
+    "helpTitle": "Web3Ladies",
+    "eventTitle": "Events",
+    "events_title": {
+        "title": "Upcoming Events",
+        "description": "Be a part of a community of confident and audacious Web3 Ladies. We are always open to new members.",
+        "image": "/assets/images/sponsorship.png",
+        "buttonText": "Become a Sponsor",
+        "buttonLink": "/tracks/blockchain",
+        "buttonType": "primary"
+      },
+      "EVENTS_ITEMS": [
+        {
+          "title": "AMA Session",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi lacus nulla cursus nulla lacus, cras faucibus nunc. Lacus gravida eget a sit condimentum.",
+          "image": "/assets/images/ama-event.png",
+          "button_text": "Learn More"
+        }
+       
+      ]
+
+}
