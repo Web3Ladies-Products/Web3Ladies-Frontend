@@ -4,6 +4,8 @@ import HeadSeo from "../../components/HeadSeo"
 import Navbar from "../../components/layouts/Navbar"
 import siteMetadata from "../../lib/data/siteMetadata"
 import Footer from "../../components/layouts/Footer";
+import Link from "next/link"
+import Image from "next/image"
 const Award = () => {
   return (
     <>
@@ -21,7 +23,39 @@ const Award = () => {
         <div className="container">
 
         <div className="award__header  ">
+            <div className="award__header-vector1">
+
+        <Image
+            width="151px"
+            height="146px"
+            
+
+            src='/assets/images/awardvector1.png' 
+            />
+            </div>
+            <div className="award__header-vector2">
+                <Image
+                    width="151px"
+                    height="146px"
+                    src='/assets/images/awardvector2.png' 
+                    />
+                </div>
+                <div className="award__header-vector3">
+                <Image
+                    width="151px"
+                    height="146px"
+                    src='/assets/images/awardvector3.png' 
+                    />
+                </div>
+                <div className="award__header-vector4">
+                <Image
+                    width="151px"
+                    height="146px"
+                    src='/assets/images/awardvector4.png' 
+                    />
+                </div>
         <div className="contain d-flex flex-column justify-center align-center center">
+            
               <h1
                 className="">Top 10 Female Trailblazers in <span>Web3</span></h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -50,51 +84,17 @@ const Award = () => {
         <div className="award__nominees">
             <h3>Nominees</h3>
             <div className="d-flex award__cards-container">
+                <Link href={`/awards/myname`} >
+                <a>
+
                 <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
+
+                </a>
+
+                
+
+                </Link>
                
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-               
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
                
 
             </div>
