@@ -2,12 +2,14 @@
 
 .award__header{
     background-color: hsl(268, 100%, 97%);
-
+    position: relative;
+    
     width: 100%;
     padding: 112px 0;
 
     p{
         margin: 32px 0;
+        z-index: 1;
     }
     .award__btn{
         padding: 15px 46px;
@@ -16,13 +18,16 @@
     }
 
     .contain {
-        
+    
         max-width: 723px;
         margin: 0 auto;
+
         
     }
     h1{
+        z-index: 1;
         font-size: 60px;
+        font-family: 'Space Grotesk';
         span {
             color: var(--primary-color);
         }
@@ -30,8 +35,36 @@
     }
     .button__section {
         gap: 16px;
+        z-index: 1;
        
     }
+   
+
+}
+
+.award__header-vector1{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+.award__header-vector2{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.award__header-vector3{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+.award__header-vector4{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
 }
 
