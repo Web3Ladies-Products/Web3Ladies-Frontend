@@ -1,5 +1,3 @@
-
-
 .award__header{
     background-color: hsl(268, 100%, 97%);
     position: relative;
@@ -20,9 +18,7 @@
     .contain {
     
         max-width: 723px;
-        margin: 0 auto;
-
-        
+        margin: 0 auto;        
     }
     h1{
         z-index: 1;
@@ -161,4 +157,102 @@
             flex-direction: column;
         }
     }
+}
+
+.award__nominee{
+    width: 1013px;
+    max-width: 90%;
+    margin: 50px auto 250px;
+
+    .award__hero-title > p{
+        margin: 20px 0;
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 72px;
+        letter-spacing: -0.04em;
+        color: #000000;
+    }
+
+    .award__hero-img{
+        overflow: hidden;
+        border-radius: 7.90444px;
+    }
+
+    .award__hero-title{
+        .title{
+            font-family: 'Aeonik';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+        }
+        
+        .location{
+            font-style: normal;
+            padding: 0 0 38px;
+            border-bottom: 1px solid rgba(100, 100, 100, 0.5);
+            
+            p{
+                font-weight: 500;
+                font-family: 'Aeonik';
+                font-size: 18px;
+
+            }
+        }
+    }
+}
+
+.title-about{
+    margin-top: 38px;
+    font-family: 'Aeonik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.title-content{
+    margin-top: 20px;
+    color: #000000;
+    font-family: 'Aeonik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+.award__form{
+    margin-top: 80px;
+
+    .form-title{
+        margin-top: 38px;
+        font-family: 'Aeonik';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .form-input {
+        margin: 20px 0 0 0;
+    }
+}
+.mt-10{
+    margin-top: 10px;
+}
+.award__radio{
+    margin-bottom: 40px;
+    margin-top: 10px;
+    width: 100%;
+    
+    p {
+        padding-bottom: 15px;
+        font-family: 'Aeonik';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
+.radio__input > label {
+    margin-left: 4px;
+    margin-right: 11px;
 }
