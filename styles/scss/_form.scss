@@ -241,6 +241,10 @@ form {
 
 .full-40 {
   width: 40%;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .input--checkbox {

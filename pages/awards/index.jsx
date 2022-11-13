@@ -21,8 +21,7 @@ const Award = () => {
       <Navbar />
       <main className="">
         <div className="container">
-
-        <div className="award__header  ">
+        <div className="award__header">
             <div className="award__header-vector1">
 
         <Image
