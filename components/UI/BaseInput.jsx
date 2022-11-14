@@ -3,6 +3,7 @@ import React from "react";
 const BaseInput = ({
   errors,
   label,
+  type,
   prefixIcon,
   className,
   ...nativeInputProps
@@ -16,11 +17,11 @@ const BaseInput = ({
         }`}
       >
         {!!prefixIcon && <span className="base-input__icon">{prefixIcon}</span>}
-        <input className="base-input__text-space" {...nativeInputProps} />
+        <input type={type ? type : "text"}  className="base-input__text-space" {...nativeInputProps} />
       </div>
 
       {errors?.map?.((error, index) => (
-        <span className="base-input__error" key={index}>
+        <span className="base-input__error" style={{color: "red"}} key={index}>
           {error}
         </span>
       ))}
