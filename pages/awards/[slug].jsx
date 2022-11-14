@@ -1,4 +1,6 @@
 import React from 'react'
+import { useRouter } from "next/router";
+
 import Button from '../../components/buttons/Button'
 import HeadSeo from "../../components/HeadSeo"
 import ArrowLeft from '../../components/icons/ArrowLeft'
@@ -6,7 +8,7 @@ import Footer from '../../components/layouts/Footer'
 import Navbar from "../../components/layouts/Navbar"
 import BaseInput from '../../components/UI/BaseInput'
 import siteMetadata from "../../lib/data/siteMetadata"
-
+import awardData from "../api/award.json";
 
 const Slug = ({
   showLoader,
@@ -16,6 +18,11 @@ const Slug = ({
   errors,
   ...props
 }) => {
+  const { query } = useRouter();
+  const { awardSlug } = query;
+  const award = awardData.find((award) => award.slug === awardSlug);
+
+
   return (
     <>
       <HeadSeo
@@ -34,35 +41,32 @@ const Slug = ({
         </div>
 
         <div className='award__hero-title'>
-          <p>Top 10 Female Trailblazers in Web3 Nominee</p>
+          <p>{award.hero.title}</p>
         </div>
 
         <div className='award__hero-img'>
-          <img src='/assets/images/Frame.png' />
+          <img src={award.hero.image} alt="img" />
         </div>
 
         <div className='award__hero-title'>
-          <p className='title'>Janet Simpson</p>
+          <p className='title'>{award.hero.name}</p>
           <div className='location'>
-            <p>Chief Technical Officer. Lazerpay</p>
-            <p>Country of origin: Nigeria </p>
+            <p>{award.hero.company}</p>
+            <p>{award.hero.country}</p>
           </div>
         </div>
 
         <div className='award__about'>
-          <p className='title-about'>About Janet</p>
-          <p className='title-content'>You need to find out more about the company you want to work with to know if it’s a great fit for you. You can reach out to some of the staff who work there to find out about the work culture, how the staff feels about the company, and whether it aligns with your career goals.
-            <br />
-            <br />
-            You need to also research the problems they currently face and how you can proffer solutions to them. You can find the right answers to your inquiries by starting with the company’s website. You’ll discover the company’s vision, values, work culture, and the kind of product/service they offer.
-            <br />
-            <br />
-            Next, you need to check out all the company's social media pages to know how they want their consumers to see them. Follow these pages to get fresh updates about them before your interview. Also, find out who their competitors are and what makes the company stand out from them.
-          </p>
+          <p className='title-about'>{award.about.aboutName}</p>
+          <p className='title-content' 
+             dangerouslySetInnerHTML={{
+              __html: award.about.description,
+            }}
+          />
         </div>
 
         <div className='award__form'>
-          <p className='form-title'>Vote for Janet Simpson</p>
+          <p className='form-title'>Vote for {award.hero.name}</p>
 
           <form onSubmit={submitDonation} {...props} className="form-input">
           <div className="input full-100">
@@ -92,22 +96,22 @@ const Slug = ({
 
           {/* checkbox input */}
           <div className='award__radio '>
-            <p>Gender</p>
+            <p>{award.gender.title}</p>
             <div className='radio__input'>
               <input type="radio" name="gender" id="male" value="male" />
-              <label for="male">Male</label>
+              <label for="male">{award.gender.t1}</label>
 
               <input type="radio" name="gender" id="female" value="female" />
-              <label for="female">Female</label>
+              <label for="female">{award.gender.t2}</label>
 
               <input type="radio" name="gender" id="preferNotTOSay" value="preferNotToSay" />
-              <label for="preferNotTOSay">Prefer not to say</label> 
+              <label for="preferNotTOSay">{award.gender.t3}</label> 
             </div>
           </div>
 
           <div className='award__btn'>
             <Button  
-              buttonText={showLoader ? "Voting..." : "Vote for Janet"}
+              buttonText={showLoader ? "Voting..." : `${award.button}`}
               variant={"primary"}
               disabled={showLoader}
               type="submit">
