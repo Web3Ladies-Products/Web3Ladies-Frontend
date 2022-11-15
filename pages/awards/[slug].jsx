@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from "next/router";
-import Link from "next/link"
+
 import Button from '../../components/buttons/Button'
 import HeadSeo from "../../components/HeadSeo"
 import ArrowLeft from '../../components/icons/ArrowLeft'

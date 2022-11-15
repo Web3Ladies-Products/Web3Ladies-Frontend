@@ -9,6 +9,7 @@ import Footer from "../../components/layouts/Footer";
 import Link from "next/link"
 import Image from "next/image"
 import awardData from "../api/award.json"
+import VoteSuccess from "../../components/awards/VoteSuccess";
 
 const Award = ({awardHomeData}) => {
   // const awardDataHome = awardData.home;
@@ -118,7 +119,7 @@ const Award = ({awardHomeData}) => {
        </div>
 
         </div>
-       
+       <VoteSuccess/>
       </main>
       <Footer />
     </>
