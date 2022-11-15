@@ -40,26 +40,26 @@
 
 .award__header-vector1{
     position: absolute;
-    top: 0;
+    top: -7px;
     left: 0;
 
 }
 .award__header-vector2{
     position: absolute;
-    top: 0;
+    top:  -4px;
     right: 0;
 
 }
 
 .award__header-vector3{
     position: absolute;
-    bottom: 0;
+    bottom: -22px;
     right: 0;
 
 }
 .award__header-vector4{
     position: absolute;
-    bottom: 0;
+    bottom: -22px;
     left: 0;
 
 }
@@ -255,4 +255,14 @@
 .radio__input > label {
     margin-left: 4px;
     margin-right: 11px;
+}
+
+.nominee__flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1312px;
+    margin: 0 auto;
 }

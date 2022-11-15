@@ -47,7 +47,7 @@ const success = () => {
               <p>Keep an eye on your email!</p>
               <small>Follow us on our socials</small>
               <div className="icons-container">
-                <Image
+              <Image
                   className="icon"
                   width={"20px"}
                   height={"20px"}

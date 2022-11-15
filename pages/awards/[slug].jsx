@@ -34,12 +34,13 @@ const Slug = ({
         ogType={"website"}
       ></HeadSeo>
       <Navbar />
+
       <div className="award__nominee">
         <div className='award__nav'>
           <ArrowLeft  width={15} height={12} color={"black"} />{" "}
           <span>Back</span>
         </div>
-
+        
         <div className='award__hero-title'>
           <p>{award.hero.title}</p>
         </div>

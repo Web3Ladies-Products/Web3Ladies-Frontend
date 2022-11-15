@@ -21,6 +21,161 @@
       
     },
     {
+      "home": {
+        "img1": "/assets/images/awardvector1.png",
+        "img2": "'/assets/images/awardvector2.png",
+        "img3": "/assets/images/awardvector3.png",
+        "img4": "/assets/images/awardvector4.png",
+        "title": "Top 10 Female Trailblazers in",
+        "subtitle": "web3",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "btn1": "Vote now",
+        "btn2": "See nominee",
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin pretium adipiscing sed est ipsum in consequat. Eu in cursus imperdiet vestibulum. Proin tristique velit faucibus at aliquet amet diam. Lobortis purus tortor justo, accumsan, lorem amet, odio facilisi. Odio ut adipiscing volutpat magnis in congue cursus. Lectus ultricies sollicitudin eu proin netus amet. Odio id sed viverra in. Porttitor magna sit amet, purus lorem. Vitae quam scelerisque vitae at amet, lobortis pellentesque.",
+        "nominees": [ 
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            },
+            {
+                "header": "Nominees",
+                "img": "/assets/images/awardframe.png",
+                "userName": "Lazerpay",
+                "subtext": "CTO",
+                "name": "Janet Simpson"
+            }
+        ]
         
+    }  
     }
+    
 ]

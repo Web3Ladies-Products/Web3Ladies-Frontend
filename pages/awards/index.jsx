@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import AwardCard from "../../components/awards/AwardCard"
 import Button from "../../components/buttons/Button"
 import HeadSeo from "../../components/HeadSeo"
@@ -6,7 +8,12 @@ import siteMetadata from "../../lib/data/siteMetadata"
 import Footer from "../../components/layouts/Footer";
 import Link from "next/link"
 import Image from "next/image"
-const Award = () => {
+import awardData from "../api/award.json"
+
+const Award = ({awardHomeData}) => {
+  // const awardDataHome = awardData.home;
+  console.log(awardHomeData)
+  
   return (
     <>
       <HeadSeo
@@ -25,50 +32,53 @@ const Award = () => {
             <div className="award__header-vector1">
 
         <Image
-            width="151px"
-            height="146px"
-            
-
+            width="100%"
+            height="100%"
+            objectFit="contain"
+            // src={awardHomeData.img1}
             src='/assets/images/awardvector1.png' 
             />
             </div>
             <div className="award__header-vector2">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector2.png' 
                     />
                 </div>
                 <div className="award__header-vector3">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector3.png' 
                     />
                 </div>
                 <div className="award__header-vector4">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector4.png' 
                     />
                 </div>
         <div className="contain d-flex flex-column justify-center align-center center">
             
               <h1
-                className="">Top 10 Female Trailblazers in <span>Web3</span></h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                className="">{awardHomeData.title}<span>{awardHomeData.web3}</span></h1>
+              <p>{awardHomeData.content}</p>
 
               <div className=" d-flex button__section">
                 <Button
                 className="award__btn"
                   variant={"primary"}
-                  buttonText="Vote now"
+                  buttonText={awardHomeData.btn1}
                   handleClick={() => {}}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText="See nominee"
+                  buttonText={awardHomeData.btn2}
                   handleClick={() => {}}
                 />
               </div>
@@ -77,16 +87,20 @@ const Award = () => {
 
         </div>
         <div className="award__paragraph">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin pretium adipiscing sed est ipsum in consequat. Eu in cursus imperdiet vestibulum. Proin tristique velit faucibus at aliquet amet diam. Lobortis purus tortor justo, accumsan, lorem amet, odio facilisi. Odio ut adipiscing volutpat magnis in congue cursus. Lectus ultricies sollicitudin eu proin netus amet. Odio id sed viverra in. Porttitor magna sit amet, purus lorem. Vitae quam scelerisque vitae at amet, lobortis pellentesque.
-</p>
+            <p>{awardHomeData.paragraph}</p>
         </div>
         <div className="award__nominees">
-            <h3>Nominees</h3>
+            <h3>{awardHomeData.nominees.header}</h3>
             <div className="d-flex award__cards-container">
                 <Link href={`/awards/myname`} >
-                <a>
-
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
+                <a className="nominee__flex">
+                {awardHomeData.nominees?.map((nominee, index) => {
+                  return (
+                    <div key={index}  >
+                      <AwardCard name={nominee.name} imageUrl={nominee.img} username={nominee.uersName} subtext={nominee.subtext} />
+                    </div>
+                  );
+                })}
 
                 </a>
 
@@ -110,5 +124,14 @@ const Award = () => {
     </>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: {
+      awardHomeData: awardData[1].home,
+    },
+  };
+}
+
 
 export default Award
