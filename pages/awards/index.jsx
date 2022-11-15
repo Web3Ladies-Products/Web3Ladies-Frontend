@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import AwardCard from "../../components/awards/AwardCard"
 import Button from "../../components/buttons/Button"
 import HeadSeo from "../../components/HeadSeo"
@@ -6,7 +8,13 @@ import siteMetadata from "../../lib/data/siteMetadata"
 import Footer from "../../components/layouts/Footer";
 import Link from "next/link"
 import Image from "next/image"
+import awardData from "../api/award.json"
+
 const Award = () => {
+  const { query } = useRouter();
+  const { awardSlug } = query;
+  const award = awardData.find((award) => award.slug === awardSlug);
+
   return (
     <>
       <HeadSeo
@@ -27,9 +35,7 @@ const Award = () => {
         <Image
             width="151px"
             height="146px"
-            
-
-            src='/assets/images/awardvector1.png' 
+            // src={award.header.img1} 
             />
             </div>
             <div className="award__header-vector2">
@@ -56,7 +62,7 @@ const Award = () => {
         <div className="contain d-flex flex-column justify-center align-center center">
             
               <h1
-                className="">Top 10 Female Trailblazers in <span>Web3</span></h1>
+                className="">{award.header.title}<span>Web3</span></h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
               <div className=" d-flex button__section">
