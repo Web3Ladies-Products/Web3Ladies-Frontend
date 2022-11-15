@@ -256,3 +256,13 @@
     margin-left: 4px;
     margin-right: 11px;
 }
+
+.nominee__flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1312px;
+    margin: 0 auto;
+}
