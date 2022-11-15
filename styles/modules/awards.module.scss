@@ -204,6 +204,11 @@
     }
 }
 
+
+
+
+
+
 .title-about{
     margin-top: 38px;
     font-family: 'Aeonik';
@@ -255,4 +260,72 @@
 .radio__input > label {
     margin-left: 4px;
     margin-right: 11px;
+}
+
+
+
+.freehand__frame{
+    background-color: #FFF5FB;
+    height: 447px;
+    max-width: 1312px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 3px solid var(--primary-color);
+    position: relative;
+    margin-bottom: 70px;
+    .freehand__btn{
+        padding: 15px 46px;
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    p{
+        font-size: 22px;
+        margin: 15px 0 30px;
+    }
+    .freehand__vector1{
+        position: absolute;
+        top: -55px;
+        left: 200px;
+
+    }
+    .freehand__vector2{
+        position: absolute;
+        bottom: -42px;
+        right: 340px;
+
+    }
+    h2{
+        font-size: clamp(30px, 4.2vw, 54px) ;
+        font-weight: 700;
+        line-height: 20px;
+        span{
+            color: var(--primary-color);
+            font-size: clamp(30px, 4.2vw, 54px) ;
+            font-weight: 700;
+        }
+    }
+}
+.freehand__joinvector-section{
+   
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    .freehand__joinvector{
+       position: absolute;
+       left: -10px;
+       bottom: -6px;
+    }
+  }
+
+
+@media screen and (max-width: 620px) {
+    .freehand__joinvector-section{
+       
+        .freehand__joinvector{
+           display: none;
+          
+        }
+      }
+    
 }

@@ -6,6 +6,7 @@ import siteMetadata from "../../lib/data/siteMetadata"
 import Footer from "../../components/layouts/Footer";
 import Link from "next/link"
 import Image from "next/image"
+import FreehandCard from "../../components/FreehandCard"
 const Award = () => {
   return (
     <>
@@ -102,9 +103,7 @@ const Award = () => {
             </div>
         </div>
 
-       <div className="award__frame-color">
-
-       </div>
+      <FreehandCard />
 
         </div>
        
