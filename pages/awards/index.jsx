@@ -12,8 +12,8 @@ import awardData from "../api/award.json"
 
 const Award = () => {
   const { query } = useRouter();
-  const { awardSlug } = query;
-  const award = awardData.find((award) => award.slug === awardSlug);
+  const { award } = query;
+  const nominee = awardData.find((nominee) => nominee.slug === award);
 
   return (
     <>
@@ -33,36 +33,41 @@ const Award = () => {
             <div className="award__header-vector1">
 
         <Image
-            width="151px"
-            height="146px"
-            // src={award.header.img1} 
+            width="100%"
+            height="100%"
+            objectFit="contain"
+            // src={award.header.img1}
+            src='/assets/images/awardvector1.png' 
             />
             </div>
             <div className="award__header-vector2">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector2.png' 
                     />
                 </div>
                 <div className="award__header-vector3">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector3.png' 
                     />
                 </div>
                 <div className="award__header-vector4">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector4.png' 
                     />
                 </div>
         <div className="contain d-flex flex-column justify-center align-center center">
             
               <h1
-                className="">{award.header.title}<span>Web3</span></h1>
+                className="">{nominee.header.title}<span>Web3</span></h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
               <div className=" d-flex button__section">
