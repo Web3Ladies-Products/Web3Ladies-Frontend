@@ -13,8 +13,8 @@ import FreehandCard from "../../components/FreehandCard"
 import awardData from "../api/award.json"
 import VoteSuccess from "../../components/awards/VoteSuccess";
 
-const Award = ({awardHomeData}) => {
-  // const awardDataHome = awardData.home;
+const Award = () => {
+  const awardHomeData = awardData[1].home;
   console.log(awardHomeData)
 
   return (
@@ -69,7 +69,9 @@ const Award = ({awardHomeData}) => {
         <div className="contain d-flex flex-column justify-center align-center center">
             
               <h1
-                className="">{awardHomeData.title}<span>{awardHomeData.web3}</span></h1>
+                className="" dangerouslySetInnerHTML={{
+                  __html: awardHomeData.title,
+                }} />
               <p>{awardHomeData.content}</p>
 
               <div className=" d-flex button__section">
@@ -93,23 +95,23 @@ const Award = ({awardHomeData}) => {
             <p>{awardHomeData.paragraph}</p>
         </div>
         <div className="award__nominees">
-            <h3>{awardHomeData.nominees.header}</h3>
+            <h3>{awardHomeData.nomineesHeader}</h3>
             <div className="d-flex award__cards-container">
-                <Link href={`/awards/myname`} >
-                <a className="nominee__flex">
                 {awardHomeData.nominees?.map((nominee, index) => {
                   return (
+                <Link href={`/awards/myname`} >
+                <a className="nominee__flex">
                     <div key={index}  >
-                      <AwardCard name={nominee.name} imageUrl={nominee.img} username={nominee.uersName} subtext={nominee.subtext} />
+                      <AwardCard name={nominee.name} imageUrl={nominee.img} username={nominee.userName} subtext={nominee.subtext} />
                     </div>
-                  );
-                })}
-
                 </a>
 
                 
 
                 </Link>
+                  );
+                })}
+
                
                
 
@@ -119,20 +121,20 @@ const Award = ({awardHomeData}) => {
       <FreehandCard />
 
         </div>
-       <VoteSuccess/>
+      
       </main>
       <Footer />
     </>
   )
 }
 
-export async function getStaticProps() {
-  return {
-    props: {
-      awardHomeData: awardData[1].home,
-    },
-  };
-}
+// export async function getStaticProps() {
+//   return {
+//     props: {
+//       awardHomeData: awardData[1].home,
+//     },
+//   };
+// }
 
 
 export default Award
