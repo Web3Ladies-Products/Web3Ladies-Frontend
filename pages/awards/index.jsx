@@ -25,31 +25,34 @@ const Award = () => {
             <div className="award__header-vector1">
 
         <Image
-            width="151px"
-            height="146px"
-            
+            width="100%"
+            height="100%"
+            objectFit="contain"
 
             src='/assets/images/awardvector1.png' 
             />
             </div>
             <div className="award__header-vector2">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector2.png' 
                     />
                 </div>
                 <div className="award__header-vector3">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector3.png' 
                     />
                 </div>
                 <div className="award__header-vector4">
                 <Image
-                    width="151px"
-                    height="146px"
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
                     src='/assets/images/awardvector4.png' 
                     />
                 </div>
