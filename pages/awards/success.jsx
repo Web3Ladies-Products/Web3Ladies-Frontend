@@ -2,12 +2,23 @@ import React from "react";
 import ArrowLeft from '../../components/icons/ArrowLeft'
 import Button from "../../components/buttons/Button";
 import Image from "next/image";
-
+import awardData from "../api/award.json";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
+import HeadSeo from "../../components/HeadSeo"
+import siteMetadata from "../../lib/data/siteMetadata"
 const Success = () => {
+  const awardVoteData = awardData[2].vote;
   return (
     <>
+     <HeadSeo
+        title={`${siteMetadata.companyName} | Award`}
+        description={siteMetadata.description}
+        canonicalUrl={`${siteMetadata.siteUrl}`}
+        ogImageUrl={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
+        ogTwitterImage={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
+        ogType={"website"}
+      ></HeadSeo>
       <Navbar />
       <section className="mentorship__success">
         <div >
@@ -41,10 +52,11 @@ const Success = () => {
            
             
               <div className="vote-center">
-                <h2>
-                  Thank you for 
-                  <br></br>voting
-                </h2>
+                
+                  <h2
+                className="" dangerouslySetInnerHTML={{
+                  __html: awardVoteData.title,
+                }} /> 
               </div>
 
               </div>
@@ -53,12 +65,12 @@ const Success = () => {
                 <Button
                   className="vote__btn"
                   variant={"primary"}
-                  buttonText={"Go home"}
+                  buttonText={awardVoteData.btn1}
                   handleClick={() => {}}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText={"See nominees"}
+                  buttonText={awardVoteData.btn2}
                   handleClick={() => {}}
                 />
               </div>

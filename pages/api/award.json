@@ -26,8 +26,8 @@
         "img2": "'/assets/images/awardvector2.png",
         "img3": "/assets/images/awardvector3.png",
         "img4": "/assets/images/awardvector4.png",
-        "title": "Top 10 Female Trailblazers in <span>web3</span>",
-        "nomineesHeader": "Nominees",
+        "title": "Top 10 Female Trailblazers in",
+        "subtitle": "web3",
         "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "btn1": "Vote now",
         "btn2": "See nominee",
@@ -176,6 +176,13 @@
         ]
         
     }  
+    },
+    {
+        "vote":{
+        "title": "Thank you for <br/> voting",
+        "btn1": "Go home ",
+        "btn2": "See nominee"
+        }
     }
     
 ]
