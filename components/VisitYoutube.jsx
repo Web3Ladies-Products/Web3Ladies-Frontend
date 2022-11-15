@@ -18,9 +18,9 @@ const VisitYoutube = () => {
         </div>
         <div className="youtube">
           <iframe
-            width="380"
-            height="300"
-            src="https://www.youtube.com/embed/LapzOS7zyW0"
+            width="350"
+            height="200"
+            src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
