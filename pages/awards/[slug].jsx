@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import Button from '../../components/buttons/Button'
 import HeadSeo from "../../components/HeadSeo"
@@ -9,6 +10,7 @@ import Navbar from "../../components/layouts/Navbar"
 import BaseInput from '../../components/UI/BaseInput'
 import siteMetadata from "../../lib/data/siteMetadata"
 import awardData from "../api/award.json";
+
 
 const Slug = ({
   showLoader,
@@ -28,20 +30,16 @@ const Slug = ({
   }
   return (
     <>
-      <HeadSeo
-        title={`${siteMetadata.companyName} | Award`}
-        description={siteMetadata.description}
-        canonicalUrl={`${siteMetadata.siteUrl}`}
-        ogImageUrl={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogTwitterImage={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogType={"website"}
-      ></HeadSeo>
       <Navbar />
 
       <div className="award__nominee">
         <div className='award__nav'>
           <ArrowLeft  width={15} height={12} color={"black"} />{" "}
-          <span>Back</span>
+          <span>
+            <Link href="/awards">
+                Back
+            </Link>
+          </span>
         </div>
         
         <div className='award__hero-title'>
@@ -118,11 +116,7 @@ const Slug = ({
               buttonText={showLoader ? "Voting..." : `${award.button}`}
               variant={"primary"}
               disabled={showLoader}
-              
-              
-            
               type="submit">
-                
             </Button>
           </div>
         </form>

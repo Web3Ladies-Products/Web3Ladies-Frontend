@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 import ArrowLeft from '../../components/icons/ArrowLeft'
 import Button from "../../components/buttons/Button";
 import Image from "next/image";
@@ -11,22 +13,18 @@ const Success = () => {
   const awardVoteData = awardData[2].vote;
   return (
     <>
-     <HeadSeo
-        title={`${siteMetadata.companyName} | Award`}
-        description={siteMetadata.description}
-        canonicalUrl={`${siteMetadata.siteUrl}`}
-        ogImageUrl={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogTwitterImage={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogType={"website"}
-      ></HeadSeo>
       <Navbar />
       <section className="mentorship__success">
         <div >
           <div className="feedback">
           <div className='vote_nav'>
-          <ArrowLeft  width={15} height={12} color={"black"} />{" "}
-          <span>Back</span>
-        </div>
+            <ArrowLeft  width={15} height={12} color={"black"} />{" "}
+            <span>
+              <Link href="/awards">
+                  Back
+              </Link>
+            </span>
+          </div>
           <div className="border">
 
             <div >

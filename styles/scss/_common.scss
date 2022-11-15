@@ -115,13 +115,9 @@
 }
 
 .vote_nav{
-   margin-bottom: 20px;
+  width: 50%;
+  margin: 0 auto 20px;
    place-self: start;
-   margin-left: 390px;
-   @include mobile {
-    margin-left: 130px;
-    margin-bottom: 20px;
-    }
 }
 
 .d-flex {

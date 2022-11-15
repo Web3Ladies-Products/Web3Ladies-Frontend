@@ -38,7 +38,6 @@ const Award = () => {
             width="100%"
             height="100%"
             objectFit="contain"
-            // src={awardHomeData.img1}
             src='/assets/images/awardvector1.png' 
             />
             </div>
