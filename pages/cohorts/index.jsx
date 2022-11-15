@@ -14,6 +14,7 @@ const Cohorts = () => {
       <HeroSection heroDetails={heroDetails} />
       <CohortSection />
       <VisitYoutube />
+      
       <Footer />
     </>
   );

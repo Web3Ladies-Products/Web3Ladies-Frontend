@@ -17,7 +17,6 @@ const AwardCard = ({name, imageUrl, username, subtext}) => {
             <p>{name}</p>
             <div className="d-flex align-center  award__card-text__subtext">
                 <p>{subtext}</p>
-                <div></div>
                 <p className="small">{username}</p>
             </div>
         </div>
