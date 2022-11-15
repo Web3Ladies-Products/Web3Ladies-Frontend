@@ -18,11 +18,14 @@ const Slug = ({
   errors,
   ...props
 }) => {
-  const { query } = useRouter();
+  const { query, push } = useRouter();
   const { awardSlug } = query;
   const award = awardData.find((award) => award.slug === awardSlug);
 
-
+  const submitVote = (e) => {
+    e.preventDefault();
+    push("/awards/success")
+  }
   return (
     <>
       <HeadSeo
@@ -69,7 +72,7 @@ const Slug = ({
         <div className='award__form'>
           <p className='form-title'>Vote for {award.hero.name}</p>
 
-          <form onSubmit={submitDonation} {...props} className="form-input">
+          <form onSubmit={submitVote} {...props} className="form-input">
           <div className="input full-100">
             <BaseInput
               placeholder="Johanna Doe"
@@ -115,7 +118,11 @@ const Slug = ({
               buttonText={showLoader ? "Voting..." : `${award.button}`}
               variant={"primary"}
               disabled={showLoader}
+              
+              
+            
               type="submit">
+                
             </Button>
           </div>
         </form>
