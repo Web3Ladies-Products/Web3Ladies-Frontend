@@ -1,7 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import { useCopy } from "../../../hooks/useCopy";
-import { BANK_ACCOUNT_NAME, BANK_ACCOUNT_NUMBER } from "../../../lib/constants";
+import {
+  BANK_ACCOUNT_NAME,
+  BANK_ACCOUNT_NUMBER,
+  BANK_NAME,
+} from "../../../lib/constants";
 import GenericModal from "../../modals/GenericModal";
 
 const BankTransferModal = ({ closeModal, openThankYou }) => {
@@ -46,6 +50,7 @@ const BankTransferModal = ({ closeModal, openThankYou }) => {
             </span>
           </div>
           <p>{BANK_ACCOUNT_NAME}</p>
+          <h3>{BANK_NAME}</h3>
         </div>
       </div>
     </GenericModal>
