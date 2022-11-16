@@ -98,17 +98,16 @@ const Slug = ({
 
           {/* checkbox input */}
           <div className='award__radio '>
-            <p>{award.gender.title}</p>
-            <div className='radio__input'>
-              <input type="radio" name="gender" id="male" value="male" />
-              <label for="male">{award.gender.t1}</label>
-
-              <input type="radio" name="gender" id="female" value="female" />
-              <label for="female">{award.gender.t2}</label>
-
-              <input type="radio" name="gender" id="preferNotTOSay" value="preferNotToSay" />
-              <label for="preferNotTOSay">{award.gender.t3}</label> 
-            </div>
+            <p>{award.gender.label}</p>
+              {award.gender.genderOptions.map(({label, value, index}) => {
+                return (
+                    <span key={index} className='radio__input'>
+                      <input type="radio" name="gender" id={value} value={value} />
+                      <label for={value}>{label}</label>
+                    </span>
+                  )
+                }
+              )}
           </div>
 
           <div className='award__btn'>
