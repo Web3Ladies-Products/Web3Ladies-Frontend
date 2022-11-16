@@ -1,13 +1,25 @@
 import Image from "next/image";
 import React from "react";
 import Button from "../../components/buttons/Button";
+import FAQs from "../../components/FAQs";
+import { FAQ_DATA } from "../../pages/api/feedback";
+
+import FreehandCard from "../../components/FreehandCard";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 import Bootcamps from "../../components/mentorship/Bootcamps";
+import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import bootcampsData from "../api/bootcamps.json";
+import Testimonials from "../../components/Testimonials";
+import { strapiService } from "../../services";
+import { useRouter } from "next/router";
+import VisitYoutube from "../../components/VisitYoutube";
 
-const BootcampPage = () => {
+const BootcampPage = ({indexPage}) => {
   const bootcampsHome = bootcampsData.home;
+  const router = useRouter();
+
 
   return (
     <>
@@ -82,11 +94,40 @@ const BootcampPage = () => {
           </ul>
         </div>
       </section>
-
       <Bootcamps />
+      <VisitYoutube />
+      <div className="mb-small"/>
+
+      <FeaturedMentees />
+      <JoinAsMentor />
+
+      <div className="mb-small"/>
+
+      <FAQs data={FAQ_DATA} />
+
+      <div className="mb-small"/>
+
+      <Testimonials
+        testimonial_title={indexPage.testimonial_title}
+        testimonial_description={indexPage.testimonial_description}
+        testimonial_items={indexPage.testimonial_items}
+      />
+      <div className="mb-small"/>
+
+      <FreehandCard />
+      <div className="mb-large"/>
       <Footer />
     </>
   );
 };
 
 export default BootcampPage;
+
+export async function getStaticProps() {
+  const indexPage = await strapiService.getHomePageData();
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}

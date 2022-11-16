@@ -40,7 +40,12 @@ const FeaturedMentees = () => {
       <div className="container">
         <div className="featured-mentees-header">
           <h1 className="section-title"> Featured Mentees</h1>
-          <Button buttonText="View More" type="outline" />
+          <Button buttonText="View More" 
+            type="outline" 
+            // variant="#fff"
+            border="border__btn"
+            // color={"primary"}
+          />
         </div>
 
         <div className="mentee-card-wrapper">
