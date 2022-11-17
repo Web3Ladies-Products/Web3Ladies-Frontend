@@ -15,6 +15,7 @@ import Highlights from "../../../components/Highlights";
 import FAQs from "../../../components/FAQs";
 import Testimonials from "../../../components/Testimonials";
 import VisitYoutube from "../../../components/VisitYoutube";
+import FreehandCard from "../../../components/FreehandCard";
 
 const Bootcamp = () => {
   const { query } = useRouter();
@@ -53,8 +54,18 @@ const Bootcamp = () => {
 
       <FAQs data={bootcamp.faqs} />
 
-      <Testimonials />
+      <Testimonials
+        // testimonial_title={indexPage.testimonial_title}
+        // testimonial_description={indexPage.testimonial_description}
+        // testimonial_items={indexPage.testimonial_items}
+      />
       <VisitYoutube />
+      <div className="mb-small"/>
+
+      <FreehandCard />
+      <div className="mb-large"/>
+
+
       <Footer />
     </>
   );

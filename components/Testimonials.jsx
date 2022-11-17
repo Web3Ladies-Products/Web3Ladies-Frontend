@@ -49,7 +49,7 @@ const Testimonials = ({
               </div>
             ))}
           </div>
-          <div className="testimonials--container__content">
+          {/* <div className="testimonials--container__content">
             {testimonial_items[activeTestimonialTab]?.map((item, idx) => (
               <div className="testimonials--container__content__item" key={idx}>
                 <div className="testimonials--container__content__item__heading">
@@ -71,7 +71,7 @@ const Testimonials = ({
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
