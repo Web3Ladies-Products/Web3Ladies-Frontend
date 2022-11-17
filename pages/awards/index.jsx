@@ -38,7 +38,6 @@ const Award = () => {
             width="100%"
             height="100%"
             objectFit="contain"
-            // src={awardHomeData.img1}
             src='/assets/images/awardvector1.png' 
             />
             </div>
@@ -95,14 +94,14 @@ const Award = () => {
             <p>{awardHomeData.paragraph}</p>
         </div>
         <div className="award__nominees">
-            <h3>{awardHomeData.nomineesHeader}</h3>
+            <h3>{awardHomeData?.header}</h3>
             <div className="d-flex award__cards-container">
-                {awardHomeData.nominees?.map((nominee, index) => {
+                {awardHomeData?.nominees?.map((nominee, index) => {
                   return (
                 <Link href={`/awards/myname`} >
                 <a className="nominee__flex">
                     <div key={index}  >
-                      <AwardCard name={nominee.name} imageUrl={nominee.img} username={nominee.userName} subtext={nominee.subtext} />
+                      <AwardCard name={nominee.name} imageUrl={nominee.img} username={nominee.userName} jobTitle={nominee.jobTitle} />
                     </div>
                 </a>
 

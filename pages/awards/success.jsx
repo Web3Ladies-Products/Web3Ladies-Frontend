@@ -1,11 +1,16 @@
 import React from "react";
+import Link from "next/link";
+
 import ArrowLeft from '../../components/icons/ArrowLeft'
 import Button from "../../components/buttons/Button";
 import Image from "next/image";
-
+import awardData from "../api/award.json";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
+import HeadSeo from "../../components/HeadSeo"
+import siteMetadata from "../../lib/data/siteMetadata"
 const Success = () => {
+  const awardVoteData = awardData[2].vote;
   return (
     <>
       <Navbar />
@@ -13,9 +18,13 @@ const Success = () => {
         <div >
           <div className="feedback">
           <div className='vote_nav'>
-          <ArrowLeft  width={15} height={12} color={"black"} />{" "}
-          <span>Back</span>
-        </div>
+            <ArrowLeft  width={15} height={12} color={"black"} />{" "}
+            <span>
+              <Link href="/awards">
+                  Back
+              </Link>
+            </span>
+          </div>
           <div className="border">
 
             <div >
@@ -41,10 +50,11 @@ const Success = () => {
            
             
               <div className="vote-center">
-                <h2>
-                  Thank you for 
-                  <br></br>voting
-                </h2>
+                
+                  <h2
+                className="" dangerouslySetInnerHTML={{
+                  __html: awardVoteData.title,
+                }} /> 
               </div>
 
               </div>
@@ -53,12 +63,12 @@ const Success = () => {
                 <Button
                   className="vote__btn"
                   variant={"primary"}
-                  buttonText={"Go home"}
+                  buttonText={awardVoteData.btn1}
                   handleClick={() => {}}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText={"See nominees"}
+                  buttonText={awardVoteData.btn2}
                   handleClick={() => {}}
                 />
               </div>
