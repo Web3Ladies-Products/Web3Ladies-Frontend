@@ -16,6 +16,8 @@ import Highlights from "../../../components/Highlights";
 import Gallery from "../../../components/Gallery";
 import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
 import ProjectsDone from "../../../components/ProjectsDone";
+import VisitYoutube from "../../../components/VisitYoutube";
+import FreehandCard from "../../../components/FreehandCard";
 
 const Bootcamp = () => {
   const { query } = useRouter();
@@ -68,6 +70,12 @@ const Bootcamp = () => {
       />
 
       <Gallery galleryItems={bootcamp.gallery} />
+
+      <VisitYoutube />
+      <div className="mb-large"/>
+      <div className="p-20">
+        <FreehandCard />
+      </div>
 
       <Footer />
     </>

@@ -16,6 +16,7 @@ import Mentors from "../../../components/Mentors";
 import FAQs from "../../../components/FAQs";
 import Testimonials from "../../../components/Testimonials";
 import Image from "next/image";
+import FreehandCard from "../../../components/FreehandCard";
 
 const Bootcamp = () => {
   const { query } = useRouter();
@@ -112,6 +113,11 @@ const Bootcamp = () => {
       <Mentors data={bootcamp.mentors} />
       <FAQs data={bootcamp.faqs} />
       <Testimonials />
+      <div className="mb-large"/>
+      <div className="p-20">
+        <FreehandCard />
+      </div>
+      <div className="mb-large"/>
       <Footer />
     </>
   );

@@ -18,9 +18,10 @@ const ProjectsDone = ({ projectsDone }) => {
         <div className="projects-done--heading">
           <h1 className="sub-section-title bold">Projects Done</h1>
           <Button
-            variant={"outline"}
-            buttonText={"View all projects"}
-            handleClick={() => null}
+            buttonText="View More"
+            type="outline"
+            handleClick={() => {}}
+            border="border__btn"
           />
         </div>
         <ul className="projects-done--container">
@@ -49,7 +50,7 @@ const ProjectsDone = ({ projectsDone }) => {
               <div className="project-footer">
                 <div className="project-footer--cta">
                   <Button
-                    variant={"clear"}
+                    variant={"outline"}
                     buttonText={"View project"}
                     handleClick={() => null}
                     hasIcon

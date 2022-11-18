@@ -21,12 +21,13 @@ import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import { useRouter } from "next/router";
+import FreehandCard from "../../components/FreehandCard";
 
 const mentorship = ({ indexPage }) => {
   const router = useRouter();
 
   React.useEffect(() => {
-    router.push("/");
+    // router.push("/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -250,6 +251,9 @@ const mentorship = ({ indexPage }) => {
       />
 
       <CTACard />
+      <div className="tracks__spacing">
+        <FreehandCard />
+      </div>
 
       <Footer />
     </>
