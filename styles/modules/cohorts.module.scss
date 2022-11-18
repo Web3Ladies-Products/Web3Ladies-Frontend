@@ -289,6 +289,68 @@
   }
 }
 
+.faq{
+  margin-top: 50px;
+}
+
+.thick-line{
+ 
+  background-color:#F1F1F1;
+  
+  margin-top: 30px;
+  width: 70%;
+ height: 13px;
+}
+
+.contain{
+  display: flex;
+  @include mobile {
+    flex-direction: column;
+  }
+  
+}
+
+.circle{
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background-color: #F1F1F1;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.line{
+  width: 80%;
+  height: 7px;
+  background-color: #F1F1F1;
+  margin-top: -15px;
+}
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.button{
+  background-color: red;
+ 
+  color: white;
+ padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.containner{ 
+  display: flex;
+  justify-content: space-between;
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+
 // .cohort-content {
 //   width: 95%;
 //   margin: 0 auto;
