@@ -21,7 +21,7 @@ const Sponsors = ({ sponsorsDetails }) => {
             }}
           />
         </div>
-        <div className="sponsors-image">
+        <div className="sponsors-image pt-20">
           <Image
             src={sponsorsDetails.sponsorsImage}
             className="bootcamp-image"
