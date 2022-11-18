@@ -31,14 +31,64 @@ const Hero = ({ data, handleViewCurriculum }) => {
           </div>
 
           <div className="hero_image">
-            <div>
+            <div className="hero__image-banner">
+              <div className="hero__trackvector1">
+                <Image
+                  src="/assets/images/trackvector1.png"
+                  width="100%"
+                  height="100%"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="hero__trackvector2">
+                <Image
+                  src="/assets/images/trackvector2.png"
+                  width="100%"
+                  height="100%"
+                  objectFit="contain"
+                />
+              </div>
+
               <Image
-                className="hero-image"
-                width={"493px"}
-                height={"472px"}
                 src={data.image}
-                alt="hero-image"
+                width="200px"
+                height="200px"
+                objectFit="contain"
               />
+
+              <div className="hero__trackvector3">
+                <Image
+                  src="/assets/images/trackvector3.png"
+                  width="100%"
+                  height="100%"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="hero__trackvector4">
+                <Image
+                  src="/assets/images/trackvector4.png"
+                  width="100%"
+                  height="100%"
+                  objectFit="contain"
+                />
+              </div>
+
+              <div className="hero__banner-subscript">
+                <div>
+                  <p className="hero__banner-subscript_text1">Length:</p>
+                  <p className="hero__banner-subscript_text2">3 month</p>
+                </div>
+                <div>
+                  <p className="hero__banner-subscript_text1">Language:</p>
+                  <p className="hero__banner-subscript_text2">English</p>
+                </div>
+                <div>
+                  <p className="hero__banner-subscript_text1">Commitment:</p>
+                  <p className="hero__banner-subscript_text2">
+                    7-10 hours per week
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
