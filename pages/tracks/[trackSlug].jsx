@@ -9,8 +9,12 @@ import Benefits from "../../components/BenefitsSection";
 import Curriculum from "../../components/Curriculum";
 import Gains from "../../components/Gains";
 import Mentors from "../../components/Mentors";
-
-const Track = () => {
+import { FAQ_DATA } from "../../pages/api/feedback";
+import FAQs from "../../components/FAQs";
+import FreehandCard from "../../components/FreehandCard";
+import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
+import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+const Track = ({ sponsorshipData }) => {
   const { query } = useRouter();
   const { trackSlug } = query;
   const track = trackData.find((track) => track.slug === trackSlug);
@@ -34,6 +38,15 @@ const Track = () => {
       <Gains data={track.gains} />
       <Mentors data={track.ongroundMentors} />
       <Mentors data={track.workshopMentors} />
+      <FeaturedMentees />
+      <JoinAsMentor />
+      <div className="mt-20"></div>
+      <FAQs data={FAQ_DATA} />
+
+      <div className="tracks__spacing">
+        <FreehandCard />
+      </div>
+
       <Footer />
     </div>
   );

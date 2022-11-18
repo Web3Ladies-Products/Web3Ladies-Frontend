@@ -164,7 +164,7 @@
     "hero": {
       "title": "Web3 - Web Development",
       "description": "The Web developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-      "image": "/assets/images/web-dev.png",
+      "image": "/assets/images/web2at.png",
       "buttonTextOne": "View curriculum",
       "buttonLinkOne": "/tracks/web-development",
       "buttonTypeOne": "outline",
@@ -324,7 +324,7 @@
     "hero": {
       "title": "Web3 - Product Design",
       "description": "The Product Designer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-      "image": "/assets/images/product-design.png",
+      "image": "/assets/images/figmatrack.png",
       "buttonTextOne": "View curriculum",
       "buttonLinkOne": "/tracks/product-design",
       "buttonTypeOne": "outline",
@@ -484,7 +484,7 @@
     "hero": {
       "title": "Web3 - Product Management",
       "description": "The Product Manager’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-      "image": "/assets/images/product-management.png",
+      "image": "/assets/images/producttrack.png",
       "buttonTextOne": "View curriculum",
       "buttonLinkOne": "/tracks/product-management",
       "buttonTypeOne": "outline",
