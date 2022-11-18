@@ -16,10 +16,10 @@ import { strapiService } from "../../services";
 import { useRouter } from "next/router";
 import VisitYoutube from "../../components/VisitYoutube";
 
-const BootcampPage = ({indexPage}) => {
+const BootcampPage = ({ indexPage }) => {
   const bootcampsHome = bootcampsData.home;
   const router = useRouter();
-
+  console.log(bootcampsHome);
 
   return (
     <>
@@ -96,26 +96,28 @@ const BootcampPage = ({indexPage}) => {
       </section>
       <Bootcamps />
       <VisitYoutube />
-      <div className="mb-small"/>
+      <div className="mb-small" />
 
       <FeaturedMentees />
       <JoinAsMentor />
 
-      <div className="mb-small"/>
+      <div className="mb-small" />
 
       <FAQs data={FAQ_DATA} />
 
-      <div className="mb-small"/>
+      <div className="mb-small" />
 
       <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
+        hasMaxWidth={true}
       />
-      <div className="mb-small"/>
-
-      <FreehandCard />
-      <div className="mb-large"/>
+      <div className="mb-small" />
+      <div className="p-20">
+        <FreehandCard />
+      </div>
+      <div className="mb-large" />
       <Footer />
     </>
   );

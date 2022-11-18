@@ -55,14 +55,16 @@ const Bootcamp = () => {
       <FAQs data={bootcamp.faqs} />
 
       <Testimonials
-        // testimonial_title={indexPage.testimonial_title}
-        // testimonial_description={indexPage.testimonial_description}
-        // testimonial_items={indexPage.testimonial_items}
+        // testimonial_title={bootcamp.testimonial_title}
+        // testimonial_description={bootcamp.testimonial_description}
+        // testimonial_items={bootcamp.testimonial_items}
       />
       <VisitYoutube />
-      <div className="mb-small"/>
+      <div className="mb-large"/>
 
-      <FreehandCard />
+      <div className="p-20">
+        <FreehandCard />
+      </div>
       <div className="mb-large"/>
 
 
