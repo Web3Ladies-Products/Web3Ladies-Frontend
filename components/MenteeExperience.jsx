@@ -11,7 +11,7 @@ const MenteeExperience = ({ menteeDetails }) => {
               <Image
                 className="mentee-image"
                 width={"272px"}
-                height={"408px"}
+                height={"400px"}
                 src={mentee.image}
                 alt="mentee-image"
               />
