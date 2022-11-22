@@ -26,6 +26,22 @@ const VisitYoutube = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
+          <div className="thick-line">
+          </div>
+          <div className="containner">
+            <div className="contain">
+            <div className="circle"></div>
+            <div>
+            <p className="text">Web3ladies</p>
+            <div className="line"></div>
+            </div>
+            </div>
+            <Button
+            className="button"
+            buttonText={"SUBSCRIBE"}
+            handleClick={() => null}
+          />
+          </div>
         </div>
       </div>
     </section>

@@ -5,7 +5,11 @@ import VisitYoutube from "../../components/VisitYoutube";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import HeroSection from "../../components/cohorts/HeroSection";
 import cohortsData from "../api/cohorts.json";
-
+import { FAQ_DATA } from "../../pages/api/feedback";
+import FAQs from "../../components/FAQs";
+import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
+import FreehandCard from "../../components/FreehandCard";
 const Cohorts = () => {
   const heroDetails = cohortsData.home.hero;
   return (
@@ -14,7 +18,14 @@ const Cohorts = () => {
       <HeroSection heroDetails={heroDetails} />
       <CohortSection />
       <VisitYoutube />
-      
+      <FeaturedMentees/>
+      <JoinAsMentor />
+      <div className="faq">
+      <FAQs data={FAQ_DATA} />
+      </div>
+      <div className="p-20">
+        <FreehandCard />
+      </div>
       <Footer />
     </>
   );
