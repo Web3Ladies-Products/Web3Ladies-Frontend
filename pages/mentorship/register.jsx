@@ -11,7 +11,7 @@ const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
 };
-
+// Dxc academic 
 const Register = () => {
   const [formData, setFormData] = useState({
     full_name: "",
