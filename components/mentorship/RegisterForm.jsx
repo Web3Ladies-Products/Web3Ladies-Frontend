@@ -10,6 +10,8 @@ const RegisterForm = ({
   submitRegisterForm,
   errors,
   showLoader,
+  selectedFile,
+  setSelectedFile,
 }) => {
   return (
     <form className="" onSubmit={submitRegisterForm}>
@@ -239,8 +241,22 @@ const RegisterForm = ({
           />
         </div>
       </div>
-      <div>
-        <p>Submit your preferred picture here (Headshot or full image)</p>
+      <div className="d-flex mb-20 register-joinedfield">
+        <div>
+          <p className="mb-14">
+            Submit your preferred picture here (Headshot or full image)
+          </p>
+          <label className="form__register-file ">
+            + Upload image
+            <input
+              className=""
+              type="file"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+              required={true}
+            />
+          </label>
+          {selectedFile && <p className="mt-14">{selectedFile?.name}</p>}
+        </div>
       </div>
       <div className="d-flex register-joinedfield">
         <div className="input">

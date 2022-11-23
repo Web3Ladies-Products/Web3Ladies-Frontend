@@ -26,10 +26,10 @@ const Register = () => {
     employment_status: "",
     dedication: "",
     reason1: "",
-    image: "",
     reason2: "",
     comment: "",
   });
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const [showLoader, setShowLoader] = React.useState(false);
   const [errors, setErrors] = React.useState(DEFAULT_ERRORS);
@@ -39,6 +39,7 @@ const Register = () => {
   const submitRegisterForm = async (e) => {
     e.preventDefault();
     console.log({ data: formData });
+    console.log(selectedFile);
     setShowLoader(true);
     try {
       //   const response = await strapiService.sendDonationRequest({
@@ -75,6 +76,8 @@ const Register = () => {
           showLoader={showLoader}
           submitRegisterForm={submitRegisterForm}
           errors={errors}
+          selectedFile={selectedFile}
+          setSelectedFile={setSelectedFile}
           handleFormInputChange={handleFormInputChange}
           formData={formData}
         />

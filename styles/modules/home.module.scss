@@ -31,7 +31,8 @@ main {
     position: relative;
     width: 500px;
     @include mobile {
-      width: 300px;
+      max-width: 460px;
+      width: 100%;
       margin: 60px auto;
     }
 
@@ -122,6 +123,7 @@ main {
     .content {
       @include desktop {
         display: flex;
+        gap: 10px;
         align-items: center;
         justify-content: space-between;
 
