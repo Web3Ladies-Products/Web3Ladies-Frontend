@@ -348,6 +348,7 @@
   }
 
 
+
   .youtube {
     @include desktop {
       position: absolute;
@@ -442,6 +443,49 @@
   }
 }
 
+.cont{
+  
+  width: 600px;
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #FAF5FF;
+  padding: 20px;
+  border: 3px solid #000000;
+  border-radius: 8.5287px;
+
+  margin-bottom: 20px;
+
+   
+  
+}
+
+.p{
+  font-size: 16px;
+ padding-left: 20px;
+}
+.justify{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 105%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+  
+  
+
+
+
+.left{
+
+  margin-left: 30px;
+}
+
+.hero-illustration-text{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
 .hexagon {
   width: 340px;
   height: 380px;

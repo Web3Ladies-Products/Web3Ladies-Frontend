@@ -68,22 +68,43 @@ const ContactSection = ({ contactDetails }) => {
               </div>
             </div>
 
-            <div className="hero_image">
+            <div className="contact_image">
               <div>
                 <Image
                   className="hero-image"
-                  width={"617px"}
-                  height={"445px"}
-                  src={contactDetails.image}
+                  width={"536px"}
+                  height={"667px"}
+                  src="/assets/images/contact-picture.png"
                   alt="sponsorship-image"
+                />
+                 <Image
+                  className="hero-illustration"
+                  width={"196px"}
+                  height={"196px"}
+                  src="/assets/images/web3ladies-union.png"
+                  alt="bitcoin-logo"
                 />
                 <Image
                   className="hero-illustration"
-                  width={"170px"}
-                  height={"68px"}
-                  src="/assets/images/web3ladies-vector.png"
-                  alt="web3ladies-vector"
+                  width={"151px"}
+                  height={"151px"}
+                  src="/assets/images/mentorship-bootcamp-star.png"
+                  alt="ethereum-logo"
                 />
+                <div className="cont">
+                  <div className="p">
+                    <h2 >Email</h2>
+                    <span className="justify">hello@web3ladies.com</span>
+                  </div>
+                  <div className="left">
+                  <h2 >Telephone</h2>
+                  <div className="justify">
+                  <span >+971 58 570 4990</span>
+                  <span >+971 58 570 4990</span>
+                  </div>
+                   
+                  </div>
+                </div>
               </div>
             </div>
           </div>
