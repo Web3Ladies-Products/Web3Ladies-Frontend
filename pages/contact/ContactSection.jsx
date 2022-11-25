@@ -72,15 +72,15 @@ const ContactSection = ({ contactDetails }) => {
               <div>
                 <Image
                   className="hero-image"
-                  width={"536px"}
-                  height={"667px"}
+                  width={"436px"}
+                  height={"550px"}
                   src="/assets/images/contact-picture.png"
                   alt="sponsorship-image"
                 />
                  <Image
                   className="hero-illustration"
-                  width={"196px"}
-                  height={"196px"}
+                  width={"146px"}
+                  height={"146px"}
                   src="/assets/images/web3ladies-union.png"
                   alt="bitcoin-logo"
                 />
@@ -99,7 +99,7 @@ const ContactSection = ({ contactDetails }) => {
                   <div className="left">
                   <h2 >Telephone</h2>
                   <div className="justify">
-                  <span >+971 58 570 4990</span>
+                  <span className="right" >+971 58 570 4990</span>
                   <span >+971 58 570 4990</span>
                   </div>
                    

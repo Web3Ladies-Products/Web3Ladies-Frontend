@@ -444,9 +444,8 @@
 }
 
 .cont{
-  
-  width: 600px;
-  height: 100%;
+  position: absolute;
+ 
   display: flex;
   box-sizing: border-box;
   background-color: #FAF5FF;
@@ -456,21 +455,28 @@
 
   margin-bottom: 20px;
 
-   
+   top: 65%;
+   left: -12%;
   
+  
+   
 }
 
 .p{
-  font-size: 16px;
- padding-left: 20px;
+  font-size: 10px;
+
 }
+
 .justify{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 105%;
-  height: 100%;
-  margin-bottom: 20px;
+ 
+  margin-top: 15px;
+}
+
+.right{
+  padding-right: 10px;
 }
   
   
