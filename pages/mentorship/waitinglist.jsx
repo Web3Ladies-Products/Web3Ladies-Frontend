@@ -5,7 +5,7 @@ import Navbar from "../../components/layouts/Navbar";
 import WaitingListForm from "../../components/mentorship/WaitingListForm";
 import AppLoader from "../../components/UI/AppLoader";
 import { generateInputChangeHandler } from "../../helpers";
-import { alertService } from "../../services";
+import { alertService, strapiService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -28,13 +28,13 @@ const WaitingList = () => {
     console.log({ data: formData });
     setShowLoader(true);
     try {
-      //   const response = await strapiService.sendDonationRequest({
-      //     data: formData,
-      //   });
-      // console.log(
-      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-      //   response
-      // );
+      const response = await strapiService.waitingList({
+        data: formData,
+      });
+      console.log(
+        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
+        response
+      );
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
