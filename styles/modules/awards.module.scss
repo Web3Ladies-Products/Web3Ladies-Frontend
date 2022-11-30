@@ -323,7 +323,17 @@
   flex-wrap: wrap;
   gap: 20px;
 }
-
+.form__register-file {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+.hero_content {
+  h2 {
+    font-size: clamp(26px, 4.2vw, 48px);
+    line-height: 36px;
+  }
+}
 @media screen and (max-width: 420px) {
   .register-joinedfield {
     flex-direction: column;

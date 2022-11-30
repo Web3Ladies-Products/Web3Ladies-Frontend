@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -12,69 +12,62 @@ import siteMetadata from "../../lib/data/siteMetadata";
 import awardData from "../api/award.json";
 import FreehandCard from "../../components/FreehandCard";
 import { generateInputChangeHandler } from "../../helpers";
-import { alertService } from "../../services";
-
-
+import { alertService, strapiService } from "../../services";
+import BaseRadioInput from "../../components/UI/BaseRadioInput";
+import AppLoader from "../../components/UI/AppLoader";
 
 const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
+  gender: [],
 };
 
 const Slug = () => {
-  const [isRadio, setIsRadio] = useState("male");
+  const [voteData, setVoteData] = useState({
+    full_name: "",
+    email: "",
+    gender: "",
+  });
   const [showLoader, setShowLoader] = useState(false);
   const [errors, setErrors] = useState(DEFAULT_ERRORS);
+
   const { query, push } = useRouter();
   const { awardSlug } = query;
   const award = awardData.find((award) => award.slug === awardSlug);
-  
-  const [voteData, setVoteData] = useState({
-    full_name: "",
-    company_email: "",
-    gender: "",
-  });
-
-
-  function handleChange(event) {
-      const {name, value, type, checked} = event.target
-      setVoteData(prevVoteData => {
-          return {
-              ...prevVoteData,
-              [name]: type === "checkbox" ? checked : value
-          }
-      })
-  }
 
   const handleFormInputChange = generateInputChangeHandler(setVoteData);
 
-
-  const submitVote = (e) => {
+  const submitVote = async (e) => {
     e.preventDefault();
+
     console.log({ data: voteData });
+    voteData["nominee_name"] = "Jenet";
     setShowLoader(true);
     try {
-      //   const response = await strapiService.sendDonationRequest({
-      //     data: formData,
-      //   });
-      // console.log(
-      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-      //   response
-      // );
-      alertService.alertMethod(
-        "success",
-        "vote successful"
+      const response = await strapiService.votingRequest({
+        data: voteData,
+      });
+      console.log(
+        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
+        response
       );
+      alertService.alertMethod("success", "vote successful");
+      setVoteData({
+        full_name: "",
+        email: "",
+        gender: "",
+      });
+      push("/awards/success");
     } catch (error) {
       console.error(error);
       alertService.alertMethod("error", "Voting not succesful");
     } finally {
       setShowLoader(false);
     }
-    push("/awards/success");
   };
   return (
     <>
+      {showLoader && <AppLoader />}
       <Navbar />
 
       <div className="award__nominee">
@@ -114,7 +107,7 @@ const Slug = () => {
         <div className="award__form">
           <p className="form-title">Vote for {award.hero.name}</p>
 
-          <form onSubmit={submitVote}  className="form-input">
+          <form onSubmit={submitVote} className="form-input">
             <div className="input full-100">
               <BaseInput
                 placeholder="Johanna Doe"
@@ -131,54 +124,49 @@ const Slug = () => {
             <div className="input mt-10 full-100">
               <BaseInput
                 placeholder="example@web3ladies.com"
-                label="Company’s email"
-                name="company_email"
-                value={voteData.company_email}
+                label="Email* "
+                name="email"
+                type="email"
+                value={voteData.email}
                 onChange={handleFormInputChange}
-                errors={[errors.company_email]}
+                errors={[errors.email]}
                 required={true}
               />
             </div>
 
             {/* checkbox input */}
-            <div className="award__radio ">
-              <p>{award.gender.title}</p>
+            <div className="d-flex register-joinedfield mb-20">
+              <div>
+                <p>Gender</p>
+                <div className="d-flex register-joinedfield_checkbox">
+                  <BaseRadioInput
+                    label="Male"
+                    name="gender"
+                    onChange={handleFormInputChange}
+                    value="male"
+                    checked={voteData.gender === "male"}
+                    type="radio"
+                  />
 
-                  <span className="radio__input">
-                      <input
-                        type="radio"
-                        id="male"
-                        name="gender"
-                        value="male"
-                        onChange={handleChange}
-                        checked={voteData.gender === "male"}
-                      />
-                      <label htmlFor="male">male</label>
-                  </span>
-                  <span className="radio__input">
-                      <input
-                        type="radio"
-                        id="female"
-                        name="gender"
-                        value="female"
-                        onChange={handleChange}
-                        checked={voteData.gender === "female"}
-                      />
-                      <label htmlFor="female">Female</label>
-                  </span>
-                  <span className="radio__input">
-                      <input
-                        type="radio"
-                        id="prefer-not-to-saymale"
-                        name="gender"
-                        value="prefer-not-to-say"
-                        onChange={handleChange}
-                        checked={voteData.gender === "prefer-not-to-say"}
-                      />
-                      <label htmlFor="male">Prefer not to say</label>
-                  </span>
+                  <BaseRadioInput
+                    label="Female"
+                    onChange={handleFormInputChange}
+                    value="female"
+                    name="gender"
+                    checked={voteData.gender === "female"}
+                    type="radio"
+                  />
+                  <BaseRadioInput
+                    label="Prefer not to say"
+                    onChange={handleFormInputChange}
+                    value="none"
+                    name="gender"
+                    checked={voteData.gender === "none"}
+                    type="radio"
+                  />
+                </div>
+              </div>
             </div>
-
             <div className="award__btn">
               <Button
                 buttonText={showLoader ? "Voting..." : `${award.button}`}

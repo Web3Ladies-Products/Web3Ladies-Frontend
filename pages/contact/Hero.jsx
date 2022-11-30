@@ -20,7 +20,7 @@ const Hero = () => {
   return (
    <>
    <Navbar />
-      <ContactSection contactDetails ={contactDetails } />
+      <ContactSection contactDetails ={contactDetails} />
       <Footer />
    </>
   )

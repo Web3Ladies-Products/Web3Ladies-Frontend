@@ -10,6 +10,8 @@ const RegisterForm = ({
   submitRegisterForm,
   errors,
   showLoader,
+  selectedFile,
+  setSelectedFile,
 }) => {
   return (
     <form className="" onSubmit={submitRegisterForm}>
@@ -24,7 +26,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.email]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
         <div className="input">
@@ -36,7 +38,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.full_name]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
       </div>
@@ -51,6 +53,7 @@ const RegisterForm = ({
               value="yes"
               checked={formData.isactive === "yes"}
               type="radio"
+              required
             />
 
             <BaseRadioInput
@@ -60,6 +63,7 @@ const RegisterForm = ({
               name="isactive"
               checked={formData.isactive === "no"}
               type="radio"
+              required
             />
           </div>
         </div>
@@ -75,7 +79,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.phone_number]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
         <div className="input">
@@ -87,7 +91,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.twitter_handle]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
       </div>
@@ -102,7 +106,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.slack_username]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
         <div className="input">
@@ -114,7 +118,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.linkedin_url]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
       </div>
@@ -128,22 +132,23 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.nationality]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
         <div className="input">
           <BaseSelect
-            placeholder="Blockchain Developer"
+            placeholder="Select a track"
             label="Tracks"
             name="track"
             options={[
+              { label: "Blockchain", value: "blockchain" },
               { label: "Mentorship", value: "mentorship" },
               { label: "Worktools", value: "worktools" },
               { label: "IRLs", value: "irls" },
             ]}
             onChange={handleFormInputChange}
             errors={[errors.area_of_sponsorship]}
-            required={true}
+            required
           />
         </div>
       </div>
@@ -159,6 +164,7 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "employed"}
               type="radio"
+              required
             />
             <BaseRadioInput
               label="Unemployed"
@@ -167,6 +173,7 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "unemployed"}
               type="radio"
+              required
             />
             <BaseRadioInput
               label="Self-employed"
@@ -175,6 +182,7 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "selfEmployed"}
               type="radio"
+              required
             />
             <BaseRadioInput
               label="Student"
@@ -183,6 +191,7 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "student"}
               type="radio"
+              required
             />
           </div>
         </div>
@@ -197,7 +206,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.reason1]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
       </div>
@@ -212,6 +221,7 @@ const RegisterForm = ({
               value="yes"
               checked={formData.dedication === "yes"}
               type="radio"
+              required
             />
 
             <BaseRadioInput
@@ -221,6 +231,7 @@ const RegisterForm = ({
               name="dedication"
               checked={formData.dedication === "no"}
               type="radio"
+              required
             />
           </div>
         </div>
@@ -235,12 +246,26 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.reason2]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
       </div>
-      <div>
-        <p>Submit your preferred picture here (Headshot or full image)</p>
+      <div className="d-flex mb-20 register-joinedfield">
+        <div>
+          <p className="mb-14">
+            Submit your preferred picture here (Headshot or full image)
+          </p>
+          <label className="form__register-file ">
+            + Upload image
+            <input
+              className=""
+              type="file"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+              required
+            />
+          </label>
+          {selectedFile && <p className="mt-14">{selectedFile?.name}</p>}
+        </div>
       </div>
       <div className="d-flex register-joinedfield">
         <div className="input">
@@ -252,7 +277,7 @@ const RegisterForm = ({
             onChange={handleFormInputChange}
             errors={[errors.comment]}
             autoFocus={true}
-            required={true}
+            required
           />
         </div>
       </div>
