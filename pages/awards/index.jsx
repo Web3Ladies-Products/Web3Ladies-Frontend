@@ -13,7 +13,7 @@ import FreehandCard from "../../components/FreehandCard"
 import awardData from "../api/award.json"
 import VoteSuccess from "../../components/awards/VoteSuccess";
 
-const Award = () => {
+const Award = ({ indexPage}) => {
   const awardHomeData = awardData[1].home;
   console.log(awardHomeData)
 
@@ -127,13 +127,15 @@ const Award = () => {
   )
 }
 
-// export async function getStaticProps() {
-//   return {
-//     props: {
-//       awardHomeData: awardData[1].home,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const indexPage = await strapiService.getAwardPageData();
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}
+
 
 
 export default Award

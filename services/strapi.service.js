@@ -213,11 +213,27 @@ const sendPledge = async (data) => {
   }
 };
 
+
+const getAwardPageData = async (data) => {
+  try {
+    const award = await fetch(`${STRAPI_URL}/api/award`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return award;
+  } catch (error) {
+    console.error(error);
+  }
+};
 export const strapiService = {
   getBlogPosts,
   getPostBySlug,
   getPostsByCategory,
   getSortedBlogPosts,
+  getAwardPageData,
   searchBlogPosts,
   getSimilarPosts,
   getHomePageData,

@@ -23,26 +23,28 @@ const DEFAULT_ERRORS = {
 
 const Slug = () => {
   const [isRadio, setIsRadio] = useState("male");
-  // const [gender, setGender] = useState("Male")
-  const [voteData, setVoteData] = useState({
-    full_name: "",
-    company_email: "",
-    female: "",
-    male: "",
-  });
   const [showLoader, setShowLoader] = useState(false);
   const [errors, setErrors] = useState(DEFAULT_ERRORS);
-  
   const { query, push } = useRouter();
   const { awardSlug } = query;
   const award = awardData.find((award) => award.slug === awardSlug);
+  
+  const [voteData, setVoteData] = useState({
+    full_name: "",
+    company_email: "",
+    gender: "",
+  });
 
-  
-  
-  const handleChange = (e) => {
-    console.log(e.currentTarget.value);
-    setIsRadio(e.currentTarget.value);
-  };
+
+  function handleChange(event) {
+      const {name, value, type, checked} = event.target
+      setVoteData(prevVoteData => {
+          return {
+              ...prevVoteData,
+              [name]: type === "checkbox" ? checked : value
+          }
+      })
+  }
 
   const handleFormInputChange = generateInputChangeHandler(setVoteData);
 
@@ -63,11 +65,6 @@ const Slug = () => {
         "success",
         "vote successful"
       );
-      // setVoteData({
-      //   full_name: "",
-      //   company_email: "",
-      //   gender: "",
-      // });
     } catch (error) {
       console.error(error);
       alertService.alertMethod("error", "Voting not succesful");
@@ -145,39 +142,40 @@ const Slug = () => {
 
             {/* checkbox input */}
             <div className="award__radio ">
-              <p>Gender</p>
-                  <span className="radio__input" >
-                    <input
-                      type="radio"
-                      id="male"
-                      value={voteData.male}
-                      onChange={handleChange}
-                      checked={isRadio === "Male"}
-                    />
-                  <label htmlFor='male'>Male</label>
+              <p>{award.gender.title}</p>
 
-                  <input
-                    type="radio"
-                    id="female"
-                      value={voteData.female}
-                      // value="female"
-                    onChange={handleChange}
-                    checked={isRadio === "Female"}
-                  />
-                  <label htmlFor='female'>female</label>
-
-                  {/* <input
-                      type="radio"
-                      id="prefer-not-to-say"
-                      // value="prefer-not-to-say"
-                      value={voteData.male}
-
-                      onChange={handleChange}
-                      checked={isRadio === "prefer-not-to-say"}
-                    />
-                    <label Htmlfor="Prefer not to say">Prefer not to say</label> */}
-
-                  
+                  <span className="radio__input">
+                      <input
+                        type="radio"
+                        id="male"
+                        name="gender"
+                        value="male"
+                        onChange={handleChange}
+                        checked={voteData.gender === "male"}
+                      />
+                      <label htmlFor="male">male</label>
+                  </span>
+                  <span className="radio__input">
+                      <input
+                        type="radio"
+                        id="female"
+                        name="gender"
+                        value="female"
+                        onChange={handleChange}
+                        checked={voteData.gender === "female"}
+                      />
+                      <label htmlFor="female">Female</label>
+                  </span>
+                  <span className="radio__input">
+                      <input
+                        type="radio"
+                        id="prefer-not-to-saymale"
+                        name="gender"
+                        value="prefer-not-to-say"
+                        onChange={handleChange}
+                        checked={voteData.gender === "prefer-not-to-say"}
+                      />
+                      <label htmlFor="male">Prefer not to say</label>
                   </span>
             </div>
 
