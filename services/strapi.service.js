@@ -224,7 +224,6 @@ const waitingList = async (data) => {
       .then(parseJSON);
     return waitingList;
   } catch (error) {
-    console.error(error);
     throw new Error(error?.error?.message);
   }
 };
@@ -240,7 +239,6 @@ const contactRequest = async (data) => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.error(error);
     throw new Error(error?.error?.message);
   }
 };
@@ -256,7 +254,6 @@ const votingRequest = async (data) => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.error(error);
     throw new Error(error?.error?.message);
   }
 };
@@ -275,8 +272,35 @@ const mentorshipRegisterRequest = async (formData, file) => {
       .then(parseJSON);
     return reg;
   } catch (error) {
-    console.log(error.error);
     throw new Error(error?.error?.message);
+  }
+};
+const getMentorshipSuccess = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/mentorship-success`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    // console.log(res);
+    return res;
+  } catch (error) {
+    console.log(error?.error?.message);
+  }
+};
+
+const getMentorshipClosed = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/mentorship-closed`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.log(error?.error?.message);
   }
 };
 
@@ -297,4 +321,6 @@ export const strapiService = {
   waitingList,
   contactRequest,
   votingRequest,
+  getMentorshipSuccess,
+  getMentorshipClosed,
 };
