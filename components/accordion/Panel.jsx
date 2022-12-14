@@ -24,6 +24,7 @@ const Panel = ({
     setTimeout(() => {
       const el = panelInner.current;
       setHeight(el.scrollHeight);
+      console.log(el.scrollHeight);
     }, 333);
 
     return () => {
@@ -41,6 +42,7 @@ const Panel = ({
       <div
         className={`panel ${hasFullBorder && "panel--has-border"}`}
         role="tabpanel"
+        style={{ paddingBottom: "10px" }}
         aria-expanded={isActive}
       >
         <button
