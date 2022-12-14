@@ -280,8 +280,23 @@ const mentorshipRegisterRequest = async (formData, file) => {
   }
 };
 
+const getAwardData = async () => {
+  try {
+    const award = await fetch(`${STRAPI_URL}/api/award`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return award;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBlogPosts,
+  getAwardData,
   getPostBySlug,
   getPostsByCategory,
   getSortedBlogPosts,
