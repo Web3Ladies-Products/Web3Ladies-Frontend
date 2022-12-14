@@ -106,7 +106,7 @@ const Content = ({ cohortLink, isAccordion }) => {
     <div className="cohort-content container">
       <Summary isAccordion={isAccordion} />
       <MenteeExperience menteeDetails={cohortDetails.mentees} />
-      <div className="button-container mb-20">
+      <div className="button-container ">
         <Button
           variant={"outline"}
           buttonText={"Learn More"}
