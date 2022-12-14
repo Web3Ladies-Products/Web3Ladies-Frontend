@@ -106,9 +106,9 @@ const Content = ({ cohortLink, isAccordion }) => {
     <div className="cohort-content container">
       <Summary isAccordion={isAccordion} />
       <MenteeExperience menteeDetails={cohortDetails.mentees} />
-      <div className="button-container mb-20">
+      <div className="button-container" style={{ marginBottom: "10px" }}>
         <Button
-          variant={"outline"}
+          // variant={"outline"}
           buttonText={"Learn More"}
           handleClick={() => (window.location.href = cohortLink)}
         />

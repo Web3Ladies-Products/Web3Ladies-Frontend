@@ -2,8 +2,9 @@ import Image from "next/image";
 import React from "react";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
+import { strapiService } from "../../services";
 
-const Closed = () => {
+const Closed = ({ indexPage }) => {
   return (
     <>
       <Navbar />
@@ -41,15 +42,18 @@ const Closed = () => {
             </div>
             <div className="feedback-content">
               <div className="center">
-                <h2>
-                  You're now on
-                  <br></br>the waitlist!
-                </h2>
+                <h2
+                  dangerouslySetInnerHTML={{
+                    __html: indexPage.title,
+                  }}
+                />
               </div>
-              <p className="center">
-                Join us on the Slack channel if you have not already, to get{" "}
-                <br></br> first hand update on our cohort programs{" "}
-              </p>
+              <p
+                className="center"
+                dangerouslySetInnerHTML={{
+                  __html: indexPage.subtitle,
+                }}
+              />
 
               <div className="closed__icons-container ">
                 <Image
@@ -60,7 +64,7 @@ const Closed = () => {
                   src="/assets/images/slack.png"
                   alt="slack-icon"
                 />
-                <p>Join our Slack community</p>
+                <p>{indexPage.small}</p>
               </div>
             </div>
           </div>
@@ -94,3 +98,13 @@ const Closed = () => {
 };
 
 export default Closed;
+
+export async function getStaticProps() {
+  const indexPage = await strapiService.getMentorshipClosed();
+
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}
