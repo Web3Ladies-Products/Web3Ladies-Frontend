@@ -5,7 +5,7 @@ import Button from "../buttons/Button";
 
 const HeroSection = ({ heroDetails, badgeText }) => {
   return (
-    <main>
+    <main className="bg">
       <div className="container cta">
         <div className="content">
           <div className="hero_content bootcamp">
@@ -16,15 +16,15 @@ const HeroSection = ({ heroDetails, badgeText }) => {
                 badgeBorderColor={"#000000"}
               />
             )}
-            <h1 dangerouslySetInnerHTML={{ __html: heroDetails.title }} />
-            <p>{heroDetails.description}</p>
+            <h1 dangerouslySetInnerHTML={{ __html: heroDetails.hero_title }} />
+            <p>{heroDetails.hero_description}</p>
 
             <div className="button-container">
               <Button
-                variant={heroDetails.buttonType}
-                buttonText={heroDetails.buttonText}
+                variant={heroDetails.hero_button_type}
+                buttonText={heroDetails.hero_button_text}
                 handleClick={() => {
-                  window.location.href = heroDetails.buttonLink;
+                  window.location.href = heroDetails.hero_button_link;
                 }}
               />
             </div>
@@ -36,7 +36,7 @@ const HeroSection = ({ heroDetails, badgeText }) => {
                 className="hero-image"
                 width={"493px"}
                 height={"472px"}
-                src={heroDetails.image}
+                src={heroDetails.hero_image}
                 alt="cohort-image"
               />
             </div>

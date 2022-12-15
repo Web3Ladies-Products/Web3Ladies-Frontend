@@ -5,13 +5,16 @@ import VisitYoutube from "../../components/VisitYoutube";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import HeroSection from "../../components/cohorts/HeroSection";
 import cohortsData from "../api/cohorts.json";
-import { FAQ_DATA } from "../../pages/api/feedback";
+import { FAQ_DATA } from "../../pages/api/feedback.json";
 import FAQs from "../../components/FAQs";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../components/FreehandCard";
-const Cohorts = () => {
-  const heroDetails = cohortsData.home.hero;
+import { strapiService } from "../../services";
+
+
+const Cohorts = ({indexPage}) => {
+  const heroDetails = indexPage;
   return (
     <>
       <Navbar />
@@ -30,5 +33,17 @@ const Cohorts = () => {
     </>
   );
 };
+
+//get cohorts page data
+export async function getStaticProps() {
+  const indexPage = await strapiService.getCohortPageData();
+  console.log(indexPage)
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}
+
 
 export default Cohorts;

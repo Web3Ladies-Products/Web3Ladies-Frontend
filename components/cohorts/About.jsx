@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Tracks from "../analytics/Tracks";
 
-const About = ({ tracksDetails }) => {
+const About = ({ tracks_details}) => {
   return (
     <section className="about-cohort">
       <div className="container ">
@@ -32,7 +32,7 @@ const About = ({ tracksDetails }) => {
             </p>
           </div>
         </div>
-        <Tracks tracksDetails={tracksDetails} />
+        <Tracks tracks_details={tracks_details} />
       </div>
     </section>
   );

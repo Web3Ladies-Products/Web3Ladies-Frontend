@@ -7,7 +7,7 @@ import ArrowRight from "./icons/ArrowRight";
 
 const Highlights = ({
   title,
-  HIGHLIGHTS_ITEMS,
+  highlight_items_details,
   handleClick,
   viewMore,
   viewMoreLink,
@@ -31,7 +31,7 @@ const Highlights = ({
         )}
         {children}
         <ul className="highlights--container">
-          {HIGHLIGHTS_ITEMS?.map((item, index) => (
+          {highlight_items_details?.map((item, index) => (
             <li
               key={index}
               className="highlight--container-item"

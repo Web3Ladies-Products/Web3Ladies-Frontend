@@ -5,7 +5,7 @@ const Tracks = ({ tracksDetails }) => {
     <section className="tracks-analytics">
       <div className="container">
         <ul className="tracks-details">
-          {tracksDetails.map((detail, index) => {
+          {tracksDetails?.map((detail, index) => {
             return (
               <li
                 className="card card--has-border tracks-details--list d-flex flex-column justify-content-between"
