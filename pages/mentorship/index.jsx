@@ -250,7 +250,7 @@ const mentorship = ({ indexPage }) => {
         testimonial_items={indexPage.testimonial_items}
       />
 
-      <CTACard />
+      {/* <CTACard /> */}
       <div className="tracks__spacing">
         <FreehandCard />
       </div>
