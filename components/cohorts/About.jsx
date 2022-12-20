@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Tracks from "../analytics/Tracks";
+import Button from "../buttons/Button";
 
 const About = ({ tracks_details}) => {
   return (
@@ -30,7 +31,14 @@ const About = ({ tracks_details}) => {
               an eviction at the end of this phase upon final assessment to
               graduate into the learning phase.
             </p>
+            <Button  
+                buttonText="Register"
+                border="3px solid black"
+                 />
           </div>
+         
+             
+           
         </div>
         <Tracks tracks_details={tracks_details} />
       </div>

@@ -2,29 +2,30 @@ import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
 
-const Hero = ({ data, handleViewCurriculum }) => {
+const Hero = ({ track, handleViewCurriculum }) => {
+// console.log(heroDetails)
   return (
     <main>
       <div className="container cta">
         <div className="content">
           <div className="hero_content">
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
-            <p className="note">{data.note}</p>
+            <h1>{track?.hero_title}</h1>
+            <p>{track?.hero_description}</p>
+            <p className="note">{track?.hero_note}</p>
 
             <div className="button-container">
               <Button
-                variant={data.buttonTypeOne}
-                buttonText={data.buttonTextOne}
+                variant={track?.hero_button_type_one}
+                buttonText={track?.hero_button_text_one}
                 handleClick={() => {
                   handleViewCurriculum();
                 }}
               />
               <Button
-                variant={data.buttonTypeTwo}
-                buttonText={data.buttonTextTwo}
+                variant={track?.hero_button_type_two}
+                buttonText={track?.hero_button_text_two}
                 handleClick={() => {
-                  window.location.href = data.buttonLinkTwo;
+                  window.location.href = track?.hero_button_link_two;
                 }}
               />
             </div>
@@ -50,7 +51,7 @@ const Hero = ({ data, handleViewCurriculum }) => {
               </div>
 
               <Image
-                src={data.image}
+                src={track?.hero_image}
                 width="200px"
                 height="200px"
                 objectFit="contain"

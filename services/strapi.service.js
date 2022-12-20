@@ -45,6 +45,43 @@ const getCohortPageData = async () => {
     console.error(error);
   }
 };
+
+
+
+const getTracks = async () => {
+    try {
+      const trackPage = await fetch(
+        `${STRAPI_URL}/api/tracks`,
+        {
+          method: "GET",
+          headers,
+        }
+      )
+        .then(checkStatus)
+        .then(parseJSON);
+      return trackPage;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getTracksBySlug = async (slug) => {
+    try {
+      const trackPage = await fetch(`${STRAPI_URL}/api/tracks?filters[slug][$eq]=${slug}`, {
+        method: "GET",
+        headers,
+      })
+        .then(checkStatus)
+        .then(parseJSON);
+        // console.log(cohortPage)
+      return trackPage;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
+
 const getCurrentCohortBySlug = async (slug) => {
   try {
     const cohortPage = await fetch(`${STRAPI_URL}/api/present-cohorts?filters[slug][$eq]=${slug}`, {
@@ -74,6 +111,41 @@ const getCurrentCohorts = async () => {
       .then(checkStatus)
       .then(parseJSON);
     return currentCohort;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getWebdevelopmentBySlug = async (slug) => {
+  try {
+    const trackPage = await fetch(`${STRAPI_URL}/api/web-development?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+     
+    return trackPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getWebdevelopment = async () => {
+  try {
+    const tracks = await fetch(
+      `${STRAPI_URL}/api/web-development`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    
+    return tracks;
   } catch (error) {
     console.error(error);
   }
@@ -465,7 +537,12 @@ export const strapiService = {
   getPastCohortBySlug,
   getUpcomingCohortBySlug,
   getUpcomingCohorts,
-
+  
   getMentorshipSuccess,
   getMentorshipClosed,
+  getWebdevelopmentBySlug,
+  getWebdevelopment,
+  getTracks,
+  getTracksBySlug,
+
 };

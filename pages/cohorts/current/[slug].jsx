@@ -13,6 +13,7 @@ import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
+import Registration from "../../../components/analytics/Registration";
 const CurrentCohort = ({cohort}) => {
   // console.log(cohort)
   // const { query } = useRouter();
@@ -42,7 +43,9 @@ const CurrentCohort = ({cohort}) => {
       <HeroSection heroDetails={heroDetails} badgeText={"ongoing"} />
 
       {/* ABOUT MENTEES SECTION */}
-      <About tracksDetails={cohort.tracks_details} />
+      <About tracks_details={cohort.tracks_details} />
+
+   
 
       {/* TRACKS SECTION */}
       <Tracks tracks={cohort.tracks} />
