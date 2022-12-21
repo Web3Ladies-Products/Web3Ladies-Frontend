@@ -15,12 +15,7 @@ import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
 const CurrentCohort = ({cohort}) => {
-  // console.log(cohort)
-  // const { query } = useRouter();
-  // const { slug } = query;
-  // const cohorts = cohortsData.current;
- 
-  // const cohort = cohorts.find((b) => b.slug === slug);
+
 
 
   if (!cohort) {

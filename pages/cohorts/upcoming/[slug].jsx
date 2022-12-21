@@ -21,10 +21,7 @@ import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
 const UpcomingCohort = ({cohort}) => {
   console.log(cohort)
-  // const { query } = useRouter();
-  // const { slug } = query;
-  // const cohorts = cohortsData.upcoming;
-  // const cohort = cohorts.find((b) => b.slug === slug);
+ 
 
   if (!cohort) {
     return <p>Cohort not found</p>;
