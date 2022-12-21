@@ -16,10 +16,6 @@ import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import { strapiService } from "../../services";
 const Tracks = ({track}) => {
   console.log(track)
-  // const { query } = useRouter();
-  // const { slug } = query;
-  // console.log(slug)
-  // const track = trackData.find((track) => track.slug === slug);
 
   
   if (!track) {
