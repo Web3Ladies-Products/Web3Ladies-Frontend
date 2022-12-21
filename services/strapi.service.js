@@ -1,3 +1,4 @@
+import { async } from "rxjs";
 import { STRAPI_URL } from "../lib/constants";
 
 // Parses the JSON returned by a network request
@@ -264,6 +265,8 @@ const getMentorshipPageData = async () => {
   }
 };
 
+// BLOG POST
+
 const getBlogPosts = async ({ page, pageSize, category }) => {
   try {
     const blogPosts = await fetch(
@@ -373,6 +376,7 @@ const getSimilarPosts = (author) => {
     });
 };
 
+// DONATIONS
 const sendDonationRequest = async (data) => {
   try {
     const donationRequest = await fetch(`${STRAPI_URL}/api/donations`, {
@@ -388,6 +392,8 @@ const sendDonationRequest = async (data) => {
   }
 };
 
+//PLEDGE
+
 const sendPledge = async (data) => {
   try {
     const pledge = await fetch(`${STRAPI_URL}/api/pledges`, {
@@ -402,6 +408,8 @@ const sendPledge = async (data) => {
     console.error(error);
   }
 };
+
+//WAITINGLIST
 
 const waitingList = async (data) => {
   try {
@@ -499,6 +507,8 @@ const getMentorshipClosed = async () => {
   }
 };
 
+//AWARDS
+
 const getAwardData = async () => {
   try {
     const award = await fetch(`${STRAPI_URL}/api/award`, {
@@ -513,8 +523,43 @@ const getAwardData = async () => {
   }
 };
 
+const getNominees = async () => {
+  try {
+    const nominees = await fetch(`${STRAPI_URL}/api/award-nominees`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    // console.log(nominees)
+    return nominees;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getNomineeBySlug = async (slug) => {
+  try {
+  const nominee = await fetch(
+    `${STRAPI_URL}/api/award-nominees?filters[slug][$eq]=${slug}`,
+    {
+      headers,
+      method: "GET",
+    })
+    .then(checkStatus)
+    .then(parseJSON)
+    return nominee;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
 export const strapiService = {
   getBlogPosts,
+  getNomineeBySlug,
+  getAwardData,
+  getNominees,
   getPostBySlug,
   getPostsByCategory,
   getSortedBlogPosts,

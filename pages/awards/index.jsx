@@ -16,8 +16,6 @@ import VoteSuccess from "../../components/awards/VoteSuccess";
 
 const Award = ({ indexPage }) => {
   const awardHomeData = awardData[1].home;
-  // console.log(awardHomeData)
-  // console.log(indexPage)
 
   return (
     <>
@@ -73,34 +71,34 @@ const Award = ({ indexPage }) => {
                   __html: indexPage.title,
                 }}
               />
-              <p>{awardHomeData.content}</p>
+              <p>{indexPage.hero_subtitle}</p>
 
               <div className=" d-flex button__section">
                 <Button
                   className="award__btn"
                   variant={"primary"}
-                  buttonText={awardHomeData.btn1}
+                  buttonText={indexPage.hero_btn1}
                   handleClick={() => {}}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText={awardHomeData.btn2}
+                  buttonText={indexPage.hero_btn2}
                   handleClick={() => {}}
                 />
               </div>
             </div>
           </div>
           <div className="award__paragraph">
-            <p>{awardHomeData.paragraph}</p>
+            <p>{indexPage.hero_content}</p>
           </div>
           <div className="award__nominees">
-            <h3>{awardHomeData?.header}</h3>
+            <h3>{indexPage.subtitle}</h3>
             <div className="d-flex award__cards-container">
               {indexPage?.nominees?.map((nominee, index) => {
                 return (
-                  <Link href={`/awards/myname`}>
+                  <Link href={`/awards/${nominee.key}`}>
                     <a className="nominee__flex">
-                      <div key={index}>
+                      <div key={nominee.key}>
                         <AwardCard
                           name={nominee.name}
                           imageUrl={nominee.img}
@@ -125,7 +123,6 @@ const Award = ({ indexPage }) => {
 
 export async function getStaticProps() {
   const indexPage = await strapiService.getAwardData();
-  console.log(indexPage.data.attributes);
   return {
     // indexPage
     props: {
