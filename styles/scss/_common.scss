@@ -28,6 +28,7 @@
   line-height: 14px;
   letter-spacing: 0.2em;
   width: fit-content;
+  margin-bottom: 15px;
 }
 
 .pill {
@@ -173,7 +174,9 @@
   .registration-details {
     @include desktop {
       display: grid;
+      color: #fff;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      background-color: #0F0F0F;
     }
 
     &--list {
@@ -183,7 +186,7 @@
       justify-content: center;
       text-align: center;
       @include desktop {
-        border-right: 1px solid var(--color-black);
+        border-right: 1px solid var(--color-white);
       }
       @include mobile {
         &:not(:last-child) {
@@ -200,6 +203,7 @@
       h5 {
         font-size: 18px;
         margin-bottom: 16px;
+        color: #FF9EDB;
       }
 
       span {
@@ -333,6 +337,7 @@
       text-align: center;
       font-size: 20px;
       margin-bottom: 15px;
+    
     }
   }
   h1 {

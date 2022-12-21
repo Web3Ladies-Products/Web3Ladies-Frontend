@@ -33,6 +33,196 @@ const getHomePageData = async () => {
   }
 };
 
+const getCohortPageData = async () => {
+  try {
+    const cohortPage = await fetch(`${STRAPI_URL}/api/cohort-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return cohortPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getTracks = async () => {
+    try {
+      const trackPage = await fetch(
+        `${STRAPI_URL}/api/tracks`,
+        {
+          method: "GET",
+          headers,
+        }
+      )
+        .then(checkStatus)
+        .then(parseJSON);
+      return trackPage;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getTracksBySlug = async (slug) => {
+    try {
+      const trackPage = await fetch(`${STRAPI_URL}/api/tracks?filters[slug][$eq]=${slug}`, {
+        method: "GET",
+        headers,
+      })
+        .then(checkStatus)
+        .then(parseJSON);
+        // console.log(cohortPage)
+      return trackPage;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
+
+const getCurrentCohortBySlug = async (slug) => {
+  try {
+    const cohortPage = await fetch(`${STRAPI_URL}/api/present-cohorts?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+      console.log(cohortPage)
+    return cohortPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getCurrentCohorts = async () => {
+  try {
+    const currentCohort = await fetch(
+      `${STRAPI_URL}/api/present-cohorts`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    return currentCohort;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getWebdevelopmentBySlug = async (slug) => {
+  try {
+    const trackPage = await fetch(`${STRAPI_URL}/api/web-development?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+     
+    return trackPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getWebdevelopment = async () => {
+  try {
+    const tracks = await fetch(
+      `${STRAPI_URL}/api/web-development`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    
+    return tracks;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+const getPastCohortBySlug = async (slug) => {
+  try {
+    const cohortPage = await fetch(`${STRAPI_URL}/api/past-cohorts?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+      // console.log(cohortPage)
+    return cohortPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getPastCohorts = async () => {
+  try {
+    const pastCohort = await fetch(
+      `${STRAPI_URL}/api/past-cohorts`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    return pastCohort;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+const getUpcomingCohortBySlug = async (slug) => {
+  try {
+    const cohortPage = await fetch(`${STRAPI_URL}/api/Upcoming-cohorts?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+      console.log(cohortPage)
+    return cohortPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getUpcomingCohorts = async () => {
+  try {
+    const currentCohort = await fetch(
+      `${STRAPI_URL}/api/Upcoming-cohorts`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    return currentCohort;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+
 const getSponsorshipData = async () => {
   try {
     const sponsorship = await fetch(`${STRAPI_URL}/api/sponsorship`, {
@@ -385,6 +575,19 @@ export const strapiService = {
   waitingList,
   contactRequest,
   votingRequest,
+  getCohortPageData,
+  getCurrentCohortBySlug,
+  getCurrentCohorts,
+  getPastCohorts,
+  getPastCohortBySlug,
+  getUpcomingCohortBySlug,
+  getUpcomingCohorts,
+  
   getMentorshipSuccess,
   getMentorshipClosed,
+  getWebdevelopmentBySlug,
+  getWebdevelopment,
+  getTracks,
+  getTracksBySlug,
+
 };
