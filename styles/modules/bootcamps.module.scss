@@ -122,12 +122,16 @@ main {
         justify-content: space-between;
         text-align: left;
         margin-bottom: 32px;
+        margin-top: 32px;
+        flex-wrap: wrap;
 
         > div {
           flex-basis: 50%;
+          margin: 32px auto;
         }
         h5 {
           font-weight: 700;
+          margin-bottom: 6px;
         }
         h5,
         span {

@@ -14,15 +14,7 @@ import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
-const CurrentCohort = ({cohort}) => {
-  // console.log(cohort)
-  // const { query } = useRouter();
-  // const { slug } = query;
-  // const cohorts = cohortsData.current;
- 
-  // const cohort = cohorts.find((b) => b.slug === slug);
-
-
+const CurrentCohort = ({ cohort }) => {
   if (!cohort) {
     return <p>Cohort not found</p>;
   }
@@ -34,7 +26,7 @@ const CurrentCohort = ({cohort}) => {
     hero_button_link: cohort?.hero_button_link,
     hero_button_type: cohort?.hero_button_type,
     hero_image: cohort?.hero_image,
-  }
+  };
 
   return (
     <>
@@ -45,17 +37,15 @@ const CurrentCohort = ({cohort}) => {
       {/* ABOUT MENTEES SECTION */}
       <About tracks_details={cohort.tracks_details} />
 
-   
-
       {/* TRACKS SECTION */}
       <Tracks tracks={cohort.tracks} />
 
       {/* YOUTUBE SECTION */}
       <VisitYoutube />
-      <FeaturedMentees/>
+      <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-      <FAQs data={FAQ_DATA} />
+        <FAQs data={FAQ_DATA} />
       </div>
       <div className="p-20">
         <FreehandCard />
@@ -65,14 +55,9 @@ const CurrentCohort = ({cohort}) => {
   );
 };
 
-
-
-
-
 export async function getStaticPaths() {
   const response = await strapiService.getCurrentCohorts();
   const paths = response.data.map((cohort) => {
-   
     return {
       params: {
         slug: cohort.attributes.slug,
@@ -89,17 +74,13 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getCurrentCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-   console.log(data)
+    console.log(data);
 
     if (data) {
-     
-      
       return {
         props: {
           cohort: {
             ...data,
-           
-         
           },
         },
       };
@@ -120,7 +101,5 @@ export async function getStaticProps({ params }) {
     };
   }
 }
-
-
 
 export default CurrentCohort;

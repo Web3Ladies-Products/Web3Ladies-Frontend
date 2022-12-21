@@ -74,7 +74,6 @@ const getTracks = async () => {
       })
         .then(checkStatus)
         .then(parseJSON);
-        // console.log(cohortPage)
       return trackPage;
     } catch (error) {
       console.error(error);
@@ -91,7 +90,7 @@ const getCurrentCohortBySlug = async (slug) => {
     })
       .then(checkStatus)
       .then(parseJSON);
-      console.log(cohortPage)
+      // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -194,7 +193,7 @@ const getUpcomingCohortBySlug = async (slug) => {
     })
       .then(checkStatus)
       .then(parseJSON);
-      console.log(cohortPage)
+      // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -554,8 +553,124 @@ const getNomineeBySlug = async (slug) => {
   }
 };
 
+// BOOT CAMP 
+
+const getBootCampPageData = async () => {
+  try {
+    const bootcampPage = await fetch(`${STRAPI_URL}/api/bootcamp-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return bootcampPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getCurrentBootCampBySlug = async (slug) => {
+  try {
+    const bootcamp = await fetch(`${STRAPI_URL}/api/current-bootcamps?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return bootcamp;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getCurrentBootCamp = async () => {
+  try {
+    const currentBoot = await fetch(
+      `${STRAPI_URL}/api/current-bootcamps`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    return currentBoot;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getPastBootCampBySlug = async (slug) => {
+  try {
+    const bootCampPage = await fetch(`${STRAPI_URL}/api/past-bootcamps?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return bootCampPage;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getPastBootCamps = async () => {
+  try {
+    const pastbootCamp = await fetch(
+      `${STRAPI_URL}/api/past-bootcamps`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    return pastbootCamp;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+const getUpcomingBootCampsBySlug = async (slug) => {
+  try {
+    const upcomingbootCamp = await fetch(`${STRAPI_URL}/api/Upcoming-bootcamps?filters[slug][$eq]=${slug}`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+      // console.log(cohortPage)
+    return upcomingbootCamp;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+
+const getUpcomingBootCamps = async () => {
+  try {
+    const currentBootCamp = await fetch(
+      `${STRAPI_URL}/api/Upcoming-bootcamps`,
+      {
+        method: "GET",
+        headers,
+      }
+    )
+      .then(checkStatus)
+      .then(parseJSON);
+    return currentBootCamp;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
 export const strapiService = {
+  getBootCampPageData,
   getBlogPosts,
   getNomineeBySlug,
   getAwardData,
@@ -582,6 +697,14 @@ export const strapiService = {
   getPastCohortBySlug,
   getUpcomingCohortBySlug,
   getUpcomingCohorts,
+  
+
+  getCurrentBootCampBySlug,
+  getCurrentBootCamp,
+  getPastBootCampBySlug,
+  getPastBootCamps,
+  getUpcomingBootCamps,
+  getUpcomingBootCampsBySlug,
   
   getMentorshipSuccess,
   getMentorshipClosed,

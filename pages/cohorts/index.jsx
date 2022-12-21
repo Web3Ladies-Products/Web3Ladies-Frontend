@@ -34,10 +34,8 @@ const Cohorts = ({indexPage}) => {
   );
 };
 
-//get cohorts page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getCohortPageData();
-  console.log(indexPage)
   return {
     props: {
       indexPage: indexPage.data.attributes,
