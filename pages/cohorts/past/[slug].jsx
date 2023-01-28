@@ -18,10 +18,7 @@ import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 const PastCohort = ({cohort}) => {
-  // const { query } = useRouter();
-  // const { slug } = query;
-  // const cohorts = cohortsData.past;
-  // const cohort = cohorts.find((b) => b.slug === slug);
+  
   console.log(cohort)
 
   if (!cohort) {
