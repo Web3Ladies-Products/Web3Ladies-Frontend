@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import Tracks from "../analytics/Tracks";
+import Button from "../buttons/Button";
 
-const About = ({ tracksDetails }) => {
+const About = ({ tracks_details}) => {
   return (
     <section className="about-cohort">
       <div className="container ">
@@ -30,9 +31,16 @@ const About = ({ tracksDetails }) => {
               an eviction at the end of this phase upon final assessment to
               graduate into the learning phase.
             </p>
+            <Button  
+                buttonText="Register"
+                border="3px solid black"
+                 />
           </div>
+         
+             
+           
         </div>
-        <Tracks tracksDetails={tracksDetails} />
+        <Tracks tracks_details={tracks_details} />
       </div>
     </section>
   );

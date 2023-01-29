@@ -4,7 +4,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowCircle from "./icons/ArrowCircle";
 
-const ProjectsDone = ({ projectsDone }) => {
+const ProjectsDone = ({ bootcamp }) => {
   const CATEGORY_COLOR = {
     "blockchain-development": "#7D0BFE",
     "web-development": "#FE471F",
@@ -25,7 +25,7 @@ const ProjectsDone = ({ projectsDone }) => {
           />
         </div>
         <ul className="projects-done--container">
-          {projectsDone.map((project) => (
+          {bootcamp?.projects_done_details.map((project) => (
             <li
               key={project.title}
               className="projects-done--item card card__black d-flex flex-column justify-content-between"

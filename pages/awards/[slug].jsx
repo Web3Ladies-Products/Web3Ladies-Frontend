@@ -8,13 +8,15 @@ import ArrowLeft from "../../components/icons/ArrowLeft";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 import BaseInput from "../../components/UI/BaseInput";
-import siteMetadata from "../../lib/data/siteMetadata";
-import awardData from "../api/award.json";
+// import siteMetadata from "../../lib/data/siteMetadata";
+// import awardData from "../api/award.json";
 import FreehandCard from "../../components/FreehandCard";
 import { generateInputChangeHandler } from "../../helpers";
 import { alertService, strapiService } from "../../services";
 import BaseRadioInput from "../../components/UI/BaseRadioInput";
 import AppLoader from "../../components/UI/AppLoader";
+import markdownToHtml from "../../lib/markdownToHtml";
+// import { strapiService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -22,7 +24,11 @@ const DEFAULT_ERRORS = {
   gender: [],
 };
 
-const Slug = () => {
+const Slug = ({ nominee, notFound }) => {
+  if (!nominee) {
+    return <p>Award not found</p>;
+  }
+
   const [voteData, setVoteData] = useState({
     full_name: "",
     email: "",
@@ -30,10 +36,6 @@ const Slug = () => {
   });
   const [showLoader, setShowLoader] = useState(false);
   const [errors, setErrors] = useState(DEFAULT_ERRORS);
-
-  const { query, push } = useRouter();
-  const { awardSlug } = query;
-  const award = awardData.find((award) => award.slug === awardSlug);
 
   const handleFormInputChange = generateInputChangeHandler(setVoteData);
 
@@ -79,33 +81,35 @@ const Slug = () => {
         </div>
 
         <div className="award__hero-title">
-          <p>{award.hero.title}</p>
+          <p>
+            {nominee.name} {nominee.surname}
+          </p>
         </div>
 
         <div className="award__hero-img">
-          <img src={award.hero.image} alt="img" />
+          <img src={nominee.image} alt="img" />
         </div>
 
         <div className="award__hero-title">
-          <p className="title">{award.hero.name}</p>
+          <p className="title">{nominee.name}</p>
           <div className="location">
-            <p>{award.hero.company}</p>
-            <p>{award.hero.country}</p>
+            <p>{nominee.company}</p>
+            <p>{nominee.country}</p>
           </div>
         </div>
 
         <div className="award__about">
-          <p className="title-about">{award.about.aboutName}</p>
+          <p className="title-about">About {nominee.name}</p>
           <p
             className="title-content"
             dangerouslySetInnerHTML={{
-              __html: award.about.description,
+              __html: nominee.about,
             }}
           />
         </div>
 
         <div className="award__form">
-          <p className="form-title">Vote for {award.hero.name}</p>
+          <p className="form-title">Vote for {nominee.name}</p>
 
           <form onSubmit={submitVote} className="form-input">
             <div className="input full-100">
@@ -134,7 +138,6 @@ const Slug = () => {
               />
             </div>
 
-            {/* checkbox input */}
             <div className="d-flex register-joinedfield mb-20">
               <div>
                 <p>Gender</p>
@@ -169,7 +172,7 @@ const Slug = () => {
             </div>
             <div className="award__btn">
               <Button
-                buttonText={showLoader ? "Voting..." : `${award.button}`}
+                buttonText={showLoader ? "Voting..." : "vote"}
                 variant={"primary"}
                 disabled={showLoader}
                 type="submit"
@@ -186,5 +189,53 @@ const Slug = () => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  const response = await strapiService.getNominees();
+  const paths = response?.data.map((nominee) => {
+    return {
+      params: {
+        slug: nominee.attributes.slug,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const response = await strapiService.getNomineeBySlug(params.slug);
+    const data = response?.data[0]?.attributes;
+    console.log(data);
+    if (data) {
+      const content = await markdownToHtml(data?.about || "");
+      return {
+        props: {
+          nominee: {
+            ...data,
+            content,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        nominee: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        nominee: null,
+        notFound: true,
+      },
+    };
+  }
+}
 
 export default Slug;
