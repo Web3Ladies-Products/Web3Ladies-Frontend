@@ -18,7 +18,6 @@ import AppLoader from "../../components/UI/AppLoader";
 import markdownToHtml from "../../lib/markdownToHtml";
 // import { strapiService } from "../../services";
 
-
 const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
@@ -26,8 +25,6 @@ const DEFAULT_ERRORS = {
 };
 
 const Slug = ({ nominee, notFound }) => {
-
-
   if (!nominee) {
     return <p>Award not found</p>;
   }
@@ -84,7 +81,9 @@ const Slug = ({ nominee, notFound }) => {
         </div>
 
         <div className="award__hero-title">
-          <p>{nominee.name} {nominee.surname}</p>
+          <p>
+            {nominee.name} {nominee.surname}
+          </p>
         </div>
 
         <div className="award__hero-img">
@@ -191,7 +190,6 @@ const Slug = ({ nominee, notFound }) => {
   );
 };
 
-
 export async function getStaticPaths() {
   const response = await strapiService.getNominees();
   const paths = response?.data.map((nominee) => {
@@ -211,7 +209,7 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getNomineeBySlug(params.slug);
     const data = response?.data[0]?.attributes;
-    console.log(data)
+    console.log(data);
     if (data) {
       const content = await markdownToHtml(data?.about || "");
       return {
@@ -239,9 +237,5 @@ export async function getStaticProps({ params }) {
     };
   }
 }
-
-
-
-
 
 export default Slug;

@@ -24,7 +24,6 @@ const Panel = ({
     setTimeout(() => {
       const el = panelInner.current;
       setHeight(el.scrollHeight);
-      console.log(el.scrollHeight);
     }, 333);
 
     return () => {

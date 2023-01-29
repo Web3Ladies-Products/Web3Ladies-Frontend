@@ -1,14 +1,14 @@
 import React from "react";
 import Accordion from "./accordion/Accordion";
 
-const FAQs = ({ bootcamp }) => {
+const FAQs = ({ data }) => {
   return (
     <section className="faq-section" id="faq">
       <div className="container">
         <h2 className="section-title center mb-20">
           Frequently Asked Questions{" "}
         </h2>
-        <Accordion panels={bootcamp.faqs} hasFullBorder />
+        <Accordion panels={data} hasFullBorder />
       </div>
     </section>
   );

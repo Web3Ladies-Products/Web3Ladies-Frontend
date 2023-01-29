@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Gallery = ({ bootcamp }) => {
+const Gallery = ({ galleryItems }) => {
   return (
     <section className="gallery">
       <div className="container">
@@ -9,7 +9,7 @@ const Gallery = ({ bootcamp }) => {
           <h1 className="sub-section-title bold">Gallery</h1>
         </div>
         <ul className="gallery--container">
-          {bootcamp?.gallery_details.map((item, index) => (
+          {galleryItems.map((item, index) => (
             <li className="gallery--container-item" key={index}>
               <div className="gallery--container-item--image">
                 <Image
