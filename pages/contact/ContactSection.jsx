@@ -4,7 +4,7 @@ import Button from "../../components/buttons/Button";
 import ContactForm from "../../components/contact/ContactForm";
 import AppLoader from "../../components/UI/AppLoader";
 import { generateInputChangeHandler } from "../../helpers";
-import { alertService } from "../../services";
+import { alertService, strapiService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -28,13 +28,13 @@ const ContactSection = ({ contactDetails }) => {
     console.log({ data: formData });
     setShowLoader(true);
     try {
-      //   const response = await strapiService.sendDonationRequest({
-      //     data: formData,
-      //   });
-      // console.log(
-      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-      //   response
-      // );
+      const response = await strapiService.contactRequest({
+        data: formData,
+      });
+      console.log(
+        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
+        response
+      );
       alertService.alertMethod("success", "contact form sent successfully");
       setFormData({
         full_name: "",
@@ -53,7 +53,7 @@ const ContactSection = ({ contactDetails }) => {
       {showLoader && <AppLoader />}
 
       <main>
-        <div className="container cta">
+        <div className="container cta mb-20">
           <div className="content">
             <div className="hero_content bootcamp">
               <h2>We are eager to hear from you</h2>
@@ -77,7 +77,7 @@ const ContactSection = ({ contactDetails }) => {
                   src="/assets/images/contact-picture.png"
                   alt="sponsorship-image"
                 />
-                 <Image
+                <Image
                   className="hero-illustration"
                   width={"146px"}
                   height={"146px"}
@@ -93,16 +93,15 @@ const ContactSection = ({ contactDetails }) => {
                 />
                 <div className="cont">
                   <div className="p">
-                    <h2 >Email</h2>
+                    <h2>Email</h2>
                     <span className="justify">hello@web3ladies.com</span>
                   </div>
                   <div className="left">
-                  <h2 >Telephone</h2>
-                  <div className="justify">
-                  <span className="right" >+971 58 570 4990</span>
-                  <span >+971 58 570 4990</span>
-                  </div>
-                   
+                    <h2>Telephone</h2>
+                    <div className="justify">
+                      <span className="right">+971 58 570 4990</span>
+                      <span>+971 58 570 4990</span>
+                    </div>
                   </div>
                 </div>
               </div>

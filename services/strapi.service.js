@@ -213,6 +213,73 @@ const sendPledge = async (data) => {
   }
 };
 
+const waitingList = async (data) => {
+  try {
+    const waitingList = await fetch(`${STRAPI_URL}/api/waiting-lists`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return waitingList;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error?.error?.message);
+  }
+};
+
+const contactRequest = async (data) => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/contacts`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error?.error?.message);
+  }
+};
+
+const votingRequest = async (data) => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/award-votings`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error?.error?.message);
+  }
+};
+
+const mentorshipRegisterRequest = async (formData, file) => {
+  let data = new FormData();
+  data.append("files.profile_image", file);
+  data.append("data", JSON.stringify(formData));
+
+  try {
+    let reg = await fetch(`${STRAPI_URL}/api/mentorship-registrations`, {
+      method: "POST",
+      body: data,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return reg;
+  } catch (error) {
+    console.log(error.error);
+    throw new Error(error?.error?.message);
+  }
+};
+
 export const strapiService = {
   getBlogPosts,
   getPostBySlug,
@@ -226,4 +293,8 @@ export const strapiService = {
   getMentorshipPageData,
   sendDonationRequest,
   sendPledge,
+  mentorshipRegisterRequest,
+  waitingList,
+  contactRequest,
+  votingRequest,
 };

@@ -1,17 +1,18 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 import RegisterForm from "../../components/mentorship/RegisterForm";
 import AppLoader from "../../components/UI/AppLoader";
 import { generateInputChangeHandler } from "../../helpers";
-import { alertService } from "../../services";
+import { alertService, strapiService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
 };
-// Dxc academic 
+// Dxc academic
 const Register = () => {
   const [formData, setFormData] = useState({
     full_name: "",
@@ -29,6 +30,7 @@ const Register = () => {
     reason2: "",
     comment: "",
   });
+  const router = useRouter();
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [showLoader, setShowLoader] = React.useState(false);
@@ -38,29 +40,50 @@ const Register = () => {
 
   const submitRegisterForm = async (e) => {
     e.preventDefault();
-    console.log({ data: formData });
-    console.log(selectedFile);
+    if (formData.isactive === "no") {
+      formData.isactive = false;
+    } else {
+      formData.isactive = true;
+    }
+    // formData["profile_image"] = selectedFile;
+
     setShowLoader(true);
+
     try {
-      //   const response = await strapiService.sendDonationRequest({
-      //     data: formData,
-      //   });
-      // console.log(
-      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-      //   response
-      // );
+      const response = await strapiService.mentorshipRegisterRequest(
+        formData,
+        selectedFile
+      );
+      console.log(
+        "🚀 ~ file: index.jsx ~ line 37 ~ Mentorship Registration ~ response",
+        response
+      );
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
       );
-      //   setFormData({
-      //     full_name: "",
-      //     email: "",
-      //   })
+      setFormData({
+        full_name: "",
+        email: "",
+        twitter_handle: "",
+        isactive: "",
+        phone_number: "",
+        slack_username: "",
+        linkedin_url: "",
+        nationality: "",
+        track: "",
+        employment_status: "",
+        dedication: "",
+        reason1: "",
+        reason2: "",
+        comment: "",
+      });
+      router.push("success");
     } catch (error) {
-      console.error(error);
+      console.error(error, "here is the error");
       alertService.alertMethod("error", "Waiting list request failed");
     } finally {
+      console.log("finaly is called");
       setShowLoader(false);
     }
   };
