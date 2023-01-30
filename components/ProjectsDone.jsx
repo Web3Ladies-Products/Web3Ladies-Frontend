@@ -19,7 +19,7 @@ const ProjectsDone = ({ bootcamp }) => {
           <h1 className="sub-section-title bold">Projects Done</h1>
           <Button
             buttonText="View More"
-            type="outline"
+            variant="outline"
             handleClick={() => {}}
             border="border__btn"
           />
