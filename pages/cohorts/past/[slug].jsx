@@ -50,7 +50,7 @@ const PastCohort = ({cohort}) => {
       </section>
 
       {/* TESTIMONIAL SECTION */}
-      <TestimonialsCarousel  testimonial_items={cohort. testimonial_items} />
+      <TestimonialsCarousel  testimonial_items={cohort.testimonial_items} />
 
       {/* PROJECTS SECTION */}
       <ProjectsDone projects_done_details={cohort.projects_done_details} />
