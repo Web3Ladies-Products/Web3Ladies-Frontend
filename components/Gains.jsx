@@ -3,14 +3,14 @@ import React from "react";
 import Button from "./buttons/Button";
 import NumberMarker from "./icons/NumberMarker";
 
-const Gains = ({ bootcamp }) => {
+const Gains = ({ data }) => {
   return (
     <section className="gains-section">
       <div className="container">
         <div className="content">
-          <h1>{bootcamp?.gains_title}</h1>
+          <h1>{data?.title}</h1>
           <ul className="gains-section--list">
-            {bootcamp?.gains_list_details?.map((gain, index) => {
+            {data?.gainsList?.map((gain, index) => {
               return (
                 <li key={index} className="gains-section--list-item">
                   <NumberMarker number={index + 1} />
@@ -22,8 +22,8 @@ const Gains = ({ bootcamp }) => {
 
           <div className="button-container">
             <Button
-              variant={bootcamp?.gains_button_type}
-              buttonText={bootcamp?.gains_button_text}
+              variant={data?.buttonType}
+              buttonText={data?.buttonText}
               color={"primary"}
               handleClick={() => null}
             />
@@ -36,7 +36,7 @@ const Gains = ({ bootcamp }) => {
               className="gains-image"
               width={"493px"}
               height={"472px"}
-              src={bootcamp?.gains_image}
+              src={data?.image}
               alt="gains-image"
             />
           </div>
