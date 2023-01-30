@@ -17,9 +17,7 @@ import { useRouter } from "next/router";
 import VisitYoutube from "../../components/VisitYoutube";
 
 const BootcampPage = ({ indexPage }) => {
-  const bootcampsHome = bootcampsData.home;
-  const router = useRouter();
-  console.log(bootcampsHome);
+  const bootCamp = indexPage;
 
   return (
     <>
@@ -28,17 +26,15 @@ const BootcampPage = ({ indexPage }) => {
         <div className="container cta">
           <div className="content">
             <div className="hero_content bootcamp">
-              <h1
-                dangerouslySetInnerHTML={{ __html: bootcampsHome.hero.title }}
-              />
-              <p>{bootcampsHome.hero.description}</p>
+              <h1 dangerouslySetInnerHTML={{ __html: bootCamp.hero_title }} />
+              <p>{bootCamp.hero_description}</p>
 
               <div className="button-container">
                 <Button
-                  variant={bootcampsHome.hero.buttonType}
-                  buttonText={bootcampsHome.hero.buttonText}
+                  variant={bootCamp.hero_button_type}
+                  buttonText={bootCamp.hero_button_text}
                   handleClick={() => {
-                    window.location.href = bootcampsHome.hero.buttonLink;
+                    window.location.href = bootCamp.hero_button_link;
                   }}
                 />
               </div>
@@ -50,7 +46,7 @@ const BootcampPage = ({ indexPage }) => {
                   className="hero-image"
                   width={"493px"}
                   height={"472px"}
-                  src={bootcampsHome.hero.image}
+                  src={bootCamp.hero_image}
                   alt="bootcamp-image"
                 />
               </div>
@@ -61,10 +57,10 @@ const BootcampPage = ({ indexPage }) => {
       <section className="bootcamps">
         <div className="container">
           <h2 className="sub-section-title bold">
-            {bootcampsHome.currentBootcamps.title}
+            {bootCamp.current_bootcamps_title}
           </h2>
           <ul className="card card--has-border">
-            {bootcampsHome.currentBootcamps.bootcamps.map((bootcamp) => (
+            {bootCamp.current_bootcamps_details.map((bootcamp) => (
               <li className="card-content--has-image" key={bootcamp.id}>
                 <div className="card-text">
                   <h3
@@ -94,7 +90,45 @@ const BootcampPage = ({ indexPage }) => {
           </ul>
         </div>
       </section>
-      <Bootcamps />
+      <Bootcamps bootcamp={bootCamp} />
+
+      <section className="bootcamps">
+        <div className="container">
+          <h2 className="sub-section-title bold">
+            {bootCamp.upcoming_bootcamps_title}
+          </h2>
+          <ul className="card card--has-border">
+            {bootCamp.upcoming_bootcamps_details.map((bootcamp) => (
+              <li className="card-content--has-image" key={bootcamp.id}>
+                <div className="card-text">
+                  <h3
+                    className="sub-section-title"
+                    dangerouslySetInnerHTML={{ __html: bootcamp.name }}
+                  />
+                  <p className="section-description">{bootcamp.description}</p>
+                  <Button
+                    variant={bootcamp.buttonType}
+                    buttonText={bootcamp.buttonText}
+                    handleClick={() => {
+                      window.location.href = bootcamp.buttonLink;
+                    }}
+                  />
+                </div>
+                <div className="card-img">
+                  <Image
+                    src={bootcamp.image}
+                    width={"439px"}
+                    height={"283px"}
+                    objectFit="contain"
+                    alt="bootcamp-img"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <VisitYoutube />
       <div className="mb-small" />
 
@@ -103,7 +137,7 @@ const BootcampPage = ({ indexPage }) => {
 
       <div className="mb-small" />
 
-      <FAQs data={FAQ_DATA} />
+      {/* <FAQs data={FAQ_DATA} /> */}
 
       <div className="mb-small" />
 
@@ -123,13 +157,13 @@ const BootcampPage = ({ indexPage }) => {
   );
 };
 
-export default BootcampPage;
-
 export async function getStaticProps() {
-  const indexPage = await strapiService.getHomePageData();
+  const indexPage = await strapiService.getBootCampPageData();
   return {
     props: {
       indexPage: indexPage.data.attributes,
     },
   };
 }
+
+export default BootcampPage;

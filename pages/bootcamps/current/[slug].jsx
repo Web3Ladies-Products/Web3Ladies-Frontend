@@ -16,13 +16,9 @@ import FAQs from "../../../components/FAQs";
 import Testimonials from "../../../components/Testimonials";
 import VisitYoutube from "../../../components/VisitYoutube";
 import FreehandCard from "../../../components/FreehandCard";
+import { strapiService } from "../../../services";
 
-const Bootcamp = () => {
-  const { query } = useRouter();
-  const { slug } = query;
-  const bootcamps = bootcampsData.current;
-  const bootcamp = bootcamps.find((b) => b.slug === slug);
-
+const Bootcamp = ({ bootcamp }) => {
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
   }
@@ -31,46 +27,89 @@ const Bootcamp = () => {
     <>
       <Navbar />
 
-      <HeroSection heroDetails={bootcamp.hero} />
+      <HeroSection bootcamp={bootcamp} />
 
-      <About aboutDetails={bootcamp.about} />
+      <About bootcamp={bootcamp} />
 
-      <GoalsDetails goalsDetails={bootcamp.goals} />
+      <GoalsDetails bootcamp={bootcamp} />
 
-      <Sponsors sponsorsDetails={bootcamp.sponsors} />
+      <Sponsors bootcamp={bootcamp} />
 
       <section className="analytics">
-        <Registration registrationDetails={bootcamp.registrationDetails} />
-        <Tracks tracksDetails={bootcamp.tracksDetails} />
+        <Registration bootcamp={bootcamp} />
+        <Tracks bootcamp={bootcamp} />
       </section>
 
-      <Highlights
-        title={"Highlights of the Cohort"}
-        HIGHLIGHTS_ITEMS={bootcamp.HIGHLIGHTS_ITEMS}
-      />
+      <Highlights title={"Highlights of the Cohort"} bootcamp={bootcamp} />
 
-      <Curriculum data={bootcamp.curriculum} />
-      <Mentors data={bootcamp.mentors} />
+      <Curriculum bootcamp={bootcamp} />
+      <Mentors bootcamp={bootcamp} />
 
-      <FAQs data={bootcamp.faqs} />
+      <FAQs bootcamp={bootcamp} />
 
       <Testimonials
-        // testimonial_title={bootcamp.testimonial_title}
-        // testimonial_description={bootcamp.testimonial_description}
-        // testimonial_items={bootcamp.testimonial_items}
+        testimonial_title={bootcamp.testimonial_title}
+        testimonial_description={bootcamp.testimonial_description}
+        testimonial_items={bootcamp.testimonial_items}
+        bootcamp={bootcamp}
       />
       <VisitYoutube />
-      <div className="mb-large"/>
+      <div className="mb-large" />
 
       <div className="p-20">
         <FreehandCard />
       </div>
-      <div className="mb-large"/>
-
+      <div className="mb-large" />
 
       <Footer />
     </>
   );
 };
+
+export async function getStaticPaths() {
+  const response = await strapiService.getCurrentBootCamp();
+  const paths = response.data.map((bootcamp) => {
+    return {
+      params: {
+        slug: bootcamp.attributes.slug,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const response = await strapiService.getCurrentBootCampBySlug(params.slug);
+    const data = response.data[0]?.attributes;
+
+    if (data) {
+      return {
+        props: {
+          bootcamp: {
+            ...data,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        bootcamp: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        bootcamp: null,
+        notFound: true,
+      },
+    };
+  }
+}
 
 export default Bootcamp;

@@ -41,6 +41,7 @@ const Panel = ({
       <div
         className={`panel ${hasFullBorder && "panel--has-border"}`}
         role="tabpanel"
+        style={{ paddingBottom: "10px" }}
         aria-expanded={isActive}
       >
         <button

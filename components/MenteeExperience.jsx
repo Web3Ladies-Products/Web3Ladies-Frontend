@@ -1,16 +1,17 @@
 import Image from "next/image";
 import React from "react";
 
-const MenteeExperience = ({ menteeDetails }) => {
+const MenteeExperience = ({ bootcamp }) => {
   return (
     <ul className="mentee-experience--list">
-      {menteeDetails.map((mentee, index) => {
+      {bootcamp?.past_bootcamps_mentees_details.map((mentee, index) => {
         return (
           <li className="mentee-experience--list-item" key={index}>
             <div className="mentee-image">
               <Image
                 className="mentee-image"
                 width={"272px"}
+                objectFit="contain"
                 height={"400px"}
                 src={mentee.image}
                 alt="mentee-image"

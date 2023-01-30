@@ -17,14 +17,10 @@ import Gallery from "../../../components/Gallery";
 import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
 import ProjectsDone from "../../../components/ProjectsDone";
 import VisitYoutube from "../../../components/VisitYoutube";
+import { strapiService } from "../../../services/strapi.service";
 import FreehandCard from "../../../components/FreehandCard";
 
-const Bootcamp = () => {
-  const { query } = useRouter();
-  const { slug } = query;
-  const bootcamps = bootcampsData.past;
-  const bootcamp = bootcamps.find((b) => b.slug === slug);
-
+const Bootcamp = ({ bootcamp }) => {
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
   }
@@ -33,46 +29,43 @@ const Bootcamp = () => {
     <>
       <Navbar />
 
-      <HeroSection heroDetails={bootcamp.hero} />
+      <HeroSection bootcamp={bootcamp} />
 
-      <About aboutDetails={bootcamp.about} />
+      <About bootcamp={bootcamp} />
 
-      <GoalsDetails goalsDetails={bootcamp.goals} />
+      <GoalsDetails bootcamp={bootcamp} />
 
-      <Sponsors sponsorsDetails={bootcamp.sponsors} />
+      <Sponsors bootcamp={bootcamp} />
 
-      <Registration registrationDetails={bootcamp.registrationDetails} />
+      <Registration bootcamp={bootcamp} />
 
       <section className="summary">
         <div className="container">
           <h2 className="sub-section-title center bold">
-            {bootcamp.summary.title}
+            {bootcamp.summary_title}
           </h2>
-          <p className="center">{bootcamp.summary.description}</p>
+          <p className="center">{bootcamp.summary_description}</p>
         </div>
       </section>
 
-      <Tracks tracksDetails={bootcamp.tracksDetails} />
+      <Tracks bootcamp={bootcamp} />
 
       <section className="mentee-experience">
         <div className="container">
-          <MenteeExperience menteeDetails={bootcamp.mentees} />
+          <MenteeExperience bootcamp={bootcamp} />
         </div>
       </section>
 
-      <TestimonialsCarousel testimonials={bootcamp.testimonials} />
+      <TestimonialsCarousel bootcamp={bootcamp} />
 
-      <ProjectsDone projectsDone={bootcamp.projectsDone} />
+      <ProjectsDone bootcamp={bootcamp} />
 
-      <Highlights
-        title={"Highlights of the Cohort"}
-        HIGHLIGHTS_ITEMS={bootcamp.HIGHLIGHTS_ITEMS}
-      />
+      <Highlights title={"Highlights of the Cohort"} bootcamp={bootcamp} />
 
-      <Gallery galleryItems={bootcamp.gallery} />
+      <Gallery bootcamp={bootcamp} />
 
       <VisitYoutube />
-      <div className="mb-large"/>
+      <div className="mb-large" />
       <div className="p-20">
         <FreehandCard />
       </div>
@@ -81,5 +74,51 @@ const Bootcamp = () => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  const response = await strapiService.getPastBootCamps();
+  const paths = response.data.map((bootcamp) => {
+    return {
+      params: {
+        slug: bootcamp.attributes.slug,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const response = await strapiService.getPastBootCampBySlug(params.slug);
+    const data = response.data[0]?.attributes;
+
+    if (data) {
+      return {
+        props: {
+          bootcamp: {
+            ...data,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        bootcamp: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        bootcamp: null,
+        notFound: true,
+      },
+    };
+  }
+}
 
 export default Bootcamp;

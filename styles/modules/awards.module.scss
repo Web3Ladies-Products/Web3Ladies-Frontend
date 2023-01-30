@@ -161,6 +161,10 @@
   .award__hero-img {
     overflow: hidden;
     border-radius: 7.90444px;
+
+    img{
+      width: 100%;
+    }
   }
 
   .award__hero-title {
@@ -327,6 +331,11 @@
   border: 2px solid black;
   padding: 10px;
   border-radius: 5px;
+  input[type="file"] {
+    position: absolute;
+    // top: -1000px;
+    display: none;
+  }
 }
 .hero_content {
   h2 {

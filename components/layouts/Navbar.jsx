@@ -102,6 +102,13 @@ const Navbar = () => {
       type: "link",
       isActive: router.pathname.includes("/blog"),
     },
+    {
+      id: 4,
+      name: "Certificate",
+      route: "/certificate",
+      type: "link",
+      isActive: router.pathname.includes("/certificate"),
+    },
   ]);
 
   const showDropdown = (index) => {
