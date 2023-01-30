@@ -15,12 +15,10 @@ const Cert = () => {
       <p>In order to receive your certificate, your name must be on the list. Please enter your name below:</p>
       <form>
         <input type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} />
-        <button type="submit">Submit</button>
+        <button type="submit">Download Certificate</button>
       </form>
     </div>
-    <div className="hero-section__image">
-    <Image src={mentorship} alt="certificate" />
-    </div>
+    
   </section>
   )
 }

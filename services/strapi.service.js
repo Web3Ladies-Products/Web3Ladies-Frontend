@@ -1,4 +1,4 @@
-import { async } from "rxjs";
+
 import { STRAPI_URL } from "../lib/constants";
 
 // Parses the JSON returned by a network request
@@ -39,6 +39,7 @@ const getCohortPageData = async () => {
       method: "GET",
       headers,
     })
+    console.log(cohortPage)
       .then(checkStatus)
       .then(parseJSON);
     return cohortPage;

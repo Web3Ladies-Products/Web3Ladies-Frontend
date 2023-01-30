@@ -9,7 +9,10 @@ const Certificate = () => {
         <>
         <Navbar />
       <Cert/>
-        <Footer />
+      <div className="adjust">
+      <Footer />
+      </div>
+       
         </>
     )
   }
