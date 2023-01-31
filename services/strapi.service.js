@@ -37,8 +37,8 @@ const getCohortPageData = async () => {
     const cohortPage = await fetch(`${STRAPI_URL}/api/cohort-page`, {
       method: "GET",
       headers,
-    });
-    console.log(cohortPage).then(checkStatus).then(parseJSON);
+    })
+  .then(checkStatus).then(parseJSON);
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -47,12 +47,11 @@ const getCohortPageData = async () => {
 
 const getTracks = async () => {
   try {
-    const trackPage = await fetch(`${STRAPI_URL}/api/tracks`, {
+    const trackPage = await fetch(`${STRAPI_URL}/api/track`, {
       method: "GET",
       headers,
     })
-      .then(checkStatus)
-      .then(parseJSON);
+      .then(checkStatus).then(parseJSON);
     return trackPage;
   } catch (error) {
     console.error(error);
@@ -62,7 +61,7 @@ const getTracks = async () => {
 const getTracksBySlug = async (slug) => {
   try {
     const trackPage = await fetch(
-      `${STRAPI_URL}/api/tracks?filters[slug][$eq]=${slug}`,
+      `${STRAPI_URL}/api/track?filters[slug][$eq]=${slug}`,
       {
         method: "GET",
         headers,
@@ -108,38 +107,7 @@ const getCurrentCohorts = async () => {
   }
 };
 
-const getWebdevelopmentBySlug = async (slug) => {
-  try {
-    const trackPage = await fetch(
-      `${STRAPI_URL}/api/web-development?filters[slug][$eq]=${slug}`,
-      {
-        method: "GET",
-        headers,
-      }
-    )
-      .then(checkStatus)
-      .then(parseJSON);
 
-    return trackPage;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getWebdevelopment = async () => {
-  try {
-    const tracks = await fetch(`${STRAPI_URL}/api/web-development`, {
-      method: "GET",
-      headers,
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-
-    return tracks;
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 const getPastCohortBySlug = async (slug) => {
   try {
@@ -688,8 +656,6 @@ export const strapiService = {
 
   getMentorshipSuccess,
   getMentorshipClosed,
-  getWebdevelopmentBySlug,
-  getWebdevelopment,
   getTracks,
   getTracksBySlug,
 };
