@@ -5,7 +5,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowRight from "./icons/ArrowRight";
 
-const Highlights = ({ bootcamp,
+const Highlights = ({ data,
   title,
   handleClick,
   viewMore,
@@ -30,7 +30,7 @@ const Highlights = ({ bootcamp,
         )}
         {children}
         <ul className="highlights--container">
-          {bootcamp?.highlight_items_details?.map((item, index) => (
+          {data?.highlight_items_details?.map((item, index) => (
             <li
               key={index}
               className="highlight--container-item"

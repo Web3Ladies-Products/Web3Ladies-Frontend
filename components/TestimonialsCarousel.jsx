@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-const TestimonialsCarousel = ({ bootcamp}) => {
+const TestimonialsCarousel = ({ data}) => {
   return (
     <section className="testimonials">
       <div className="container">
         <h2 className="sub-section-title bold">Testimonials</h2>
         <div className="carousel">
-          {bootcamp?.testimonials_details.map((testimonial) => (
+          {data?.testimonials_details.map((testimonial) => (
             <div
               className="carousel-item card card--has-border"
               key={testimonial.name}

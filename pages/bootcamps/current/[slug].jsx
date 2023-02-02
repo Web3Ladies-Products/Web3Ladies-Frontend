@@ -27,23 +27,23 @@ const Bootcamp = ({ bootcamp }) => {
     <>
       <Navbar />
 
-      <HeroSection bootcamp={bootcamp} />
+      <HeroSection data={bootcamp} />
 
-      <About bootcamp={bootcamp} />
+      <About data={bootcamp} />
 
-      <GoalsDetails bootcamp={bootcamp} />
+      <GoalsDetails data={bootcamp} />
 
-      <Sponsors bootcamp={bootcamp} />
+      <Sponsors data={bootcamp} />
 
       <section className="analytics">
-        <Registration bootcamp={bootcamp} />
-        <Tracks bootcamp={bootcamp} />
+        <Registration data={bootcamp} />
+        <Tracks data={bootcamp} />
       </section>
 
-      <Highlights title={"Highlights of the Cohort"} bootcamp={bootcamp} />
+      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
 
-      <Curriculum bootcamp={bootcamp} />
-      <Mentors bootcamp={bootcamp} />
+      <Curriculum data={bootcamp} />
+      <Mentors data={bootcamp} />
 
       <FAQs bootcamp={bootcamp} />
 
@@ -51,7 +51,7 @@ const Bootcamp = ({ bootcamp }) => {
         testimonial_title={bootcamp.testimonial_title}
         testimonial_description={bootcamp.testimonial_description}
         testimonial_items={bootcamp.testimonial_items}
-        bootcamp={bootcamp}
+        data={bootcamp}
       />
       <VisitYoutube />
       <div className="mb-large" />

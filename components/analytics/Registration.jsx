@@ -1,11 +1,11 @@
 import React from "react";
 
-const Registration = ({ bootcamp }) => {
+const Registration = ({ data }) => {
   return (
     <section className="registration-analytics">
       <div className="container">
         <ul className="card card--has-border registration-details">
-          {bootcamp?.registration_details.map((detail, index) => {
+          {data?.registration_details.map((detail, index) => {
             return (
               <li className="registration-details--list" key={index}>
                 <h5 className="primary-color">{detail.title}</h5>
