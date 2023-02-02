@@ -44,9 +44,7 @@ const Bootcamp = ({ bootcamp }) => {
 
       <Curriculum data={bootcamp} />
       <Mentors data={bootcamp} />
-
       <FAQs bootcamp={bootcamp} />
-
       <Testimonials
         testimonial_title={bootcamp.testimonial_title}
         testimonial_description={bootcamp.testimonial_description}
