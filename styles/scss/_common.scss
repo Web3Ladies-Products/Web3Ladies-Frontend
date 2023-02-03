@@ -370,9 +370,9 @@
 
 .testimonials {
   .container {
-    // @include desktop {
-    //   max-width: none;
-    // }
+    @include desktop {
+      max-width: none;
+    }
     .carousel {
       display: flex;
       overflow-x: scroll;
