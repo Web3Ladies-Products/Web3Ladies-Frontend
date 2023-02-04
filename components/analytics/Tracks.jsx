@@ -1,11 +1,11 @@
 import React from "react";
 
-const Tracks = ({ bootcamp }) => {
+const Tracks = ({ data }) => {
   return (
     <section className="tracks-analytics">
       <div className="container">
         <ul className="tracks-details">
-          {bootcamp?.tracks_details.map((detail, index) => {
+          {data?.tracks_details.map((detail, index) => {
             return (
               <li
                 className="card card--has-border tracks-details--list d-flex flex-column justify-content-between"

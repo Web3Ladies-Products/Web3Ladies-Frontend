@@ -2,13 +2,13 @@ import Image from "next/image";
 import React from "react";
 import Button from "../buttons/Button";
 
-const About = ({ bootcamp }) => {
+const About = ({ data }) => {
   return (
     <section className="about-bootcamp">
       <div className="container d-flex justify-content-center align-items-center">
         <div className="about-image">
           <Image
-            src={bootcamp.about_image}
+            src={data.about_image}
             className="bootcamp-image"
             width={"518px"}
             height={"518px"}
@@ -17,13 +17,13 @@ const About = ({ bootcamp }) => {
           />
         </div>
         <div className="about-content">
-          <h2 className="sub-section-title bold">{bootcamp.about_title}</h2>
-          <p className="section-description">{bootcamp.about_description}</p>
+          <h2 className="sub-section-title bold">{data.about_title}</h2>
+          <p className="section-description">{data.about_description}</p>
           <Button
-            variant={bootcamp.about_button_type}
-            buttonText={bootcamp.about_button_text}
+            variant={data.about_button_type}
+            buttonText={data.about_button_text}
             handleClick={() => {
-              window.location.href = bootcamp.about_button_link;
+              window.location.href = data.about_button_link;
             }}
           />
         </div>
