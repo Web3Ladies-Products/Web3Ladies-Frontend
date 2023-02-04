@@ -24,7 +24,7 @@ const UpcomingCohort = ({cohort}) => {
  
 
   if (!cohort) {
-    return <p>Cohort not found</p>;
+    return <Custom404Error/>;
   }
 
   const heroDetails = {

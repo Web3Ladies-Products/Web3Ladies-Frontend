@@ -47,11 +47,12 @@ const getCohortPageData = async () => {
 
 const getTracks = async () => {
   try {
-    const trackPage = await fetch(`${STRAPI_URL}/api/track`, {
+    const trackPage = await fetch(`${STRAPI_URL}/api/tracks`, {
       method: "GET",
       headers,
     })
       .then(checkStatus).then(parseJSON);
+      console.log("tracks",trackPage)
     return trackPage;
   } catch (error) {
     console.error(error);
@@ -61,7 +62,7 @@ const getTracks = async () => {
 const getTracksBySlug = async (slug) => {
   try {
     const trackPage = await fetch(
-      `${STRAPI_URL}/api/track?filters[slug][$eq]=${slug}`,
+      `${STRAPI_URL}/api/tracks?filters[slug][$eq]=${slug}`,
       {
         method: "GET",
         headers,
@@ -86,7 +87,7 @@ const getCurrentCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
+
     return cohortPage;
   } catch (error) {
     console.error(error);
