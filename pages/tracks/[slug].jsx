@@ -13,6 +13,7 @@ import FAQs from "../../components/FAQs";
 import FreehandCard from "../../components/FreehandCard";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+import Custom404Error from "../404";
 import { strapiService } from "../../services";
 const Tracks = ({track}) => {
   // console.log(track)

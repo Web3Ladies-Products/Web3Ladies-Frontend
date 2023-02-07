@@ -19,6 +19,7 @@ import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
+import Custom404Error from "../../../components/Custom404Error";
 const UpcomingCohort = ({cohort}) => {
   console.log(cohort)
  
