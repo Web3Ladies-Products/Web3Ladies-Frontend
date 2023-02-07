@@ -1,14 +1,14 @@
 import React from "react";
-import Cert from "../../components/certificate/Cert";
+import Certificate from "../../components/certificate/Certificate";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 
-const Certificate = () => {
+const Certificated = () => {
   
     return (
         <>
         <Navbar />
-      <Cert/>
+      <Certificate/>
       <div className="adjust">
       <Footer />
       </div>
@@ -17,4 +17,4 @@ const Certificate = () => {
     )
   }
   
-  export default Certificate
+  export default Certificated

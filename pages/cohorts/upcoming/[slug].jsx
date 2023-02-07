@@ -19,12 +19,13 @@ import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
+import Custom404Error from "../../404";
 const UpcomingCohort = ({cohort}) => {
   console.log(cohort)
  
 
   if (!cohort) {
-    return <p>Cohort not found</p>;
+    return <Custom404Error/>;
   }
 
   const heroDetails = {

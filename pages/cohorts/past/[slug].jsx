@@ -17,12 +17,13 @@ import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
+import Custom404Error from "../../404";
 const PastCohort = ({cohort}) => {
   
   console.log(cohort)
 
   if (!cohort) {
-    return <p>Cohort not found</p>;
+    return <Custom404Error/>;
   }
   const heroDetails = {
     hero_title: cohort?.hero_title,

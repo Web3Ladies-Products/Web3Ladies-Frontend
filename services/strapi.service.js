@@ -37,8 +37,8 @@ const getCohortPageData = async () => {
     const cohortPage = await fetch(`${STRAPI_URL}/api/cohort-page`, {
       method: "GET",
       headers,
-    });
-    console.log(cohortPage).then(checkStatus).then(parseJSON);
+    })
+  .then(checkStatus).then(parseJSON);
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -51,8 +51,8 @@ const getTracks = async () => {
       method: "GET",
       headers,
     })
-      .then(checkStatus)
-      .then(parseJSON);
+      .then(checkStatus).then(parseJSON);
+      console.log("tracks",trackPage)
     return trackPage;
   } catch (error) {
     console.error(error);
@@ -87,7 +87,7 @@ const getCurrentCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
+
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -108,38 +108,7 @@ const getCurrentCohorts = async () => {
   }
 };
 
-const getWebdevelopmentBySlug = async (slug) => {
-  try {
-    const trackPage = await fetch(
-      `${STRAPI_URL}/api/web-development?filters[slug][$eq]=${slug}`,
-      {
-        method: "GET",
-        headers,
-      }
-    )
-      .then(checkStatus)
-      .then(parseJSON);
 
-    return trackPage;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getWebdevelopment = async () => {
-  try {
-    const tracks = await fetch(`${STRAPI_URL}/api/web-development`, {
-      method: "GET",
-      headers,
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-
-    return tracks;
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 const getPastCohortBySlug = async (slug) => {
   try {
@@ -688,8 +657,6 @@ export const strapiService = {
 
   getMentorshipSuccess,
   getMentorshipClosed,
-  getWebdevelopmentBySlug,
-  getWebdevelopment,
   getTracks,
   getTracksBySlug,
 };
