@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
-import bootcampsData from "../../api/bootcamps.json";
 import Registration from "../../../components/analytics/Registration";
 import Tracks from "../../../components/analytics/Tracks";
 import GoalsDetails from "../../../components/bootcamps/Goals";

@@ -10,7 +10,6 @@ import Navbar from "../../components/layouts/Navbar";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
-import bootcampsData from "../api/bootcamps.json";
 import Testimonials from "../../components/Testimonials";
 import { strapiService } from "../../services";
 import { useRouter } from "next/router";

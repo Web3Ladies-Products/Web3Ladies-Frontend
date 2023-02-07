@@ -8,15 +8,12 @@ import ArrowLeft from "../../components/icons/ArrowLeft";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 import BaseInput from "../../components/UI/BaseInput";
-// import siteMetadata from "../../lib/data/siteMetadata";
-// import awardData from "../api/award.json";
 import FreehandCard from "../../components/FreehandCard";
 import { generateInputChangeHandler } from "../../helpers";
 import { alertService, strapiService } from "../../services";
 import BaseRadioInput from "../../components/UI/BaseRadioInput";
 import AppLoader from "../../components/UI/AppLoader";
 import markdownToHtml from "../../lib/markdownToHtml";
-// import { strapiService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
