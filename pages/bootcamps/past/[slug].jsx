@@ -18,10 +18,11 @@ import ProjectsDone from "../../../components/ProjectsDone";
 import VisitYoutube from "../../../components/VisitYoutube";
 import { strapiService } from "../../../services/strapi.service";
 import FreehandCard from "../../../components/FreehandCard";
+import CustomError from "../../_error";
 
 const Bootcamp = ({ bootcamp }) => {
   if (!bootcamp) {
-    return <div>Bootcamp not found</div>;
+    return <CustomError />;
   }
 
   return (
