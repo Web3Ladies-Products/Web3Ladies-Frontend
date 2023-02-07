@@ -5,11 +5,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowRight from "./icons/ArrowRight";
 
-<<<<<<< HEAD
 const Highlights = ({ highlight_items_details,
-=======
-const Highlights = ({ data,
->>>>>>> d36f0d772c8666aeb8d13da0c14a5feed49e062b
   title,
   handleClick,
   viewMore,
@@ -34,11 +30,7 @@ const Highlights = ({ data,
         )}
         {children}
         <ul className="highlights--container">
-<<<<<<< HEAD
           {highlight_items_details?.map((item, index) => (
-=======
-          {data?.highlight_items_details?.map((item, index) => (
->>>>>>> d36f0d772c8666aeb8d13da0c14a5feed49e062b
             <li
               key={index}
               className="highlight--container-item"
