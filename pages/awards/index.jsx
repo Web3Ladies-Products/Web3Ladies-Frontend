@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-
 import AwardCard from "../../components/awards/AwardCard";
 import Button from "../../components/buttons/Button";
 import HeadSeo from "../../components/HeadSeo";
@@ -11,12 +9,7 @@ import Image from "next/image";
 import { strapiService } from "../../services";
 
 import FreehandCard from "../../components/FreehandCard";
-import awardData from "../api/award.json";
-import VoteSuccess from "../../components/awards/VoteSuccess";
-
 const Award = ({ indexPage }) => {
-  const awardHomeData = awardData[1].home;
-
   return (
     <>
       <HeadSeo
@@ -124,7 +117,6 @@ const Award = ({ indexPage }) => {
 export async function getStaticProps() {
   const indexPage = await strapiService.getAwardData();
   return {
-    // indexPage
     props: {
       indexPage: indexPage.data.attributes,
     },

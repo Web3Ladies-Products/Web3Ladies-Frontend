@@ -1,5 +1,3 @@
-import mentorship from './mentorship.png'
+import mentorship from "./mentorship.png";
 
-export {
-    mentorship
-}
+export { mentorship };

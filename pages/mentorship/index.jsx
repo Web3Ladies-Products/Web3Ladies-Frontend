@@ -24,13 +24,6 @@ import { useRouter } from "next/router";
 import FreehandCard from "../../components/FreehandCard";
 
 const mentorship = ({ indexPage }) => {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    // router.push("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <Navbar />
@@ -187,11 +180,7 @@ const mentorship = ({ indexPage }) => {
               </div>
 
               <div>
-                <Button
-                  type="primary-inverse"
-                  buttonText={"Register Now"}
-                  handleClick={() => {}}
-                />
+                <Button type="primary-inverse" buttonText={"Register Now"} />
               </div>
 
               <Image

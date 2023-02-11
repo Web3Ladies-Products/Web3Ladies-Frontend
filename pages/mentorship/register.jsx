@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import Footer from "../../components/layouts/Footer";
+
 import Navbar from "../../components/layouts/Navbar";
 import RegisterForm from "../../components/mentorship/RegisterForm";
 import AppLoader from "../../components/UI/AppLoader";
@@ -12,7 +12,7 @@ const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
 };
-// Dxc academic
+
 const Register = () => {
   const [formData, setFormData] = useState({
     full_name: "",
@@ -45,7 +45,6 @@ const Register = () => {
     } else {
       formData.isactive = true;
     }
-    // formData["profile_image"] = selectedFile;
 
     setShowLoader(true);
 
@@ -54,10 +53,7 @@ const Register = () => {
         formData,
         selectedFile
       );
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ Mentorship Registration ~ response",
-        response
-      );
+
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
@@ -80,10 +76,8 @@ const Register = () => {
       });
       router.push("success");
     } catch (error) {
-      console.error(error, "here is the error");
       alertService.alertMethod("error", "Waiting list request failed");
     } finally {
-      console.log("finaly is called");
       setShowLoader(false);
     }
   };

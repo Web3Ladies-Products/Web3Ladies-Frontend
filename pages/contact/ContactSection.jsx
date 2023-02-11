@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import Button from "../../components/buttons/Button";
+
 import ContactForm from "../../components/contact/ContactForm";
 import AppLoader from "../../components/UI/AppLoader";
 import { generateInputChangeHandler } from "../../helpers";
@@ -25,16 +25,13 @@ const ContactSection = ({ contactDetails }) => {
 
   const submitContactForm = async (e) => {
     e.preventDefault();
-    console.log({ data: formData });
+   
     setShowLoader(true);
     try {
       const response = await strapiService.contactRequest({
         data: formData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
+      
       alertService.alertMethod("success", "contact form sent successfully");
       setFormData({
         full_name: "",
@@ -42,7 +39,7 @@ const ContactSection = ({ contactDetails }) => {
         message: "",
       });
     } catch (error) {
-      console.error(error);
+     
       alertService.alertMethod("error", "Waiting list request failed");
     } finally {
       setShowLoader(false);

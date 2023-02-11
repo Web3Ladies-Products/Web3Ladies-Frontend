@@ -31,10 +31,7 @@ const WaitingList = () => {
       const response = await strapiService.waitingList({
         data: formData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
+
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
@@ -44,7 +41,6 @@ const WaitingList = () => {
         email: "",
       });
     } catch (error) {
-      console.error(error);
       alertService.alertMethod("error", "Waiting list request failed");
     } finally {
       setShowLoader(false);

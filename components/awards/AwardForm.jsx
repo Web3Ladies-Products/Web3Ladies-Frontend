@@ -3,7 +3,7 @@ import Button from "../buttons/Button";
 import BaseInput from "../UI/BaseInput";
 import BaseSelect from "../UI/BaseSelect";
 
-const DonationForm = ({
+const AwardForm = ({
   showLoader,
   submitDonation,
   handleFormInputChange,
@@ -129,4 +129,4 @@ const DonationForm = ({
   );
 };
 
-export default DonationForm;
+export default AwardForm;

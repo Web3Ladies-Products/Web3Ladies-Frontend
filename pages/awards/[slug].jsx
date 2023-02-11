@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+
 import Link from "next/link";
 
 import Button from "../../components/buttons/Button";
@@ -8,15 +8,13 @@ import ArrowLeft from "../../components/icons/ArrowLeft";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
 import BaseInput from "../../components/UI/BaseInput";
-// import siteMetadata from "../../lib/data/siteMetadata";
-// import awardData from "../api/award.json";
+
 import FreehandCard from "../../components/FreehandCard";
 import { generateInputChangeHandler } from "../../helpers";
 import { alertService, strapiService } from "../../services";
 import BaseRadioInput from "../../components/UI/BaseRadioInput";
 import AppLoader from "../../components/UI/AppLoader";
 import markdownToHtml from "../../lib/markdownToHtml";
-// import { strapiService } from "../../services";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -42,17 +40,13 @@ const Slug = ({ nominee, notFound }) => {
   const submitVote = async (e) => {
     e.preventDefault();
 
-    console.log({ data: voteData });
     voteData["nominee_name"] = "Jenet";
     setShowLoader(true);
     try {
       const response = await strapiService.votingRequest({
         data: voteData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
+
       alertService.alertMethod("success", "vote successful");
       setVoteData({
         full_name: "",
@@ -61,7 +55,6 @@ const Slug = ({ nominee, notFound }) => {
       });
       push("/awards/success");
     } catch (error) {
-      console.error(error);
       alertService.alertMethod("error", "Voting not succesful");
     } finally {
       setShowLoader(false);

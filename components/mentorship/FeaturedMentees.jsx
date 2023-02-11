@@ -42,10 +42,10 @@ const FeaturedMentees = () => {
           <h1 className="section-title"> Featured Mentees</h1>
           <Button
             buttonText="View More"
-            type="outline"
-            handleClick={() => {}}
-            // variant="#fff"
-            border="border__btn"
+            // type="outline"
+            // handleClick={() => {}}
+            variant="outline"
+            // border="border__btn"
             // color={"primary"}
           />
         </div>
