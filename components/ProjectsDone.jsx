@@ -4,7 +4,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowCircle from "./icons/ArrowCircle";
 
-const ProjectsDone = ({  projects_done_details }) => {
+const ProjectsDone = ({  data }) => {
   const CATEGORY_COLOR = {
     "blockchain-development": "#7D0BFE",
     "web-development": "#FE471F",
@@ -25,9 +25,9 @@ const ProjectsDone = ({  projects_done_details }) => {
           />
         </div>
         <ul className="projects-done--container">
-          {projects_done_details.map((project) => (
+          {data.map((project) => (
             <li
-              key={project.title}
+              key={project.id}
               className="projects-done--item card card__black d-flex flex-column justify-content-between"
             >
               <div className="project-header d-flex align-items-center">

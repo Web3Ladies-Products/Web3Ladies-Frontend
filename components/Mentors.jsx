@@ -9,7 +9,7 @@ const Mentors = ({ track }) => {
 }</h2>
         <p className="description">{track?.onground_mentors_description}</p>
         <div className="mentors-container">
-          {track.onground_mentors_list.map((mentor, index) => {
+          {track?.onground_mentors_list?.map((mentor, index) => {
             return <MentorCard key={index} mentor={mentor} />;
           })}
         </div>

@@ -29,15 +29,15 @@ const Bootcamp = ({ bootcamp }) => {
     <>
       <Navbar />
 
-      <HeroSection bootcamp={bootcamp} />
+      <HeroSection data={bootcamp} />
 
-      <About bootcamp={bootcamp} />
+      <About data={bootcamp} />
 
-      <GoalsDetails bootcamp={bootcamp} />
+      <GoalsDetails data={bootcamp} />
 
-      <Sponsors bootcamp={bootcamp} />
+      <Sponsors data={bootcamp} />
 
-      <Registration bootcamp={bootcamp} />
+      <Registration data={bootcamp} />
 
       <section className="summary">
         <div className="container">
@@ -48,21 +48,21 @@ const Bootcamp = ({ bootcamp }) => {
         </div>
       </section>
 
-      <Tracks bootcamp={bootcamp} />
+      <Tracks data={bootcamp} />
 
       <section className="mentee-experience">
         <div className="container">
-          <MenteeExperience bootcamp={bootcamp} />
+          <MenteeExperience data={bootcamp} />
         </div>
       </section>
 
-      <TestimonialsCarousel bootcamp={bootcamp} />
+      <TestimonialsCarousel data={bootcamp.testimonials_details} />
 
-      <ProjectsDone bootcamp={bootcamp} />
+      <ProjectsDone data={bootcamp.projects_done_details} />
 
-      <Highlights title={"Highlights of the Cohort"} bootcamp={bootcamp} />
+      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
 
-      <Gallery bootcamp={bootcamp} />
+      <Gallery data={bootcamp.gallery_details} />
 
       <VisitYoutube />
       <div className="mb-large" />
@@ -92,7 +92,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const response = await strapiService.getPastBootCampBySlug(params.slug);
+    const response = await strapiService.getPastBootCampBySlug(
+      params.slug
+    );
     const data = response.data[0]?.attributes;
 
     if (data) {
@@ -104,6 +106,7 @@ export async function getStaticProps({ params }) {
         },
       };
     }
+    console.log(data)
     return {
       props: {
         bootcamp: null,

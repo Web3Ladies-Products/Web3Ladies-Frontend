@@ -555,7 +555,7 @@ const getCurrentBootCamp = async () => {
 
 const getPastBootCampBySlug = async (slug) => {
   try {
-    const bootCampPage = await fetch(
+    const pastBootCamp = await fetch(
       `${STRAPI_URL}/api/past-bootcamps?filters[slug][$eq]=${slug}`,
       {
         method: "GET",
@@ -564,7 +564,7 @@ const getPastBootCampBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    return bootCampPage;
+    return pastBootCamp;
   } catch (error) {
     console.error(error);
   }
@@ -572,7 +572,8 @@ const getPastBootCampBySlug = async (slug) => {
 
 const getPastBootCamps = async () => {
   try {
-    const pastbootCamp = await fetch(`${STRAPI_URL}/api/past-bootcamps`, {
+    const pastbootCamp = await fetch(
+      `${STRAPI_URL}/api/past-bootcamps`, {
       method: "GET",
       headers,
     })
@@ -595,7 +596,6 @@ const getUpcomingBootCampsBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return upcomingbootCamp;
   } catch (error) {
     console.error(error);
