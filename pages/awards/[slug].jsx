@@ -206,7 +206,6 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getNomineeBySlug(params.slug);
     const data = response?.data[0]?.attributes;
-    console.log(data);
     if (data) {
       const content = await markdownToHtml(data?.about || "");
       return {
@@ -225,7 +224,6 @@ export async function getStaticProps({ params }) {
       },
     };
   } catch (error) {
-    console.error(error);
     return {
       props: {
         nominee: null,
