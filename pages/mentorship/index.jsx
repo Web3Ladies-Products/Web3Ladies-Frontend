@@ -231,13 +231,13 @@ const mentorship = ({ indexPage }) => {
             />
           </div>
         </div>
-        <Bootcamps />
+        {/* <Bootcamps /> */}
       </section>
 
       <CohortSection isAccordion={true} />
 
       <WorkAssistance />
-      <Tracks />
+      {/* <Tracks /> */}
       <Mentors />
       <WhyLearn />
       <FeaturedMentees />
