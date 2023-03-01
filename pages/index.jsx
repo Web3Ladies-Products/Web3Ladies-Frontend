@@ -14,7 +14,7 @@ import Pledge from "../components/common/Pledge";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
-  console.log(indexPage)
+  console.log(indexPage);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -380,6 +380,7 @@ export default function Home({ indexPage }) {
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+
   return {
     props: {
       indexPage: indexPage.data.attributes,
