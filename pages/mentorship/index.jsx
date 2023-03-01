@@ -17,20 +17,11 @@ import Mentors from "../../components/mentorship/Mentors";
 import WhyLearn from "../../components/mentorship/WhyLearn";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
-import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
-import { useRouter } from "next/router";
 import FreehandCard from "../../components/FreehandCard";
 
-const mentorship = ({ indexPage }) => {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    // router.push("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const mentorship = ({ indexPage, bootcamps }) => {
   return (
     <>
       <Navbar />
@@ -231,13 +222,13 @@ const mentorship = ({ indexPage }) => {
             />
           </div>
         </div>
-        {/* <Bootcamps /> */}
+        <Bootcamps bootcamp={bootcamps} />
       </section>
 
       <CohortSection isAccordion={true} />
 
       <WorkAssistance />
-      {/* <Tracks /> */}
+      {/* <Tracks tracks={indexPage.tracks_data} /> */}
       <Mentors />
       <WhyLearn />
       <FeaturedMentees />
@@ -250,7 +241,6 @@ const mentorship = ({ indexPage }) => {
         testimonial_items={indexPage.testimonial_items}
       />
 
-      {/* <CTACard /> */}
       <div className="tracks__spacing">
         <FreehandCard />
       </div>
@@ -265,9 +255,11 @@ export default mentorship;
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+  const bootcamps = await strapiService.getBootCampPageData();
   return {
     props: {
       indexPage: indexPage.data.attributes,
+      bootcamps: bootcamps.data.attributes,
     },
   };
 }
