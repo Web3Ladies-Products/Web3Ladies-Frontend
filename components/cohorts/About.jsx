@@ -1,9 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import { mentorship } from "../../public/assets/images";
 import Tracks from "../analytics/Tracks";
 import Button from "../buttons/Button";
-
-const About = ({ tracks_details}) => {
+import { useRouter } from "next/router";
+const About = ({ tracks_details }) => {
+  const router = useRouter();
   return (
     <section className="about-cohort">
       <div className="container ">
@@ -31,14 +33,12 @@ const About = ({ tracks_details}) => {
               an eviction at the end of this phase upon final assessment to
               graduate into the learning phase.
             </p>
-            <Button  
-                buttonText="Register"
-                border="3px solid black"
-                 />
+            <Button
+              buttonText="Register"
+              border="3px solid black"
+              handleClick={() => router.push("/mentorship/register")}
+            />
           </div>
-         
-             
-           
         </div>
         <Tracks tracks_details={tracks_details} />
       </div>

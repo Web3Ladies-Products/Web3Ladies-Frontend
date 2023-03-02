@@ -5,8 +5,9 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowRight from "./icons/ArrowRight";
 
-const Highlights = ({ bootcamp,
+const Highlights = ({
   title,
+  HIGHLIGHTS_ITEMS,
   handleClick,
   viewMore,
   viewMoreLink,
@@ -30,7 +31,7 @@ const Highlights = ({ bootcamp,
         )}
         {children}
         <ul className="highlights--container">
-          {bootcamp?.highlight_items_details?.map((item, index) => (
+          {HIGHLIGHTS_ITEMS?.map((item, index) => (
             <li
               key={index}
               className="highlight--container-item"
@@ -57,11 +58,11 @@ const Highlights = ({ bootcamp,
                     variant={"clear"}
                     color={"primary"}
                     hasIcon
-                    buttonText={item.buttonText}
+                    buttonText={item.button_text}
                     handleClick={() =>
                       item.button_link.includes("http")
-                        ? window.open(item.buttonLink, "_blank")
-                        : router.push(item.buttonLink)
+                        ? window.open(item.button_link, "_blank")
+                        : router.push(item.button_link)
                     }
                   >
                     <span className="icon-right">

@@ -6,7 +6,7 @@ const Testimonials = ({
   testimonial_description,
   testimonial_items,
   hasMaxWidth,
-  bootcamp
+  data,
 }) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
     React.useState("past_mentees");
@@ -51,8 +51,11 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {bootcamp.testimonials_details.map((item, index) => (
-              <div className="testimonials--container__content__item" key={index}>
+            {data?.testimonials_details.map((item, index) => (
+              <div
+                className="testimonials--container__content__item"
+                key={index}
+              >
                 <div className="testimonials--container__content__item__heading">
                   <Image
                     src={item.image}
