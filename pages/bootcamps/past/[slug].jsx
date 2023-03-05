@@ -56,9 +56,11 @@ const Bootcamp = ({ bootcamp }) => {
         </div>
       </section>
 
-      <TestimonialsCarousel bootcamp={bootcamp} />
+      <TestimonialsCarousel
+        testimonials_details={bootcamp?.testimonials_details}
+      />
 
-      <ProjectsDone bootcamp={bootcamp} />
+      <ProjectsDone bootcamp={bootcamp?.projects_done_details} />
 
       <Highlights title={"Highlights of the Cohort"} bootcamp={bootcamp} />
 

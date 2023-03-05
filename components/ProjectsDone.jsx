@@ -4,7 +4,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowCircle from "./icons/ArrowCircle";
 
-const ProjectsDone = ({ bootcamp }) => {
+const ProjectsDone = ({ projects_done_details }) => {
   const CATEGORY_COLOR = {
     "blockchain-development": "#7D0BFE",
     "web-development": "#FE471F",
@@ -25,7 +25,7 @@ const ProjectsDone = ({ bootcamp }) => {
           />
         </div>
         <ul className="projects-done--container">
-          {bootcamp?.projects_done_details.map((project) => (
+          {projects_done_details.map((project) => (
             <li
               key={project.id}
               className="projects-done--item card card__black d-flex flex-column justify-content-between"
@@ -52,7 +52,8 @@ const ProjectsDone = ({ bootcamp }) => {
                   <Button
                     variant={"outline"}
                     buttonText={"View project"}
-                    handleClick={() => null}
+                    handleClick={() => window.open(project.ctaLink, "_blank")}
+                    disabled={!!project.ctaLink}
                     hasIcon
                   >
                     <span className="icon-right d-flex align-items-center">

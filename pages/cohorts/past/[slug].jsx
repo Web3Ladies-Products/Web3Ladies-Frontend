@@ -17,9 +17,8 @@ import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
-const PastCohort = ({cohort}) => {
-  
-  console.log(cohort)
+const PastCohort = ({ cohort }) => {
+  console.log(cohort);
 
   if (!cohort) {
     return <p>Cohort not found</p>;
@@ -31,7 +30,7 @@ const PastCohort = ({cohort}) => {
     hero_button_link: cohort?.hero_button_link,
     hero_button_type: cohort?.hero_button_type,
     hero_image: cohort?.hero_image,
-  }
+  };
 
   return (
     <>
@@ -50,7 +49,7 @@ const PastCohort = ({cohort}) => {
       </section>
 
       {/* TESTIMONIAL SECTION */}
-      <TestimonialsCarousel  testimonial_items={cohort. testimonial_items} />
+      <TestimonialsCarousel testimonials_details={cohort.testimonial_items} />
 
       {/* PROJECTS SECTION */}
       <ProjectsDone projects_done_details={cohort.projects_done_details} />
@@ -65,10 +64,10 @@ const PastCohort = ({cohort}) => {
       <Gallery gallery_details={cohort.gallery_details} />
 
       <VisitYoutube />
-      <FeaturedMentees/>
+      <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-      <FAQs data={FAQ_DATA} />
+        <FAQs data={FAQ_DATA} />
       </div>
       <div className="p-20">
         <FreehandCard />
@@ -81,7 +80,7 @@ const PastCohort = ({cohort}) => {
 export async function getStaticPaths() {
   const response = await strapiService.getPastCohorts();
   const paths = response.data.map((cohort) => {
-  //  console.log(data)
+    //  console.log(data)
     return {
       params: {
         slug: cohort.attributes.slug,
@@ -98,17 +97,13 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getPastCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-  //  console.log(data)
+    //  console.log(data)
 
     if (data) {
-     
-      
       return {
         props: {
           cohort: {
             ...data,
-           
-         
           },
         },
       };
@@ -129,7 +124,5 @@ export async function getStaticProps({ params }) {
     };
   }
 }
-
-
 
 export default PastCohort;
