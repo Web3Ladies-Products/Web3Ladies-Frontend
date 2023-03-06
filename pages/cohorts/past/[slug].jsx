@@ -46,7 +46,7 @@ const PastCohort = ({cohort}) => {
       {/* MENTEES SECTION */}
       <section className="mentee-experience">
         <div className="container">
-          <MenteeExperience mentees_details={cohort.mentees_details} />
+          <MenteeExperience past_bootcamps_mentees_details={cohort.past_bootcamps_mentees_details} />
         </div>
       </section>
 
