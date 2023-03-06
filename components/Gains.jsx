@@ -10,7 +10,7 @@ const Gains = ({ data }) => {
         <div className="content">
           <h1>{data?.gains_title}</h1>
           <ul className="gains-section--list">
-            {data.gains_list_details?.map((gain, index) => {
+            {data?.gains_list?.map((gain, index) => {
               return (
                 <li key={index} className="gains-section--list-item">
                   <NumberMarker number={index + 1} />

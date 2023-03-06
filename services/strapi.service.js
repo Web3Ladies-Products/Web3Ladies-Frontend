@@ -38,7 +38,8 @@ const getCohortPageData = async () => {
       method: "GET",
       headers,
     })
-  .then(checkStatus).then(parseJSON);
+      .then(checkStatus)
+      .then(parseJSON);
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -51,8 +52,9 @@ const getTracks = async () => {
       method: "GET",
       headers,
     })
-      .then(checkStatus).then(parseJSON);
-      console.log("tracks",trackPage)
+      .then(checkStatus)
+      .then(parseJSON);
+    console.log("tracks", trackPage);
     return trackPage;
   } catch (error) {
     console.error(error);
@@ -107,8 +109,6 @@ const getCurrentCohorts = async () => {
     console.error(error);
   }
 };
-
-
 
 const getPastCohortBySlug = async (slug) => {
   try {
@@ -444,6 +444,21 @@ const getMentorshipSuccess = async () => {
   }
 };
 
+const getAwardSuccess = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/award-success`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    // console.log(res);
+    return res;
+  } catch (error) {
+    console.log(error?.error?.message);
+  }
+};
+
 const getMentorshipClosed = async () => {
   try {
     const res = await fetch(`${STRAPI_URL}/api/mentorship-closed`, {
@@ -572,8 +587,7 @@ const getPastBootCampBySlug = async (slug) => {
 
 const getPastBootCamps = async () => {
   try {
-    const pastbootCamp = await fetch(
-      `${STRAPI_URL}/api/past-bootcamps`, {
+    const pastbootCamp = await fetch(`${STRAPI_URL}/api/past-bootcamps`, {
       method: "GET",
       headers,
     })
@@ -647,7 +661,7 @@ export const strapiService = {
   getPastCohortBySlug,
   getUpcomingCohortBySlug,
   getUpcomingCohorts,
-
+  getAwardSuccess,
   getCurrentBootCampBySlug,
   getCurrentBootCamp,
   getPastBootCampBySlug,

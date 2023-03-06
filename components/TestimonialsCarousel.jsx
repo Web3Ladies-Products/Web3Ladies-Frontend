@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const TestimonialsCarousel = ({ data}) => {
+const TestimonialsCarousel = ({ data }) => {
   return (
     <section className="testimonials">
       <div className="container">

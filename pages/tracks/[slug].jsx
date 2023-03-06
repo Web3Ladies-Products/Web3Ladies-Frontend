@@ -51,7 +51,6 @@ const Tracks = ({ track }) => {
 export async function getStaticPaths() {
   const response = await strapiService.getTracks();
   const paths = response.data.map((track) => {
-    //  console.log(response)
     return {
       params: {
         slug: track.attributes.slug,
@@ -68,7 +67,6 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getTracksBySlug(params.slug);
     const data = response.data[0]?.attributes;
-    //  console.log(data)
 
     if (data) {
       return {

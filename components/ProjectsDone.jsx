@@ -4,7 +4,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowCircle from "./icons/ArrowCircle";
 
-const ProjectsDone = ({  data }) => {
+const ProjectsDone = ({ data }) => {
   const CATEGORY_COLOR = {
     "blockchain-development": "#7D0BFE",
     "web-development": "#FE471F",
