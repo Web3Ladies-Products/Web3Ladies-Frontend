@@ -4,12 +4,11 @@ import Link from "next/link";
 import ArrowLeft from "../../components/icons/ArrowLeft";
 import Button from "../../components/buttons/Button";
 import Image from "next/image";
-import awardData from "../api/award.json";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
+import { strapiService } from "../../services";
 
-const Success = () => {
-  const awardVoteData = awardData.vote;
+const Success = ({ successPage }) => {
   return (
     <>
       <Navbar />
@@ -47,7 +46,7 @@ const Success = () => {
                   <h2
                     className=""
                     dangerouslySetInnerHTML={{
-                      __html: awardVoteData.title,
+                      __html: successPage.title,
                     }}
                   />
                 </div>
@@ -57,12 +56,12 @@ const Success = () => {
               <Button
                 className="vote__btn"
                 variant={"primary"}
-                buttonText={awardVoteData.btn1}
+                buttonText={successPage.button_one}
                 handleClick={() => {}}
               />
               <Button
                 variant={"outline"}
-                buttonText={awardVoteData.btn2}
+                buttonText={successPage.button_two}
                 handleClick={() => {}}
               />
             </div>
@@ -73,5 +72,15 @@ const Success = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const successPage = await strapiService.getAwardSuccess();
+  console.log(successPage);
+  return {
+    props: {
+      successPage: successPage.data.attributes,
+    },
+  };
+}
 
 export default Success;

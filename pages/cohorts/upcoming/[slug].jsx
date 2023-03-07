@@ -20,12 +20,9 @@ import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
 import Custom404Error from "../../404";
-const UpcomingCohort = ({cohort}) => {
-  console.log(cohort)
- 
-
+const UpcomingCohort = ({ cohort }) => {
   if (!cohort) {
-    return <Custom404Error/>;
+    return <Custom404Error />;
   }
 
   const heroDetails = {
@@ -35,29 +32,29 @@ const UpcomingCohort = ({cohort}) => {
     hero_button_link: cohort?.hero_button_link,
     hero_button_type: cohort?.hero_button_type,
     hero_image: cohort?.hero_image,
-  }
+  };
 
   return (
     <>
-       <Navbar />
+      <Navbar />
       {/* HERO SECTION */}
-       {/* HERO SECTION */}
+      {/* HERO SECTION */}
       <HeroSection heroDetails={heroDetails} badgeText={"ongoing"} />
 
       {/* ABOUT MENTEES SECTION */}
       <About tracks_details={cohort.tracks_details} />
-  
+
       {/* registeration details */}
-      <Registration registrationDetails={cohort.registrationDetails}/>
+      <Registration registrationDetails={cohort.registrationDetails} />
       {/* TRACKS SECTION */}
       <Tracks tracks={cohort.tracks} />
 
       {/* YOUTUBE SECTION */}
       <VisitYoutube />
-      <FeaturedMentees/>
+      <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-      <FAQs data={FAQ_DATA} />
+        <FAQs data={FAQ_DATA} />
       </div>
       <div className="p-20">
         <FreehandCard />
@@ -70,7 +67,7 @@ const UpcomingCohort = ({cohort}) => {
 export async function getStaticPaths() {
   const response = await strapiService.getUpcomingCohorts();
   const paths = response.data.map((cohort) => {
-  //  console.log(data)
+    //  console.log(data)
     return {
       params: {
         slug: cohort.attributes.slug,
@@ -87,17 +84,13 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getUpcomingCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-  //  console.log(data)
+    //  console.log(data)
 
     if (data) {
-     
-      
       return {
         props: {
           cohort: {
             ...data,
-           
-         
           },
         },
       };
@@ -118,6 +111,5 @@ export async function getStaticProps({ params }) {
     };
   }
 }
-
 
 export default UpcomingCohort;

@@ -437,7 +437,6 @@ const getMentorshipSuccess = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(res);
     return res;
   } catch (error) {
     console.log(error?.error?.message);
@@ -452,7 +451,6 @@ const getAwardSuccess = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(res);
     return res;
   } catch (error) {
     console.log(error?.error?.message);

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import Button from "../buttons/Button";
-
-const Tracks = ({tracks}) => {
-  
+import { useRouter } from "next/router";
+const Tracks = ({ tracks }) => {
+  const router = useRouter();
   return (
     <section className="tracks">
       <div className="round-vector">
@@ -58,7 +58,7 @@ const Tracks = ({tracks}) => {
               <Button
                 variant={"outline"}
                 buttonText={item.buttonText}
-                handleClick={() => null}
+                handleClick={() => router.push(item.url)}
               ></Button>
             </div>
           </li>
