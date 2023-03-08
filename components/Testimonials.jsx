@@ -6,7 +6,6 @@ const Testimonials = ({
   testimonial_description,
   testimonial_items,
   hasMaxWidth,
-  data,
 }) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
     React.useState("past_mentees");
@@ -51,7 +50,7 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {data?.testimonials_details.map((item, index) => (
+            {testimonial_items.map((item, index) => (
               <div
                 className="testimonials--container__content__item"
                 key={index}
