@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
 import Gallery from "../../../components/Gallery";
-
+import Custom404Error from "../../404";
 import HeroSection from "../../../components/cohorts/HeroSection";
 import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
 import ProjectsDone from "../../../components/ProjectsDone";
@@ -16,7 +16,6 @@ import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
-import Custom404Error from "../../404";
 const PastCohort = ({ cohort }) => {
   if (!cohort) {
     return <Custom404Error />;
@@ -47,7 +46,7 @@ const PastCohort = ({ cohort }) => {
       </section>
 
       {/* TESTIMONIAL SECTION */}
-      <TestimonialsCarousel data={cohort.testimonial_items} />
+      <TestimonialsCarousel testimonials_details={cohort.testimonial_items} />
 
       {/* PROJECTS SECTION */}
       <ProjectsDone data={cohort.projects_done_details} />

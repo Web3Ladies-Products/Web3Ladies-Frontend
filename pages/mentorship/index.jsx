@@ -11,7 +11,6 @@ import AboutSection from "../../components/AboutSection";
 import DualColorBanner from "../../components/DualColorBanner";
 import FAQs from "../../components/FAQs";
 import Supporters from "../../components/Supporters";
-import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
 import WorkAssistance from "../../components/mentorship/WorkAssistance";
 import Mentors from "../../components/mentorship/Mentors";
 import WhyLearn from "../../components/mentorship/WhyLearn";
@@ -194,11 +193,11 @@ const mentorship = ({ indexPage, bootcamps }) => {
       <JoinAsMentor />
       <FAQs data={FAQ_DATA} />
 
-      <Testimonials
+      {/* <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
-      />
+      /> */}
 
       <div className="tracks__spacing">
         <FreehandCard />

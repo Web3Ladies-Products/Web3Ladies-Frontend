@@ -1,15 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
-import Gallery from "../../../components/Gallery";
-import cohortsData from "../../api/cohorts.json";
 import HeroSection from "../../../components/cohorts/HeroSection";
-import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
-import ProjectsDone from "../../../components/ProjectsDone";
-import Highlights from "../../../components/Highlights";
 import Tracks from "../../../components/cohorts/Tracks";
-import MenteeExperience from "../../../components/MenteeExperience";
 import VisitYoutube from "../../../components/VisitYoutube";
 import About from "../../../components/cohorts/About";
 import { strapiService } from "../../../services";
@@ -37,7 +30,6 @@ const UpcomingCohort = ({ cohort }) => {
   return (
     <>
       <Navbar />
-      {/* HERO SECTION */}
       {/* HERO SECTION */}
       <HeroSection heroDetails={heroDetails} badgeText={"ongoing"} />
 

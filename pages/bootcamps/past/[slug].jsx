@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
-import Button from "../../../components/buttons/Button";
 import Navbar from "../../../components/layouts/Navbar";
 import Registration from "../../../components/analytics/Registration";
 import Tracks from "../../../components/analytics/Tracks";
@@ -52,13 +49,17 @@ const Bootcamp = ({ bootcamp }) => {
 
       <section className="mentee-experience">
         <div className="container">
-          <MenteeExperience data={bootcamp} />
+          <MenteeExperience
+            mentee_details={bootcamp?.past_bootcamp_mentee_details}
+          />
         </div>
       </section>
 
-      <TestimonialsCarousel data={bootcamp.testimonials_details} />
+      <TestimonialsCarousel
+        testimonials_details={bootcamp?.testimonials_details}
+      />
 
-      <ProjectsDone data={bootcamp.projects_done_details} />
+      <ProjectsDone data={bootcamp?.projects_done_details} />
 
       <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
 

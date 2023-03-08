@@ -86,8 +86,7 @@ const Bootcamp = ({ bootcamp }) => {
       <Testimonials
         testimonial_title={bootcamp.testimonial_title}
         testimonial_description={bootcamp.testimonial_description}
-        testimonial_items={bootcamp.testimonial_items}
-        data={bootcamp}
+        testimonial_items={bootcamp.testimonials_details}
       />
       <div className="mb-large" />
       <div className="p-20">

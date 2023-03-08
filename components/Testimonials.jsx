@@ -6,7 +6,6 @@ const Testimonials = ({
   testimonial_description,
   testimonial_items,
   hasMaxWidth,
-  data
 }) => {
   const [activeTestimonialTab, setActiveTestimonialTab] =
     React.useState("past_mentees");
@@ -14,7 +13,7 @@ const Testimonials = ({
   const TESTIMONIAL_TABS = [
     {
       key: "past_mentees",
-      title: "Past Mentees",
+      title: "Past sMentees",
     },
     {
       key: "shoutouts",
@@ -51,8 +50,11 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {data?.testimonials_details.map((item, index) => (
-              <div className="testimonials--container__content__item" key={index}>
+            {testimonial_items[activeTestimonialTab]?.map((item, index) => (
+              <div
+                className="testimonials--container__content__item"
+                key={index}
+              >
                 <div className="testimonials--container__content__item__heading">
                   <Image
                     src={item.image}
