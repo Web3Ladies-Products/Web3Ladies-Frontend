@@ -193,11 +193,11 @@ const mentorship = ({ indexPage, bootcamps }) => {
       <JoinAsMentor />
       <FAQs data={FAQ_DATA} />
 
-      <Testimonials
+      {/* <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
-      />
+      /> */}
 
       <div className="tracks__spacing">
         <FreehandCard />

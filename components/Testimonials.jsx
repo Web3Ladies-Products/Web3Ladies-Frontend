@@ -50,7 +50,7 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {testimonial_items.map((item, index) => (
+            {testimonial_items[activeTestimonialTab]?.map((item, index) => (
               <div
                 className="testimonials--container__content__item"
                 key={index}
