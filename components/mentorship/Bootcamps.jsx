@@ -1,21 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
-import bootcampsData from "../../pages/api/bootcamps.json";
+// import bootcampsData from "../../pages/api/bootcamps.json";
 
-const Bootcamps = () => {
-  const bootcampsHome = bootcampsData.home;
+const Bootcamps = ({ bootcamp }) => {
+  // const bootcamp = bootcampsData.home;
   return (
     <section className="bootcamps">
       <div className="container">
         <h2 className="sub-section-title bold">
-          {bootcampsHome.pastBootcamps.title}
+          {bootcamp.past_bootcamps_title}
         </h2>
         <ul>
-          {bootcampsHome.pastBootcamps.bootcamps.map((bootcamp) => (
+          {bootcamp.past_bootcamps_details.map((bootcamp, index) => (
             <li
               className="card card--has-border card-content--has-image"
-              key={bootcamp.id}
+              key={index}
             >
               <div className="card-text">
                 <h3

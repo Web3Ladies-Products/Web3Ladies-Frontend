@@ -144,6 +144,19 @@ button,
   }
 }
 
+@media screen and (max-width: 450px) {
+  .button-container {
+    flex-direction: column;
+    gap: 20px;
+    width: 190px;
+    margin: 0 auto;
+    // justify-content: center;
+    // align-items: center;
+    .primary {
+      width: 100%;
+    }
+  }
+}
 .link {
   color: var(--primary-color);
 }

@@ -363,6 +363,7 @@ export default function Home({ indexPage }) {
       {/* END OF YOUTUBE SECTION */}
 
       {/* TESTIMONIALS SECTION */}
+
       <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
@@ -379,6 +380,7 @@ export default function Home({ indexPage }) {
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+
   return {
     props: {
       indexPage: indexPage.data.attributes,

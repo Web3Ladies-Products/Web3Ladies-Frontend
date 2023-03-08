@@ -4,8 +4,8 @@
 main {
   h1 {
     font-weight: 700;
-    font-size: 60px;
-    line-height: 72px;
+    font-size: clamp(48px, 4.3vw, 60px);
+    // line-height: 72px;
     letter-spacing: -0.04em;
 
     span {
@@ -32,8 +32,8 @@ main {
   }
   h2 {
     font-weight: 700;
-    font-size: 48px;
-    line-height: 56px;
+    font-size: clamp(28px, 4.4vw, 48px);
+  
     padding: 10px 10px;
     letter-spacing: -0.04em;
   }
@@ -206,5 +206,72 @@ main {
   .mentor-img {
     height: 100%;
     margin-right: 45px;
+  }
+}
+
+.tracks__spacing {
+  margin: 250px 10px 150px;
+}
+
+.hero__image-banner {
+
+  position: relative;
+  background-color: #f8f2ff;
+  height: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hero__banner-subscript {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-height: 78px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    padding: 6px 10px 6px 26px;
+    display: flex;
+    gap: 20px;
+    .hero__banner-subscript_text1,
+    .hero__banner-subscript_text2 {
+      font-family: "Aeonik";
+      font-size: 14px;
+      // font-weight: 700;
+    }
+    .hero__banner-subscript_text2 {
+      font-weight: 700;
+    }
+  }
+
+  .hero__trackvector1 {
+    left: -12px;
+    padding: 0;
+    top: 30px;
+    position: absolute;
+  }
+
+  .hero__trackvector2 {
+    right: 0;
+    padding: 0;
+    top: 36px;
+    position: absolute;
+  }
+
+  .hero__trackvector3 {
+    z-index: 1;
+    right: 0;
+    padding: 0;
+    bottom: -10px;
+    position: absolute;
+  }
+  .hero__trackvector4 {
+    z-index: 1;
+    left: -44px;
+    padding: 0;
+    bottom: 50px;
+    position: absolute;
   }
 }

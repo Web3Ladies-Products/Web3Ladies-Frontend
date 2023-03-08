@@ -13,7 +13,7 @@ const Testimonials = ({
   const TESTIMONIAL_TABS = [
     {
       key: "past_mentees",
-      title: "Past Mentees",
+      title: "Past sMentees",
     },
     {
       key: "shoutouts",
@@ -50,8 +50,11 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {testimonial_items[activeTestimonialTab]?.map((item, idx) => (
-              <div className="testimonials--container__content__item" key={idx}>
+            {testimonial_items[activeTestimonialTab]?.map((item, index) => (
+              <div
+                className="testimonials--container__content__item"
+                key={index}
+              >
                 <div className="testimonials--container__content__item__heading">
                   <Image
                     src={item.image}

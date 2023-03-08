@@ -1,125 +1,231 @@
-import React from 'react'
-import Button from '../../components/buttons/Button'
-import HeadSeo from "../../components/HeadSeo"
-import ArrowLeft from '../../components/icons/ArrowLeft'
-import Footer from '../../components/layouts/Footer'
-import Navbar from "../../components/layouts/Navbar"
-import BaseInput from '../../components/UI/BaseInput'
-import siteMetadata from "../../lib/data/siteMetadata"
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
+import Button from "../../components/buttons/Button";
+import HeadSeo from "../../components/HeadSeo";
+import ArrowLeft from "../../components/icons/ArrowLeft";
+import Footer from "../../components/layouts/Footer";
+import Navbar from "../../components/layouts/Navbar";
+import BaseInput from "../../components/UI/BaseInput";
+import FreehandCard from "../../components/FreehandCard";
+import { generateInputChangeHandler } from "../../helpers";
+import { alertService, strapiService } from "../../services";
+import BaseRadioInput from "../../components/UI/BaseRadioInput";
+import AppLoader from "../../components/UI/AppLoader";
+import markdownToHtml from "../../lib/markdownToHtml";
 
-const Slug = ({
-  showLoader,
-  submitDonation,
-  handleFormInputChange,
-  formData,
-  errors,
-  ...props
-}) => {
+const DEFAULT_ERRORS = {
+  full_name: [],
+  email: [],
+  gender: [],
+};
+
+const Slug = ({ nominee, notFound }) => {
+  if (!nominee) {
+    return <p>Award not found</p>;
+  }
+
+  const [voteData, setVoteData] = useState({
+    full_name: "",
+    email: "",
+    gender: "",
+  });
+  const [showLoader, setShowLoader] = useState(false);
+  const [errors, setErrors] = useState(DEFAULT_ERRORS);
+
+  const handleFormInputChange = generateInputChangeHandler(setVoteData);
+
+  const submitVote = async (e) => {
+    e.preventDefault();
+
+    voteData["nominee_name"] = "Jenet";
+    setShowLoader(true);
+    try {
+      const response = await strapiService.votingRequest({
+        data: voteData,
+      });
+      alertService.alertMethod("success", "vote successful");
+      setVoteData({
+        full_name: "",
+        email: "",
+        gender: "",
+      });
+      push("/awards/success");
+    } catch (error) {
+      console.error(error);
+      alertService.alertMethod("error", "Voting not succesful");
+    } finally {
+      setShowLoader(false);
+    }
+  };
   return (
     <>
-      <HeadSeo
-        title={`${siteMetadata.companyName} | Award`}
-        description={siteMetadata.description}
-        canonicalUrl={`${siteMetadata.siteUrl}`}
-        ogImageUrl={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogTwitterImage={`${siteMetadata.siteUrl}/assets/images/logo.jpg`}
-        ogType={"website"}
-      ></HeadSeo>
+      {showLoader && <AppLoader />}
       <Navbar />
+
       <div className="award__nominee">
-        <div className='award__nav'>
-          <ArrowLeft  width={15} height={12} color={"black"} />{" "}
-          <span>Back</span>
+        <div className="award__nav">
+          <ArrowLeft width={15} height={12} color={"black"} />{" "}
+          <span>
+            <Link href="/awards">Back</Link>
+          </span>
         </div>
 
-        <div className='award__hero-title'>
-          <p>Top 10 Female Trailblazers in Web3 Nominee</p>
-        </div>
-
-        <div className='award__hero-img'>
-          <img src='/assets/images/Frame.png' />
-        </div>
-
-        <div className='award__hero-title'>
-          <p className='title'>Janet Simpson</p>
-          <div className='location'>
-            <p>Chief Technical Officer. Lazerpay</p>
-            <p>Country of origin: Nigeria </p>
-          </div>
-        </div>
-
-        <div className='award__about'>
-          <p className='title-about'>About Janet</p>
-          <p className='title-content'>You need to find out more about the company you want to work with to know if it’s a great fit for you. You can reach out to some of the staff who work there to find out about the work culture, how the staff feels about the company, and whether it aligns with your career goals.
-            <br />
-            <br />
-            You need to also research the problems they currently face and how you can proffer solutions to them. You can find the right answers to your inquiries by starting with the company’s website. You’ll discover the company’s vision, values, work culture, and the kind of product/service they offer.
-            <br />
-            <br />
-            Next, you need to check out all the company's social media pages to know how they want their consumers to see them. Follow these pages to get fresh updates about them before your interview. Also, find out who their competitors are and what makes the company stand out from them.
+        <div className="award__hero-title">
+          <p>
+            {nominee.name} {nominee.surname}
           </p>
         </div>
 
-        <div className='award__form'>
-          <p className='form-title'>Vote for Janet Simpson</p>
+        <div className="award__hero-img">
+          <img src={nominee.image} alt="img" />
+        </div>
 
-          <form onSubmit={submitDonation} {...props} className="form-input">
-          <div className="input full-100">
-            <BaseInput
-              placeholder="Johanna Doe"
-              label="Full name"
-              name="full_name"
-              // value={formData.full_name}
-              onChange={handleFormInputChange}
-              // errors={[errors.full_name]}
-              autoFocus={true}
-              required={true}
-            />
+        <div className="award__hero-title">
+          <p className="title">{nominee.name}</p>
+          <div className="location">
+            <p>{nominee.company}</p>
+            <p>{nominee.country}</p>
           </div>
-          <br />
-          <div className="input mt-10 full-100">
-            <BaseInput
-              placeholder="example@web3ladies.com"
-              label="Company’s email"
-              name="company_email"
-              // value={formData.company_email}
-              onChange={handleFormInputChange}
-              // errors={[errors.company_email]}
-              required={true}
-            />
-          </div>
+        </div>
 
-          {/* checkbox input */}
-          <div className='award__radio '>
-            <p>Gender</p>
-            <div className='radio__input'>
-              <input type="radio" name="gender" id="male" value="male" />
-              <label for="male">Male</label>
+        <div className="award__about">
+          <p className="title-about">About {nominee.name}</p>
+          <p
+            className="title-content"
+            dangerouslySetInnerHTML={{
+              __html: nominee.about,
+            }}
+          />
+        </div>
 
-              <input type="radio" name="gender" id="female" value="female" />
-              <label for="female">Female</label>
+        <div className="award__form">
+          <p className="form-title">Vote for {nominee.name}</p>
 
-              <input type="radio" name="gender" id="preferNotTOSay" value="preferNotToSay" />
-              <label for="preferNotTOSay">Prefer not to say</label> 
+          <form onSubmit={submitVote} className="form-input">
+            <div className="input full-100">
+              <BaseInput
+                placeholder="Johanna Doe"
+                label="Full name"
+                name="full_name"
+                value={voteData.full_name}
+                onChange={handleFormInputChange}
+                errors={[errors.full_name]}
+                autoFocus={true}
+                required={true}
+              />
             </div>
-          </div>
+            <br />
+            <div className="input mt-10 full-100">
+              <BaseInput
+                placeholder="example@web3ladies.com"
+                label="Email* "
+                name="email"
+                type="email"
+                value={voteData.email}
+                onChange={handleFormInputChange}
+                errors={[errors.email]}
+                required={true}
+              />
+            </div>
 
-          <div className='award__btn'>
-            <Button  
-              buttonText={showLoader ? "Voting..." : "Vote for Janet"}
-              variant={"primary"}
-              disabled={showLoader}
-              type="submit">
-            </Button>
-          </div>
-        </form>
+            <div className="d-flex register-joinedfield mb-20">
+              <div>
+                <p>Gender</p>
+                <div className="d-flex register-joinedfield_checkbox">
+                  <BaseRadioInput
+                    label="Male"
+                    name="gender"
+                    onChange={handleFormInputChange}
+                    value="male"
+                    checked={voteData.gender === "male"}
+                    type="radio"
+                  />
 
+                  <BaseRadioInput
+                    label="Female"
+                    onChange={handleFormInputChange}
+                    value="female"
+                    name="gender"
+                    checked={voteData.gender === "female"}
+                    type="radio"
+                  />
+                  <BaseRadioInput
+                    label="Prefer not to say"
+                    onChange={handleFormInputChange}
+                    value="none"
+                    name="gender"
+                    checked={voteData.gender === "none"}
+                    type="radio"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="award__btn">
+              <Button
+                buttonText={showLoader ? "Voting..." : "vote"}
+                variant={"primary"}
+                disabled={showLoader}
+                type="submit"
+              ></Button>
+            </div>
+          </form>
         </div>
       </div>
+
+      <FreehandCard />
+      <div className="mb-large" />
+
       <Footer />
     </>
-  )
+  );
+};
+
+export async function getStaticPaths() {
+  const response = await strapiService.getNominees();
+  const paths = response?.data.map((nominee) => {
+    return {
+      params: {
+        slug: nominee.attributes.slug,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
 }
 
-export default Slug
+export async function getStaticProps({ params }) {
+  try {
+    const response = await strapiService.getNomineeBySlug(params.slug);
+    const data = response?.data[0]?.attributes;
+    if (data) {
+      const content = await markdownToHtml(data?.about || "");
+      return {
+        props: {
+          nominee: {
+            ...data,
+            content,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        nominee: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        nominee: null,
+        notFound: true,
+      },
+    };
+  }
+}
+
+export default Slug;

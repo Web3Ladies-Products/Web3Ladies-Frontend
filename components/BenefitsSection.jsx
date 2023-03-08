@@ -2,14 +2,14 @@ import React from "react";
 import Button from "./buttons/Button";
 import Mark from "./icons/Mark";
 
-const Benefits = ({ data }) => {
+const Benefits = ({ track }) => {
   return (
     <section className="benefits">
       <div className="container">
-        <h2>{data.title}</h2>
-        <h3>{data.benefitsListHeader}:</h3>
+        <h2>{track?.benefits_title}</h2>
+        <h3>{track?.benefits_list_header_title}:</h3>
         <ul className="benefits-list">
-          {data.benefitsList?.map((benefit, index) => {
+          {track?.benefits_list?.map((benefit, index) => {
             return (
               <li key={index} className="benefit">
                 <Mark />
@@ -19,8 +19,8 @@ const Benefits = ({ data }) => {
           })}
         </ul>
         <Button
-          variant={data.buttonType}
-          buttonText={data.buttonText}
+          variant={track?.benefits_button_type}
+          buttonText={track?.benefits_button_text}
           handleClick={() => null}
         />
       </div>

@@ -11,6 +11,8 @@
     bottom: 70px;
   }
 
+
+  
   .crescent-vector {
     position: absolute;
     right: 70px;
@@ -204,37 +206,58 @@
     font-size: 48px;
     line-height: 56px;
     letter-spacing: -0.04em;
+   margin-left: 70px;
+    @include mobile {
+      margin-left: 1px;
+      
+    }
   }
 
   .summary-content {
     display: flex;
     justify-content: space-between;
+    gap: 100px;
+    width: 90%;
+    margin: 0 auto;
     @include mobile {
       flex-direction: column;
+      
     }
 
     &-text {
-      flex: 70;
-      margin-right: 50px;
+       
+      flex:50;
 
       p {
-        margin-top: 25px;
+        
         font-weight: 400;
         font-size: 18px;
         line-height: 150%;
+        @include mobile {
+         
+          flex: 50;
+        }
       }
+
     }
+    
+   
+
   }
 
+  
+
   .metrics {
-    flex: 30;
+    width: 40%;
     background-color: var(--background-color);
     border-radius: 8px;
     height: fit-content;
-    padding: 20px 30px 30px 20px;
+    padding: 30px 20px 20px 30px;
+    
 
     @include mobile {
       margin-top: 20px;
+      width: 100%;
     }
 
     &-heading {
@@ -288,6 +311,70 @@
     }
   }
 }
+
+.faq{
+  margin-top: 50px;
+}
+
+.thick-line{
+ 
+  background-color:#F1F1F1;
+  
+  margin-top: 30px;
+  width: 70%;
+ height: 13px;
+}
+
+.contain{
+  display: flex;
+  @include mobile {
+    flex-direction: column;
+  }
+  
+}
+
+.circle{
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background-color: #F1F1F1;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.line{
+  width: 80%;
+  height: 7px;
+  background-color: #F1F1F1;
+  margin-top: -15px;
+}
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.button{
+  background-color: red;
+ width: 30%;
+  color: white;
+ padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.containner{ 
+  display: flex;
+  justify-content: space-between;
+  @include mobile {
+    flex-direction: column;
+  }
+
+  
+}
+
 
 // .cohort-content {
 //   width: 95%;

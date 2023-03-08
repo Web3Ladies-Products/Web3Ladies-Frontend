@@ -143,12 +143,12 @@ const Sponsorship = ({
         </Highlights>
       )}
       <FAQs data={sponsorshipData.faqs} />
-      <Testimonials
+      {/* <Testimonials
         testimonial_title={indexPage.testimonials_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
         hasMaxWidth={true}
-      />
+      /> */}
       <Footer />
     </>
   );

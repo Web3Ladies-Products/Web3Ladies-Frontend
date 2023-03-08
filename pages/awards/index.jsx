@@ -1,12 +1,20 @@
-import AwardCard from "../../components/awards/AwardCard"
-import Button from "../../components/buttons/Button"
-import HeadSeo from "../../components/HeadSeo"
-import Navbar from "../../components/layouts/Navbar"
-import siteMetadata from "../../lib/data/siteMetadata"
+import { useRouter } from "next/router";
+
+import AwardCard from "../../components/awards/AwardCard";
+import Button from "../../components/buttons/Button";
+import HeadSeo from "../../components/HeadSeo";
+import Navbar from "../../components/layouts/Navbar";
+import siteMetadata from "../../lib/data/siteMetadata";
 import Footer from "../../components/layouts/Footer";
-import Link from "next/link"
-import Image from "next/image"
-const Award = () => {
+import Link from "next/link";
+import Image from "next/image";
+import { strapiService } from "../../services";
+
+import FreehandCard from "../../components/FreehandCard";
+import VoteSuccess from "../../components/awards/VoteSuccess";
+
+const Award = ({ indexPage }) => {
+
   return (
     <>
       <HeadSeo
@@ -21,94 +29,103 @@ const Award = () => {
       <Navbar />
       <main className="">
         <div className="container">
-        <div className="award__header">
+          <div className="award__header">
             <div className="award__header-vector1">
-
-        <Image
-            width="151px"
-            height="146px"
-            
-
-            src='/assets/images/awardvector1.png' 
-            />
+              <Image
+                width="100%"
+                height="100%"
+                objectFit="contain"
+                src="/assets/images/awardvector1.png"
+              />
             </div>
             <div className="award__header-vector2">
-                <Image
-                    width="151px"
-                    height="146px"
-                    src='/assets/images/awardvector2.png' 
-                    />
-                </div>
-                <div className="award__header-vector3">
-                <Image
-                    width="151px"
-                    height="146px"
-                    src='/assets/images/awardvector3.png' 
-                    />
-                </div>
-                <div className="award__header-vector4">
-                <Image
-                    width="151px"
-                    height="146px"
-                    src='/assets/images/awardvector4.png' 
-                    />
-                </div>
-        <div className="contain d-flex flex-column justify-center align-center center">
-            
+              <Image
+                width="100%"
+                height="100%"
+                objectFit="contain"
+                src="/assets/images/awardvector2.png"
+              />
+            </div>
+            <div className="award__header-vector3">
+              <Image
+                width="100%"
+                height="100%"
+                objectFit="contain"
+                src="/assets/images/awardvector3.png"
+              />
+            </div>
+            <div className="award__header-vector4">
+              <Image
+                width="100%"
+                height="100%"
+                objectFit="contain"
+                src="/assets/images/awardvector4.png"
+              />
+            </div>
+            <div className="contain d-flex flex-column justify-center align-center center">
               <h1
-                className="">Top 10 Female Trailblazers in <span>Web3</span></h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                className=""
+                dangerouslySetInnerHTML={{
+                  __html: indexPage.title,
+                }}
+              />
+              <p>{indexPage.hero_subtitle}</p>
 
               <div className=" d-flex button__section">
                 <Button
-                className="award__btn"
+                  className="award__btn"
                   variant={"primary"}
-                  buttonText="Vote now"
+                  buttonText={indexPage.hero_btn1}
                   handleClick={() => {}}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText="See nominee"
+                  buttonText={indexPage.hero_btn2}
                   handleClick={() => {}}
                 />
               </div>
             </div>
-
-
-        </div>
-        <div className="award__paragraph">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin pretium adipiscing sed est ipsum in consequat. Eu in cursus imperdiet vestibulum. Proin tristique velit faucibus at aliquet amet diam. Lobortis purus tortor justo, accumsan, lorem amet, odio facilisi. Odio ut adipiscing volutpat magnis in congue cursus. Lectus ultricies sollicitudin eu proin netus amet. Odio id sed viverra in. Porttitor magna sit amet, purus lorem. Vitae quam scelerisque vitae at amet, lobortis pellentesque.
-</p>
-        </div>
-        <div className="award__nominees">
-            <h3>Nominees</h3>
+          </div>
+          <div className="award__paragraph">
+            <p>{indexPage.hero_content}</p>
+          </div>
+          <div className="award__nominees">
+            <h3>{indexPage.subtitle}</h3>
             <div className="d-flex award__cards-container">
-                <Link href={`/awards/myname`} >
-                <a>
-
-                <AwardCard name="Janet Simpson" imageUrl="/assets/images/awardframe.png" username="Lazerpay" subtext="CTO" />
-
-                </a>
-
-                
-
-                </Link>
-               
-               
-
+              {indexPage?.nominees?.map((nominee, index) => {
+                return (
+                  <Link href={`/awards/${nominee.key}`}>
+                    <a className="nominee__flex">
+                      <div key={nominee.key}>
+                        <AwardCard
+                          name={nominee.name}
+                          imageUrl={nominee.img}
+                          username={nominee.userName}
+                          jobTitle={nominee.jobTitle}
+                        />
+                      </div>
+                    </a>
+                  </Link>
+                );
+              })}
             </div>
+          </div>
+
+          <FreehandCard />
         </div>
-
-       <div className="award__frame-color">
-
-       </div>
-
-        </div>
-       
       </main>
       <Footer />
     </>
-  )
+  );
+};
+
+export async function getStaticProps() {
+  const indexPage = await strapiService.getAwardData();
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
 }
 
-export default Award
+export default Award;

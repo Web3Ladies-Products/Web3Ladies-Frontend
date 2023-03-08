@@ -40,7 +40,14 @@ const FeaturedMentees = () => {
       <div className="container">
         <div className="featured-mentees-header">
           <h1 className="section-title"> Featured Mentees</h1>
-          <Button buttonText="View More" type="outline" />
+          <Button
+            buttonText="View More"
+            type="outline"
+            handleClick={() => {}}
+            // variant="#fff"
+            border="border__btn"
+            // color={"primary"}
+          />
         </div>
 
         <div className="mentee-card-wrapper">
@@ -48,9 +55,9 @@ const FeaturedMentees = () => {
             <div key={id} className="featured-mentee-card">
               <Image
                 className="arrow-img"
-                width="252px"
+                width="100%"
                 height="274px"
-                layout="fixed"
+                // layout="fixed"
                 objectFit="cover"
                 src="/assets/images/lone-woman.png"
                 alt="A mentee"
