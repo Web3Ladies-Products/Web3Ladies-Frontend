@@ -3,7 +3,6 @@ import Image from "next/image";
 import Button from "../buttons/Button";
 
 const Hero = ({ track, handleViewCurriculum }) => {
-// console.log(heroDetails)
   return (
     <main>
       <div className="container cta">

@@ -14,7 +14,6 @@ import Pledge from "../components/common/Pledge";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
-  console.log(indexPage);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);

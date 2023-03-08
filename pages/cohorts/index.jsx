@@ -12,8 +12,7 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../components/FreehandCard";
 import { strapiService } from "../../services";
 
-
-const Cohorts = ({indexPage}) => {
+const Cohorts = ({ indexPage }) => {
   const heroDetails = indexPage;
   return (
     <>
@@ -21,10 +20,10 @@ const Cohorts = ({indexPage}) => {
       <HeroSection heroDetails={heroDetails} />
       <CohortSection />
       <VisitYoutube />
-      <FeaturedMentees/>
+      <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-      <FAQs data={FAQ_DATA} />
+        <FAQs data={FAQ_DATA} />
       </div>
       <div className="p-20">
         <FreehandCard />
@@ -36,13 +35,11 @@ const Cohorts = ({indexPage}) => {
 
 export async function getStaticProps() {
   const indexPage = await strapiService.getCohortPageData();
-  // console.log("testing",indexPage)
   return {
     props: {
       indexPage: indexPage.data.attributes,
     },
   };
 }
-
 
 export default Cohorts;

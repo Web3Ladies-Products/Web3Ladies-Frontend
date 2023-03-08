@@ -92,9 +92,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const response = await strapiService.getPastBootCampBySlug(
-      params.slug
-    );
+    const response = await strapiService.getPastBootCampBySlug(params.slug);
     const data = response.data[0]?.attributes;
 
     if (data) {
@@ -106,7 +104,6 @@ export async function getStaticProps({ params }) {
         },
       };
     }
-    console.log(data)
     return {
       props: {
         bootcamp: null,

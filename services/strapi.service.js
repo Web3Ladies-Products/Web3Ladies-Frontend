@@ -54,7 +54,6 @@ const getTracks = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    console.log("tracks", trackPage);
     return trackPage;
   } catch (error) {
     console.error(error);
@@ -121,7 +120,6 @@ const getPastCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -153,7 +151,6 @@ const getUpcomingCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -424,7 +421,6 @@ const mentorshipRegisterRequest = async (formData, file) => {
       .then(parseJSON);
     return reg;
   } catch (error) {
-    console.log(error.error);
     throw new Error(error?.error?.message);
   }
 };
@@ -439,7 +435,7 @@ const getMentorshipSuccess = async () => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
   }
 };
 
@@ -453,7 +449,7 @@ const getAwardSuccess = async () => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
   }
 };
 
@@ -467,7 +463,7 @@ const getMentorshipClosed = async () => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
   }
 };
 
@@ -495,7 +491,6 @@ const getNominees = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(nominees)
     return nominees;
   } catch (error) {
     console.error(error);

@@ -39,17 +39,12 @@ const Slug = ({ nominee, notFound }) => {
   const submitVote = async (e) => {
     e.preventDefault();
 
-    console.log({ data: voteData });
     voteData["nominee_name"] = "Jenet";
     setShowLoader(true);
     try {
       const response = await strapiService.votingRequest({
         data: voteData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
       alertService.alertMethod("success", "vote successful");
       setVoteData({
         full_name: "",

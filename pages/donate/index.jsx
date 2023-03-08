@@ -33,7 +33,6 @@ const Donate = () => {
 
   const submitDonation = async (e) => {
     e.preventDefault();
-    console.log({ data: formData });
     setShowLoader(true);
     try {
       const response = await strapiService.sendDonationRequest({

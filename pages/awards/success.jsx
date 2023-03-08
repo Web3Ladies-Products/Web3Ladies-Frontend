@@ -75,7 +75,6 @@ const Success = ({ successPage }) => {
 
 export async function getStaticProps() {
   const successPage = await strapiService.getAwardSuccess();
-  console.log(successPage);
   return {
     props: {
       successPage: successPage.data.attributes,

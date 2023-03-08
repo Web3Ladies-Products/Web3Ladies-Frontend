@@ -25,16 +25,11 @@ const WaitingList = () => {
 
   const submitWaitingList = async (e) => {
     e.preventDefault();
-    console.log({ data: formData });
     setShowLoader(true);
     try {
       const response = await strapiService.waitingList({
         data: formData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"

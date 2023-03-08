@@ -67,7 +67,6 @@ const UpcomingCohort = ({ cohort }) => {
 export async function getStaticPaths() {
   const response = await strapiService.getUpcomingCohorts();
   const paths = response.data.map((cohort) => {
-    //  console.log(data)
     return {
       params: {
         slug: cohort.attributes.slug,
@@ -84,7 +83,6 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getUpcomingCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-    //  console.log(data)
 
     if (data) {
       return {
