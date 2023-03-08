@@ -40,10 +40,6 @@ export default PledgeBadge;
 
 export async function getServersideProps(ctx) {
   const { data: imageUrl } = ctx.query;
-  console.log(
-    "🚀 ~ file: [slug].jsx ~ line 12 ~ getServersideProps ~ imageUrl",
-    imageUrl
-  );
   return {
     props: {
       imageUrl,

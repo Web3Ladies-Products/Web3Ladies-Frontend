@@ -13,7 +13,8 @@ const VisitYoutube = () => {
           <Button
             variant={"primary"}
             buttonText={"Visit"}
-            handleClick={() => null}
+            handleClick={() => window.open("https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg", "_blank")
+          }
           />
         </div>
         <div className="youtube">
@@ -37,9 +38,10 @@ const VisitYoutube = () => {
             </div>
             </div>
             <Button
+            variant={"primary"}
             className="button"
             buttonText={"SUBSCRIBE"}
-            handleClick={() => null}
+            handleClick={() => window.open("https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg", "_blank")}
           />
           </div>
         </div>

@@ -10,7 +10,7 @@ const TestimonialsCarousel = ({ testimonials_details }) => {
           {testimonials_details.map((testimonial) => (
             <div
               className="carousel-item card card--has-border"
-              key={testimonial.name}
+              key={testimonial.id}
             >
               <div className="testimonial--header">
                 <div className="testimonial--header-image">

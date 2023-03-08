@@ -13,13 +13,11 @@ import FAQs from "../../components/FAQs";
 import FreehandCard from "../../components/FreehandCard";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+import Custom404Error from "../404";
 import { strapiService } from "../../services";
-const Tracks = ({track}) => {
-  console.log(track)
-
-  
+const Tracks = ({ track }) => {
   if (!track) {
-    return <p>Cohort not found</p>;
+    return <Custom404Error />;
   }
   const scrollToViewCurriculum = () => {
     const element = document.getElementById("curriculum");
@@ -50,11 +48,9 @@ const Tracks = ({track}) => {
   );
 };
 
-
 export async function getStaticPaths() {
   const response = await strapiService.getTracks();
   const paths = response.data.map((track) => {
-  //  console.log(data)
     return {
       params: {
         slug: track.attributes.slug,
@@ -71,17 +67,12 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getTracksBySlug(params.slug);
     const data = response.data[0]?.attributes;
-  //  console.log(data)
 
     if (data) {
-     
-      
       return {
         props: {
           track: {
             ...data,
-           
-         
           },
         },
       };
@@ -103,7 +94,4 @@ export async function getStaticProps({ params }) {
   }
 }
 
-
-export default  Tracks;
-
-
+export default Tracks;

@@ -1,4 +1,3 @@
-import { async } from "rxjs";
 import { STRAPI_URL } from "../lib/constants";
 
 // Parses the JSON returned by a network request
@@ -89,7 +88,7 @@ const getCurrentCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
+
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -110,39 +109,6 @@ const getCurrentCohorts = async () => {
   }
 };
 
-const getWebdevelopmentBySlug = async (slug) => {
-  try {
-    const trackPage = await fetch(
-      `${STRAPI_URL}/api/web-development?filters[slug][$eq]=${slug}`,
-      {
-        method: "GET",
-        headers,
-      }
-    )
-      .then(checkStatus)
-      .then(parseJSON);
-
-    return trackPage;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getWebdevelopment = async () => {
-  try {
-    const tracks = await fetch(`${STRAPI_URL}/api/web-development`, {
-      method: "GET",
-      headers,
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-
-    return tracks;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const getPastCohortBySlug = async (slug) => {
   try {
     const cohortPage = await fetch(
@@ -154,7 +120,6 @@ const getPastCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -186,7 +151,6 @@ const getUpcomingCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -457,7 +421,6 @@ const mentorshipRegisterRequest = async (formData, file) => {
       .then(parseJSON);
     return reg;
   } catch (error) {
-    console.log(error.error);
     throw new Error(error?.error?.message);
   }
 };
@@ -470,10 +433,23 @@ const getMentorshipSuccess = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(res);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
+  }
+};
+
+const getAwardSuccess = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/award-success`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -487,7 +463,7 @@ const getMentorshipClosed = async () => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
   }
 };
 
@@ -515,7 +491,6 @@ const getNominees = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(nominees)
     return nominees;
   } catch (error) {
     console.error(error);
@@ -588,7 +563,7 @@ const getCurrentBootCamp = async () => {
 
 const getPastBootCampBySlug = async (slug) => {
   try {
-    const bootCampPage = await fetch(
+    const pastBootCamp = await fetch(
       `${STRAPI_URL}/api/past-bootcamps?filters[slug][$eq]=${slug}`,
       {
         method: "GET",
@@ -597,7 +572,7 @@ const getPastBootCampBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    return bootCampPage;
+    return pastBootCamp;
   } catch (error) {
     console.error(error);
   }
@@ -628,7 +603,6 @@ const getUpcomingBootCampsBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return upcomingbootCamp;
   } catch (error) {
     console.error(error);
@@ -680,7 +654,7 @@ export const strapiService = {
   getPastCohortBySlug,
   getUpcomingCohortBySlug,
   getUpcomingCohorts,
-
+  getAwardSuccess,
   getCurrentBootCampBySlug,
   getCurrentBootCamp,
   getPastBootCampBySlug,
@@ -690,8 +664,6 @@ export const strapiService = {
 
   getMentorshipSuccess,
   getMentorshipClosed,
-  getWebdevelopmentBySlug,
-  getWebdevelopment,
   getTracks,
   getTracksBySlug,
 };

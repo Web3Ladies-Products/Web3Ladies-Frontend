@@ -14,10 +14,10 @@ import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
-const CurrentCohort = ({cohort}) => {
-
+import Custom404Error from "../../404";
+const CurrentCohort = ({ cohort }) => {
   if (!cohort) {
-    return <p>Cohort not found</p>;
+    return <Custom404Error />;
   }
 
   const heroDetails = {
@@ -75,7 +75,6 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getCurrentCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-    console.log(data);
 
     if (data) {
       return {

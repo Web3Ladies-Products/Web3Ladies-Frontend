@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
-import bootcampsData from "../../api/bootcamps.json";
 import Registration from "../../../components/analytics/Registration";
 import Tracks from "../../../components/analytics/Tracks";
 import GoalsDetails from "../../../components/bootcamps/Goals";
@@ -28,17 +27,17 @@ const Bootcamp = ({ bootcamp }) => {
     <>
       <Navbar />
 
-      <HeroSection bootcamp={bootcamp} />
+      <HeroSection data={bootcamp} />
 
-      <About bootcamp={bootcamp} />
+      <About data={bootcamp} />
 
-      <GoalsDetails bootcamp={bootcamp} />
+      <GoalsDetails data={bootcamp} />
 
-      <Sponsors bootcamp={bootcamp} />
+      <Sponsors data={bootcamp} />
 
       <section className="analytics">
-        <Registration bootcamp={bootcamp} />
-        <Tracks bootcamp={bootcamp} />
+        <Registration data={bootcamp} />
+        <Tracks data={bootcamp} />
       </section>
 
       <section className="how-it-works">
@@ -79,10 +78,10 @@ const Bootcamp = ({ bootcamp }) => {
         </div>
       </section>
 
-      <Benefits bootcamp={bootcamp} />
-      <Gains bootcamp={bootcamp} />
-      <Curriculum bootcamp={bootcamp} />
-      <Mentors bootcamp={bootcamp} />
+      <Benefits data={bootcamp} />
+      <Gains data={bootcamp} />
+      <Curriculum data={bootcamp} />
+      <Mentors data={bootcamp} />
       <FAQs bootcamp={bootcamp} />
       <Testimonials
         testimonial_title={bootcamp.testimonial_title}

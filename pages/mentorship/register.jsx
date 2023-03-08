@@ -54,10 +54,6 @@ const Register = () => {
         formData,
         selectedFile
       );
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ Mentorship Registration ~ response",
-        response
-      );
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
@@ -83,7 +79,6 @@ const Register = () => {
       console.error(error, "here is the error");
       alertService.alertMethod("error", "Waiting list request failed");
     } finally {
-      console.log("finaly is called");
       setShowLoader(false);
     }
   };

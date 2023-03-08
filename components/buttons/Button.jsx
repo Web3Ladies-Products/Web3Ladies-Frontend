@@ -15,11 +15,10 @@ const Button = ({
     <button
       className={cn(
         props.className,
-        variant ? "primary" : "",
+        variant ? variant : "primary",
         color ? color + "-color" : "",
         hasIcon ? "has-icon" : "",
         fullWidth ? "w-full" : "",
-        border ? "border__btn" : "",
       )}
       onClick={() => (props.type === "submit" ? null : handleClick())}
       {...props}

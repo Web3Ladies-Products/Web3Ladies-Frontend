@@ -1,9 +1,5 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
-import Button from "../../../components/buttons/Button";
 import Navbar from "../../../components/layouts/Navbar";
-import bootcampsData from "../../api/bootcamps.json";
 import Registration from "../../../components/analytics/Registration";
 import Tracks from "../../../components/analytics/Tracks";
 import GoalsDetails from "../../../components/bootcamps/Goals";
@@ -19,25 +15,26 @@ import ProjectsDone from "../../../components/ProjectsDone";
 import VisitYoutube from "../../../components/VisitYoutube";
 import { strapiService } from "../../../services/strapi.service";
 import FreehandCard from "../../../components/FreehandCard";
+import CustomError from "../../_error";
 
 const Bootcamp = ({ bootcamp }) => {
   if (!bootcamp) {
-    return <div>Bootcamp not found</div>;
+    return <CustomError />;
   }
 
   return (
     <>
       <Navbar />
 
-      <HeroSection bootcamp={bootcamp} />
+      <HeroSection data={bootcamp} />
 
-      <About bootcamp={bootcamp} />
+      <About data={bootcamp} />
 
-      <GoalsDetails bootcamp={bootcamp} />
+      <GoalsDetails data={bootcamp} />
 
-      <Sponsors bootcamp={bootcamp} />
+      <Sponsors data={bootcamp} />
 
-      <Registration bootcamp={bootcamp} />
+      <Registration data={bootcamp} />
 
       <section className="summary">
         <div className="container">
@@ -48,11 +45,13 @@ const Bootcamp = ({ bootcamp }) => {
         </div>
       </section>
 
-      <Tracks bootcamp={bootcamp} />
+      <Tracks data={bootcamp} />
 
       <section className="mentee-experience">
         <div className="container">
-          <MenteeExperience bootcamp={bootcamp} />
+          <MenteeExperience
+            mentee_details={bootcamp?.past_bootcamp_mentee_details}
+          />
         </div>
       </section>
 
@@ -60,11 +59,11 @@ const Bootcamp = ({ bootcamp }) => {
         testimonials_details={bootcamp?.testimonials_details}
       />
 
-      <ProjectsDone bootcamp={bootcamp?.projects_done_details} />
+      <ProjectsDone data={bootcamp?.projects_done_details} />
 
-      <Highlights title={"Highlights of the Cohort"} bootcamp={bootcamp} />
+      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
 
-      <Gallery bootcamp={bootcamp} />
+      <Gallery data={bootcamp.gallery_details} />
 
       <VisitYoutube />
       <div className="mb-large" />

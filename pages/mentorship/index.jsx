@@ -17,20 +17,11 @@ import Mentors from "../../components/mentorship/Mentors";
 import WhyLearn from "../../components/mentorship/WhyLearn";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
-import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
-import { useRouter } from "next/router";
 import FreehandCard from "../../components/FreehandCard";
 
-const mentorship = ({ indexPage }) => {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    // router.push("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const mentorship = ({ indexPage, bootcamps }) => {
   return (
     <>
       <Navbar />
@@ -107,17 +98,9 @@ const mentorship = ({ indexPage }) => {
 
       {/*ABOUT MENTORSHIP */}
       <AboutSection
-        title="About Mentorship "
-        description={` This is a free intensive learning phase of the
-         basics/foundations for all tracks, it serves as the introduction
-         to the track for participants. This phase is for 4weeks, classes
-         will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all
-         tracks participants will learn intensively as a beginner,
-         mentors will be on the ground to teach, resources will be shared
-         with the participants, assignments will be given as well, and
-         there will be an eviction at the end of this phase upon final
-         assessment to graduate into the learning phase.`}
-        buttonText="Register Now"
+        title={indexPage.about_title}
+        description={indexPage.about_desciption}
+        buttonText={indexPage.about_button_text}
         handleClick={() => null}
       />
 
@@ -136,60 +119,27 @@ const mentorship = ({ indexPage }) => {
               />
             </div>
             <div className="criteria-content">
-              <h1> Who is it for? </h1>
-
-              <div className="content">
-                <Image
-                  className="check"
-                  width={"28px"}
-                  height={"24px"}
-                  objectFit="contain"
-                  src="/assets/images/Checkmark.png"
-                  alt="check"
-                />
-                <p>
-                  A professional looking for deeper knowledge about the impact
-                  and applications of blockchain technologies in a business
-                  environment
-                </p>
-              </div>
-
-              <div className="content">
-                <Image
-                  className="check"
-                  width={"28px"}
-                  height={"24px"}
-                  objectFit="contain"
-                  src="/assets/images/Checkmark.png"
-                  alt="check"
-                />
-                <p>
-                  A professional looking for deeper knowledge about the impact
-                  and applications of blockchain technologies in a business
-                  environment
-                </p>
-              </div>
-
-              <div className="content">
-                <Image
-                  className="check"
-                  width={"28px"}
-                  height={"24px"}
-                  objectFit="contain"
-                  src="/assets/images/Checkmark.png"
-                  alt="check"
-                />
-                <p>
-                  A professional looking for deeper knowledge about the impact
-                  and applications of blockchain technologies in a business
-                  environment
-                </p>
-              </div>
+              <h1> {indexPage.criteria_title} </h1>
+              {indexPage.criteria_data.map((item, index) => {
+                return (
+                  <div className="content" key={item.id}>
+                    <Image
+                      className="check"
+                      width={"28px"}
+                      height={"24px"}
+                      objectFit="contain"
+                      src={item.image_url}
+                      alt="check"
+                    />
+                    <p>{item.content}</p>
+                  </div>
+                );
+              })}
 
               <div>
                 <Button
                   type="primary-inverse"
-                  buttonText={"Register Now"}
+                  buttonText={indexPage.criteria_button_text}
                   handleClick={() => {}}
                 />
               </div>
@@ -210,8 +160,8 @@ const mentorship = ({ indexPage }) => {
       {/* <HowItWorks /> */}
 
       <DualColorBanner
-        title="Get hands-on training from the best minds"
-        buttonText="Register Now"
+        title={indexPage.how_it_works_title}
+        buttonText={indexPage.how_it_works_button_text}
         buttonType="outline"
         image={"/assets/images/mentorship-training.png"}
       />
@@ -231,13 +181,13 @@ const mentorship = ({ indexPage }) => {
             />
           </div>
         </div>
-        <Bootcamps />
+        <Bootcamps bootcamp={bootcamps} />
       </section>
 
       <CohortSection isAccordion={true} />
 
       <WorkAssistance />
-      <Tracks />
+      <Tracks tracks={indexPage.tracks_data.tracks} />
       <Mentors />
       <WhyLearn />
       <FeaturedMentees />
@@ -250,7 +200,6 @@ const mentorship = ({ indexPage }) => {
         testimonial_items={indexPage.testimonial_items}
       />
 
-      {/* <CTACard /> */}
       <div className="tracks__spacing">
         <FreehandCard />
       </div>
@@ -265,9 +214,11 @@ export default mentorship;
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+  const bootcamps = await strapiService.getBootCampPageData();
   return {
     props: {
       indexPage: indexPage.data.attributes,
+      bootcamps: bootcamps.data.attributes,
     },
   };
 }

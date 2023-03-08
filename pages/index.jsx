@@ -14,7 +14,6 @@ import Pledge from "../components/common/Pledge";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
-  console.log(indexPage)
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -364,12 +363,13 @@ export default function Home({ indexPage }) {
       {/* END OF YOUTUBE SECTION */}
 
       {/* TESTIMONIALS SECTION */}
-      {/* <Testimonials
+
+      <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
         hasMaxWidth={true}
-      /> */}
+      />
       {/* END OF TESTIMONIALS SECTION */}
 
       <Footer />
@@ -380,6 +380,7 @@ export default function Home({ indexPage }) {
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+
   return {
     props: {
       indexPage: indexPage.data.attributes,

@@ -13,7 +13,7 @@ const Testimonials = ({
   const TESTIMONIAL_TABS = [
     {
       key: "past_mentees",
-      title: "Past Mentees",
+      title: "Past sMentees",
     },
     {
       key: "shoutouts",

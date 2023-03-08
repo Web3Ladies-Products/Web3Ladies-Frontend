@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "../buttons/Button";
 // import bootcampsData from "../../pages/api/bootcamps.json";
 
-const Bootcamps = ({bootcamp}) => {
+const Bootcamps = ({ bootcamp }) => {
   // const bootcamp = bootcampsData.home;
   return (
     <section className="bootcamps">

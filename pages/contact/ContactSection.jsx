@@ -25,16 +25,11 @@ const ContactSection = ({ contactDetails }) => {
 
   const submitContactForm = async (e) => {
     e.preventDefault();
-    console.log({ data: formData });
     setShowLoader(true);
     try {
       const response = await strapiService.contactRequest({
         data: formData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
       alertService.alertMethod("success", "contact form sent successfully");
       setFormData({
         full_name: "",
