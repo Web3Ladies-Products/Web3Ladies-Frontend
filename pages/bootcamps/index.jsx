@@ -143,7 +143,7 @@ const BootcampPage = ({ indexPage }) => {
       <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
-        testimonial_items={indexPage.testimonial_items}
+        testimonial_items={indexPage.testimonials_details}
         hasMaxWidth={true}
       />
       <div className="mb-small" />

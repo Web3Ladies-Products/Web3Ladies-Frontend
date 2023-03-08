@@ -11,7 +11,6 @@ import AboutSection from "../../components/AboutSection";
 import DualColorBanner from "../../components/DualColorBanner";
 import FAQs from "../../components/FAQs";
 import Supporters from "../../components/Supporters";
-import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
 import WorkAssistance from "../../components/mentorship/WorkAssistance";
 import Mentors from "../../components/mentorship/Mentors";
 import WhyLearn from "../../components/mentorship/WhyLearn";

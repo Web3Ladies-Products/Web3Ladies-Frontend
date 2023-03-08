@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
 import Gallery from "../../../components/Gallery";
-
+import Custom404Error from "../../404";
 import HeroSection from "../../../components/cohorts/HeroSection";
 import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
 import ProjectsDone from "../../../components/ProjectsDone";
