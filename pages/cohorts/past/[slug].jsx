@@ -55,7 +55,7 @@ const PastCohort = ({ cohort }) => {
       {/* HIGHLIGHTS SECTION */}
       <Highlights
         title={"Highlights of the Cohort"}
-        highlight_items_details={cohort.highlight_items_details}
+        HIGHLIGHTS_ITEMS={cohort.highlight_items_details}
       />
 
       {/* END OF HIGHLIGHTS SECTION */}
