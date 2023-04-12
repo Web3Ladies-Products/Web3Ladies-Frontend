@@ -14,7 +14,7 @@ import FreehandCard from "../../components/FreehandCard";
 import VoteSuccess from "../../components/awards/VoteSuccess";
 
 const Award = ({ indexPage }) => {
-
+  const router = useRouter();
   return (
     <>
       <HeadSeo
@@ -76,12 +76,16 @@ const Award = ({ indexPage }) => {
                   className="award__btn"
                   variant={"primary"}
                   buttonText={indexPage.hero_btn1}
-                  handleClick={() => {}}
+                  handleClick={() => {
+                    router.push("#");
+                  }}
                 />
                 <Button
                   variant={"outline"}
                   buttonText={indexPage.hero_btn2}
-                  handleClick={() => {}}
+                  handleClick={() => {
+                    router.push("/awards/#nominees");
+                  }}
                 />
               </div>
             </div>
@@ -89,7 +93,7 @@ const Award = ({ indexPage }) => {
           <div className="award__paragraph">
             <p>{indexPage.hero_content}</p>
           </div>
-          <div className="award__nominees">
+          <div id="nominees" className="award__nominees">
             <h3>{indexPage.subtitle}</h3>
             <div className="d-flex award__cards-container">
               {indexPage?.nominees?.map((nominee, index) => {

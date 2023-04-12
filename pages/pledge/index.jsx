@@ -100,6 +100,7 @@ export async function getStaticProps() {
   try {
     const pledgePage = await strapiService.getPledgePageData();
     const pledge = pledgePage.data.attributes;
+
     const content = await markdownToHtml(pledge?.body || "");
     const title = pledge?.form_title || "";
     return {

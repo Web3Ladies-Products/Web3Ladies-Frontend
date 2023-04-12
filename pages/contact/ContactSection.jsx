@@ -51,7 +51,7 @@ const ContactSection = ({ contactDetails }) => {
         <div className="container cta mb-20">
           <div className="content">
             <div className="hero_content bootcamp">
-              <h2>We are eager to hear from you</h2>
+              <h2>{contactDetails.description}</h2>
               <div className="mt-20">
                 <ContactForm
                   showLoader={showLoader}

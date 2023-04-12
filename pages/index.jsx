@@ -21,7 +21,7 @@ export default function Home({ indexPage }) {
 
   return (
     <>
-      <Navbar />
+      <Navwbar />
 
       {/* HERO SECTION */}
       <main className="header-bg">

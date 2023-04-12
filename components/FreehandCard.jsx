@@ -2,7 +2,9 @@ import Image from "next/image";
 import React from "react";
 import Button from "./buttons/Button";
 import freeHandData from "../pages/api/freehand.json";
+import { useRouter } from "next/router";
 const FreehandCard = ({ freehandData }) => {
+  const router = useRouter();
   return (
     <div className="freehand__frame center d-flex justify-content-center align-items-center">
       <div className="freehand__vector1">
@@ -42,7 +44,9 @@ const FreehandCard = ({ freehandData }) => {
             className="freehand__btn"
             variant={"primary"}
             buttonText={freeHandData.btntext}
-            handleClick={() => {}}
+            handleClick={() => {
+              router.push(freeHandData.btnlink);
+            }}
           />
         </div>
       </div>

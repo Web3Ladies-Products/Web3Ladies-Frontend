@@ -9,28 +9,28 @@ const availableMentees = [
     name: " Nzewi OCultist dummy",
     jobRole: "Blockchain developer",
     company: "tramadol",
-    imageURL: "talk to me daddy",
+    imageURL: "/assets/images/lone-woman.png",
   },
   {
     id: 2,
     name: " Janet Jackson",
     jobRole: "Blockchain developer",
     company: "Binance",
-    imageURL: "talk to me daddy",
+    imageURL: "/assets/images/lone-woman.png",
   },
   {
     id: 3,
     name: " Mentee Jackson",
     jobRole: "Blockchain developer",
     company: "forgo",
-    imageURL: "talk to me daddy",
+    imageURL: "/assets/images/lone-woman.png",
   },
   {
     id: 4,
     name: " Mentee Jackson",
     jobRole: "Blockchain developer",
     company: "alegra",
-    imageURL: "talk to me daddy",
+    imageURL: "/assets/images/lone-woman.png",
   },
 ];
 
@@ -44,9 +44,7 @@ const FeaturedMentees = () => {
             buttonText="View More"
             type="outline"
             handleClick={() => {}}
-            // variant="#fff"
             border="border__btn"
-            // color={"primary"}
           />
         </div>
 
@@ -57,9 +55,8 @@ const FeaturedMentees = () => {
                 className="arrow-img"
                 width="100%"
                 height="274px"
-                // layout="fixed"
                 objectFit="cover"
-                src="/assets/images/lone-woman.png"
+                src={imageURL}
                 alt="A mentee"
               />
               <div className="featured-mentee-card-content">

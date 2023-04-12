@@ -42,8 +42,8 @@ const Sponsorship = ({
       <section className="events donation">
         <div className="container">
           <ul className="events-list">
-            {sponsorshipData.donation_items?.map((item, idx) => (
-              <li className="events-item" key={idx}>
+            {sponsorshipData.donation_items?.map((item, index) => (
+              <li className="events-item" key={index}>
                 <div className="events-item--image">
                   <Image
                     src={item.image}
@@ -62,8 +62,8 @@ const Sponsorship = ({
                       <div className="events-item--text--extra">
                         <h4>{extra.title}</h4>
                         <ul className="pill-container">
-                          {extra.content.map((item, idx) => (
-                            <li key={idx} className="pill">
+                          {extra.content.map((item, index) => (
+                            <li key={index} className="pill">
                               {item}
                             </li>
                           ))}
@@ -73,8 +73,8 @@ const Sponsorship = ({
                       <div className="events-item--text--extra">
                         <h4>{extra.title}</h4>
                         <ul className="card achievements">
-                          {extra.content.map((item, idx) => (
-                            <li key={idx}>
+                          {extra.content.map((item, index) => (
+                            <li key={index}>
                               <p>{item.title}</p>
                               <h6>{item.description}</h6>
                             </li>
@@ -91,6 +91,7 @@ const Sponsorship = ({
                         window.location.href = item.button_link_one;
                       }}
                     />
+
                     <Button
                       variant={item.button_type_two}
                       buttonText={item.button_text_two}
