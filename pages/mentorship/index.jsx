@@ -4,7 +4,6 @@ import Button from "../../components/buttons/Button";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
 import { strapiService } from "../../services";
-import { FAQ_DATA } from "../../pages/api/feedback";
 import Tracks from "../../components/cohorts/Tracks";
 import Testimonials from "../../components/Testimonials";
 import AboutSection from "../../components/AboutSection";
@@ -191,7 +190,7 @@ const mentorship = ({ indexPage, bootcamps }) => {
       <WhyLearn />
       <FeaturedMentees />
       <JoinAsMentor />
-      <FAQs data={FAQ_DATA} />
+      <FAQs />
 
       {/* <Testimonials
         testimonial_title={indexPage.testimonial_title}

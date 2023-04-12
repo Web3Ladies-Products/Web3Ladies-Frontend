@@ -8,7 +8,6 @@ import Benefits from "../../components/BenefitsSection";
 import Curriculum from "../../components/Curriculum";
 import Gains from "../../components/Gains";
 import Mentors from "../../components/Mentors";
-import { FAQ_DATA } from "../api/feedback.json";
 import FAQs from "../../components/FAQs";
 import FreehandCard from "../../components/FreehandCard";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
@@ -38,7 +37,7 @@ const Tracks = ({ track }) => {
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="mt-20"></div>
-      <FAQs data={FAQ_DATA} />
+      <FAQs />
 
       <div className="tracks__spacing">
         <FreehandCard />

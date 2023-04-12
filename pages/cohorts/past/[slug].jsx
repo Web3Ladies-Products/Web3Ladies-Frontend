@@ -11,7 +11,7 @@ import MenteeExperience from "../../../components/MenteeExperience";
 import VisitYoutube from "../../../components/VisitYoutube";
 import Summary from "../../../components/cohorts/Summary";
 import { strapiService } from "../../../services";
-import { FAQ_DATA } from "../../../pages/api/feedback.json";
+
 import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
@@ -64,7 +64,7 @@ const PastCohort = ({ cohort }) => {
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-        <FAQs data={FAQ_DATA} />
+        <FAQs />
       </div>
       <div className="p-20">
         <FreehandCard />

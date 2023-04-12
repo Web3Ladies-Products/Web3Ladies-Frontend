@@ -6,7 +6,6 @@ import Tracks from "../../../components/cohorts/Tracks";
 import VisitYoutube from "../../../components/VisitYoutube";
 import About from "../../../components/cohorts/About";
 import { strapiService } from "../../../services";
-import { FAQ_DATA } from "../../../pages/api/feedback.json";
 import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
@@ -46,7 +45,7 @@ const UpcomingCohort = ({ cohort }) => {
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-        <FAQs data={FAQ_DATA} />
+        <FAQs  />
       </div>
       <div className="p-20">
         <FreehandCard />

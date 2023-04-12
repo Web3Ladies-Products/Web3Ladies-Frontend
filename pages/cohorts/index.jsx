@@ -4,8 +4,6 @@ import Footer from "../../components/layouts/Footer";
 import VisitYoutube from "../../components/VisitYoutube";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import HeroSection from "../../components/cohorts/HeroSection";
-import cohortsData from "../api/cohorts.json";
-import { FAQ_DATA } from "../../pages/api/feedback.json";
 import FAQs from "../../components/FAQs";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
@@ -23,7 +21,7 @@ const Cohorts = ({ indexPage }) => {
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-        <FAQs data={FAQ_DATA} />
+        <FAQs />
       </div>
       <div className="p-20">
         <FreehandCard />

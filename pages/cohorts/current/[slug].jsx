@@ -1,19 +1,17 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
-import cohortsData from "../../api/cohorts.json";
+
 import HeroSection from "../../../components/cohorts/HeroSection";
 import VisitYoutube from "../../../components/VisitYoutube";
 import About from "../../../components/cohorts/About";
 import Tracks from "../../../components/cohorts/Tracks";
 import { strapiService } from "../../../services/strapi.service";
-import { FAQ_DATA } from "../../../pages/api/feedback.json";
+
 import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
-import Registration from "../../../components/analytics/Registration";
 import Custom404Error from "../../404";
 const CurrentCohort = ({ cohort }) => {
   if (!cohort) {
@@ -46,7 +44,7 @@ const CurrentCohort = ({ cohort }) => {
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-        <FAQs data={FAQ_DATA} />
+        <FAQs />
       </div>
       <div className="p-20">
         <FreehandCard />
