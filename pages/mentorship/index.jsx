@@ -186,11 +186,13 @@ const mentorship = ({ indexPage, bootcamps }) => {
 
       <WorkAssistance />
       <Tracks tracks={indexPage.tracks_data.tracks} />
+
       <Mentors />
       <WhyLearn />
       <FeaturedMentees />
       <JoinAsMentor />
-      <FAQs />
+
+      <FAQs data={indexPage.faq_data} title={indexPage.faq_title} />
 
       {/* <Testimonials
         testimonial_title={indexPage.testimonial_title}

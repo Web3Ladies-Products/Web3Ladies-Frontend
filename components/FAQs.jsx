@@ -1,7 +1,7 @@
 import React from "react";
 import Accordion from "./accordion/Accordion";
 
-const FAQs = ({ data }) => {
+const FAQs = ({ data, title }) => {
   const faqData = [
     {
       id: 1,

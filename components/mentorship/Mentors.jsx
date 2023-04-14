@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
-
+import { useRouter } from "next/router";
 // TODO: edit the imageURL
 const availableMentors = [
   {
@@ -35,6 +35,7 @@ const availableMentors = [
 ];
 
 const Mentors = () => {
+  const router = useRouter();
   return (
     <>
       <div className="help-mentor-section">
@@ -44,8 +45,20 @@ const Mentors = () => {
               help us mentor <br /> more ladies
             </h1>
             <div>
-              <Button buttonText="Become a Sponsor" type="primary" />
-              <Button buttonText="Become a Mentor" type="outline" />
+              <Button
+                handleClick={() => {
+                  router.push("/sponsorship");
+                }}
+                buttonText="Become a Sponsor"
+                type="primary"
+              />
+              <Button
+                handleClick={() => {
+                  router.push("/mentorship");
+                }}
+                buttonText="Become a Mentor"
+                type="outline"
+              />
             </div>
           </div>
 
@@ -72,15 +85,15 @@ const Mentors = () => {
             compensated monthly.
           </p>
 
-          <div className="mentor-card-wrapper">
+          <div style={{ flexWrap: "wrap" }} className="mentor-card-wrapper">
             {availableMentors.map(
               ({ id, name, jobRole, company, imageURL }) => (
                 <div key={id} className="top-mentors-card">
                   <Image
                     className="arrow-img"
-                    width="256px"
+                    width="100%"
                     height="266px"
-                    layout="fixed"
+                    // layout="fixed"
                     objectFit="cover"
                     src="/assets/images/available-mentor.png"
                     alt="arrow-vector"
