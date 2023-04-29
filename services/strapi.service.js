@@ -626,6 +626,105 @@ const getUpcomingBootCamps = async () => {
   }
 };
 
+const getFeaturedMentee = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/featured-mentee`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getFreeHand = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/free-hand`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getFQA = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/frequently-asked-question`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getJoinAsMentor = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/join-as-mentor`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getWorkAssistance = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/work-assistance`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getWhyLearn = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/why-learn`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getContactPage = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/contact-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBootCampPageData,
   getBlogPosts,
@@ -666,4 +765,11 @@ export const strapiService = {
   getMentorshipClosed,
   getTracks,
   getTracksBySlug,
+  getFeaturedMentee,
+  getFreeHand,
+  getFQA,
+  getJoinAsMentor,
+  getWorkAssistance,
+  getWhyLearn,
+  getContactPage,
 };

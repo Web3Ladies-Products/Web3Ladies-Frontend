@@ -194,11 +194,11 @@ const mentorship = ({ indexPage, bootcamps }) => {
 
       <FAQs data={indexPage.faq_data} title={indexPage.faq_title} />
 
-      {/* <Testimonials
+      <Testimonials
         testimonial_title={indexPage.testimonial_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
-      /> */}
+      />
 
       <div className="tracks__spacing">
         <FreehandCard />
@@ -215,6 +215,8 @@ export default mentorship;
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
   const bootcamps = await strapiService.getBootCampPageData();
+  const whyLearnData = await strapiService.getWhyLearn();
+  const workAssistanceData = await strapiService.getWorkAssistance();
   return {
     props: {
       indexPage: indexPage.data.attributes,

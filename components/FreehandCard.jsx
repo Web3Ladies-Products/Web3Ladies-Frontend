@@ -1,10 +1,22 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./buttons/Button";
-import freeHandData from "../pages/api/freehand.json";
 import { useRouter } from "next/router";
-const FreehandCard = ({ freehandData }) => {
+import { strapiService } from "../services";
+const FreehandCard = () => {
   const router = useRouter();
+  const [freeHandData, setFreeHandData] = useState({});
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const indexPage = await strapiService.getFreeHand();
+        setFreeHandData(indexPage.data.attributes);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
   return (
     <div className="freehand__frame center d-flex justify-content-center align-items-center">
       <div className="freehand__vector1">
@@ -26,11 +38,11 @@ const FreehandCard = ({ freehandData }) => {
       <div className="freehand__content">
         <h2
           dangerouslySetInnerHTML={{
-            __html: freeHandData.title,
+            __html: freeHandData?.title,
           }}
         />
 
-        <p>{freeHandData.subtext}</p>
+        <p>{freeHandData?.subtext}</p>
         <div className="freehand__joinvector-section">
           <div className="freehand__joinvector">
             <Image
@@ -43,9 +55,9 @@ const FreehandCard = ({ freehandData }) => {
           <Button
             className="freehand__btn"
             variant={"primary"}
-            buttonText={freeHandData.btntext}
+            buttonText={freeHandData?.btntext}
             handleClick={() => {
-              router.push(freeHandData.btnlink);
+              router.push(freeHandData?.btnlink);
             }}
           />
         </div>
@@ -53,13 +65,5 @@ const FreehandCard = ({ freehandData }) => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: {
-      freehandData: freeHandData,
-    },
-  };
-}
 
 export default FreehandCard;

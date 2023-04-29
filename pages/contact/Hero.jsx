@@ -6,8 +6,9 @@ import Image from "next/image";
 
 import Footer from "../../components/layouts/Footer";
 import ContactSection from "./ContactSection";
+import { strapiService } from "../../services";
 
-const Hero = () => {
+const Hero = ({ indexPage }) => {
   const contactDetails = {
     title: "Contact Us",
     description: "We are eager to hear from you",
@@ -26,3 +27,12 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// export async function getStaticProps() {
+//   const indexPage = await strapiService.getContactPage();
+//   return {
+//     props: {
+//       indexPage: indexPage.data.attributes,
+//     },
+//   };
+// }

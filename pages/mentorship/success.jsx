@@ -20,7 +20,7 @@ const Success = ({ indexPage }) => {
       link: TWITTER_URL,
     },
     {
-      name: "linkedIn",
+      name: "linkedin",
       link: LINKEDIN_URL,
     },
     {

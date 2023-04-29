@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
-
+import { useRouter } from "next/router";
 const WhyLearn = () => {
+  const router = useRouter();
   return (
     <section className="why-learn-section">
       <div className="container">
@@ -44,7 +45,13 @@ const WhyLearn = () => {
               Mentorship
             </div>
           </div>
-          <Button buttonText="Register Now" type="primary-inverse" />
+          <Button
+            buttonText="Register Now"
+            type="primary-inverse"
+            handleClick={() => {
+              router.push("/sponsorship");
+            }}
+          />
         </div>
         <div className="why-learn-image">
           <Image

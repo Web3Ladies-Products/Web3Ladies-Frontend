@@ -131,9 +131,9 @@ export default function Home({ indexPage }) {
                   }
                   hasIcon
                 >
-                  <span className="icon-left">
+                  {/* <span className="icon-left">
                     <Slack />
-                  </span>
+                  </span> */}
                   {indexPage.join_our_community_button_text}
                 </Button>
               </div>

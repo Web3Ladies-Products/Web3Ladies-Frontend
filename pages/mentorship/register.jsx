@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import Footer from "../../components/layouts/Footer";
+
 import Navbar from "../../components/layouts/Navbar";
 import RegisterForm from "../../components/mentorship/RegisterForm";
 import AppLoader from "../../components/UI/AppLoader";
@@ -50,10 +50,7 @@ const Register = () => {
     setShowLoader(true);
 
     try {
-      const response = await strapiService.mentorshipRegisterRequest(
-        formData,
-        selectedFile
-      );
+      await strapiService.mentorshipRegisterRequest(formData, selectedFile);
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
@@ -75,10 +72,10 @@ const Register = () => {
         comment: "",
       });
       router.push("success");
+      setShowLoader(false);
     } catch (error) {
       console.error(error, "here is the error");
       alertService.alertMethod("error", "Waiting list request failed");
-    } finally {
       setShowLoader(false);
     }
   };

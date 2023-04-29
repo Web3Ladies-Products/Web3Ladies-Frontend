@@ -2,7 +2,9 @@ import Image from "next/image";
 import React from "react";
 import Button from "../buttons/Button";
 
+import { useRouter } from "next/router";
 const WorkAssistance = () => {
+  const router = useRouter();
   return (
     <section className="work-assistance-section">
       <div className="container">
@@ -47,7 +49,9 @@ const WorkAssistance = () => {
         <Button
           type="outline"
           buttonText="Learn More"
-          handleClick={() => null}
+          handleClick={() => {
+            router.push("/sponsorship");
+          }}
         />
       </div>
     </section>

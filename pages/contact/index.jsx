@@ -1,12 +1,12 @@
-import React from 'react'
-import Hero from './Hero'
+import React from "react";
+import Hero from "./Hero";
 
 const contact = () => {
   return (
-  <>
-  <Hero/>
-  </>
-  )
-}
+    <>
+      <Hero />
+    </>
+  );
+};
 
-export default contact
+export default contact;
