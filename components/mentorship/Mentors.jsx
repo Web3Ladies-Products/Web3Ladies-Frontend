@@ -4,36 +4,6 @@ import Button from "../buttons/Button";
 import { useRouter } from "next/router";
 import { strapiService } from "../../services";
 // TODO: edit the imageURL
-const availableMentors = [
-  {
-    id: 1,
-    name: " Nzewi OCultist ",
-    jobRole: "Blockchain developer",
-    company: "tramadol",
-    imageURL: "/assets/images/available-mentor.png",
-  },
-  {
-    id: 2,
-    name: " Janet Jackson",
-    jobRole: "Blockchain developer",
-    company: "Binance",
-    imageURL: "/assets/images/available-mentor.png",
-  },
-  {
-    id: 3,
-    name: " Mentor ",
-    jobRole: "Blockchain developer",
-    company: "forgo",
-    imageURL: "/assets/images/available-mentor.png",
-  },
-  {
-    id: 4,
-    name: " Mentor ",
-    jobRole: "Blockchain developer",
-    company: "alegra",
-    imageURL: "/assets/images/available-mentor.png",
-  },
-];
 
 const Mentors = () => {
   const router = useRouter();
@@ -42,7 +12,6 @@ const Mentors = () => {
     const getData = async () => {
       try {
         const indexPage = await strapiService.getMentor();
-        console.log(indexPage.data.attributes.availableMentors);
         setFetchData(indexPage.data.attributes);
       } catch (error) {
         console.log(error);

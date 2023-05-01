@@ -295,8 +295,8 @@ export default function Home({ indexPage }) {
             dangerouslySetInnerHTML={{ __html: indexPage.events_title }}
           />
           <ul className="events-list">
-            {indexPage.events_items?.map((item, idx) => (
-              <li className="events-item" key={idx}>
+            {indexPage.events_items?.map((item, index) => (
+              <li className="events-item" key={index}>
                 <div className="events-item--image">
                   <Image
                     src={item.image}
@@ -343,7 +343,6 @@ export default function Home({ indexPage }) {
               <iframe
                 src={indexPage.youtube_link}
                 title="YouTube video player"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>

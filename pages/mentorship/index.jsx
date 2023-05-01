@@ -18,13 +18,14 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import FreehandCard from "../../components/FreehandCard";
-
+import { useRouter } from "next/router";
 const mentorship = ({
   indexPage,
   bootcamps,
   workAssistanceData,
   whyLearnData,
 }) => {
+  const router = useRouter();
   return (
     <>
       <Navbar />
@@ -42,12 +43,16 @@ const mentorship = ({
                 <Button
                   variant={"primary"}
                   buttonText={indexPage.button_one_text}
-                  handleClick={() => null}
+                  handleClick={() => {
+                    router.push(indexPage.button_one_link);
+                  }}
                 />
                 <Button
                   variant={"outline"}
                   buttonText={indexPage.button_two_text}
-                  handleClick={() => null}
+                  handleClick={() => {
+                    router.push("/sponsorship");
+                  }}
                 />
               </div>
             </div>
@@ -104,7 +109,13 @@ const mentorship = ({
         title={indexPage.about_title}
         description={indexPage.about_desciption}
         buttonText={indexPage.about_button_text}
-        handleClick={() => null}
+        handleClick={() => {
+          router.push(
+            indexPage.about_button_link
+              ? indexPage.about_button_link
+              : "/mentorship/register"
+          );
+        }}
       />
 
       {/* Criteria for Mentorship  */}
@@ -143,7 +154,13 @@ const mentorship = ({
                 <Button
                   type="primary-inverse"
                   buttonText={indexPage.criteria_button_text}
-                  handleClick={() => {}}
+                  handleClick={() => {
+                    router.push(
+                      indexPage.criteria_button_link
+                        ? indexPage.criteria_button_link
+                        : "/mentorship/register"
+                    );
+                  }}
                 />
               </div>
 
@@ -165,6 +182,13 @@ const mentorship = ({
       <DualColorBanner
         title={indexPage.how_it_works_title}
         buttonText={indexPage.how_it_works_button_text}
+        handleClick={() =>
+          router.push(
+            indexPage.how_it_works_button_link
+              ? indexPage.how_it_works_button_link
+              : "/mentorship/register"
+          )
+        }
         buttonType="outline"
         image={"/assets/images/mentorship-training.png"}
       />

@@ -2,10 +2,8 @@ import React from "react";
 
 import Button from "../../buttons/Button";
 import Accordion from "../../accordion/Accordion";
-import Summary from "../../cohorts/Summary";
-import CohortSummary from "../../cohorts/CohortSummary";
 
-import MenteeExperience from "../../MenteeExperience";
+import CohortSummary from "../../cohorts/CohortSummary";
 
 const CohortSection = ({ cohortData, isAccordion }) => {
   const cohortsDetails = [
@@ -82,7 +80,6 @@ const Content = ({ cohortLink, isAccordion, cohortData }) => {
   return (
     <div className="cohort-content container">
       <CohortSummary />
-      {/* <MenteeExperience mentee_details={cohortDetails.mentees} /> */}
       <div className="button-container" style={{ marginBottom: "10px" }}>
         <Button
           variant={"outline"}

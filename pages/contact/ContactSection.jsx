@@ -27,20 +27,20 @@ const ContactSection = ({ contactDetails }) => {
     e.preventDefault();
     setShowLoader(true);
     try {
-      const response = await strapiService.contactRequest({
+      await strapiService.contactRequest({
         data: formData,
       });
-      alertService.alertMethod("success", "contact form sent successfully");
       setFormData({
         full_name: "",
         email: "",
         message: "",
       });
+      setShowLoader(false);
+      alertService.alertMethod("success", "contact form sent successfully");
     } catch (error) {
       console.error(error);
-      alertService.alertMethod("error", "Waiting list request failed");
-    } finally {
       setShowLoader(false);
+      alertService.alertMethod("error", "Waiting list request failed");
     }
   };
   return (

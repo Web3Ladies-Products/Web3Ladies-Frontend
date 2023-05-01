@@ -390,6 +390,21 @@ const contactRequest = async (data) => {
     throw new Error(error?.error?.message);
   }
 };
+const subscriptionRequest = async (data) => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/subscriptions`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error?.error?.message);
+  }
+};
 
 const votingRequest = async (data) => {
   try {
@@ -787,4 +802,5 @@ export const strapiService = {
   getWhyLearn,
   getContactPage,
   getMentor,
+  subscriptionRequest,
 };
