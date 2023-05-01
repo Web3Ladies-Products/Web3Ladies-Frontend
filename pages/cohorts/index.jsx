@@ -11,12 +11,11 @@ import FreehandCard from "../../components/FreehandCard";
 import { strapiService } from "../../services";
 
 const Cohorts = ({ indexPage }) => {
-  const heroDetails = indexPage;
   return (
     <>
       <Navbar />
-      <HeroSection heroDetails={heroDetails} />
-      <CohortSection />
+      <HeroSection heroDetails={indexPage} />
+      <CohortSection cohortData={indexPage} />
       <VisitYoutube />
       <FeaturedMentees />
       <JoinAsMentor />
@@ -33,6 +32,7 @@ const Cohorts = ({ indexPage }) => {
 
 export async function getStaticProps() {
   const indexPage = await strapiService.getCohortPageData();
+  console.log(indexPage);
   return {
     props: {
       indexPage: indexPage.data.attributes,

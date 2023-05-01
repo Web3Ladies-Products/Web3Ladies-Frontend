@@ -2,19 +2,14 @@ import React from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
 import { useRouter } from "next/router";
-const WhyLearn = () => {
+const WhyLearn = ({ whyLearnData }) => {
   const router = useRouter();
   return (
     <section className="why-learn-section">
       <div className="container">
         <div className="why-learn-content">
-          <h1 className="section-title">Why learn with us</h1>
-          <p>
-            These mentors will be on the ground for all the mentorship
-            activities, they are responsible for classes, responding to mentees’
-            concerns on slack, and grading mentees, they will also be
-            compensated monthly.
-          </p>
+          <h1 className="section-title">{whyLearnData.title}</h1>
+          <p>{whyLearnData.description}</p>
           <div className="badges-wrap">
             <div className="why-badge">
               <Image
@@ -23,9 +18,9 @@ const WhyLearn = () => {
                 width={50}
                 height={50}
               />{" "}
-              Team Work
+              {whyLearnData.text_1}
             </div>
-            <div className="why-badge">Hands-on experience</div>
+            <div className="why-badge">{whyLearnData.text_2}</div>
             <div className="why-badge">
               <Image
                 width={50}
@@ -33,7 +28,7 @@ const WhyLearn = () => {
                 src="/assets/images/ball-icon.png"
                 alt="ball-icon"
               />{" "}
-              Fun/Games
+              {whyLearnData.text_3}
             </div>
             <div className="why-badge">
               <Image
@@ -42,14 +37,14 @@ const WhyLearn = () => {
                 alt="ball-icon"
                 src="/assets/images/ball-icon.png"
               />{" "}
-              Mentorship
+              {whyLearnData.text_4}
             </div>
           </div>
           <Button
-            buttonText="Register Now"
+            buttonText={whyLearnData.btn_text}
             type="primary-inverse"
             handleClick={() => {
-              router.push("/sponsorship");
+              router.push(whyLearnData.btn_link);
             }}
           />
         </div>

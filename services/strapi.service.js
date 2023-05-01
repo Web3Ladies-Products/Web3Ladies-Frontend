@@ -648,7 +648,7 @@ const getFreeHand = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    console.log(res);
+
     return res;
   } catch (error) {
     console.error(error);
@@ -725,6 +725,20 @@ const getContactPage = async () => {
   }
 };
 
+const getMentor = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/mentor`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBootCampPageData,
   getBlogPosts,
@@ -772,4 +786,5 @@ export const strapiService = {
   getWorkAssistance,
   getWhyLearn,
   getContactPage,
+  getMentor,
 };

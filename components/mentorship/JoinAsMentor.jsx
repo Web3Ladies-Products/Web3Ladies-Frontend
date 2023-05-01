@@ -1,36 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../buttons/Button";
 import { useRouter } from "next/router";
+import { strapiService } from "../../services";
 const JoinAsMentor = () => {
   const router = useRouter();
+  const [joinData, setJoinData] = useState({});
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const indexPage = await strapiService.getJoinAsMentor();
+
+        setJoinData(indexPage.data.attributes);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
+
   return (
     <div className="join-as-mentor-section">
-      <div>
+      {joinData && (
         <div>
-          <div className="">
-            <h1>Help us mentor more Ladies</h1>
-            <p>Become a sponsor of Web3Ladies</p>
-            <Button
-              handleClick={() => {
-                router.push("/sponsorship");
-              }}
-              type="outlined-clear"
-              buttonText="Join us now"
-            />
-          </div>
-          <div className="">
-            <h1>HAVE WHAT IT TAKES TO BE A MENTOR</h1>
-            <p>Become a Mentor at Web3Ladies</p>
-            <Button
-              handleClick={() => {
-                router.push("/mentorship/register");
-              }}
-              type="outlined-clear"
-              buttonText="Apply now"
-            />
+          <div>
+            <div className="">
+              <h1>{joinData.title_1}</h1>
+              <p>{joinData.subtitle_1}</p>
+              <Button
+                handleClick={() => {
+                  router.push(joinData.btn_link_1);
+                }}
+                type="outlined-clear"
+                buttonText={joinData.btn_text_1}
+              />
+            </div>
+            <div className="">
+              <h1>{joinData.title_2}</h1>
+              <p>{joinData.subtitle_2}</p>
+              <Button
+                handleClick={() => {
+                  router.push(joinData.btn_link_2);
+                }}
+                type="outlined-clear"
+                buttonText={joinData.btn_text_2}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

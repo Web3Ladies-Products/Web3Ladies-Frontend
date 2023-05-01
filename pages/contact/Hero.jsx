@@ -8,15 +8,7 @@ import Footer from "../../components/layouts/Footer";
 import ContactSection from "./ContactSection";
 import { strapiService } from "../../services";
 
-const Hero = ({ indexPage }) => {
-  const contactDetails = {
-    title: "Contact Us",
-    description: "We are eager to hear from you",
-    image: "/assets/images/hero-image.png",
-    buttonText: "Contact Us",
-    buttonLink: "/contact",
-    buttonType: "primary",
-  };
+const Hero = ({ contactDetails }) => {
   return (
     <>
       <Navbar />
@@ -27,12 +19,3 @@ const Hero = ({ indexPage }) => {
 };
 
 export default Hero;
-
-// export async function getStaticProps() {
-//   const indexPage = await strapiService.getContactPage();
-//   return {
-//     props: {
-//       indexPage: indexPage.data.attributes,
-//     },
-//   };
-// }

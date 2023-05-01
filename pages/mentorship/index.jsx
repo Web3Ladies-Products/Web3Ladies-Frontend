@@ -19,7 +19,12 @@ import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import FreehandCard from "../../components/FreehandCard";
 
-const mentorship = ({ indexPage, bootcamps }) => {
+const mentorship = ({
+  indexPage,
+  bootcamps,
+  workAssistanceData,
+  whyLearnData,
+}) => {
   return (
     <>
       <Navbar />
@@ -184,11 +189,11 @@ const mentorship = ({ indexPage, bootcamps }) => {
 
       <CohortSection isAccordion={true} />
 
-      <WorkAssistance />
+      <WorkAssistance workAssistanceData={workAssistanceData} />
       <Tracks tracks={indexPage.tracks_data.tracks} />
 
       <Mentors />
-      <WhyLearn />
+      <WhyLearn whyLearnData={whyLearnData} />
       <FeaturedMentees />
       <JoinAsMentor />
 
@@ -221,6 +226,8 @@ export async function getStaticProps() {
     props: {
       indexPage: indexPage.data.attributes,
       bootcamps: bootcamps.data.attributes,
+      workAssistanceData: workAssistanceData.data.attributes,
+      whyLearnData: whyLearnData.data.attributes,
     },
   };
 }
