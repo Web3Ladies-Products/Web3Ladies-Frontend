@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 import Button from "../../components/buttons/Button";
 import FAQs from "../../components/FAQs";
-import { FAQ_DATA } from "../../pages/api/feedback";
-
 import FreehandCard from "../../components/FreehandCard";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
