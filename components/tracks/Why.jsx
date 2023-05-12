@@ -6,8 +6,9 @@ const Why = ({ track }) => {
         <h2>{track?.why_study_title}</h2>
         <div className="text">
           <p>{track?.why_study_description}</p>
-
-        
+          {track?.why_study_description_two && (
+            <p>{track?.why_study_description_two}</p>
+          )}
         </div>
       </div>
     </section>

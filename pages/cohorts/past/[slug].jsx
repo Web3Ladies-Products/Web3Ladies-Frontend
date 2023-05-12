@@ -36,6 +36,7 @@ const PastCohort = ({ cohort }) => {
       <HeroSection heroDetails={heroDetails} badgeText={"past"} />
 
       {/* SUMMARY SECTION */}
+
       <Summary />
 
       {/* MENTEES SECTION */}

@@ -20,7 +20,7 @@ export default function AboutSection({
             className="hero-img"
             width="100"
             height="150"
-            src="/assets/images/web3vector-img.png"
+            src="/assets/images/web3ladies-about-bounce.png"
             alt="web3ladies-vector"
           />
         </div>

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const WorkAssistance = ({ workAssistanceData }) => {
   const router = useRouter();
   return (
-    <section className="work-assistance-section">
+    <section id="worktools" className="work-assistance-section">
       <div className="container">
         <h1 className="section-title"> {workAssistanceData.title}</h1>
         <p>{workAssistanceData.description}</p>

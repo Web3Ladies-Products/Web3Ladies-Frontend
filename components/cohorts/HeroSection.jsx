@@ -5,7 +5,7 @@ import Button from "../buttons/Button";
 
 const HeroSection = ({ heroDetails, badgeText }) => {
   return (
-    <main className="bg">
+    <main style={{ backgroundColor: "#F8F2FF" }} className="bg">
       <div className="container cta">
         <div className="content">
           <div className="hero_content bootcamp">
@@ -35,6 +35,7 @@ const HeroSection = ({ heroDetails, badgeText }) => {
               <Image
                 className="hero-image"
                 width={"493px"}
+                objectFit="contain"
                 height={"472px"}
                 src={heroDetails.hero_image}
                 alt="cohort-image"

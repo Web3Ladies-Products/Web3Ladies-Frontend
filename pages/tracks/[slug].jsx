@@ -14,6 +14,7 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import Custom404Error from "../404";
 import { strapiService } from "../../services";
+import WorkshopMentors from "../../components/WorkshopMentors";
 const Tracks = ({ track }) => {
   if (!track) {
     return <Custom404Error />;
@@ -33,7 +34,7 @@ const Tracks = ({ track }) => {
       <Gains track={track} />
 
       <Mentors track={track} />
-      <Mentors track={track} />
+      <WorkshopMentors track={track} />
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="mt-20"></div>

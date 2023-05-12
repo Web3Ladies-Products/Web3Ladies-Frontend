@@ -11,8 +11,6 @@
     bottom: 70px;
   }
 
-
-  
   .crescent-vector {
     position: absolute;
     right: 70px;
@@ -206,10 +204,11 @@
     font-size: 48px;
     line-height: 56px;
     letter-spacing: -0.04em;
-   margin-left: 70px;
+    // margin-left: 70px;
+    width: 85%;
+    margin: 0 auto;
     @include mobile {
-      margin-left: 1px;
-      
+      // margin-left: 1px;
     }
   }
 
@@ -217,35 +216,25 @@
     display: flex;
     justify-content: space-between;
     gap: 100px;
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
     @include mobile {
       flex-direction: column;
-      
     }
 
     &-text {
-       
-      flex:50;
+      flex: 50;
 
       p {
-        
         font-weight: 400;
         font-size: 18px;
         line-height: 150%;
         @include mobile {
-         
           flex: 50;
         }
       }
-
     }
-    
-   
-
   }
-
-  
 
   .metrics {
     width: 40%;
@@ -253,7 +242,6 @@
     border-radius: 8px;
     height: fit-content;
     padding: 30px 20px 20px 30px;
-    
 
     @include mobile {
       margin-top: 20px;
@@ -312,40 +300,38 @@
   }
 }
 
-.faq{
+.faq {
   margin-top: 50px;
 }
 
-.thick-line{
- 
-  background-color:#F1F1F1;
-  
+.thick-line {
+  background-color: #f1f1f1;
+
   margin-top: 30px;
   width: 70%;
- height: 13px;
+  height: 13px;
 }
 
-.contain{
+.contain {
   display: flex;
   @include mobile {
     flex-direction: column;
   }
-  
 }
 
-.circle{
+.circle {
   width: 39px;
   height: 39px;
   border-radius: 50%;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   margin-right: 10px;
   margin-top: 20px;
 }
 
-.line{
+.line {
   width: 80%;
   height: 7px;
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   margin-top: -15px;
 }
 
@@ -355,26 +341,22 @@
   font-size: 15px;
 }
 
-.button{
+.button {
   background-color: red;
- width: 30%;
+  width: 30%;
   color: white;
- padding: 10px;
+  padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
-
 }
 
-.containner{ 
+.containner {
   display: flex;
   justify-content: space-between;
   @include mobile {
     flex-direction: column;
   }
-
-  
 }
-
 
 // .cohort-content {
 //   width: 95%;

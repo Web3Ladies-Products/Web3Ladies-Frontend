@@ -93,80 +93,76 @@ main {
           }
         }
       }
-
     }
   }
-      .contact_image {
-        position: relative;
-        width: 500px;
-        
-        @include mobile {
-          max-width: 460px;
-          width: 100%;
-          margin: 60px auto;
-          display: none;
+  .contact_image {
+    position: relative;
+    width: 500px;
+
+    @include mobile {
+      max-width: 460px;
+      width: 100%;
+      margin: 60px auto;
+      display: none;
+    }
+
+    &.featured {
+      > div:nth-of-type(1) {
+        animation: none !important;
+        .hero-image {
+          animation: none !important;
         }
-    
-        &.featured {
-          > div:nth-of-type(1) {
-            animation: none !important;
-            .hero-image {
-              animation: none !important;
-            }
+      }
+    }
+    // @media (max-width: 1140px) {
+    //   margin-bottom: 100px;
+    //   width: 100%;
+    // }
+
+    & > div {
+      position: relative;
+
+      > span {
+        position: absolute !important;
+
+        &:nth-of-type(1) {
+          position: relative !important;
+          z-index: 0;
+          animation: none !important;
+        }
+
+        &:nth-of-type(2) {
+          bottom: 300px;
+          left: -80px;
+
+          @include mobile {
+            width: 45px !important;
           }
         }
-        // @media (max-width: 1140px) {
-        //   margin-bottom: 100px;
-        //   width: 100%;
-        // }
-    
-        & > div {
-          position: relative;
-         
-    
-          > span {
-            position: absolute !important;
-    
-            &:nth-of-type(1) {
-              position: relative !important;
-              z-index: 0;
-              animation: none !important;
-            }
-    
-            &:nth-of-type(2) {
-              bottom: 300px;
-              left: -80px;
-    
-              @include mobile {
-                width: 45px !important;
-              }
-            }
-    
-            &:nth-of-type(3) {
-              top: -60px;
-              right: -30px;
-              
-    
-              @include mobile {
-                width: 40px !important;
-              }
-            }
-    
-            &:nth-of-type(4) {
-              bottom: 23px;
-              right: -5px;
-    
-              img {
-                width: initial !important;
-                min-width: initial !important;
-              }
-    
-              @include mobile {
-                width: 100px !important;
-              }
-            }
+
+        &:nth-of-type(3) {
+          top: -60px;
+          right: -30px;
+
+          @include mobile {
+            width: 40px !important;
           }
-    
+        }
+
+        &:nth-of-type(4) {
+          bottom: 23px;
+          right: -5px;
+
+          img {
+            width: initial !important;
+            min-width: initial !important;
+          }
+
+          @include mobile {
+            width: 100px !important;
+          }
+        }
+      }
 
       @for $i from 1 through 4 {
         &:nth-of-type(#{$i}) {
@@ -268,17 +264,18 @@ main {
     color: #000000;
     position: relative;
     > span {
-      right: 15%;
-      top: -85% !important;
+      right: 14%;
+      top: -100% !important;
       position: absolute !important;
       animation: bounce 2s infinite;
       img {
-        transform: rotate(130deg) !important;
+        object-fit: contain;
+        // transform: rotate(100deg) !important;
       }
 
       @include mobile {
         width: 70px !important;
-        right: 0;
+        // right: 0;
       }
     }
   }
@@ -649,7 +646,7 @@ main {
 
     h1 {
       text-align: center;
-
+      z-index: 1;
       @include desktop {
         width: 704px;
       }
@@ -684,8 +681,8 @@ main {
       }
 
       &:nth-of-type(2) {
-        top: 10%;
-        left: 6%;
+        top: -10%;
+        left: 2%;
       }
 
       &:nth-of-type(3) {
@@ -694,8 +691,8 @@ main {
       }
 
       &:nth-of-type(4) {
-        top: 10%;
-        right: 18%;
+        top: -4%;
+        right: 8%;
         background: transparent;
         padding: initial;
 
@@ -954,6 +951,5 @@ main {
     }
   }
 }
-  
+
 // END OF TESTIMONIALS SECTION
-  

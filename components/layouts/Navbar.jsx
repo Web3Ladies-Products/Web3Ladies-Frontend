@@ -55,38 +55,31 @@ const Navbar = () => {
       dropdown: [
         {
           id: 1,
-          name: "Register for our cohort",
-          link: "/mentorship/register",
-          isActive: router.pathname === "/mentorship/register",
+          name: "About",
+          link: "/#who-we-are",
+          isActive: router.pathname === "/about-us",
         },
         {
           id: 2,
-          name: "Join our community",
-          link: "/#join-our-community",
-          isActive: router.pathname === "/community",
+          name: "Cohorts",
+          link: "/cohorts",
+          isActive: router.pathname === "/cohorts",
         },
         {
           id: 3,
-          name: "Become a Mentor",
-          link: "/mentorship",
-          isActive: router.pathname === "/mentorship",
+          name: "Bootcamps",
+          link: "/bootcamps",
+          isActive: router.pathname === "/bootcamps",
         },
         {
           id: 4,
-          name: "Become a Contributor",
-          link: "/mentorship/register",
-          isActive: router.pathname === "/contributors",
+          name: "Worktool",
+          link: "/mentorship/#worktools",
+          isActive: router.pathname === "/mentorship/#worktools",
         },
       ],
     },
 
-    // {
-    //   id: 1,
-    //   name: "Home",
-    //   route: "/",
-    //   type: "link",
-    //   isActive: router.pathname === "/",
-    // },
     {
       id: 2,
       name: "Sponsorship",
@@ -115,13 +108,40 @@ const Navbar = () => {
       type: "link",
       isActive: router.pathname.includes("/blog"),
     },
-    // {
-    //   id: 4,
-    //   name: "Certificate",
-    //   route: "/certificate",
-    //   type: "link",
-    //   isActive: router.pathname.includes("/certificate"),
-    // },
+    {
+      id: 6,
+      name: "Join Us Today",
+      route: "/join-us-today",
+      type: "dropdown",
+      showDropdown: false,
+      isActive: router.pathname === "/join-us-today",
+      dropdown: [
+        {
+          id: 1,
+          name: "Register for our cohort",
+          link: "/mentorship/register",
+          isActive: router.pathname === "/mentorship/register",
+        },
+        {
+          id: 2,
+          name: "Join our community",
+          link: "/#join-our-community",
+          isActive: router.pathname === "/community",
+        },
+        {
+          id: 3,
+          name: "Become a Mentor",
+          link: "/mentorship",
+          isActive: router.pathname === "/mentorship",
+        },
+        {
+          id: 4,
+          name: "Become a Contributor",
+          link: "/mentorship/register",
+          isActive: router.pathname === "/contributors",
+        },
+      ],
+    },
   ]);
 
   const showDropdown = (index) => {
@@ -206,7 +226,7 @@ const Navbar = () => {
           </nav>
         </div>
         {/* <div className="nav-cta">
-          <a href="/" target="_blank" className="button outline">
+          <a href="/" target="_blank" className="">
             Join Us Today
             <ChevronDown style={{ marginLeft: "4px" }} />
           </a>

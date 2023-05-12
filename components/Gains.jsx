@@ -25,7 +25,7 @@ const Gains = ({ track }) => {
               variant={track?.gains_button_type}
               buttonText={track?.gains_button_text}
               color={"primary"}
-              handleClick={() => null}
+              handleClick={() => window.open("/mentorship/register", "_blank")}
             />
           </div>
         </div>

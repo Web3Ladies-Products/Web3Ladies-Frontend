@@ -18,6 +18,7 @@ import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import FreehandCard from "../../components/FreehandCard";
+import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
 import { useRouter } from "next/router";
 const mentorship = ({
   indexPage,
@@ -178,6 +179,7 @@ const mentorship = ({
       </section>
 
       {/* <HowItWorks /> */}
+      <HowItWorks />
 
       <DualColorBanner
         title={indexPage.how_it_works_title}

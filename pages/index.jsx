@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import AboutSection from "../components/AboutSection";
 import Supporters from "../components/Supporters";
 import Pledge from "../components/common/Pledge";
+import Notification from "../components/cohorts/Notification";
 
 export default function Home({ indexPage }) {
   const router = useRouter();
@@ -22,6 +23,11 @@ export default function Home({ indexPage }) {
   return (
     <>
       <Navbar />
+      {/* NOTIFICATION */}
+      {indexPage?.show_cohort_notification && (
+        // Registration for <strong>Cohort III</strong> is ongoing
+        <Notification text={indexPage.cohort_notification_text} />
+      )}
 
       {/* HERO SECTION */}
       <main className="header-bg">

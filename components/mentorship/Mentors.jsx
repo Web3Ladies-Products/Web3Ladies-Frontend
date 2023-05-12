@@ -26,9 +26,11 @@ const Mentors = () => {
           <div className="help-mentor-section">
             <div>
               <div className="content-wrap">
-                <h1 className="section-title text-uppercase">
-                  {fetchData.title}
-                </h1>
+                <h1
+                  className="section-title text-uppercase"
+                  dangerouslySetInnerHTML={{ __html: fetchData.title }}
+                />
+
                 <div>
                   <Button
                     handleClick={() => {
