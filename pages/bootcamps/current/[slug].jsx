@@ -39,11 +39,23 @@ const Bootcamp = ({ bootcamp }) => {
         <Tracks data={bootcamp} />
       </section>
 
-      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
+      <Highlights
+        title={
+          bootcamp.highlight_title
+            ? bootcamp.highlight_title
+            : "Highlights of the Cohort"
+        }
+        HIGHLIGHTS_ITEMS={bootcamp.highlight_items_details}
+      />
 
-      <Curriculum data={bootcamp} />
+      <Curriculum
+        track={{
+          curriculum_title: bootcamp.curriculum_title,
+          curriculum_items: bootcamp.curriculum_items_details,
+        }}
+      />
       <Mentors data={bootcamp} />
-      <FAQs bootcamp={bootcamp} />
+      <FAQs data={bootcamp.faqs} />
       <Testimonials
         testimonial_title={bootcamp.testimonial_title}
         testimonial_description={bootcamp.testimonial_description}

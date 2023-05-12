@@ -6,6 +6,7 @@ import HeroSection from "../../../components/cohorts/HeroSection";
 import VisitYoutube from "../../../components/VisitYoutube";
 import About from "../../../components/cohorts/About";
 import Tracks from "../../../components/cohorts/Tracks";
+import Track from "../../../components/analytics/Tracks";
 import { strapiService } from "../../../services/strapi.service";
 
 import FAQs from "../../../components/FAQs";
@@ -35,6 +36,7 @@ const CurrentCohort = ({ cohort }) => {
 
       {/* ABOUT MENTEES SECTION */}
       <About tracks_details={cohort.tracks_details} />
+      <Track data={cohort} />
 
       {/* TRACKS SECTION */}
       <Tracks tracks={cohort.tracks} />

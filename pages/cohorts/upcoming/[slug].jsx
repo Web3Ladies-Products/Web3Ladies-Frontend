@@ -3,6 +3,7 @@ import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
 import HeroSection from "../../../components/cohorts/HeroSection";
 import Tracks from "../../../components/cohorts/Tracks";
+import Track from "../../../components/analytics/Tracks";
 import VisitYoutube from "../../../components/VisitYoutube";
 import About from "../../../components/cohorts/About";
 import { strapiService } from "../../../services";
@@ -36,7 +37,10 @@ const UpcomingCohort = ({ cohort }) => {
       <About tracks_details={cohort.tracks_details} />
 
       {/* registeration details */}
-      <Registration registrationDetails={cohort.registrationDetails} />
+      <Registration
+        data={{ registration_details: cohort.registrationDetails }}
+      />
+      <Track data={cohort} />
       {/* TRACKS SECTION */}
       <Tracks tracks={cohort.tracks} />
 
@@ -45,7 +49,7 @@ const UpcomingCohort = ({ cohort }) => {
       <FeaturedMentees />
       <JoinAsMentor />
       <div className="faq">
-        <FAQs  />
+        <FAQs />
       </div>
       <div className="p-20">
         <FreehandCard />

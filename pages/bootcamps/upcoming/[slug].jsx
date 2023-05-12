@@ -78,8 +78,8 @@ const Bootcamp = ({ bootcamp }) => {
         </div>
       </section>
 
-      <Benefits data={bootcamp} />
-      <Gains data={bootcamp} />
+      <Benefits track={bootcamp} />
+      <Gains track={bootcamp} />
       <Curriculum data={bootcamp} />
       <Mentors data={bootcamp} />
       <FAQs bootcamp={bootcamp} />

@@ -50,7 +50,7 @@ const Bootcamp = ({ bootcamp }) => {
       <section className="mentee-experience">
         <div className="container">
           <MenteeExperience
-            mentee_details={bootcamp?.past_bootcamp_mentee_details}
+            mentees_details={bootcamp?.past_bootcamps_mentees_details}
           />
         </div>
       </section>
@@ -61,8 +61,14 @@ const Bootcamp = ({ bootcamp }) => {
 
       <ProjectsDone data={bootcamp?.projects_done_details} />
 
-      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
-
+      <Highlights
+        title={
+          bootcamp.highlight_title
+            ? bootcamp.highlight_title
+            : "Highlights of the Cohort"
+        }
+        HIGHLIGHTS_ITEMS={bootcamp.highlight_items_details}
+      />
       <Gallery data={bootcamp.gallery_details} />
 
       <VisitYoutube />

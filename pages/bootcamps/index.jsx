@@ -12,12 +12,9 @@ import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import Testimonials from "../../components/Testimonials";
 import { strapiService } from "../../services";
-import { useRouter } from "next/router";
 import VisitYoutube from "../../components/VisitYoutube";
 
-const BootcampPage = ({ indexPage }) => {
-  const bootCamp = indexPage;
-
+const BootcampPage = ({ bootCamp }) => {
   return (
     <>
       <Navbar />
@@ -136,16 +133,19 @@ const BootcampPage = ({ indexPage }) => {
 
       <div className="mb-small" />
 
-      {/* <FAQs data={FAQ_DATA} /> */}
+      <FAQs />
 
       <div className="mb-small" />
-
-      {/* <Testimonials
-        testimonial_title={indexPage.testimonial_title}
-        testimonial_description={indexPage.testimonial_description}
-        testimonial_items={indexPage.testimonials_details}
-        hasMaxWidth={true}
-      /> */}
+      {bootCamp?.bootcamp_testimonial_title &&
+        bootCamp?.bootcamp_testimonial_description &&
+        bootCamp?.bootcamp_testimonial_items && (
+          <Testimonials
+            testimonial_title={bootCamp?.testimonial_title}
+            testimonial_description={bootCamp?.testimonial_description}
+            testimonial_items={bootCamp?.testimonial_items}
+            hasMaxWidth={true}
+          />
+        )}
       <div className="mb-small" />
       <div className="p-20">
         <FreehandCard />
@@ -157,10 +157,11 @@ const BootcampPage = ({ indexPage }) => {
 };
 
 export async function getStaticProps() {
-  const indexPage = await strapiService.getBootCampPageData();
+  const bootCamp = await strapiService.getBootCampPageData();
+
   return {
     props: {
-      indexPage: indexPage.data.attributes,
+      bootCamp: bootCamp.data.attributes,
     },
   };
 }
