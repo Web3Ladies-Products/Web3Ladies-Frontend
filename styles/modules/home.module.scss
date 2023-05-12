@@ -953,3 +953,26 @@ main {
 }
 
 // END OF TESTIMONIALS SECTION
+
+//cohort hero display image
+.hero_display_image {
+  position: relative;
+  .vector {
+    position: absolute;
+    top: 58px;
+    right: 18px;
+  }
+  .display-vector {
+    position: absolute;
+    bottom: 80px;
+    left: -22px;
+    .number {
+      position: absolute;
+      bottom: 62px;
+      left: 67px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      rotate: 10deg;
+    }
+  }
+}

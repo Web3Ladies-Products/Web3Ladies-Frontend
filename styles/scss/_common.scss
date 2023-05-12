@@ -376,6 +376,8 @@
       display: flex;
       overflow-x: scroll;
       margin-bottom: 48px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
 
       &-item {
         margin-right: 24px;
@@ -399,6 +401,9 @@
           }
         }
       }
+    }
+    .carousel::-webkit-scrollbar {
+      display: none;
     }
   }
 }
