@@ -259,24 +259,15 @@ main {
     margin: auto;
   }
 
-  &--heading {
+  .introduction--heading {
     text-align: center;
     color: #000000;
     position: relative;
-    > span {
-      right: 14%;
-      top: -100% !important;
-      position: absolute !important;
-      animation: bounce 2s infinite;
-      img {
-        object-fit: contain;
-        // transform: rotate(100deg) !important;
-      }
+    display: flex;
+    justify-content: center;
 
-      @include mobile {
-        width: 70px !important;
-        // right: 0;
-      }
+    h1 {
+      align-self: flex-end;
     }
   }
 

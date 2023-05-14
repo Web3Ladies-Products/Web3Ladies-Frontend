@@ -553,25 +553,40 @@ main {
 
 .why-learn-section {
   overflow: hidden;
-  .container {
-    @include desktop {
-      display: flex;
-      justify-content: space-between;
-      gap: 50px;
-    }
-  }
+  padding-top: 0;
+  padding-left: 40px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+
   background-color: var(--primary-color);
   padding-bottom: 40px;
+  @media screen and (max-width: 968px) {
+    padding-left: 0;
+    flex-direction: column;
+  }
   .why-learn {
     &-content {
       display: flex;
+
       align-items: flex-start;
       flex-direction: column;
       justify-content: center;
-      min-width: 50%;
+      width: 35%;
+      margin: 0 auto;
+      @media screen and (max-width: 968px) {
+        width: 85%;
+      }
+
       h1 {
         color: var(--color-white);
+        margin-top: 40px;
+        @media screen and (max-width: 968px) {
+        }
       }
+
       p {
         color: #ffe2f4;
         margin-bottom: 40px;
@@ -604,6 +619,22 @@ main {
     &-image {
       @include mobile {
         width: 300px;
+      }
+    }
+  }
+
+  .why-learn-image {
+    max-width: 862px;
+    height: 100%;
+    flex: 1;
+    @media screen and (max-width: 968px) {
+      width: 85%;
+      align-self: end;
+    }
+    .arrow-img {
+      width: 100%;
+      object-fit: contain;
+      @media screen and (max-width: 968px) {
       }
     }
   }

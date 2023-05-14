@@ -242,7 +242,6 @@ export async function getStaticProps() {
   const bootcamps = await strapiService.getBootCampPageData();
   const whyLearnData = await strapiService.getWhyLearn();
   const workAssistanceData = await strapiService.getWorkAssistance();
-  console.log("mentorshipPage", mentorshipPage.data.attributes);
   return {
     props: {
       indexPage: indexPage.data.attributes,
