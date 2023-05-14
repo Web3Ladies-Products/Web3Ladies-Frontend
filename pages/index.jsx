@@ -24,7 +24,7 @@ export default function Home({ indexPage }) {
     <>
       <Navbar />
       {/* NOTIFICATION */}
-      {indexPage?.show_cohort_notification && (
+      {indexPage?.show_new_cohort_notification && (
         // Registration for <strong>Cohort III</strong> is ongoing
         <Notification text={indexPage.cohort_notification_text} />
       )}

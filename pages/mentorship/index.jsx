@@ -149,7 +149,7 @@ const mentorship = ({
 
               <div>
                 <Button
-                  type="primary-inverse"
+                  variant={"primary-inverse"}
                   buttonText={mentorshipPage.cta_button_text}
                   handleClick={() => {
                     router.push(
@@ -211,6 +211,7 @@ const mentorship = ({
 
       <WorkAssistance workAssistanceData={workAssistanceData} />
       <Tracks tracks={mentorshipPage.track_details} />
+
       <Mentors />
       <WhyLearn whyLearnData={whyLearnData} />
       <FeaturedMentees />
@@ -221,7 +222,7 @@ const mentorship = ({
       />
       {/* to be change to mentorshipPage not indexPage */}
       <Testimonials
-        testimonial_title={indexPage.testimonial_title}
+        testimonial_title={indexPage.testimonials_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
       />

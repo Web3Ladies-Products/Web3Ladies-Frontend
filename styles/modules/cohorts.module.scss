@@ -216,7 +216,7 @@
     display: flex;
     justify-content: space-between;
     gap: 100px;
-    width: 85%;
+    // width: 85%;
     margin: 0 auto;
     @include mobile {
       flex-direction: column;
@@ -237,7 +237,6 @@
   }
 
   .metrics {
-    width: 40%;
     background-color: var(--background-color);
     border-radius: 8px;
     height: fit-content;
@@ -358,6 +357,10 @@
   }
 }
 
+.cohorts__accordion_button {
+  width: 100%;
+  text-align: end;
+}
 // .cohort-content {
 //   width: 95%;
 //   margin: 0 auto;

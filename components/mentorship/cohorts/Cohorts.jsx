@@ -78,9 +78,10 @@ const Label = ({ number, date }) => {
 
 const Content = ({ cohortLink, isAccordion, cohortData }) => {
   return (
-    <div className="cohort-content container">
+    <div className="cohort-content container ">
       <CohortSummary />
-      <div className="button-container" style={{ marginBottom: "10px" }}>
+
+      <div className="cohorts__accordion_button">
         <Button
           variant={"outline"}
           buttonText={"Learn More"}

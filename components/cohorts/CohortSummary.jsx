@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const CohortSummary = ({ menteeDetails }) => {
   return (
-    <section className="cohort-summary">
-      <div className="container">
+    <div className="cohort-summary">
+      <div className="">
         <div className="summary-title">
           <h1>Summary</h1>
         </div>
@@ -62,7 +62,7 @@ const CohortSummary = ({ menteeDetails }) => {
       })}
     </ul> */}
       </div>
-    </section>
+    </div>
   );
 };
 

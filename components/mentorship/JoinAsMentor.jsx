@@ -30,7 +30,7 @@ const JoinAsMentor = () => {
                 handleClick={() => {
                   router.push(joinData.btn_link_1);
                 }}
-                type="outlined-clear"
+                variant="outlined-clear"
                 buttonText={joinData.btn_text_1}
               />
             </div>
@@ -41,7 +41,7 @@ const JoinAsMentor = () => {
                 handleClick={() => {
                   router.push(joinData.btn_link_2);
                 }}
-                type="outlined-clear"
+                variant="outlined-clear"
                 buttonText={joinData.btn_text_2}
               />
             </div>

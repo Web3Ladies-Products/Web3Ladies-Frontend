@@ -31,7 +31,7 @@ const Mentors = () => {
                   dangerouslySetInnerHTML={{ __html: fetchData.title }}
                 />
 
-                <div>
+                <div className="help-mentor-section-button">
                   <Button
                     handleClick={() => {
                       router.push(fetchData.btn1_link);
@@ -44,7 +44,7 @@ const Mentors = () => {
                       router.push(fetchData.btn2_link);
                     }}
                     buttonText="Become a Mentor"
-                    type="outline"
+                    variant="outline-transparent "
                   />
                 </div>
               </div>

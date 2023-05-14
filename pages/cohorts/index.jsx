@@ -15,7 +15,14 @@ const Cohorts = ({ indexPage }) => {
     <>
       <Navbar />
       <HeroSection heroDetails={indexPage} />
-      <CohortSection cohortData={indexPage} />
+      <section className="">
+        <div className="container mentorship-bootcamp-header">
+          <h1 className="section-title"> Cohorts</h1>
+        </div>
+
+        <CohortSection cohortData={indexPage} />
+      </section>
+
       <VisitYoutube />
       <FeaturedMentees />
       <JoinAsMentor />

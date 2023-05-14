@@ -49,8 +49,7 @@ const WhyLearn = ({ whyLearnData }) => {
         </div>
         <Button
           buttonText={whyLearnData.btn_text}
-          type="primary-inverse"
-          className="bg-white"
+          variant="primary-inverse"
           handleClick={() => {
             router.push(whyLearnData.btn_link);
           }}

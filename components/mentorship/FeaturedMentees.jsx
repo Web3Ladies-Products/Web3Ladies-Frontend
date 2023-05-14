@@ -28,7 +28,7 @@ const FeaturedMentees = () => {
             <h1 className="section-title">{featuredMentees.title}</h1>
             <Button
               buttonText={featuredMentees?.btn_text}
-              type="outline"
+              variant="outline-transparent"
               handleClick={() => {
                 router.push(featuredMentees?.btn_link);
               }}
@@ -51,8 +51,7 @@ const FeaturedMentees = () => {
                   <div className="featured-mentee-card-content">
                     <h2>{name}</h2>
                     <div>
-                      <span>{jobRole}</span> &#124;{" "}
-                      <a href={company}>contact</a>
+                      <span>{jobRole}</span> &#124; <span>{company}</span>
                     </div>
                   </div>
                 </div>
