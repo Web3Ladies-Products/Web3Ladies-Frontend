@@ -86,19 +86,27 @@ const ContactSection = ({ contactDetails }) => {
                   src="/assets/images/mentorship-bootcamp-star.png"
                   alt="ethereum-logo"
                 />
-                <div className="cont">
-                  <div className="p">
-                    <h2>Email</h2>
-                    <span className="justify">hello@web3ladies.com</span>
-                  </div>
-                  <div className="left">
-                    <h2>Telephone</h2>
-                    <div className="justify">
-                      <span className="right">+971 58 570 4990</span>
-                      <span>+971 58 570 4990</span>
+                <address>
+                  <div className="cont">
+                    <div className="p">
+                      <h2>Email</h2>
+                      <a
+                        target="_blank"
+                        href="mailto:hello@web3ladies.com"
+                        className="justify"
+                      >
+                        hello@web3ladies.com
+                      </a>
+                    </div>
+                    <div className="left">
+                      <h2>Telephone</h2>
+                      <div className="justify">
+                        <span className="right">+971 58 570 4990</span>
+                        <span>+971 58 570 4990</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </address>
               </div>
             </div>
           </div>

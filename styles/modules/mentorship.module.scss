@@ -455,6 +455,9 @@ main {
     margin: auto;
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
     > div {
       flex: 1;
     }
@@ -471,6 +474,10 @@ main {
         // letter-spacing: -0.04em;
         text-transform: uppercase;
         margin-bottom: 50px;
+        @media screen and (max-width: 768px) {
+          margin-top: 1rem;
+          line-height: normal;
+        }
       }
 
       > div {
