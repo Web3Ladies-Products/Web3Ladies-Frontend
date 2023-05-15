@@ -236,6 +236,20 @@ const getBlogPosts = async ({ page, pageSize, category }) => {
   }
 };
 
+const getAllBlogPosts = async () => {
+  try {
+    const blogPosts = await fetch(`${STRAPI_URL}/api/blogs`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return blogPosts;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getSortedBlogPosts = async ({ page, pageSize }) => {
   try {
     const blogPosts = await fetch(
@@ -764,6 +778,7 @@ export const strapiService = {
   getPostsByCategory,
   getSortedBlogPosts,
   searchBlogPosts,
+  getAllBlogPosts,
   getSimilarPosts,
   getHomePageData,
   getSponsorshipData,
