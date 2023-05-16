@@ -16,6 +16,7 @@ import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
+import CohortSection from "../../../components/mentorship/cohorts/Cohorts";
 const PastCohort = ({ cohort }) => {
   if (!cohort) {
     return <Custom404Error />;
@@ -36,9 +37,11 @@ const PastCohort = ({ cohort }) => {
       <HeroSection heroDetails={heroDetails} badgeText={"past"} />
 
       {/* SUMMARY SECTION */}
-
-      <Summary />
-
+      <section className="mentee-experience">
+        <div className="container">
+          <Summary />
+        </div>
+      </section>
       {/* MENTEES SECTION */}
       <section className="mentee-experience">
         <div className="container">
