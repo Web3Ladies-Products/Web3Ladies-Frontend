@@ -28,6 +28,7 @@ const HeroSection = ({ data }) => {
                 className="hero-image"
                 width={"493px"}
                 height={"472px"}
+                objectFit="contain"
                 src={data.hero_image}
                 alt="bootcamp-image"
               />
