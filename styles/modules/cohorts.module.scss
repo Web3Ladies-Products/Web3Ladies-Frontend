@@ -206,7 +206,7 @@
     letter-spacing: -0.04em;
     // margin-left: 70px;
     width: 85%;
-    margin: 0 auto;
+    // margin: 0 auto;
     @include mobile {
       // margin-left: 1px;
     }
@@ -244,6 +244,7 @@
 
     @include mobile {
       margin-top: 20px;
+      margin-bottom: 20px;
       width: 100%;
     }
 
