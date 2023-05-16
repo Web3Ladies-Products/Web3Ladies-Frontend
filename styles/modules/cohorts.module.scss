@@ -241,10 +241,10 @@
     border-radius: 8px;
     height: fit-content;
     padding: 30px 20px 20px 30px;
+    margin-bottom: 20px;
 
     @include mobile {
       margin-top: 20px;
-      margin-bottom: 20px;
       width: 100%;
     }
 
