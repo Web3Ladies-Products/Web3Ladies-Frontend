@@ -2,7 +2,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import communityData from "../pages/api/community.json";
+
+
 import Button from "../components/buttons/Button";
+
 
 const CommunityEvents = ({
   title,
