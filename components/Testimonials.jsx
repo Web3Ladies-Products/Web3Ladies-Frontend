@@ -8,23 +8,20 @@ const Testimonials = ({
   testimonial_items,
   hasMaxWidth,
 }) => {
-  const [activeTestimonialTab, setActiveTestimonialTab] =
-    React.useState("past_mentees");
+  const [activeTestimonialTab, setActiveTestimonialTab] = React.useState(
+    Object.keys(testimonial_items)[0]
+  );
 
-  const TESTIMONIAL_TABS = [
-    {
-      key: "past_mentees",
-      title: "Past Mentees",
-    },
-    {
-      key: "shoutouts",
-      title: "Shoutouts",
-    },
-    {
-      key: "community",
-      title: "Community",
-    },
-  ];
+  function getKeysAndTitles(data) {
+    let keys = Object.keys(data);
+    let testimonial_tabs = keys.map((val) => ({
+      key: val,
+      title: val.split("_").join(" ").toUpperCase(),
+    }));
+    return testimonial_tabs;
+  }
+
+  const TESTIMONIAL_TABS = getKeysAndTitles(testimonial_items);
 
   return (
     <section className="testimonials">
@@ -51,8 +48,11 @@ const Testimonials = ({
             ))}
           </div>
           <div className="testimonials--container__content">
-            {testimonial_items[activeTestimonialTab]?.map((item, idx) => (
-              <div className="testimonials--container__content__item" key={idx}>
+            {testimonial_items[activeTestimonialTab]?.map((item, index) => (
+              <div
+                className="testimonials--container__content__item"
+                key={index}
+              >
                 <div className="testimonials--container__content__item__heading">
                   <Image
                     src={item.image}

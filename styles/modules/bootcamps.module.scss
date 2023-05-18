@@ -122,12 +122,16 @@ main {
         justify-content: space-between;
         text-align: left;
         margin-bottom: 32px;
+        margin-top: 32px;
+        flex-wrap: wrap;
 
         > div {
           flex-basis: 50%;
+          margin: 32px auto;
         }
         h5 {
           font-weight: 700;
+          margin-bottom: 6px;
         }
         h5,
         span {
@@ -160,12 +164,16 @@ main {
   }
 
   &--container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 24px;
   }
 
   &--item {
+    width: 300px;
+    @include mobile {
+      width: 100%;
+    }
     h3,
     h5 {
       font-weight: 600;
@@ -190,6 +198,8 @@ main {
     }
     .project-footer {
       display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
       justify-content: space-between;
 
       &--cta {
@@ -205,4 +215,12 @@ main {
       }
     }
   }
+}
+
+.mb-small {
+  margin-bottom: 80px;
+}
+
+.mb-large {
+  margin-bottom: 200px;
 }

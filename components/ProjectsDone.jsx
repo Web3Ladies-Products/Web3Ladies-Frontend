@@ -4,7 +4,7 @@ import Badge from "./Badge";
 import Button from "./buttons/Button";
 import ArrowCircle from "./icons/ArrowCircle";
 
-const ProjectsDone = ({ projectsDone }) => {
+const ProjectsDone = ({ data }) => {
   const CATEGORY_COLOR = {
     "blockchain-development": "#7D0BFE",
     "web-development": "#FE471F",
@@ -18,15 +18,16 @@ const ProjectsDone = ({ projectsDone }) => {
         <div className="projects-done--heading">
           <h1 className="sub-section-title bold">Projects Done</h1>
           <Button
-            variant={"outline"}
-            buttonText={"View all projects"}
-            handleClick={() => null}
+            buttonText="View More"
+            variant="outline"
+            handleClick={() => {}}
+            border="border__btn"
           />
         </div>
         <ul className="projects-done--container">
-          {projectsDone.map((project) => (
+          {data?.map((project) => (
             <li
-              key={project.title}
+              key={project.id}
               className="projects-done--item card card__black d-flex flex-column justify-content-between"
             >
               <div className="project-header d-flex align-items-center">
@@ -49,9 +50,10 @@ const ProjectsDone = ({ projectsDone }) => {
               <div className="project-footer">
                 <div className="project-footer--cta">
                   <Button
-                    variant={"clear"}
+                    variant={"outline"}
                     buttonText={"View project"}
-                    handleClick={() => null}
+                    handleClick={() => window.open(project.ctaLink, "_blank")}
+                    disabled={!!project.ctaLink}
                     hasIcon
                   >
                     <span className="icon-right d-flex align-items-center">
@@ -62,7 +64,7 @@ const ProjectsDone = ({ projectsDone }) => {
                 <div className="project-category">
                   <Badge
                     badgeText={project.category}
-                    badgeBackground={CATEGORY_COLOR[project.id]}
+                    badgeBackground={CATEGORY_COLOR[project.id] || ""}
                     handleClick={() => null}
                   />
                 </div>

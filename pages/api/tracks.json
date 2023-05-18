@@ -15,8 +15,8 @@
     },
     "why": {
       "title": "Why study Blockchain Development?",
-      "firstParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus",
-      "secondParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+     
     },
     "benefits": {
       "title": "Is this track right for you?",
@@ -164,7 +164,7 @@
     "hero": {
       "title": "Web3 - Web Development",
       "description": "The Web developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-      "image": "/assets/images/web-dev.png",
+      "image": "/assets/images/web2at.png",
       "buttonTextOne": "View curriculum",
       "buttonLinkOne": "/tracks/web-development",
       "buttonTypeOne": "outline",
@@ -175,8 +175,8 @@
     },
     "why": {
       "title": "Why study Web Development?",
-      "firstParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus",
-      "secondParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+      
     },
     "benefits": {
       "title": "Is this track right for you?",
@@ -324,7 +324,7 @@
     "hero": {
       "title": "Web3 - Product Design",
       "description": "The Product Designer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-      "image": "/assets/images/product-design.png",
+      "image": "/assets/images/figmatrack.png",
       "buttonTextOne": "View curriculum",
       "buttonLinkOne": "/tracks/product-design",
       "buttonTypeOne": "outline",
@@ -335,8 +335,8 @@
     },
     "why": {
       "title": "Why study Product Design?",
-      "firstParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus",
-      "secondParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+      
     },
     "benefits": {
       "title": "Is this track right for you?",
@@ -484,7 +484,7 @@
     "hero": {
       "title": "Web3 - Product Management",
       "description": "The Product Manager’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-      "image": "/assets/images/product-management.png",
+      "image": "/assets/images/producttrack.png",
       "buttonTextOne": "View curriculum",
       "buttonLinkOne": "/tracks/product-management",
       "buttonTypeOne": "outline",
@@ -495,8 +495,8 @@
     },
     "why": {
       "title": "Why study Product Management?",
-      "firstParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus",
-      "secondParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non volutpat id id mi mauris, netus. Sagittis ullamcorper vestibulum tincidunt integer sed pretium vulputate hendrerit. Eget sed nisl eu odio. Ullamcorper pulvinar iaculis enim amet nisl. Dignissim arcu iaculis vitae auctor nisi. Dolor fermentum facilisi etiam massa. Sem turpis consectetur eu eget a cursus leo. Feugiat hendrerit ipsum ut in quam iaculis pellentesque mauris in. Tristique ipsum pretium justo, sed ac. Tincidunt dictumst massa ipsum risus, mattis cras non. Elit viverra mi sed sit curabitur nunc malesuada. Habitasse ultrices enim, nulla velit purus neque amet, ridiculus. Maecenas bibendum lacus porttitor lacus habitant tincidunt nulla sit. Et integer tortor, amet in molestie auctor turpis duis id. Neque ultrices semper vitae amet tellus, dui. Euismod viverra pulvinar sed ornare. Et in convallis ut eu ut nulla gravida enim risus"
+
     },
     "benefits": {
       "title": "Is this track right for you?",

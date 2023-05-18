@@ -13,19 +13,37 @@ const VisitYoutube = () => {
           <Button
             variant={"primary"}
             buttonText={"Visit"}
-            handleClick={() => null}
+            handleClick={() => window.open("https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg", "_blank")
+          }
           />
         </div>
         <div className="youtube">
           <iframe
-            width="380"
-            height="300"
+            width="350"
+            height="200"
             src="https://www.youtube.com/embed/LapzOS7zyW0"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
+          <div className="thick-line">
+          </div>
+          <div className="containner">
+            <div className="contain">
+            <div className="circle"></div>
+            <div>
+            <p className="text">Web3ladies</p>
+            <div className="line"></div>
+            </div>
+            </div>
+            <Button
+            variant={"primary"}
+            className="button"
+            buttonText={"SUBSCRIBE"}
+            handleClick={() => window.open("https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg", "_blank")}
+          />
+          </div>
         </div>
       </div>
     </section>

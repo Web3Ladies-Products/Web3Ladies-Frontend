@@ -16,13 +16,16 @@ export default function AboutSection({
             className="section-title"
             dangerouslySetInnerHTML={{ __html: title }}
           />
-          <Image
-            className="hero-img"
-            width="100"
-            height="150"
-            src="/assets/images/web3vector-img.png"
-            alt="web3ladies-vector"
-          />
+          <div className="about__image-section">
+            <Image
+              className="hero-img "
+              width="100"
+              objectFit="contain"
+              height="150"
+              src="/assets/images/web3ladies-about-bounce.png"
+              alt="web3ladies-vector"
+            />
+          </div>
         </div>
 
         <div className="introduction--container">

@@ -5,7 +5,7 @@ const Summary = () => {
     <section className="cohort-summary">
       <div className="">
         <div className="summary-title">
-          <h1>Summary</h1>
+          <h1>Summary To change</h1>
         </div>
         <div className="summary-content">
           <div className="summary-content-text">
