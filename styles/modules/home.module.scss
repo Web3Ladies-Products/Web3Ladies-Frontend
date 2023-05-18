@@ -20,6 +20,7 @@ main {
     background-size: contain;
     background-repeat: repeat-x;
   }
+
   padding-top: 40px;
   padding-bottom: 120px;
 
@@ -30,6 +31,7 @@ main {
   .hero_image {
     position: relative;
     width: 500px;
+
     @include mobile {
       max-width: 460px;
       width: 100%;
@@ -39,11 +41,13 @@ main {
     &.featured {
       > div:nth-of-type(1) {
         animation: none !important;
+
         .hero-image {
           animation: none !important;
         }
       }
     }
+
     // @media (max-width: 1140px) {
     //   margin-bottom: 100px;
     //   width: 100%;
@@ -180,6 +184,7 @@ main {
             transform: scale(0.95);
             z-index: 1;
           }
+
           50% {
             transform: scale(1);
             z-index: 1;
@@ -199,18 +204,21 @@ main {
 
         .hero_content {
           width: 50%;
+
           h1 {
             // max-width: 500px;
             span {
               font-family: inherit;
             }
           }
+
           p {
             max-width: 689px;
             margin-top: 25px;
           }
         }
       }
+
       .button-container {
         margin-top: 38px;
         display: flex;
@@ -223,6 +231,7 @@ main {
     }
   }
 }
+
 // END OF HERO SECTION
 
 // SUPPORT SECTION
@@ -250,6 +259,7 @@ main {
     }
   }
 }
+
 // END OF SUPPORT SECTION
 
 // INTRODUCTION SECTION
@@ -263,8 +273,10 @@ main {
     text-align: center;
     color: #000000;
     position: relative;
+
     display: flex;
     justify-content: center;
+
 
     h1 {
       align-self: flex-end;
@@ -286,11 +298,22 @@ main {
 
     &-cta {
       margin-top: 30px;
+
       > span {
         animation: bounce 2s infinite;
       }
     }
   }
+}
+
+.introduction--dark {
+  background-color: black;
+  margin-top: 20px;
+  #header{
+    color: #ffffff;
+  }
+  
+ 
 }
 // END OF INTRODUCTION SECTION
 
@@ -303,6 +326,7 @@ main {
       align-items: center;
       padding: 77px 93px;
     }
+
     background: #7d0bfe;
     border-radius: 16px;
     padding: 27px;
@@ -320,6 +344,7 @@ main {
     h3 {
       color: #ffffff;
     }
+
     p {
       font-style: normal;
       color: #ffdcf2;
@@ -339,12 +364,15 @@ main {
   &--img {
     width: 500px;
     height: 500px;
+
     @include mobile {
       display: none;
     }
+
     margin-bottom: -120px;
   }
 }
+
 // END OF WHO WE ARE SECTION
 
 // ANALYTICS SECTION
@@ -392,6 +420,7 @@ main {
     color: purple;
   }
 }
+
 // END OF ANALYTICS SECTION
 
 // IMPACT SECTION
@@ -425,6 +454,7 @@ main {
 
       .text {
         width: 100%;
+
         h1 {
           margin-bottom: 11px;
           color: var(--primary-color);
@@ -444,6 +474,7 @@ main {
             width: 437px;
           }
         }
+
         @include mobile {
           padding: 32px var(--page-container-margin);
         }
@@ -481,6 +512,7 @@ main {
         .text {
           display: flex;
           justify-content: flex-end;
+
           @include desktop {
             padding-right: 119px;
             order: 1;
@@ -495,6 +527,7 @@ main {
           @include desktop {
             order: 2;
           }
+
           // margin-right: 0;
           // margin-left: 0;
 
@@ -510,9 +543,11 @@ main {
     }
   }
 }
+
 // END OF IMPACT SECTION
 
 // HIGHLIGHTS SECTION
+
 .highlights {
   &--heading {
     display: flex;
@@ -544,18 +579,25 @@ main {
         margin-bottom: 16px;
         overflow: hidden;
       }
+
       &--text {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: baseline;
+
         h4 {
           margin: 32px 0;
           font-weight: 600;
           font-size: 28px;
           line-height: 130%;
           letter-spacing: -0.04em;
+        }
+
+        .item-text {
+          font-weight: 700;
+          font-size: 25px;
         }
 
         p {
@@ -567,6 +609,7 @@ main {
     }
   }
 }
+
 // END OF HIGHLIGHTS SECTION
 
 // CALL FOR SPONSORS SECTION
@@ -621,6 +664,7 @@ main {
     background-color: var(--primary-color);
   }
 }
+
 // END OF CALL FOR SPONSORS SECTION
 
 // MENTORSHIP SECTION
@@ -695,12 +739,14 @@ main {
     }
   }
 }
+
 // END OF MENTORSHIP SECTION
 
 // PLEDGE SECTION
 .pledge {
   padding-top: 80px;
   padding-bottom: 80px;
+
   .container {
     @include desktop {
       display: flex;
@@ -720,6 +766,7 @@ main {
     }
   }
 }
+
 // END OF PLEDGE SECTION
 
 // EVENTS SECTION
@@ -799,6 +846,7 @@ main {
         .text {
           display: flex;
           justify-content: flex-end;
+
           @include desktop {
             padding-right: 119px;
             order: 1;
@@ -814,6 +862,7 @@ main {
     }
   }
 }
+
 // END OF EVENTS SECTION
 
 // YOUTUBE SECTION
@@ -823,8 +872,10 @@ main {
       width: 77%;
     }
   }
+
   h1 {
     text-align: center;
+
     @include desktop {
       display: flex;
       justify-content: center;
@@ -835,6 +886,7 @@ main {
       align-items: center;
       justify-content: center;
       margin-left: 8px;
+
       @include mobile {
         margin-top: 16px;
       }
@@ -853,6 +905,7 @@ main {
       margin: 0;
       position: relative;
       overflow: hidden;
+
       iframe {
         width: 100%;
         height: 100%;
@@ -865,6 +918,7 @@ main {
     justify-content: center;
   }
 }
+
 // END OF YOUTUBE SECTION
 
 // TESTIMONIALS SECTION
@@ -909,6 +963,7 @@ main {
       @include desktop {
         width: 77%;
       }
+
       @include mobile {
         margin-top: 32px;
       }
@@ -934,6 +989,7 @@ main {
           display: flex;
           align-items: center;
           margin-bottom: 27px;
+
           > div {
             margin-left: 8px;
           }

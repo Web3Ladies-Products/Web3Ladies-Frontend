@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
+
 const Testimonials = ({
   testimonial_title,
   testimonial_description,

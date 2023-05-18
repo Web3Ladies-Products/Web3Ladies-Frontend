@@ -12,6 +12,7 @@ section {
     .feedback {
       width: 100%;
       margin: 0px auto 0px auto;
+
       .success {
         display: flex;
         justify-content: center;
@@ -31,6 +32,7 @@ section {
           @include mobile {
             font-size: 20px;
           }
+
           margin: 15px 0px 15px 0;
           font-size: 16px;
         }
@@ -39,6 +41,7 @@ section {
           @include mobile {
             font-size: 15px;
           }
+
           margin: 15px 0px 15px 0;
           font-size: 10px;
         }
@@ -55,10 +58,12 @@ section {
           align-items: center;
         }
       }
+
       &-images {
         @include mobile {
           width: 100%;
         }
+
         width: 80%;
         display: flex;
         justify-content: space-around;
@@ -66,16 +71,20 @@ section {
 
         .vector {
           position: absolute;
+
           @include mobile {
             width: 40px;
             height: 40px;
           }
+
           width: 80px;
           height: 80px;
+
           &:nth-child(1) {
             top: 5%;
             left: 10%;
           }
+
           &:nth-child(2) {
             top: 5%;
             right: 20%;
@@ -87,11 +96,13 @@ section {
     .cylindrical-images {
       padding-top: 170px;
       width: 100%;
+
       @include mobile {
         margin-top: 200px;
       }
-      & > div {
-        > span {
+
+      &>div {
+        >span {
           position: absolute !important;
 
           &:nth-of-type(1) {
@@ -107,6 +118,7 @@ section {
       }
     }
   }
+
 }
 
 .curriculum-section-heading {
@@ -116,3 +128,4 @@ section {
     max-width: 100%;
   }
 }
+
