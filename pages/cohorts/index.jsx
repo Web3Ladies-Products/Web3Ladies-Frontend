@@ -4,19 +4,47 @@ import Footer from "../../components/layouts/Footer";
 import VisitYoutube from "../../components/VisitYoutube";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
 import HeroSection from "../../components/cohorts/HeroSection";
-import cohortsData from "../api/cohorts.json";
+import FAQs from "../../components/FAQs";
+import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
+import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
+import FreehandCard from "../../components/FreehandCard";
+import { strapiService } from "../../services";
 
-const Cohorts = () => {
-  const heroDetails = cohortsData.home.hero;
+const Cohorts = ({ indexPage }) => {
   return (
     <>
       <Navbar />
-      <HeroSection heroDetails={heroDetails} />
-      <CohortSection />
+      <HeroSection heroDetails={indexPage} />
+      <section className="">
+        <div className="container mentorship-bootcamp-header">
+          <h1 className="section-title"> Cohorts</h1>
+        </div>
+
+        <CohortSection cohortData={indexPage} />
+      </section>
+
       <VisitYoutube />
+      <FeaturedMentees />
+      <JoinAsMentor />
+      <div className="faq">
+        <FAQs />
+      </div>
+      <div className="p-20">
+        <FreehandCard />
+      </div>
       <Footer />
     </>
   );
 };
+
+export async function getStaticProps() {
+  const indexPage = await strapiService.getCohortPageData();
+  console.log(indexPage);
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}
 
 export default Cohorts;

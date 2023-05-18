@@ -1,11 +1,11 @@
 import React from "react";
-import cohortsData from "../../../pages/api/cohorts.json";
+
 import Button from "../../buttons/Button";
 import Accordion from "../../accordion/Accordion";
-import Summary from "../../cohorts/Summary";
-import MenteeExperience from "../../MenteeExperience";
 
-const CohortSection = ({ isAccordion }) => {
+import CohortSummary from "../../cohorts/CohortSummary";
+
+const CohortSection = ({ cohortData, isAccordion }) => {
   const cohortsDetails = [
     {
       label: <Label number="One" date="May - August 2020" />,
@@ -13,6 +13,7 @@ const CohortSection = ({ isAccordion }) => {
         <Content
           cohortLink={"/cohorts/past/cohort-1"}
           isAccordion={isAccordion}
+          cohortData={cohortData}
         />
       ),
     },
@@ -22,6 +23,7 @@ const CohortSection = ({ isAccordion }) => {
         <Content
           cohortLink={"/cohorts/past/cohort-2"}
           isAccordion={isAccordion}
+          cohortData={cohortData}
         />
       ),
     },
@@ -31,6 +33,7 @@ const CohortSection = ({ isAccordion }) => {
         <Content
           cohortLink={"/cohorts/past/cohort-3"}
           isAccordion={isAccordion}
+          cohortData={cohortData}
         />
       ),
     },
@@ -40,39 +43,13 @@ const CohortSection = ({ isAccordion }) => {
         <Content
           cohortLink={"/cohorts/past/cohort-4"}
           isAccordion={isAccordion}
+          cohortData={cohortData}
         />
       ),
     },
   ];
   return (
     <>
-      {/* <div className="hero_image">
-                <div>
-                  <Image
-                    className="hero-image"
-                    width={"493px"}
-                    height={"472px"}    
-                    objectFit="contain"
-                    src="/assets/images/female-polygon.png"
-                    alt="hero-image"
-                  />
-                  <Image
-                    className="hero-illustration"
-                    width={"150px"}
-                    height={"125px"}
-                    src="/assets/images/web3ladies-cohorts.png"
-                    alt="web3ladies-vector"
-                  />
-                  <Image
-                    className="hero-illustration"
-                    width={"100px"}
-                    height={"155px"}
-                    src="/assets/images/curved-web3ladies-vector.png"
-                    alt="web3ladies-vector"
-                  />
-                </div>
-              </div> */}
-
       <section className="summary-section" id="cohorts">
         <Accordion
           panels={cohortsDetails}
@@ -99,14 +76,12 @@ const Label = ({ number, date }) => {
   );
 };
 
-const Content = ({ cohortLink, isAccordion }) => {
-  const cohortDetails = cohortsData.home;
-
+const Content = ({ cohortLink, isAccordion, cohortData }) => {
   return (
-    <div className="cohort-content container">
-      <Summary isAccordion={isAccordion} />
-      <MenteeExperience menteeDetails={cohortDetails.mentees} />
-      <div className="button-container mb-20">
+    <div className="cohort-content container ">
+      <CohortSummary />
+
+      <div className="cohorts__accordion_button">
         <Button
           variant={"outline"}
           buttonText={"Learn More"}

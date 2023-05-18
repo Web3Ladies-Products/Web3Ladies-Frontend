@@ -78,3 +78,4 @@ export const getFirstLetter = (name) => {
 
 export const handleFormInputChange = (setFormData) =>
   generateInputChangeHandler(setFormData);
+

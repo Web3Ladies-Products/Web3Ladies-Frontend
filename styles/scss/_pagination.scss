@@ -42,18 +42,16 @@
       display: none;
       margin-left: 16px;
 
-      @include desktop {
-        display: block;
-      }
+      display: block;
     }
 
     li {
-      float: left;
+      // float: left;
       margin-right: 15.5px;
-
       button {
         padding: 0 10px;
-        color: rgba(var(--color-black-rgb), 0.48);
+        color: white !important;
+
         line-height: 24px;
         text-align: center;
       }

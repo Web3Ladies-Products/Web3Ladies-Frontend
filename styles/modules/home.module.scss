@@ -33,7 +33,8 @@ main {
     width: 500px;
 
     @include mobile {
-      width: 300px;
+      max-width: 460px;
+      width: 100%;
       margin: 60px auto;
     }
 
@@ -96,6 +97,76 @@ main {
           }
         }
       }
+    }
+  }
+  .contact_image {
+    position: relative;
+    width: 500px;
+
+    @include mobile {
+      max-width: 460px;
+      width: 100%;
+      margin: 60px auto;
+      display: none;
+    }
+
+    &.featured {
+      > div:nth-of-type(1) {
+        animation: none !important;
+        .hero-image {
+          animation: none !important;
+        }
+      }
+    }
+    // @media (max-width: 1140px) {
+    //   margin-bottom: 100px;
+    //   width: 100%;
+    // }
+
+    & > div {
+      position: relative;
+
+      > span {
+        position: absolute !important;
+
+        &:nth-of-type(1) {
+          position: relative !important;
+          z-index: 0;
+          animation: none !important;
+        }
+
+        &:nth-of-type(2) {
+          bottom: 300px;
+          left: -80px;
+
+          @include mobile {
+            width: 45px !important;
+          }
+        }
+
+        &:nth-of-type(3) {
+          top: -60px;
+          right: -30px;
+
+          @include mobile {
+            width: 40px !important;
+          }
+        }
+
+        &:nth-of-type(4) {
+          bottom: 23px;
+          right: -5px;
+
+          img {
+            width: initial !important;
+            min-width: initial !important;
+          }
+
+          @include mobile {
+            width: 100px !important;
+          }
+        }
+      }
 
       @for $i from 1 through 4 {
         &:nth-of-type(#{$i}) {
@@ -127,6 +198,7 @@ main {
     .content {
       @include desktop {
         display: flex;
+        gap: 10px;
         align-items: center;
         justify-content: space-between;
 
@@ -197,25 +269,17 @@ main {
     margin: auto;
   }
 
-  &--heading {
+  .introduction--heading {
     text-align: center;
     color: #000000;
     position: relative;
 
-    > span {
-      right: 15%;
-      top: -85% !important;
-      position: absolute !important;
-      animation: bounce 2s infinite;
+    display: flex;
+    justify-content: center;
 
-      img {
-        transform: rotate(130deg) !important;
-      }
 
-      @include mobile {
-        width: 70px !important;
-        right: 0;
-      }
+    h1 {
+      align-self: flex-end;
     }
   }
 
@@ -617,7 +681,7 @@ main {
 
     h1 {
       text-align: center;
-
+      z-index: 1;
       @include desktop {
         width: 704px;
       }
@@ -652,8 +716,8 @@ main {
       }
 
       &:nth-of-type(2) {
-        top: 10%;
-        left: 6%;
+        top: -10%;
+        left: 2%;
       }
 
       &:nth-of-type(3) {
@@ -662,8 +726,8 @@ main {
       }
 
       &:nth-of-type(4) {
-        top: 10%;
-        right: 18%;
+        top: -4%;
+        right: 8%;
         background: transparent;
         padding: initial;
 
@@ -936,3 +1000,26 @@ main {
 }
 
 // END OF TESTIMONIALS SECTION
+
+//cohort hero display image
+.hero_display_image {
+  position: relative;
+  .vector {
+    position: absolute;
+    top: 58px;
+    right: 18px;
+  }
+  .display-vector {
+    position: absolute;
+    bottom: 80px;
+    left: -22px;
+    .number {
+      position: absolute;
+      bottom: 62px;
+      left: 67px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      rotate: 10deg;
+    }
+  }
+}

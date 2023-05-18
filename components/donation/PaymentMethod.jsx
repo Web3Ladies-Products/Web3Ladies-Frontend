@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
 import { useCopy } from "../../hooks/useCopy";
@@ -5,7 +6,9 @@ import { PAYSTACK_LINK, WALLET_ADDRESS } from "../../lib/constants";
 import Button from "../buttons/Button";
 import BankTransferModal from "./modals/BankTransferModal";
 import ThankYouModal from "./modals/ThankYouModal";
-import QRCode from "./QRCode";
+const DynamicQRCode = dynamic(() => import("../common/QRCode"), {
+  ssr: false,
+});
 
 const PaymentMethod = () => {
   const { copyToClipBoard, copied } = useCopy();
@@ -77,6 +80,7 @@ const PaymentMethod = () => {
           <h4>Thank you for wanting to donate to our community</h4>
           <div className="qr">
             {/* <QRCode /> */}
+            <DynamicQRCode address={WALLET_ADDRESS} />
             <h4>Scan QR code</h4>
             <p className="my-20">
               We accept ERC tokens (ETH, USDT etc) BEP20 tokens as well

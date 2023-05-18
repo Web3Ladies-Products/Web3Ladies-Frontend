@@ -241,6 +241,10 @@ form {
 
 .full-40 {
   width: 40%;
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .input--checkbox {
@@ -409,10 +413,10 @@ form {
   }
 }
 
-input[type="file"] {
-  position: absolute;
-  top: -1000px;
-}
+// input[type="file"] {
+//   position: absolute;
+//   top: -1000px;
+// }
 
 .input--distribution-label {
   position: relative;

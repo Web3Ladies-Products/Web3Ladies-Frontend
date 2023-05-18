@@ -19,13 +19,8 @@ const Pledge = ({ content, title }) => {
     e.preventDefault();
     setFormData(formData);
     setShowLoader(true);
-    console.log(formData);
     try {
       const response = await strapiService.sendPledge({ data: formData });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
       alertService.alertMethod("success", "Donation request sent successfully");
       setShowSuccess(true);
     } catch (error) {
@@ -105,6 +100,7 @@ export async function getStaticProps() {
   try {
     const pledgePage = await strapiService.getPledgePageData();
     const pledge = pledgePage.data.attributes;
+
     const content = await markdownToHtml(pledge?.body || "");
     const title = pledge?.form_title || "";
     return {
