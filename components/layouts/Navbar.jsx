@@ -28,13 +28,13 @@ const Navbar = () => {
         {
           id: 2,
           name: "Community",
-          link: "/#join-our-community",
+          link: "/community",
           isActive: router.pathname === "/community",
         },
         {
           id: 3,
           name: "Events",
-          link: "/#events",
+          link: "/events",
           isActive: router.pathname === "/events",
         },
         {
@@ -90,9 +90,9 @@ const Navbar = () => {
     {
       id: 7,
       name: "Hire Talent",
-      route: "/contact",
+      route: "/hiretalent",
       type: "link",
-      isActive: router.pathname === "/hire-talent",
+      isActive: router.pathname === "/hiretalent",
     },
     {
       id: 8,
@@ -125,7 +125,7 @@ const Navbar = () => {
         {
           id: 2,
           name: "Join our community",
-          link: "/#join-our-community",
+          link: "/community",
           isActive: router.pathname === "/community",
         },
         {

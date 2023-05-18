@@ -11,7 +11,7 @@ import { strapiService } from "../../services/strapi.service";
 import Slack from "../../components/icons/Slack";
 import Image from "next/image";
 import CTACard from "../../components/CTACard";
-
+import FreehandCard from "../../components/FreehandCard";
 
 const Events = ({ indexPage }) => {
   const eventHome = eventData;
@@ -91,9 +91,7 @@ const Events = ({ indexPage }) => {
                   }
                   hasIcon
                 >
-                  <span className="icon-left">
-                    <Slack />
-                  </span>
+                  <span className="icon-left">{/* <Slack /> */}</span>
                   {indexPage.join_our_community_button_text}
                 </Button>
               </div>
@@ -112,7 +110,10 @@ const Events = ({ indexPage }) => {
       </section>
       {/* END OF JOIN OUR COMMUNITY SECTION */}
 
-      <CTACard />
+      {/* <CTACard /> */}
+      <section className="container" style={{ marginTop: "200px" }}>
+        <FreehandCard />
+      </section>
       <Footer />
     </>
   );

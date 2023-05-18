@@ -14,10 +14,7 @@ import Pledge from "../components/common/Pledge";
 
 import Community from "../components/analytics/Community";
 
-
-
 import Notification from "../components/cohorts/Notification";
-
 
 export default function Home({ indexPage }) {
   const router = useRouter();
@@ -364,7 +361,7 @@ export default function Home({ indexPage }) {
       {/* TESTIMONIALS SECTION */}
 
       <Testimonials
-        testimonial_title={indexPage.testimonial_title}
+        testimonial_title={indexPage.testimonials_title}
         testimonial_description={indexPage.testimonial_description}
         testimonial_items={indexPage.testimonial_items}
         hasMaxWidth={true}

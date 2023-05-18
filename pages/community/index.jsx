@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../components/layouts/Navbar";
-import { FAQ_DATA } from "../../pages/api/feedback";
+
 import FAQs from "../../components/FAQs";
 import { strapiService } from "../../services/strapi.service";
 import communityData from "../../pages/api/community.json";
@@ -16,8 +16,8 @@ import Analytics from "../../components/analytics/Community";
 import Gallery from "../../components/Gallery";
 import VisitYoutube from "../../components/VisitYoutube";
 import HowToJoin from "../../components/HowToJoin";
-import CTACard from "../../components/CTACard";
 import JoinCommunity from "../../components/JoinCommunity";
+import FreehandCard from "../../components/FreehandCard";
 
 const Community = ({ indexPage }) => {
   const communityHome = communityData.home;
@@ -101,51 +101,69 @@ const Community = ({ indexPage }) => {
       {/* END OF COMMUINTY EVENT  SECTION */}
 
       {/* HOW TO JOIN SECTION */}
-
-      <HowToJoin
-        title={communityHome.join.title}
-        how_to_join={communityHome.how_to_join}
-        buttonText={communityHome.join.buttonText}
-      />
+      <div className="top-space">
+        <HowToJoin
+          title={communityHome.join.title}
+          how_to_join={communityHome.how_to_join}
+          buttonText={communityHome.join.buttonText}
+        />
+      </div>
 
       {/* END OF JOIN  SECTION */}
 
       {/* COMMUINTY CLUB SECTION */}
-      <CommunityClubs />
+      <div className="top-space">
+        <CommunityClubs />
+      </div>
       {/* END OF COMMUINTY CLUB  SECTION */}
 
       {/* YOUTUBE SECTION */}
-      <VisitYoutube />
+      <div className="top-space">
+        <VisitYoutube />
+      </div>
       {/* END OF YOUTUBE SECTION */}
 
       {/* COMMUINTY SECTION */}
-      <JoinCommunity
-        title={communityHome.join.buttonText}
-        description={communityHome.join.description}
-        handleClick={() => window.open(communityHome.join.buttonLink, "_blank")}
-        buttonText={communityHome.join.buttonText}
-      />
+      <div className="top-space">
+        <JoinCommunity
+          title={communityHome.join.buttonText}
+          description={communityHome.join.description}
+          handleClick={() =>
+            window.open(communityHome.join.buttonLink, "_blank")
+          }
+          buttonText={communityHome.join.buttonText}
+        />
+      </div>
       {/* END OF COMMUINTY  SECTION */}
 
       {/* GALLERY SECTION */}
-      <Gallery galleryItems={communityHome.gallery} />
+      <div className="top-space">
+        <Gallery data={communityHome.gallery} />
+      </div>
 
       {/*END OF GALLERY SECTION */}
 
       {/*FAQ */}
-      <FAQs data={FAQ_DATA} />
+      <div className="top-space">
+        <FAQs />
+      </div>
       {/*FAQ */}
 
       {/* TESTIMONIALS SECTION */}
-      <Testimonials
-        testimonial_title={indexPage.testimonial_title}
-        testimonial_description={indexPage.testimonial_description}
-        testimonial_items={indexPage.testimonial_items}
-        hasMaxWidth={true}
-      />
+      <div className="top-space">
+        <Testimonials
+          testimonial_title={indexPage.testimonials_title}
+          testimonial_description={indexPage.testimonial_description}
+          testimonial_items={indexPage.testimonial_items}
+          hasMaxWidth={true}
+        />
+      </div>
       {/* END OF TESTIMONIALS SECTION */}
 
-      <CTACard />
+      {/* <CTACard /> */}
+      <div className="top-space tracks__spacing">
+        <FreehandCard />
+      </div>
 
       <Footer />
     </>

@@ -3,27 +3,29 @@ import Button from "./buttons/Button";
 import Image from "next/image";
 import Slack from "../components/icons/Slack";
 
-export default function JoinCommunity({
-  description,
-  buttonText,
-}) {
+export default function JoinCommunity({ description, buttonText }) {
   return (
     <section className="introduction--dark" id="who-we-are">
       <div className="">
         <div className="introduction--heading" id="header">
-        <h1 className="why--heading" id="why--heading"
+          <h1
+            className="why--heading"
+            id="why--heading"
             dangerouslySetInnerHTML={{ __html: buttonText }}
           />
-          <Image
-            className="hero-img"
-            width="100"
-            height="150"
-            src="/assets/images/web3vector-img.png"
-            alt="web3-vector"
-          />
+          <div className="why-image">
+            <Image
+              className="hero-img"
+              width="100"
+              height="150"
+              objectFit="contain"
+              src="/assets/images/web3ladies-about-bounce.png"
+              alt="web3-vector"
+            />
+          </div>
         </div>
 
-        <div className="introduction--container"  >
+        <div className="introduction--container">
           <p
             className="introduction--container-text"
             id="header"
@@ -34,19 +36,17 @@ export default function JoinCommunity({
 
           {buttonText && (
             <div className="introduction--container-cta">
-            <Button
-                  variant={"outline"}
-                  width={"243px"}
-                  handleClick={() =>
-                    window.open(communityHome.join.buttonLink, "_blank")
-                  }
-                  hasIcon
-                >
-                  <span className="icon-left">
-                    <Slack />
-                  </span>
-                 <h1  dangerouslySetInnerHTML={{ __html: buttonText }}/>
-                </Button>
+              <Button
+                variant={"outline"}
+                width={"243px"}
+                handleClick={() =>
+                  window.open(communityHome.join.buttonLink, "_blank")
+                }
+                hasIcon
+              >
+                <span className="icon-left">{/* <Slack /> */}</span>
+                <h1 dangerouslySetInnerHTML={{ __html: buttonText }} />
+              </Button>
 
               <Image
                 className="arrow-img"
