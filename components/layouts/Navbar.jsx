@@ -40,8 +40,8 @@ const Navbar = () => {
         {
           id: 4,
           name: "Become a Contributor",
-          link: "/mentorship/register",
-          isActive: router.pathname === "/mentorship/register",
+          link: "/contribution",
+          isActive: router.pathname === "/contribution",
         },
       ],
     },
@@ -137,8 +137,8 @@ const Navbar = () => {
         {
           id: 4,
           name: "Become a Contributor",
-          link: "/mentorship/register",
-          isActive: router.pathname === "/mentorship/register",
+          link: "/contribution",
+          isActive: router.pathname === "/contribution",
         },
       ],
     },

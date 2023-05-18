@@ -23,11 +23,6 @@ const Community = ({ indexPage }) => {
   const communityHome = communityData.home;
   const router = useRouter();
 
-  // React.useEffect(() => {
-  //   router.push("/");
-
-  // }, []);
-
   return (
     <>
       <Navbar />

@@ -28,10 +28,10 @@ const Events = ({ indexPage }) => {
       <Navbar />
       {/* HERO */}
 
-      <section className="events-hero">
-        <div className="container">
+      <section className="">
+        <div className="container events-hero">
           <p className="event-sub">{eventHome.helpTitle}</p>
-          <p className="event-text">{eventHome.eventTitle}</p>
+          <h2 className="event-text">{eventHome.eventTitle}</h2>
 
           {eventHome.help_logos?.map((item) => (
             <div className="logo-container" key={item.name}>
