@@ -11,7 +11,11 @@ import { useRouter } from "next/router";
 import AboutSection from "../components/AboutSection";
 import Supporters from "../components/Supporters";
 import Pledge from "../components/common/Pledge";
+
 import Community from "../components/analytics/Community";
+
+
+
 import Notification from "../components/cohorts/Notification";
 
 

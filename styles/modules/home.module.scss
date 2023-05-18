@@ -277,6 +277,7 @@ main {
     display: flex;
     justify-content: center;
 
+
     h1 {
       align-self: flex-end;
     }
@@ -864,14 +865,12 @@ main {
  
 }
 
+
 .events--white {
   @extend .events;
     background-color: #fff;
   
 }
-
-  
- 
 
 
 // END OF EVENTS SECTION
@@ -883,7 +882,7 @@ main {
       width: 77%;
     }
   }
-  
+
 
   h1 {
     text-align: center;
