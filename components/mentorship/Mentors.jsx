@@ -67,7 +67,7 @@ const Mentors = () => {
               <h1 className="section-title">{fetchData.subtitle}</h1>
               <p className="section-description">{fetchData.description}</p>
 
-              <div style={{ flexWrap: "wrap" }} className="mentor-card-wrapper">
+              <div className=" mentor-card-wrapper">
                 {fetchData.availableMentors?.map(
                   ({ id, name, jobRole, company, imageURL }) => (
                     <div key={id} className="top-mentors-card">

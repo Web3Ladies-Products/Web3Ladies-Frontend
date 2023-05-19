@@ -35,6 +35,7 @@ const Gains = ({ track }) => {
             <Image
               className="gains-image"
               width={"493px"}
+              objectFit="contain"
               height={"472px"}
               src={track?.gains_image}
               alt="gains-image"
