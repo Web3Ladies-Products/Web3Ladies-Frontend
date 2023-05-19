@@ -453,6 +453,23 @@ const mentorshipRegisterRequest = async (formData, file) => {
     throw new Error(error?.error?.message);
   }
 };
+const jobApplicationRequest = async (formData, file) => {
+  let data = new FormData();
+  data.append("files.resume", file);
+  data.append("data", JSON.stringify(formData));
+
+  try {
+    let reg = await fetch(`${STRAPI_URL}/api/job-application`, {
+      method: "POST",
+      body: data,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return reg;
+  } catch (error) {
+    throw new Error(error?.error?.message);
+  }
+};
 
 const getMentorshipSuccess = async () => {
   try {
@@ -818,4 +835,5 @@ export const strapiService = {
   getContactPage,
   getMentor,
   subscriptionRequest,
+  jobApplicationRequest,
 };

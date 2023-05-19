@@ -5,8 +5,9 @@ import Image from "next/image";
 import Footer from "../../components/layouts/Footer";
 import Button from "../../components/buttons/Button";
 import FreehandCard from "../../components/FreehandCard";
+import opportunities from "../../pages/api/contribution.json";
 
-const Contribution = () => {
+const Contribution = ({ contributionData }) => {
   const router = useRouter();
   return (
     <>
@@ -17,13 +18,8 @@ const Contribution = () => {
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
-              <h1 className="section-title">
-                Want to be a Web3Ladies Contributor?
-              </h1>
-              <p className="section-text">
-                Be a part of a community of confident and audacious Web3 Ladies.
-                We are always open to new members.
-              </p>
+              <h1 className="section-title">{contributionData.title}</h1>
+              <p className="section-text">{contributionData.description}</p>
               <div className="button-container">
                 <Button
                   variant={"primary"}
@@ -49,6 +45,34 @@ const Contribution = () => {
         </div>
       </section>
 
+      <section className="contribution__current">
+        <div className="header-text">
+          <h2>Current opportunities</h2>
+        </div>
+        {contributionData.jobs.map((opportunity, index) => (
+          <div key={index} className="contribution__current-content">
+            <div className="text">
+              <h4>{opportunity.title}</h4>
+              <p>{opportunity.department}</p>
+            </div>
+            <div className="content-button">
+              <Button
+                variant="outline"
+                buttonText="View role"
+                handleClick={() => router.push(opportunity.url)}
+              />
+            </div>
+          </div>
+        ))}
+        <div className="contribution__current-button">
+          <Button
+            variant="primary"
+            buttonText="View all"
+            handleClick={() => router.push("#")}
+          />
+        </div>
+      </section>
+
       <div className="tracks__spacing">
         <FreehandCard />
       </div>
@@ -59,3 +83,11 @@ const Contribution = () => {
 };
 
 export default Contribution;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      contributionData: opportunities,
+    },
+  };
+}
