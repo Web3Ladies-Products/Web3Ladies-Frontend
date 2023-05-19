@@ -99,7 +99,7 @@ const Navbar = () => {
       name: "Contact Us",
       route: "/contact",
       type: "link",
-      isActive: router.pathname === "/contact-us",
+      isActive: router.pathname === "/contact",
     },
     {
       id: 3,
