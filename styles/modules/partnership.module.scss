@@ -1,0 +1,55 @@
+@import "../scss/mixins";
+
+.partnership__price {
+  margin: 90px 0 80px 0;
+
+  background-color: var(--background-color);
+  .container {
+    max-width: 80%;
+    padding: 90px 0;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+    .content {
+      display: grid;
+      gap: 30px;
+      width: 100%;
+      word-wrap: break-word;
+
+      h2 {
+        font-weight: 700;
+        font-size: clamp(1.8rem, 4vw, 3.5rem);
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+      ul {
+        margin-bottom: 20px;
+        li {
+          display: grid;
+          gap: 10px;
+          align-self: center;
+          grid-template-columns: repeat(2, auto);
+          margin-bottom: 15px;
+          .text {
+            color: var(--color-primary-light);
+          }
+        }
+      }
+    }
+    .choose_image {
+      justify-self: end;
+      // align-self: center;
+    }
+  }
+  @media screen and (max-width: 928px) {
+    .container {
+      grid-template-columns: 1fr;
+      .choose_image {
+        justify-self: center;
+      }
+    }
+  }
+}

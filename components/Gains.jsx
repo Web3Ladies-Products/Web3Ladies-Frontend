@@ -31,16 +31,14 @@ const Gains = ({ track }) => {
         </div>
 
         <div className="gains_image">
-          <div>
-            <Image
-              className="gains-image"
-              width={"493px"}
-              objectFit="contain"
-              height={"472px"}
-              src={track?.gains_image}
-              alt="gains-image"
-            />
-          </div>
+          <Image
+            className="gains-image"
+            width={"493px"}
+            objectFit="contain"
+            height={"472px"}
+            src={track?.gains_image}
+            alt="gains-image"
+          />
         </div>
       </div>
     </section>
