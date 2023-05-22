@@ -31,14 +31,18 @@ h6 {
 
 .section-title {
   font-weight: 700;
-  font-size: 54px;
-  line-height: 66px;
+  font-size: clamp(1.8rem, 4vw, 3.5rem) !important;
+  line-height: clamp(1.5rem, 4vw, 2.5rem) !important;
+  span {
+    font-size: clamp(1.8rem, 4vw, 3.5rem) !important;
+    line-height: clamp(1.5rem, 4vw, 3.5rem) !important;
+  }
   letter-spacing: -0.04em;
 
-  @include mobile {
-    font-size: 40px;
-    line-height: 50px;
-  }
+  // @include mobile {
+  //   font-size: 40px;
+  //   line-height: 50px;
+  // }
 
   span {
     color: var(--primary-color);

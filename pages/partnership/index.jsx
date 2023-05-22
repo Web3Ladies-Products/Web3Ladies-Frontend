@@ -229,22 +229,21 @@ const Partnership = ({
         </div>
       </section>
       <section className="mentorship sponsor">
-        <div className="container">
+        <div className="container partnership__ecosystem">
           <h1
             className="section-title"
             dangerouslySetInnerHTML={{ __html: sponsorshipData.help_title }}
           />
-          {sponsorshipData.help_logos?.map((item) => (
-            <div className="logo-container" key={item.name}>
-              <Image
-                src={item.logo}
-                width={"100%"}
-                height={"100%"}
-                alt={item.title}
-                objectFit="contain"
-              />
-            </div>
-          ))}
+          <div className="about__image-section">
+            <Image
+              className="hero-img "
+              width="100"
+              objectFit="contain"
+              height="150"
+              src="/assets/images/web3ladies-about-bounce.png"
+              alt="web3ladies-vector"
+            />
+          </div>
         </div>
       </section>
       <Pledge indexPage={indexPage} />
