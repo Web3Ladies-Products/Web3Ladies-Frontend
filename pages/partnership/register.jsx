@@ -38,7 +38,7 @@ const Register = () => {
 
     try {
       console.log(formData, "here is the form data");
-      // await strapiService.partnershipRegisterRequest(formData);
+      // await strapiService.sendPartnershipRequest(formData);
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"

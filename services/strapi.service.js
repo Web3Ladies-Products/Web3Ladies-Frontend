@@ -785,6 +785,22 @@ const getMentor = async () => {
   }
 };
 
+//partnership form
+const sendPartnershipRequest = async (data) => {
+  try {
+    const donationRequest = await fetch(`${STRAPI_URL}/api/parnership`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return donationRequest;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBootCampPageData,
   getBlogPosts,
@@ -836,4 +852,7 @@ export const strapiService = {
   getMentor,
   subscriptionRequest,
   jobApplicationRequest,
+
+  //
+  sendPartnershipRequest,
 };
