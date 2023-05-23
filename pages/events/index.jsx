@@ -32,18 +32,6 @@ const Events = ({ indexPage, freeHandData }) => {
         <div className="container events-hero">
           <p className="event-sub">{eventHome.helpTitle}</p>
           <h2 className="event-text">{eventHome.eventTitle}</h2>
-
-          {eventHome.help_logos?.map((item) => (
-            <div className="logo-container" key={item.name}>
-              <Image
-                src={item.logo}
-                width={"100%"}
-                height={"100%"}
-                alt={item.title}
-                objectFit="contain"
-              />
-            </div>
-          ))}
         </div>
       </section>
 

@@ -789,6 +789,7 @@ main {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
+      gap: 2rem;
 
       @include mobile {
         grid-template-columns: 1fr;
@@ -843,7 +844,7 @@ main {
 
         .events-item--text {
           @include desktop {
-            padding-left: 119px;
+            // padding-left: 119px;
             order: 2;
           }
         }

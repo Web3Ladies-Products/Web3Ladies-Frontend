@@ -80,7 +80,9 @@ const Community = ({ indexPage, freeHandData }) => {
         title={communityHome.why.title}
         highlights={communityHome.highlights}
         buttonText={communityHome.why.buttonText}
-        handleClick={communityHome.why.buttonLink}
+        handleClick={() => {
+          router.push(communityHome.why.buttonLink);
+        }}
       />
       {/* END OF WHYUS SECTION */}
 
@@ -101,6 +103,9 @@ const Community = ({ indexPage, freeHandData }) => {
           title={communityHome.join.title}
           how_to_join={communityHome.how_to_join}
           buttonText={communityHome.join.buttonText}
+          handleClick={() => {
+            router.push(communityHome.join.buttonLink);
+          }}
         />
       </div>
 

@@ -5,7 +5,7 @@ import communityData from "../pages/api/community.json";
 import Button from "./buttons/Button";
 import Slack from "../components/icons/Slack";
 
-const HowToJoin = ({ title, how_to_join,handleClick, buttonText }) => {
+const HowToJoin = ({ title, how_to_join, handleClick, buttonText }) => {
   const communityHome = communityData.home;
   const router = useRouter();
   return (
@@ -45,9 +45,7 @@ const HowToJoin = ({ title, how_to_join,handleClick, buttonText }) => {
                 handleClick={handleClick}
                 hasIcon
               >
-                <span className="icon-left">
-                  <Slack />
-                </span>
+                <span className="icon-left">{/* <Slack /> */}</span>
                 {buttonText}
               </Button>
             </h1>
