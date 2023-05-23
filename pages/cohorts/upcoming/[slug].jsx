@@ -13,7 +13,12 @@ import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
 import Custom404Error from "../../404";
-const UpcomingCohort = ({ cohort }) => {
+const UpcomingCohort = ({
+  cohort,
+  freeHandData,
+  joinData,
+  featuredMentees,
+}) => {
   if (!cohort) {
     return <Custom404Error />;
   }
@@ -46,13 +51,13 @@ const UpcomingCohort = ({ cohort }) => {
 
       {/* YOUTUBE SECTION */}
       <VisitYoutube />
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
       <div className="faq">
         <FAQs />
       </div>
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <Footer />
     </>
@@ -78,10 +83,16 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getUpcomingCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
+    const joinData = await strapiService.getJoinAsMentor();
+    const featuredMentees = await strapiService.getFeaturedMentee();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
+          joinData: joinData.data.attributes,
+          featuredMentees: featuredMentees.data.attributes,
           cohort: {
             ...data,
           },

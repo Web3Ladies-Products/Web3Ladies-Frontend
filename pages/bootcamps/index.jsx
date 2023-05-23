@@ -12,7 +12,12 @@ import Testimonials from "../../components/Testimonials";
 import { strapiService } from "../../services";
 import VisitYoutube from "../../components/VisitYoutube";
 
-const BootcampPage = ({ bootCamp }) => {
+const BootcampPage = ({
+  bootCamp,
+  freeHandData,
+  joinData,
+  featuredMentees,
+}) => {
   return (
     <>
       <Navbar />
@@ -126,8 +131,8 @@ const BootcampPage = ({ bootCamp }) => {
       <VisitYoutube />
       <div className="mb-small" />
 
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
 
       <div className="mb-small" />
 
@@ -146,7 +151,7 @@ const BootcampPage = ({ bootCamp }) => {
         )}
       <div className="mb-small" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <div className="mb-large" />
       <Footer />
@@ -156,10 +161,15 @@ const BootcampPage = ({ bootCamp }) => {
 
 export async function getStaticProps() {
   const bootCamp = await strapiService.getBootCampPageData();
-
+  const freeHandData = await strapiService.getFreeHand();
+  const joinData = await strapiService.getJoinAsMentor();
+  const featuredMentees = await strapiService.getFeaturedMentee();
   return {
     props: {
       bootCamp: bootCamp.data.attributes,
+      freeHandData: freeHandData.data.attributes,
+      joinData: joinData.data.attributes,
+      featuredMentees: featuredMentees.data.attributes,
     },
   };
 }

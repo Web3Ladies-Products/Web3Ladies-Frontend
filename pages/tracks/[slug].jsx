@@ -15,7 +15,7 @@ import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import Custom404Error from "../404";
 import { strapiService } from "../../services";
 import WorkshopMentors from "../../components/WorkshopMentors";
-const Tracks = ({ track }) => {
+const Tracks = ({ track, freeHandData, joinData, featuredMentees }) => {
   if (!track) {
     return <Custom404Error />;
   }
@@ -35,13 +35,13 @@ const Tracks = ({ track }) => {
 
       <Mentors track={track} />
       <WorkshopMentors track={track} />
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
       <div className="mt-20"></div>
       <FAQs />
 
       <div className="tracks__spacing">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -51,6 +51,7 @@ const Tracks = ({ track }) => {
 
 export async function getStaticPaths() {
   const response = await strapiService.getTracks();
+
   const paths = response.data.map((track) => {
     return {
       params: {
@@ -67,11 +68,18 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getTracksBySlug(params.slug);
+
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
+    const joinData = await strapiService.getJoinAsMentor();
+    const featuredMentees = await strapiService.getFeaturedMentee();
 
     if (data) {
       return {
         props: {
+          joinData: joinData.data.attributes,
+          featuredMentees: featuredMentees.data.attributes,
+          freeHandData: freeHandData.data.attributes,
           track: {
             ...data,
           },

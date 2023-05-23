@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from "react";
 import Button from "../buttons/Button";
 import { useRouter } from "next/router";
-import { strapiService } from "../../services";
-const JoinAsMentor = () => {
-  const router = useRouter();
-  const [joinData, setJoinData] = useState({});
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const indexPage = await strapiService.getJoinAsMentor();
 
-        setJoinData(indexPage.data.attributes);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
+const JoinAsMentor = ({ joinData }) => {
+  const router = useRouter();
 
   return (
     <div className="join-as-mentor-section">

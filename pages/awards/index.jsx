@@ -13,7 +13,7 @@ import { strapiService } from "../../services";
 import FreehandCard from "../../components/FreehandCard";
 import VoteSuccess from "../../components/awards/VoteSuccess";
 
-const Award = ({ indexPage }) => {
+const Award = ({ indexPage, freeHandData }) => {
   const router = useRouter();
   return (
     <>
@@ -115,7 +115,7 @@ const Award = ({ indexPage }) => {
             </div>
           </div>
 
-          <FreehandCard />
+          <FreehandCard freeHandData={freeHandData} />
         </div>
       </main>
       <Footer />
@@ -125,9 +125,11 @@ const Award = ({ indexPage }) => {
 
 export async function getStaticProps() {
   const indexPage = await strapiService.getAwardData();
+  const freeHandData = await strapiService.getFreeHand();
   return {
     props: {
       indexPage: indexPage.data.attributes,
+      freeHandData: freeHandData.data.attributes,
     },
   };
 }

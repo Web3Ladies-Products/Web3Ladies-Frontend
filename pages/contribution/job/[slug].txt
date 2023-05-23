@@ -4,7 +4,7 @@ import Navbar from "../../../components/layouts/Navbar";
 
 import Footer from "../../../components/layouts/Footer";
 import Button from "../../../components/buttons/Button";
-import datas from "../../../pages/api/contribution.json";
+import datas from "../../api/contribution.json";
 
 const Job = ({ job, jobData }) => {
   const router = useRouter();

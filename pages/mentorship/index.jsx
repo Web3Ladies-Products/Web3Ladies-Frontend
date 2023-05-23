@@ -1,4 +1,3 @@
-
 import React from "react";
 import Image from "next/image";
 import Button from "../../components/buttons/Button";
@@ -27,6 +26,9 @@ const mentorship = ({
   bootcamps,
   workAssistanceData,
   whyLearnData,
+  freeHandData,
+  joinData,
+  featuredMentees,
 }) => {
   const router = useRouter();
   return (
@@ -215,8 +217,8 @@ const mentorship = ({
 
       <Mentors />
       <WhyLearn whyLearnData={whyLearnData} />
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
       <FAQs
         data={mentorshipPage.faq_details}
         title={mentorshipPage.faq_title}
@@ -228,7 +230,7 @@ const mentorship = ({
         testimonial_items={indexPage.testimonial_items}
       />
       <div className="tracks__spacing">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <Footer />
     </>
@@ -244,6 +246,9 @@ export async function getStaticProps() {
   const bootcamps = await strapiService.getBootCampPageData();
   const whyLearnData = await strapiService.getWhyLearn();
   const workAssistanceData = await strapiService.getWorkAssistance();
+  const freeHandData = await strapiService.getFreeHand();
+  const joinData = await strapiService.getJoinAsMentor();
+  const featuredMentees = await strapiService.getFeaturedMentee();
   return {
     props: {
       indexPage: indexPage.data.attributes,
@@ -251,7 +256,9 @@ export async function getStaticProps() {
       bootcamps: bootcamps.data.attributes,
       workAssistanceData: workAssistanceData.data.attributes,
       whyLearnData: whyLearnData.data.attributes,
+      freeHandData: freeHandData.data.attributes,
+      joinData: joinData.data.attributes,
+      featuredMentees: featuredMentees.data.attributes,
     },
   };
 }
-

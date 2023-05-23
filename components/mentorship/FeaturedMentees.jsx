@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "../buttons/Button";
 import { useRouter } from "next/router";
-import { strapiService } from "../../services";
 
-const FeaturedMentees = () => {
+const FeaturedMentees = ({ featuredMentees }) => {
   const router = useRouter();
-
-  const [featuredMentees, setFeaturedMentees] = useState({});
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const indexPage = await strapiService.getFeaturedMentee();
-        setFeaturedMentees(indexPage.data.attributes);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
 
   return (
     <section className="featured-mentees-section">

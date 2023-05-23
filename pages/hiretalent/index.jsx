@@ -10,8 +10,6 @@ import { useRouter } from "next/router";
 
 import Supporters from "../../components/Supporters";
 
-import Notification from "../../components/cohorts/Notification";
-
 const mentees = [
   {
     id: "1",
@@ -80,11 +78,6 @@ export default function HireTalent({ indexPage }) {
   return (
     <>
       <Navbar />
-      {/* NOTIFICATION */}
-      {indexPage?.show_new_cohort_notification && (
-        // Registration for <strong>Cohort III</strong> is ongoing
-        <Notification text={indexPage.cohort_notification_text} />
-      )}
 
       {/* HERO SECTION */}
       <main className="header-bg">
@@ -120,13 +113,13 @@ export default function HireTalent({ indexPage }) {
                   src="/assets/images/hiretalent-image.png"
                   alt="hero-image"
                 />
-                <Image
+                {/* <Image
                   className="hero-illustration"
                   width={"113px"}
                   height={"121px"}
                   src="/assets/images/bitcoin.png"
                   alt="bitcoin-logo"
-                />
+                /> */}
               </div>
             </div>
           </div>
@@ -255,7 +248,13 @@ export default function HireTalent({ indexPage }) {
             </h1>
 
             <div>
-              <Button buttonText="Hire now" type="primary" />
+              <Button
+                buttonText="Hire now"
+                handleClick={() =>
+                  window.open("/mentorship/register", "_blank")
+                }
+                type="primary"
+              />
             </div>
           </div>
         </div>

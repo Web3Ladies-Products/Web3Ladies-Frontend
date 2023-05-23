@@ -19,7 +19,7 @@ import HowToJoin from "../../components/HowToJoin";
 import JoinCommunity from "../../components/JoinCommunity";
 import FreehandCard from "../../components/FreehandCard";
 
-const Community = ({ indexPage }) => {
+const Community = ({ indexPage, freeHandData }) => {
   const communityHome = communityData.home;
   const router = useRouter();
 
@@ -157,7 +157,7 @@ const Community = ({ indexPage }) => {
 
       {/* <CTACard /> */}
       <div className="top-space tracks__spacing">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -169,9 +169,11 @@ export default Community;
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+  const freeHandData = await strapiService.getFreeHand();
   return {
     props: {
       indexPage: indexPage.data.attributes,
+      freeHandData: freeHandData.data.attributes,
     },
   };
 }

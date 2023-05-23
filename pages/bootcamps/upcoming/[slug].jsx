@@ -18,7 +18,7 @@ import Image from "next/image";
 import FreehandCard from "../../../components/FreehandCard";
 import { strapiService } from "../../../services";
 
-const Bootcamp = ({ bootcamp }) => {
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
   }
@@ -90,7 +90,7 @@ const Bootcamp = ({ bootcamp }) => {
       />
       <div className="mb-large" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <div className="mb-large" />
       <Footer />
@@ -119,10 +119,12 @@ export async function getStaticProps({ params }) {
       params.slug
     );
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           bootcamp: {
             ...data,
           },

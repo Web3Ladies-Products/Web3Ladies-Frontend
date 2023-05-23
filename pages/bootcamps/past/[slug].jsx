@@ -17,7 +17,7 @@ import { strapiService } from "../../../services/strapi.service";
 import FreehandCard from "../../../components/FreehandCard";
 import CustomError from "../../_error";
 
-const Bootcamp = ({ bootcamp }) => {
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <CustomError />;
   }
@@ -74,7 +74,7 @@ const Bootcamp = ({ bootcamp }) => {
       <VisitYoutube />
       <div className="mb-large" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -101,10 +101,12 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getPastBootCampBySlug(params.slug);
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           bootcamp: {
             ...data,
           },

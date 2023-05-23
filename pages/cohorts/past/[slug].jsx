@@ -17,7 +17,7 @@ import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import CohortSection from "../../../components/mentorship/cohorts/Cohorts";
-const PastCohort = ({ cohort }) => {
+const PastCohort = ({ cohort, freeHandData, joinData, featuredMentees }) => {
   if (!cohort) {
     return <Custom404Error />;
   }
@@ -65,13 +65,13 @@ const PastCohort = ({ cohort }) => {
       <Gallery data={cohort.gallery_details} />
 
       <VisitYoutube />
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
       <div className="faq">
         <FAQs />
       </div>
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <Footer />
     </>
@@ -97,10 +97,15 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getPastCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-
+    const freeHandData = await strapiService.getFreeHand();
+    const joinData = await strapiService.getJoinAsMentor();
+    const featuredMentees = await strapiService.getFeaturedMentee();
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
+          joinData: joinData.data.attributes,
+          featuredMentees: featuredMentees.data.attributes,
           cohort: {
             ...data,
           },

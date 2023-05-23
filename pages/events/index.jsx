@@ -10,10 +10,10 @@ import Footer from "../../components/layouts/Footer";
 import { strapiService } from "../../services/strapi.service";
 import Slack from "../../components/icons/Slack";
 import Image from "next/image";
-import CTACard from "../../components/CTACard";
+
 import FreehandCard from "../../components/FreehandCard";
 
-const Events = ({ indexPage }) => {
+const Events = ({ indexPage, freeHandData }) => {
   const eventHome = eventData;
   const communityHome = communityData.home;
   const router = useRouter();
@@ -112,7 +112,7 @@ const Events = ({ indexPage }) => {
 
       {/* <CTACard /> */}
       <section className="container" style={{ marginTop: "200px" }}>
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </section>
       <Footer />
     </>
@@ -124,9 +124,11 @@ export default Events;
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+  const freeHandData = await strapiService.getFreeHand();
   return {
     props: {
       indexPage: indexPage.data.attributes,
+      freeHandData: freeHandData.data.attributes,
     },
   };
 }

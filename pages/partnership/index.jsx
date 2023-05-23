@@ -121,6 +121,7 @@ const Partnership = ({
       <AboutSection
         title={sponsorshipData.about_title}
         description={sponsorshipData.about_description}
+        showArc={false}
       />
 
       <div className="partnership__price">

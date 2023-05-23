@@ -6,9 +6,11 @@ import Footer from "../../components/layouts/Footer";
 import Button from "../../components/buttons/Button";
 import FreehandCard from "../../components/FreehandCard";
 import opportunities from "../../pages/api/contribution.json";
+import { strapiService } from "../../services";
 
-const Contribution = ({ contributionData }) => {
+const Contribution = ({ contributionData, freeHandData }) => {
   const router = useRouter();
+
   return (
     <>
       <Navbar />
@@ -74,7 +76,7 @@ const Contribution = ({ contributionData }) => {
       </section>
 
       <div className="tracks__spacing">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -85,9 +87,12 @@ const Contribution = ({ contributionData }) => {
 export default Contribution;
 
 export async function getStaticProps() {
+  const freeHandData = await strapiService.getFreeHand();
+
   return {
     props: {
       contributionData: opportunities,
+      freeHandData: freeHandData.data.attributes,
     },
   };
 }

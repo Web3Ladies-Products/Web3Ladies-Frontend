@@ -1,22 +1,8 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
 import Button from "./buttons/Button";
 import { useRouter } from "next/router";
-import { strapiService } from "../services";
-const FreehandCard = () => {
+const FreehandCard = ({ freeHandData }) => {
   const router = useRouter();
-  const [freeHandData, setFreeHandData] = useState({});
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const indexPage = await strapiService.getFreeHand();
-        setFreeHandData(indexPage.data.attributes);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
   return (
     <>
       {freeHandData ? (
