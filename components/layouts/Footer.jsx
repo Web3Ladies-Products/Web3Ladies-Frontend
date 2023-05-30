@@ -62,7 +62,7 @@ const Footer = () => {
   const CONTACT_NAVIGATION_ONE = [
     {
       name: "Contact",
-      link: "mailto:hello@web3ladies.com",
+      link: "/contact",
     },
     {
       name: "Instagram",

@@ -9,6 +9,7 @@ import ChevronUp from "../icons/ChevronUp";
 
 const Navbar = () => {
   const router = useRouter();
+  console.log(router.pathname);
   const [showMobileNav, setShowMobileNav] = React.useState(false);
   const [navigationItems, setNavigationItems] = React.useState([
     {
@@ -17,13 +18,13 @@ const Navbar = () => {
       route: "/",
       type: "dropdown",
       showDropdown: false,
-      isActive: router.pathname === "/about-us",
+      isActive: ["/about"].includes(router.pathname),
       dropdown: [
         {
           id: 1,
           name: "About Us",
-          link: "/#who-we-are",
-          isActive: router.pathname === "/about-us",
+          link: "/about",
+          isActive: router.pathname === "/about",
         },
         {
           id: 2,

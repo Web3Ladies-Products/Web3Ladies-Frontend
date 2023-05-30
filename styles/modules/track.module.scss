@@ -203,6 +203,7 @@ main {
   border-radius: 8px;
   display: flex;
   width: 100%;
+  gap: 20px;
   padding: 20px;
   justify-content: flex-start;
 
@@ -220,7 +221,6 @@ main {
 
   .mentor-img {
     height: 100%;
-    margin-right: 45px;
   }
 }
 
