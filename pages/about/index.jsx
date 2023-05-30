@@ -162,9 +162,76 @@ const About = ({ indexPage, joinData }) => {
           ))}
         </div>
       </section>
-      <section className="about__spacing-top">
+      <section className="about__spacing-top about__roadmap">
         <div className="container cta">
-          <h2>Out impact Readmap</h2>
+          <div className="header__text">
+            <h2>Out impact Readmap</h2>
+          </div>
+          <div className="about__content">
+            <div className="white__bg first__year-text">
+              <p>
+                We believe knowledge is what makes us distinguished and so we're
+                committed to offering quality training to our ladies
+              </p>
+              <div className="semulated__icon">
+                <p>2019</p>
+              </div>
+            </div>
+            <div className="second__year-text">
+              <div className="semulated__icon">
+                <p>2020</p>
+              </div>
+              <p>
+                We believe knowledge is what makes us distinguished and so we're
+                committed to offering quality training to our ladies
+              </p>
+            </div>
+            <div className=" third__year-text">
+              <div className="semulated__icon">
+                <p>2021</p>
+              </div>
+              <p>
+                We believe knowledge is what makes us distinguished and so we're
+                committed to offering quality training to our ladies
+              </p>
+            </div>
+            <div className=" fouth__year-text">
+              <div className="semulated__icon">
+                <p>2022</p>
+              </div>
+              <p>
+                We believe knowledge is what makes us distinguished and so we're
+                committed to offering quality training to our ladies
+              </p>
+            </div>
+            <div className=" last__year-text">
+              <div className="semulated__icon">
+                <p>2023</p>
+              </div>
+              <p>
+                We believe knowledge is what makes us distinguished and so we're
+                committed to offering quality training to our ladies
+              </p>
+            </div>
+            <div className="first-roadmap-connector">
+              <Image
+                width={"743px"}
+                height={"183px"}
+                objectFit="contain"
+                src="/assets/images/second-roadmap-connector.png"
+                alt="connectors"
+              />
+            </div>
+            <div className="second-roadmap-connector">
+              <Image
+                width={"743px"}
+                height={"183px"}
+                objectFit="contain"
+                src="/assets/images/second-roadmap-connector.png"
+                alt="connectors"
+              />
+            </div>
+          </div>
         </div>
       </section>
       <div className="about__spacing-top">
