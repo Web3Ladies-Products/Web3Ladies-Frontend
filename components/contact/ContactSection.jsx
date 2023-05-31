@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import Button from "../../components/buttons/Button";
-import ContactForm from "../../components/contact/ContactForm";
-import AppLoader from "../../components/UI/AppLoader";
+
+import ContactForm from "./ContactForm";
+
 import { generateInputChangeHandler } from "../../helpers";
 import { alertService, strapiService } from "../../services";
+import AppLoader from "../UI/AppLoader";
 
 const DEFAULT_ERRORS = {
   full_name: [],
@@ -43,6 +44,7 @@ const ContactSection = ({ contactDetails }) => {
       alertService.alertMethod("error", "Waiting list request failed");
     }
   };
+
   return (
     <>
       {showLoader && <AppLoader />}
@@ -51,7 +53,7 @@ const ContactSection = ({ contactDetails }) => {
         <div className="container cta mb-20">
           <div className="content">
             <div className="hero_content bootcamp">
-              <h2>We are eager to hear from you</h2>
+              <h2>{contactDetails.description}</h2>
               <div className="mt-20">
                 <ContactForm
                   showLoader={showLoader}
@@ -89,20 +91,22 @@ const ContactSection = ({ contactDetails }) => {
 
                 <div className="cont">
                   <div className="p">
-                    <h2>Email</h2>
+                    <h2>{contactDetails.email_heading}</h2>
                     <a
                       target="_blank"
-                      href="mailto:hello@web3ladies.com"
+                      href={`mailto:${contactDetails.email_text}`}
                       className="justify"
                     >
-                      hello@web3ladies.com
+                      {contactDetails.email_text}
                     </a>
                   </div>
                   <div className="left">
-                    <h2>Telephone</h2>
+                    <h2>{contactDetails.phone_number_text}</h2>
                     <div className="justify">
-                      <span className="right">+971 58 570 4990</span>
-                      <span>+971 58 570 4990</span>
+                      <span className="right">
+                        {contactDetails.phone_number1}
+                      </span>
+                      <span>{contactDetails.phone_number2}</span>
                     </div>
                   </div>
                 </div>

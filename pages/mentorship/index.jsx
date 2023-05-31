@@ -21,7 +21,6 @@ import FreehandCard from "../../components/FreehandCard";
 import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
 import { useRouter } from "next/router";
 const mentorship = ({
-  indexPage,
   mentorshipPage,
   bootcamps,
   workAssistanceData,
@@ -46,16 +45,16 @@ const mentorship = ({
               <div className="button-container">
                 <Button
                   variant={"primary"}
-                  buttonText={indexPage.button_one_text}
+                  buttonText={mentorshipPage.hero_button_text_one}
                   handleClick={() => {
-                    router.push(indexPage.button_one_link);
+                    router.push(mentorshipPage.hero_button_link_one);
                   }}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText={indexPage.button_two_text}
+                  buttonText={mentorshipPage.hero_button_text_two}
                   handleClick={() => {
-                    router.push("/sponsorship");
+                    router.push(menuPage.hero_button_link_two);
                   }}
                 />
               </div>
@@ -107,7 +106,7 @@ const mentorship = ({
       </main>
       {/*SUPPORTERS SECTION*/}
       {/*to be change to mentorshipPage not indexPage*/}
-      <Supporters indexPage={indexPage} />
+      <Supporters indexPage={mentorshipPage} />
       {/*ABOUT MENTORSHIP */}
       <AboutSection
         title={mentorshipPage.about_title}
@@ -225,9 +224,9 @@ const mentorship = ({
       />
       {/* to be change to mentorshipPage not indexPage */}
       <Testimonials
-        testimonial_title={indexPage.testimonials_title}
-        testimonial_description={indexPage.testimonial_description}
-        testimonial_items={indexPage.testimonial_items}
+        testimonial_title={mentorshipPage.testimonial_title}
+        testimonial_description={mentorshipPage.testimonial_description}
+        testimonial_items={mentorshipPage.testimonial_items}
       />
       <div className="tracks__spacing">
         <FreehandCard freeHandData={freeHandData} />
@@ -241,7 +240,6 @@ export default mentorship;
 
 //get home page data
 export async function getStaticProps() {
-  const indexPage = await strapiService.getHomePageData();
   const mentorshipPage = await strapiService.getMentorshipPageData();
   const bootcamps = await strapiService.getBootCampPageData();
   const whyLearnData = await strapiService.getWhyLearn();
@@ -251,7 +249,6 @@ export async function getStaticProps() {
   const featuredMentees = await strapiService.getFeaturedMentee();
   return {
     props: {
-      indexPage: indexPage.data.attributes,
       mentorshipPage: mentorshipPage.data.attributes,
       bootcamps: bootcamps.data.attributes,
       workAssistanceData: workAssistanceData.data.attributes,

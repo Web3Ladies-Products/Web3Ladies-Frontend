@@ -28,13 +28,13 @@ const Community = ({ indexPage, freeHandData }) => {
       <Navbar />
 
       {/* HERO SECTION */}
-
-      <section>
+      <main className="header-bg">
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
               <h1 className="section-title">{communityHome.hero.title}</h1>
               <p className="section-text">{communityHome.hero.text}</p>
+
               <div className="button-container">
                 <Button
                   variant={"primary"}
@@ -72,7 +72,8 @@ const Community = ({ indexPage, freeHandData }) => {
             </div>
           </div>
         </div>
-      </section>
+      </main>
+      {/* END OF HERO SECTION */}
       {/* END OF HERO SECTION */}
 
       {/* WHYUS SECTION */}

@@ -1,12 +1,8 @@
 import React from "react";
-import HeroSection from "../../components/sponsorship/HeroSection";
-import Navbar from "../../components/layouts/Navbar";
+import Navbar from "../layouts/Navbar";
 
-import Image from "next/image";
-
-import Footer from "../../components/layouts/Footer";
+import Footer from "../layouts/Footer";
 import ContactSection from "./ContactSection";
-import { strapiService } from "../../services";
 
 const Hero = ({ contactDetails }) => {
   return (

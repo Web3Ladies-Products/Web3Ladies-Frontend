@@ -404,12 +404,12 @@ const contactRequest = async (data) => {
     throw new Error(error?.error?.message);
   }
 };
-const subscriptionRequest = async (data) => {
+const subscriptionRequest = async (formData) => {
   try {
     const res = await fetch(`${STRAPI_URL}/api/subscriptions`, {
       method: "POST",
       headers,
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
     })
       .then(checkStatus)
       .then(parseJSON);
@@ -455,11 +455,12 @@ const mentorshipRegisterRequest = async (formData, file) => {
 };
 const jobApplicationRequest = async (formData, file) => {
   let data = new FormData();
-  data.append("files.resume", file);
+  console.log(file);
+  data.append("files.portfolio", file);
   data.append("data", JSON.stringify(formData));
 
   try {
-    let reg = await fetch(`${STRAPI_URL}/api/job-application`, {
+    let reg = await fetch(`${STRAPI_URL}/api/job-applications`, {
       method: "POST",
       body: data,
     })
@@ -801,6 +802,20 @@ const sendPartnershipRequest = async (data) => {
   }
 };
 
+const getContrubutionPage = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/contribution-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const strapiService = {
   getBootCampPageData,
   getBlogPosts,
@@ -855,4 +870,5 @@ export const strapiService = {
 
   //
   sendPartnershipRequest,
+  getContrubutionPage,
 };

@@ -26,7 +26,7 @@ const Contribution = ({ contributionData, freeHandData }) => {
                 <Button
                   variant={"primary"}
                   buttonText="See open roles"
-                  handleClick={() => router.push("/mentorship/register")}
+                  handleClick={() => router.push(contributionData.btn_link)}
                 />
               </div>
             </div>
@@ -88,10 +88,11 @@ export default Contribution;
 
 export async function getStaticProps() {
   const freeHandData = await strapiService.getFreeHand();
-
+  const contributionData = await strapiService.getContrubutionPage();
+  console.log(contributionData);
   return {
     props: {
-      contributionData: opportunities,
+      contributionData: contributionData.data.attributes,
       freeHandData: freeHandData.data.attributes,
     },
   };

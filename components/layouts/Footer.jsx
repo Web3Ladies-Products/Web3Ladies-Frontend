@@ -95,10 +95,12 @@ const Footer = () => {
   const [showLoader, setShowLoader] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email) return;
     setShowLoader(true);
+
     try {
       await strapiService.subscriptionRequest({
-        data: email,
+        data: { email },
       });
       setEmail("");
       setShowLoader(false);

@@ -4,7 +4,7 @@ import Navbar from "../../../components/layouts/Navbar";
 
 import Footer from "../../../components/layouts/Footer";
 import Button from "../../../components/buttons/Button";
-import datas from "../../api/contribution.json";
+import { strapiService } from "../../../services";
 
 const Job = ({ job, jobData }) => {
   const router = useRouter();
@@ -88,7 +88,8 @@ const Job = ({ job, jobData }) => {
 export default Job;
 
 export async function getStaticPaths() {
-  const paths = datas.jobs.map((job) => {
+  const contributionData = await strapiService.getContrubutionPage();
+  const paths = contributionData.data.attributes.jobs.map((job) => {
     return {
       params: {
         slug: job.id.toString(),
@@ -102,8 +103,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params.slug);
   try {
+    const contributionData = await strapiService.getContrubutionPage();
+    const datas = contributionData.data.attributes;
     const job = datas.jobs.find((job) => job.id === parseInt(params.slug));
     const jobData = datas.jobs.filter(
       (job) => job.id !== parseInt(params.slug)
@@ -112,7 +114,7 @@ export async function getStaticProps({ params }) {
       props: {
         job,
         jobData,
-        notFound: true,
+        notFound: false,
       },
     };
   } catch (error) {
