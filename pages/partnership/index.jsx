@@ -17,30 +17,13 @@ import { useRouter } from "next/router";
 
 const Partnership = ({
   indexPage,
+  partnershipData,
   sponsorshipData,
   highlightsPosts,
   featuredPost,
 }) => {
   const router = useRouter();
-  const title = "Join the big league. Become a <span>Web3Ladies Partner</span>";
-  const get_list = [
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-    {
-      content:
-        "A professional looking for deeper knowledge about the impact and applications of blockchain technologies in a business environment ",
-    },
-  ];
+
   return (
     <>
       <Navbar />
@@ -51,18 +34,20 @@ const Partnership = ({
             <div className=" hero_content">
               <h1
                 className="title section-title "
-                dangerouslySetInnerHTML={{ __html: title }}
+                dangerouslySetInnerHTML={{ __html: partnershipData.hero_title }}
               ></h1>
-              <p>
-                Be a part of a community of confident and audacious <br /> Web3
-                Ladies. We are always open to new members.
-              </p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: partnershipData.hero_description,
+                }}
+              />
+
               <div className="button-container">
                 <Button
                   variant={"primary"}
-                  buttonText="Become a Partner"
+                  buttonText={partnershipData.hero_btn_text}
                   handleClick={() => {
-                    router.push("/partnership/register");
+                    router.push(partnershipData.hero_btn_link);
                   }}
                 />
               </div>
@@ -75,7 +60,7 @@ const Partnership = ({
                   width={"492px"}
                   height={"492px"}
                   objectFit="contain"
-                  src="/assets/images/mentorship-hero-img.png"
+                  src={partnershipData.hero_image}
                   alt="mentorship-img"
                 />
                 <Image
@@ -117,19 +102,22 @@ const Partnership = ({
         </div>
         {/*END OF HERO SECTION*/}
       </main>
-      <Supporters title="Current Partners" indexPage={indexPage} />
+      <Supporters
+        title={partnershipData.supporters_title}
+        indexPage={partnershipData}
+      />
       <AboutSection
-        title={sponsorshipData.about_title}
-        description={sponsorshipData.about_description}
+        title={partnershipData.about_title}
+        description={partnershipData.about_description}
         showArc={false}
       />
 
       <div className="partnership__price">
         <div className="container cta">
           <div className="content section__one">
-            <h2>What you get</h2>
+            <h2>{partnershipData.get_title}</h2>
             <ul className="">
-              {get_list.map((get, index) => {
+              {partnershipData.get_list.map((get, index) => {
                 return (
                   <li key={index} className="">
                     <NumberMarker number={index + 1} />
@@ -141,9 +129,9 @@ const Partnership = ({
             <div className="">
               <Button
                 variant="outline"
-                buttonText="Become a Partner"
+                buttonText={partnershipData.get_btn_text}
                 handleClick={() =>
-                  window.open("/partnership/register", "_blank")
+                  window.open(partnershipData.get_btn_link, "_blank")
                 }
               />
             </div>
@@ -155,7 +143,7 @@ const Partnership = ({
               width={"493px"}
               height={"472px"}
               objectFit="contain"
-              src="/assets/images/what_you_get.png"
+              src={partnershipData.get_frame}
               alt="gains-image"
             />
           </div>
@@ -165,7 +153,7 @@ const Partnership = ({
       <section className="events donation">
         <div className="container">
           <ul className="events-list">
-            {sponsorshipData.donation_items?.map((item, index) => (
+            {partnershipData.partnership_items?.map((item, index) => (
               <li className="events-item" key={index}>
                 <div className="events-item--image">
                   <Image
@@ -174,7 +162,7 @@ const Partnership = ({
                     height={"720px"}
                     alt={item.title}
                     className="events-image"
-                    objectFit="cover"
+                    objectFit="contain"
                   />
                 </div>
                 <div className="events-item--text">
@@ -233,7 +221,7 @@ const Partnership = ({
         <div className="container partnership__ecosystem">
           <h1
             className="section-title"
-            dangerouslySetInnerHTML={{ __html: sponsorshipData.help_title }}
+            dangerouslySetInnerHTML={{ __html: partnershipData.help_title }}
           />
           <div className="about__image-section">
             <Image
@@ -282,7 +270,10 @@ export default Partnership;
 export async function getStaticProps() {
   try {
     const indexPage = await strapiService.getHomePageData();
+    const partnership = await strapiService.getParnershipPageData();
+
     const sponsorshipPage = await strapiService.getSponsorshipData();
+
     const pressReleasePosts = await strapiService.getPostsByCategory(
       1,
       10,
@@ -305,6 +296,7 @@ export async function getStaticProps() {
     return {
       props: {
         indexPage: indexPage.data.attributes,
+        partnershipData: partnership.data.attributes,
         sponsorshipData: sponsorshipPage.data.attributes,
         highlightsPosts,
         ...(featuredPost && { featuredPost: featuredPost[0] }),
@@ -314,7 +306,7 @@ export async function getStaticProps() {
     return {
       props: {
         indexPage: {},
-        sponsorshipData: {},
+        partnershipData: {},
         highlightsPosts: [],
         featuredPost: null,
       },

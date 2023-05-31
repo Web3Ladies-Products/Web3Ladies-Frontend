@@ -28,7 +28,6 @@ const Success = ({ indexPage }) => {
       link: SLACK_URL,
     },
   ];
-  const title = "Thank you for filling <br/> our Partnership form";
 
   return (
     <>
@@ -40,11 +39,11 @@ const Success = ({ indexPage }) => {
               <div className="center">
                 <h2
                   dangerouslySetInnerHTML={{
-                    __html: title,
+                    __html: indexPage.title,
                   }}
                 />
               </div>
-              <p>Our team will contact you shortly</p>
+              <p>{indexPage.subtitle}</p>
               <div className="center">
                 <small>{indexPage.small}</small>
                 <div className="icons-container ">
@@ -79,7 +78,7 @@ const Success = ({ indexPage }) => {
 export default Success;
 
 export async function getStaticProps() {
-  const indexPage = await strapiService.getMentorshipSuccess();
+  const indexPage = await strapiService.getParnershipSuccessPageData();
 
   return {
     props: {

@@ -789,22 +789,78 @@ const getMentor = async () => {
 //partnership form
 const sendPartnershipRequest = async (data) => {
   try {
-    const donationRequest = await fetch(`${STRAPI_URL}/api/parnership`, {
+    const response = await fetch(`${STRAPI_URL}/api/partnership-registers`, {
       method: "POST",
       headers,
-      body: JSON.stringify(data),
+      body: JSON.stringify({ data: { ...data } }),
     })
       .then(checkStatus)
       .then(parseJSON);
-    return donationRequest;
+    return response;
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 
 const getContrubutionPage = async () => {
   try {
     const res = await fetch(`${STRAPI_URL}/api/contribution-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getEventPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/event-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getHireTalentPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/hire-talent`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getParnershipPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/partnership-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+const getParnershipSuccessPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/partnership-success`, {
       method: "GET",
       headers,
     })
@@ -871,4 +927,8 @@ export const strapiService = {
   //
   sendPartnershipRequest,
   getContrubutionPage,
+  getEventPageData,
+  getHireTalentPageData,
+  getParnershipPageData,
+  getParnershipSuccessPageData,
 };

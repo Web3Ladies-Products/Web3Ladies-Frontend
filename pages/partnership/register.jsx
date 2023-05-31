@@ -37,8 +37,9 @@ const Register = () => {
     setShowLoader(true);
 
     try {
-      console.log(formData, "here is the form data");
-      // await strapiService.sendPartnershipRequest(formData);
+      console.log(JSON.stringify(formData), "here is the form data");
+
+      await strapiService.sendPartnershipRequest(formData);
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"

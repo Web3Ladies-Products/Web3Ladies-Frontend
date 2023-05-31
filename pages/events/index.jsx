@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../components/layouts/Navbar";
-import eventData from "../../pages/api/events.json";
 import EventsEvent from "../../components/Events";
 import Button from "../../components/buttons/Button";
-import communityData from "../../pages/api/community.json";
+
 import CommunityEvents from "../../components/CommunityEvents";
 import Footer from "../../components/layouts/Footer";
 import { strapiService } from "../../services/strapi.service";
@@ -14,14 +13,7 @@ import Image from "next/image";
 import FreehandCard from "../../components/FreehandCard";
 
 const Events = ({ indexPage, freeHandData }) => {
-  const eventHome = eventData;
-  const communityHome = communityData.home;
   const router = useRouter();
-
-  // React.useEffect(() => {
-  //   router.push("/");
-
-  // }, []);
 
   return (
     <>
@@ -30,24 +22,21 @@ const Events = ({ indexPage, freeHandData }) => {
 
       <section className="">
         <div className="container events-hero">
-          <p className="event-sub">{eventHome.helpTitle}</p>
-          <h2 className="event-text">{eventHome.eventTitle}</h2>
+          <p className="event-sub">{indexPage.text}</p>
+          <h2 className="event-text">{indexPage.title}</h2>
         </div>
       </section>
 
       {/* END OF HEREO */}
 
       {/*  UPCOMING EVENT SECTION */}
-      <EventsEvent
-        title={eventHome.events_title.title}
-        events_items={eventHome.EVENTS_ITEMS}
-      />
+      <EventsEvent title={indexPage.subtitle} events_items={indexPage.items} />
       {/* END OF UPCOMING EVENT SECTION */}
 
       {/* COMMUINTY EVENT SECTION */}
       <CommunityEvents
-        title={communityHome.events.sub_title}
-        events_items={communityHome.events_items}
+        title={indexPage.community_title}
+        events_items={indexPage.community_items}
       />
       {/* END OF COMMUINTY EVENT  SECTION */}
 
@@ -59,12 +48,12 @@ const Events = ({ indexPage, freeHandData }) => {
               <h3
                 className="section-title"
                 dangerouslySetInnerHTML={{
-                  __html: indexPage.join_our_community_title,
+                  __html: indexPage.join_title,
                 }}
               />
               <p
                 dangerouslySetInnerHTML={{
-                  __html: indexPage.join_our_community_description,
+                  __html: indexPage.join_description,
                 }}
               />
               <div className="who-we-are--content-cta">
@@ -72,21 +61,18 @@ const Events = ({ indexPage, freeHandData }) => {
                   variant={"outline"}
                   width={"243px"}
                   handleClick={() =>
-                    window.open(
-                      indexPage.join_our_community_button_link,
-                      "_blank"
-                    )
+                    window.open(indexPage.join_btn_link, "_blank")
                   }
                   hasIcon
                 >
                   <span className="icon-left">{/* <Slack /> */}</span>
-                  {indexPage.join_our_community_button_text}
+                  {indexPage.join_btn_text}
                 </Button>
               </div>
             </div>
             <div className="who-we-are--img">
               <Image
-                src={indexPage.join_our_community_image_url}
+                src={indexPage.join_image}
                 width={"532px"}
                 height={"500px"}
                 objectFit="contain"
@@ -111,7 +97,7 @@ export default Events;
 
 //get home page data
 export async function getStaticProps() {
-  const indexPage = await strapiService.getHomePageData();
+  const indexPage = await strapiService.getEventPageData();
   const freeHandData = await strapiService.getFreeHand();
   return {
     props: {

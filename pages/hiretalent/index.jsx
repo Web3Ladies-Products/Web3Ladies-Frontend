@@ -113,13 +113,6 @@ export default function HireTalent({ indexPage }) {
                   src="/assets/images/hiretalent-image.png"
                   alt="hero-image"
                 />
-                {/* <Image
-                  className="hero-illustration"
-                  width={"113px"}
-                  height={"121px"}
-                  src="/assets/images/bitcoin.png"
-                  alt="bitcoin-logo"
-                /> */}
               </div>
             </div>
           </div>
@@ -132,18 +125,12 @@ export default function HireTalent({ indexPage }) {
       {/* END OF SUPPORT SECTION */}
       <main className="hiretalent__content-details top-spacing">
         <div className="container cta">
-          <h2>
-            Get Talents Trained by <br /> Industry Leading Experts
-          </h2>
-          <p>
-            Our students are trained by skilled experts with high-level
-            experience to gain relevant skills solving real life problems{" "}
-          </p>
+          <h2
+            dangerouslySetInnerHTML={{ __html: indexPage.get_talent_title }}
+          />
+          <p>{indexPage.get_talent_description}</p>
           <div className="hiretalent__content-image">
-            <img
-              src="/assets/images/hiretalent-frame.png"
-              alt="hiretalent-image-2"
-            />
+            <img src={indexPage.get_talent_frame} alt="hiretalent-image-2" />
           </div>
         </div>
       </main>
@@ -152,14 +139,11 @@ export default function HireTalent({ indexPage }) {
       <main className="top-spacing top-mentors-section hiretalent__mentee-content">
         <div className="container cta">
           <div className="text">
-            <h2>Featured Mentees</h2>
-            <p>
-              Our students are trained by skilled experts with high-level
-              experience to gain relevant skills solving real life problems{" "}
-            </p>
+            <h2>{indexPage.mentees_title}</h2>
+            <p>{indexPage.mentees_description}</p>
           </div>
           <div className=" mentor-card-wrapper">
-            {mentees?.map(({ id, name, jobRole, year, imageURL }) => (
+            {indexPage.mentees?.map(({ id, name, jobRole, year, imageURL }) => (
               <div key={id} className="top-mentors-card">
                 <Image
                   className="arrow-img"
@@ -185,43 +169,30 @@ export default function HireTalent({ indexPage }) {
         <div className="container cta">
           <div className="content">
             <div>
-              <h2>Why Choose Us</h2>
-              <p>
-                These mentors will be on the ground for all the mentorship
-                activities, they are responsible for classes, responding to
-                mentees’ concerns on slack, and grading mentees, they will also
-                be compensated monthly.
-              </p>
+              <h2>{indexPage.why_title}</h2>
+              <p>{indexPage.why_description}</p>
             </div>
             <ul>
-              <li>
-                <Image
-                  width={"36px"}
-                  height={"34px"}
-                  objectFit="contain"
-                  src="/icons/star.png"
-                  alt="star"
-                />
-                <span className="text">Students are trained by experts</span>
-              </li>
-              <li>
-                <Image
-                  width={"36px"}
-                  height={"34px"}
-                  objectFit="contain"
-                  src="/icons/star.png"
-                  alt="star"
-                />
-                <span className="text">Students are trained by experts</span>
-              </li>
+              {indexPage.why_lists?.map((item, index) => (
+                <li key={index}>
+                  <Image
+                    width={"36px"}
+                    height={"34px"}
+                    objectFit="contain"
+                    src="/icons/star.png"
+                    alt="star"
+                  />
+                  <span className="text">{item.content}</span>
+                </li>
+              ))}
             </ul>
 
             <div className="">
               <Button
                 variant="inverse-primary"
-                buttonText="Hire now"
+                buttonText={indexPage.why_btn_text}
                 handleClick={() =>
-                  window.open("/mentorship/register", "_blank")
+                  window.open(indexPage.why_btn_link, "_blank")
                 }
               />
             </div>
@@ -233,7 +204,7 @@ export default function HireTalent({ indexPage }) {
               width={"493px"}
               height={"472px"}
               objectFit="contain"
-              src="/assets/images/why-hire-us.png"
+              src={indexPage.why_frame}
               alt="gains-image"
             />
           </div>
@@ -243,15 +214,17 @@ export default function HireTalent({ indexPage }) {
       <section className="cta-card-section top-spacing hiretalent__talented">
         <div className="container">
           <div>
-            <h1>
-              Over <span>5000+</span> talented ladies trained on our platform
-            </h1>
+            <h1
+              dangerouslySetInnerHTML={{
+                __html: indexPage.history_title,
+              }}
+            />
 
             <div>
               <Button
-                buttonText="Hire now"
+                buttonText={indexPage.history_btn_text}
                 handleClick={() =>
-                  window.open("/mentorship/register", "_blank")
+                  window.open(indexPage.history_btn_link, "_blank")
                 }
                 type="primary"
               />
@@ -264,7 +237,7 @@ export default function HireTalent({ indexPage }) {
 
       <div className="top-spacing">
         <Testimonials
-          testimonial_title={indexPage.testimonials_title}
+          testimonial_title={indexPage.testimonial_title}
           testimonial_description={indexPage.testimonial_description}
           testimonial_items={indexPage.testimonial_items}
           hasMaxWidth={true}
@@ -280,7 +253,7 @@ export default function HireTalent({ indexPage }) {
 
 //get home page data
 export async function getStaticProps() {
-  const indexPage = await strapiService.getHomePageData();
+  const indexPage = await strapiService.getHireTalentPageData();
 
   return {
     props: {
