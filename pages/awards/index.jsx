@@ -77,14 +77,14 @@ const Award = ({ indexPage, freeHandData }) => {
                   variant={"primary"}
                   buttonText={indexPage.hero_btn1}
                   handleClick={() => {
-                    router.push("#");
+                    router.push(indexPage.vote_btn_url);
                   }}
                 />
                 <Button
                   variant={"outline"}
                   buttonText={indexPage.hero_btn2}
                   handleClick={() => {
-                    router.push("/awards/#nominees");
+                    router.push(indexPage.nominee_btn_url);
                   }}
                 />
               </div>

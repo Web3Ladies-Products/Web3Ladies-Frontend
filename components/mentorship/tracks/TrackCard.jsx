@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "../../buttons/Button";
 
-const TrackCard = () => {
+const TrackCard = ({ title, description }) => {
   return (
     <div className="track-card">
       <div>
@@ -32,13 +32,8 @@ const TrackCard = () => {
             alt="arrow-vector"
           />
         </div>
-        <h2> Web2 - Web Development</h2>
-        <p>
-          {" "}
-          Product management is the business process of planning, developing,
-          launching, and managing a product or service. It includes the entire
-          lifecycle of a product, from ideation to development to go to market.
-        </p>
+        <h2> {title}</h2>
+        <p>{description}</p>
       </div>
       <div>
         <Button buttonText="View Track" type="outline" />

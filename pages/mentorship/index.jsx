@@ -55,7 +55,7 @@ const mentorship = ({
                   variant={"outline"}
                   buttonText={mentorshipPage.hero_button_text_two}
                   handleClick={() => {
-                    router.push(menuPage.hero_button_link_two);
+                    router.push(mentorshipPage.hero_button_link_two);
                   }}
                 />
               </div>

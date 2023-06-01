@@ -73,7 +73,7 @@ const About = ({ indexPage, joinData, aboutPage }) => {
             <h2>{aboutPage.history_title}</h2>
 
             <div className="">
-              <p>{aboutPage.history_description}</p>
+              <p>{aboutPage.history_description1}</p>
               {aboutPage.history_description2 && (
                 <p>{aboutPage.history_description2}</p>
               )}
@@ -104,7 +104,7 @@ const About = ({ indexPage, joinData, aboutPage }) => {
       <section className="about__spacing-top about__roadmap">
         <div className="container cta">
           <div className="header__text">
-            <h2>Out impact Readmap</h2>
+            <h2>{aboutPage.roadmap_title}</h2>
           </div>
           <div className="about__content">
             <div className="white__bg first__year-text">
@@ -184,7 +184,7 @@ const About = ({ indexPage, joinData, aboutPage }) => {
 
       <section className="about__spacing-top mentors-section">
         <div className="container">
-          <h2 className="heading">Meet the Team</h2>
+          <h2 className="heading">{aboutPage.team_heading}</h2>
 
           <div className="mentors-container">
             {aboutPage.teams.map((mentor, index) => {

@@ -16,7 +16,6 @@ import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
-import CohortSection from "../../../components/mentorship/cohorts/Cohorts";
 const PastCohort = ({ cohort, freeHandData, joinData, featuredMentees }) => {
   if (!cohort) {
     return <Custom404Error />;
@@ -28,6 +27,7 @@ const PastCohort = ({ cohort, freeHandData, joinData, featuredMentees }) => {
     hero_button_link: cohort?.hero_button_link,
     hero_button_type: cohort?.hero_button_type,
     hero_image: cohort?.hero_image,
+    cohort_number: cohort?.cohort_number,
   };
 
   return (
@@ -39,7 +39,7 @@ const PastCohort = ({ cohort, freeHandData, joinData, featuredMentees }) => {
       {/* SUMMARY SECTION */}
       <section className="mentee-experience">
         <div className="container">
-          <Summary />
+          <Summary cohortSummary={cohort.summary} />
         </div>
       </section>
       {/* MENTEES SECTION */}

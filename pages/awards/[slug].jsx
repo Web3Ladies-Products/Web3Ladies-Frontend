@@ -39,11 +39,13 @@ const Slug = ({ nominee, freeHandData }) => {
   const submitVote = async (e) => {
     e.preventDefault();
 
-    voteData["nominee_name"] = "Jenet";
+    // voteData["nominee_name"] = "Jenet";
+    let formData = { ...voteData };
+    formData["nominee_name"] = nominee.name;
     setShowLoader(true);
     try {
-      const response = await strapiService.votingRequest({
-        data: voteData,
+      await strapiService.votingRequest({
+        data: formData,
       });
       alertService.alertMethod("success", "vote successful");
       setVoteData({

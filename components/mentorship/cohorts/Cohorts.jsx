@@ -6,7 +6,6 @@ import Accordion from "../../accordion/Accordion";
 import CohortSummary from "../../cohorts/CohortSummary";
 
 const CohortSection = ({ cohortData, isAccordion }) => {
-  console.log("cohortData", cohortData);
   const cohortsDetails = cohortData.map((cohort) => {
     return {
       label: <Label number={cohort.cohort_number} date={cohort.cohort_date} />,
@@ -53,7 +52,7 @@ const Label = ({ number, date }) => {
 const Content = ({
   cohortLink,
   cohortBtnText,
-  isAccordion,
+
   cohortSummaryData,
   menteesDetails,
 }) => {

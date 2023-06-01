@@ -5,7 +5,6 @@ import Image from "next/image";
 import Footer from "../../components/layouts/Footer";
 import Button from "../../components/buttons/Button";
 import FreehandCard from "../../components/FreehandCard";
-import opportunities from "../../pages/api/contribution.json";
 import { strapiService } from "../../services";
 
 const Contribution = ({ contributionData, freeHandData }) => {

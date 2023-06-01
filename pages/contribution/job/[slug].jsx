@@ -16,8 +16,6 @@ const Job = ({ contributionPage }) => {
     console.log("router", slug);
     const fetchJob = async () => {
       try {
-        // const contributionData = await strapiService.getContrubutionPage();
-        // const datas = contributionData.data.attributes;
         const exactJob = contributionPage.jobs.find(
           (job) => job.id.toString() == slug
         );
@@ -128,41 +126,6 @@ export async function getStaticPaths() {
   };
 }
 
-// export async function getStaticProps({ params }) {
-//   try {
-//     const contributionData = await strapiService.getContrubutionPage();
-//     const datas = contributionData.data.attributes;
-//     if (!datas) {
-//       return {
-//         props: {
-//           job: null,
-//           jobData: null,
-//           notFound: true,
-//           fallback: true,
-//         },
-//       };
-//     }
-//     console.log(datas);
-//     const job = datas.jobs.find((jo) => jo.id === parseInt(params.slug));
-//     const jobData = datas.jobs.filter((jb) => jb.id !== parseInt(params.slug));
-//     return {
-//       props: {
-//         job,
-//         jobData,
-//         notFound: false,
-//       },
-//     };
-//   } catch (error) {
-//     return {
-//       props: {
-//         job: null,
-//         jobData: null,
-//         notFound: true,
-//         fallback: true,
-//       },
-//     };
-//   }
-// }
 export default Job;
 
 export async function getStaticProps() {
