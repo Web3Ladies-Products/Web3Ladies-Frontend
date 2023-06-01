@@ -47,6 +47,7 @@ const Tabs = ({ onChange, handleSearch, isSearch }) => {
           {tabs.map((tab, index) => (
             <div
               key={index}
+              style={{ overflow: "none" }}
               className={`option-tabs--tab-bordered ${
                 tab.id === currentTab ? "active" : ""
               }`}

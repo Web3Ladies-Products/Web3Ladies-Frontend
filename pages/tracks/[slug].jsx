@@ -8,14 +8,14 @@ import Benefits from "../../components/BenefitsSection";
 import Curriculum from "../../components/Curriculum";
 import Gains from "../../components/Gains";
 import Mentors from "../../components/Mentors";
-import { FAQ_DATA } from "../api/feedback.json";
 import FAQs from "../../components/FAQs";
 import FreehandCard from "../../components/FreehandCard";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import Custom404Error from "../404";
 import { strapiService } from "../../services";
-const Tracks = ({ track }) => {
+import WorkshopMentors from "../../components/WorkshopMentors";
+const Tracks = ({ track, freeHandData, joinData, featuredMentees }) => {
   if (!track) {
     return <Custom404Error />;
   }
@@ -32,15 +32,16 @@ const Tracks = ({ track }) => {
       <Benefits track={track} />
       <Curriculum track={track} />
       <Gains track={track} />
+
       <Mentors track={track} />
-      <Mentors track={track} />
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <WorkshopMentors track={track} />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
       <div className="mt-20"></div>
-      <FAQs data={FAQ_DATA} />
+      <FAQs />
 
       <div className="tracks__spacing">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -50,6 +51,7 @@ const Tracks = ({ track }) => {
 
 export async function getStaticPaths() {
   const response = await strapiService.getTracks();
+
   const paths = response.data.map((track) => {
     return {
       params: {
@@ -66,11 +68,18 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getTracksBySlug(params.slug);
+
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
+    const joinData = await strapiService.getJoinAsMentor();
+    const featuredMentees = await strapiService.getFeaturedMentee();
 
     if (data) {
       return {
         props: {
+          joinData: joinData.data.attributes,
+          featuredMentees: featuredMentees.data.attributes,
+          freeHandData: freeHandData.data.attributes,
           track: {
             ...data,
           },

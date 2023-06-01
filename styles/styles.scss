@@ -27,8 +27,14 @@
 @import "./modules//sponsorship.module.scss";
 @import "./modules/blog.module.scss";
 @import "./modules/pledge.module.scss";
-@import "./modules//awards.module.scss";
 
+@import "./modules/community.module.scss";
+@import "./modules//awards.module.scss";
+@import "./modules/notification.module.scss";
+@import "./modules/contribution.module.scss";
+@import "./modules/hiretalent.module.scss";
+@import "./modules/partnership.module.scss";
+@import "./modules/about.module.scss";
 :root {
   --color-black: #0f0f0f;
   --color-black-rgb: 15, 15, 15;

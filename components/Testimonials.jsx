@@ -1,29 +1,27 @@
 import Image from "next/image";
 import React from "react";
 
+
 const Testimonials = ({
   testimonial_title,
   testimonial_description,
   testimonial_items,
   hasMaxWidth,
 }) => {
-  const [activeTestimonialTab, setActiveTestimonialTab] =
-    React.useState("past_mentees");
+  const [activeTestimonialTab, setActiveTestimonialTab] = React.useState(
+    Object.keys(testimonial_items)[0]
+  );
 
-  const TESTIMONIAL_TABS = [
-    {
-      key: "past_mentees",
-      title: "Past sMentees",
-    },
-    {
-      key: "shoutouts",
-      title: "Shoutouts",
-    },
-    {
-      key: "community",
-      title: "Community",
-    },
-  ];
+  function getKeysAndTitles(data) {
+    let keys = Object.keys(data);
+    let testimonial_tabs = keys.map((val) => ({
+      key: val,
+      title: val.split("_").join(" ").toUpperCase(),
+    }));
+    return testimonial_tabs;
+  }
+
+  const TESTIMONIAL_TABS = getKeysAndTitles(testimonial_items);
 
   return (
     <section className="testimonials">

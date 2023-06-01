@@ -25,7 +25,6 @@ const RegisterForm = ({
             value={formData.email}
             onChange={handleFormInputChange}
             errors={[errors.email]}
-            autoFocus={true}
             required
           />
         </div>
@@ -37,7 +36,6 @@ const RegisterForm = ({
             value={formData.full_name}
             onChange={handleFormInputChange}
             errors={[errors.full_name]}
-            autoFocus={true}
             required
           />
         </div>
@@ -78,7 +76,6 @@ const RegisterForm = ({
             value={formData.phone_number}
             onChange={handleFormInputChange}
             errors={[errors.phone_number]}
-            autoFocus={true}
             required
           />
         </div>
@@ -90,7 +87,6 @@ const RegisterForm = ({
             value={formData.twitter_handle}
             onChange={handleFormInputChange}
             errors={[errors.twitter_handle]}
-            autoFocus={true}
             required
           />
         </div>
@@ -105,7 +101,6 @@ const RegisterForm = ({
             value={formData.slack_username}
             onChange={handleFormInputChange}
             errors={[errors.slack_username]}
-            autoFocus={true}
             required
           />
         </div>
@@ -117,7 +112,6 @@ const RegisterForm = ({
             value={formData.linkedin_url}
             onChange={handleFormInputChange}
             errors={[errors.linkedin_url]}
-            autoFocus={true}
             required
           />
         </div>
@@ -131,7 +125,6 @@ const RegisterForm = ({
             value={formData.nationality}
             onChange={handleFormInputChange}
             errors={[errors.nationality]}
-            autoFocus={true}
             required
           />
         </div>
@@ -205,7 +198,6 @@ const RegisterForm = ({
             value={formData.reason1}
             onChange={handleFormInputChange}
             errors={[errors.reason1]}
-            autoFocus={true}
             required
           />
         </div>
@@ -245,7 +237,6 @@ const RegisterForm = ({
             value={formData.reason2}
             onChange={handleFormInputChange}
             errors={[errors.reason2]}
-            autoFocus={true}
             required
           />
         </div>
@@ -276,7 +267,6 @@ const RegisterForm = ({
             value={formData.comment}
             onChange={handleFormInputChange}
             errors={[errors.comment]}
-            autoFocus={true}
             required
           />
         </div>

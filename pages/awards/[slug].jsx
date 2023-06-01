@@ -21,7 +21,7 @@ const DEFAULT_ERRORS = {
   gender: [],
 };
 
-const Slug = ({ nominee, notFound }) => {
+const Slug = ({ nominee, freeHandData }) => {
   if (!nominee) {
     return <p>Award not found</p>;
   }
@@ -174,7 +174,7 @@ const Slug = ({ nominee, notFound }) => {
         </div>
       </div>
 
-      <FreehandCard />
+      <FreehandCard freeHandData={freeHandData} />
       <div className="mb-large" />
 
       <Footer />
@@ -201,10 +201,13 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getNomineeBySlug(params.slug);
     const data = response?.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
+
     if (data) {
       const content = await markdownToHtml(data?.about || "");
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           nominee: {
             ...data,
             content,

@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 import Button from "../../components/buttons/Button";
 import FAQs from "../../components/FAQs";
-import { FAQ_DATA } from "../../pages/api/feedback";
-
 import FreehandCard from "../../components/FreehandCard";
 import Footer from "../../components/layouts/Footer";
 import Navbar from "../../components/layouts/Navbar";
@@ -12,12 +10,14 @@ import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
 import Testimonials from "../../components/Testimonials";
 import { strapiService } from "../../services";
-import { useRouter } from "next/router";
 import VisitYoutube from "../../components/VisitYoutube";
 
-const BootcampPage = ({ indexPage }) => {
-  const bootCamp = indexPage;
-
+const BootcampPage = ({
+  bootCamp,
+  freeHandData,
+  joinData,
+  featuredMentees,
+}) => {
   return (
     <>
       <Navbar />
@@ -131,24 +131,27 @@ const BootcampPage = ({ indexPage }) => {
       <VisitYoutube />
       <div className="mb-small" />
 
-      <FeaturedMentees />
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
 
       <div className="mb-small" />
 
-      {/* <FAQs data={FAQ_DATA} /> */}
+      <FAQs />
 
       <div className="mb-small" />
-
-      {/* <Testimonials
-        testimonial_title={indexPage.testimonial_title}
-        testimonial_description={indexPage.testimonial_description}
-        testimonial_items={indexPage.testimonials_details}
-        hasMaxWidth={true}
-      /> */}
+      {bootCamp?.bootcamp_testimonial_title &&
+        bootCamp?.bootcamp_testimonial_description &&
+        bootCamp?.bootcamp_testimonial_items && (
+          <Testimonials
+            testimonial_title={bootCamp?.testimonial_title}
+            testimonial_description={bootCamp?.testimonial_description}
+            testimonial_items={bootCamp?.testimonial_items}
+            hasMaxWidth={true}
+          />
+        )}
       <div className="mb-small" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <div className="mb-large" />
       <Footer />
@@ -157,10 +160,16 @@ const BootcampPage = ({ indexPage }) => {
 };
 
 export async function getStaticProps() {
-  const indexPage = await strapiService.getBootCampPageData();
+  const bootCamp = await strapiService.getBootCampPageData();
+  const freeHandData = await strapiService.getFreeHand();
+  const joinData = await strapiService.getJoinAsMentor();
+  const featuredMentees = await strapiService.getFeaturedMentee();
   return {
     props: {
-      indexPage: indexPage.data.attributes,
+      bootCamp: bootCamp.data.attributes,
+      freeHandData: freeHandData.data.attributes,
+      joinData: joinData.data.attributes,
+      featuredMentees: featuredMentees.data.attributes,
     },
   };
 }

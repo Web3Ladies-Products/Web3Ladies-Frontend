@@ -2,16 +2,14 @@ import Image from "next/image";
 import React from "react";
 import Button from "../buttons/Button";
 
-const WorkAssistance = () => {
+import { useRouter } from "next/router";
+const WorkAssistance = ({ workAssistanceData }) => {
+  const router = useRouter();
   return (
-    <section className="work-assistance-section">
+    <section id="worktools" className="work-assistance-section">
       <div className="container">
-        <h1 className="section-title"> Worktools Assistance</h1>
-        <p>
-          These mentors will be on the ground for all the mentorship activities,
-          they are responsible for classes, responding to mentees’ concerns on
-          slack, and grading mentees, they will also be compensated monthly.
-        </p>
+        <h1 className="section-title"> {workAssistanceData.title}</h1>
+        <p>{workAssistanceData.description}</p>
         <div className="work-assistance-images-wrap">
           <div>
             <Image
@@ -46,8 +44,10 @@ const WorkAssistance = () => {
         </div>
         <Button
           type="outline"
-          buttonText="Learn More"
-          handleClick={() => null}
+          buttonText={workAssistanceData.btn_text}
+          handleClick={() => {
+            router.push(workAssistanceData.btn_link);
+          }}
         />
       </div>
     </section>

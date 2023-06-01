@@ -162,7 +162,7 @@
     overflow: hidden;
     border-radius: 7.90444px;
 
-    img{
+    img {
       width: 100%;
     }
   }
@@ -271,6 +271,9 @@
     position: absolute;
     bottom: -42px;
     right: 340px;
+    @media screen and (max-width: 620px) {
+      right: 100px;
+    }
   }
   h2 {
     font-size: clamp(30px, 4.2vw, 54px);
@@ -316,6 +319,10 @@
   max-width: 766px;
   margin: 104px auto;
   padding: 0 10px;
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+  }
 }
 
 .register-joinedfield {

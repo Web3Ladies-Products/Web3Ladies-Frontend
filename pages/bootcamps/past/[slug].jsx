@@ -17,7 +17,7 @@ import { strapiService } from "../../../services/strapi.service";
 import FreehandCard from "../../../components/FreehandCard";
 import CustomError from "../../_error";
 
-const Bootcamp = ({ bootcamp }) => {
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <CustomError />;
   }
@@ -50,7 +50,7 @@ const Bootcamp = ({ bootcamp }) => {
       <section className="mentee-experience">
         <div className="container">
           <MenteeExperience
-            mentee_details={bootcamp?.past_bootcamp_mentee_details}
+            mentees_details={bootcamp?.past_bootcamps_mentees_details}
           />
         </div>
       </section>
@@ -61,14 +61,20 @@ const Bootcamp = ({ bootcamp }) => {
 
       <ProjectsDone data={bootcamp?.projects_done_details} />
 
-      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
-
+      <Highlights
+        title={
+          bootcamp.highlight_title
+            ? bootcamp.highlight_title
+            : "Highlights of the Cohort"
+        }
+        HIGHLIGHTS_ITEMS={bootcamp.highlight_items_details}
+      />
       <Gallery data={bootcamp.gallery_details} />
 
       <VisitYoutube />
       <div className="mb-large" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -95,10 +101,12 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getPastBootCampBySlug(params.slug);
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           bootcamp: {
             ...data,
           },
