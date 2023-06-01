@@ -67,7 +67,7 @@ const CohortSummary = ({ cohortSummaryData, menteesDetails }) => {
                         src={mentee.url}
                         type="video/mp4"
                         loop
-                        controls
+                        controls={false}
                       />
                       <div className="app__video-overlay">
                         <div
