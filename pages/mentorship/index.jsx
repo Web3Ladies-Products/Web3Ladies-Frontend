@@ -28,6 +28,7 @@ const mentorship = ({
   freeHandData,
   joinData,
   featuredMentees,
+  cohortPageData,
 }) => {
   const router = useRouter();
   return (
@@ -190,7 +191,10 @@ const mentorship = ({
         <div className="container mentorship-bootcamp-header">
           <h1 className="section-title"> Cohorts</h1>
         </div>
-        <CohortSection isAccordion={true} />
+        <CohortSection
+          cohortData={cohortPageData.cohortSummaries}
+          isAccordion={true}
+        />
       </section>
 
       <section className="mentorship-bootcamp-section">
@@ -247,6 +251,7 @@ export async function getStaticProps() {
   const freeHandData = await strapiService.getFreeHand();
   const joinData = await strapiService.getJoinAsMentor();
   const featuredMentees = await strapiService.getFeaturedMentee();
+  const cohortPageData = await strapiService.getCohortPageData();
   return {
     props: {
       mentorshipPage: mentorshipPage.data.attributes,
@@ -256,6 +261,7 @@ export async function getStaticProps() {
       freeHandData: freeHandData.data.attributes,
       joinData: joinData.data.attributes,
       featuredMentees: featuredMentees.data.attributes,
+      cohortPageData: cohortPageData.data.attributes,
     },
   };
 }

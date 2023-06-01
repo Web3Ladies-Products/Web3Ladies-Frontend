@@ -6,48 +6,22 @@ import Accordion from "../../accordion/Accordion";
 import CohortSummary from "../../cohorts/CohortSummary";
 
 const CohortSection = ({ cohortData, isAccordion }) => {
-  const cohortsDetails = [
-    {
-      label: <Label number="One" date="May - August 2020" />,
+  console.log("cohortData", cohortData);
+  const cohortsDetails = cohortData.map((cohort) => {
+    return {
+      label: <Label number={cohort.cohort_number} date={cohort.cohort_date} />,
       content: (
         <Content
-          cohortLink={"/cohorts/past/cohort-1"}
+          cohortLink={cohort.cohort_link}
+          cohortBtnText={cohort.cohort_btn_text}
           isAccordion={isAccordion}
-          cohortData={cohortData}
+          cohortSummaryData={cohort.cohort_summary_data}
+          menteesDetails={cohort?.menteesDetails}
         />
       ),
-    },
-    {
-      label: <Label number="Two" date="May - August 2020" />,
-      content: (
-        <Content
-          cohortLink={"/cohorts/past/cohort-2"}
-          isAccordion={isAccordion}
-          cohortData={cohortData}
-        />
-      ),
-    },
-    {
-      label: <Label number="Three" date="May - August 2020" />,
-      content: (
-        <Content
-          cohortLink={"/cohorts/past/cohort-3"}
-          isAccordion={isAccordion}
-          cohortData={cohortData}
-        />
-      ),
-    },
-    {
-      label: <Label number="Four" date="May - August 2020" />,
-      content: (
-        <Content
-          cohortLink={"/cohorts/past/cohort-4"}
-          isAccordion={isAccordion}
-          cohortData={cohortData}
-        />
-      ),
-    },
-  ];
+    };
+  });
+
   return (
     <>
       <section className="summary-section" id="cohorts">
@@ -76,15 +50,24 @@ const Label = ({ number, date }) => {
   );
 };
 
-const Content = ({ cohortLink, isAccordion, cohortData }) => {
+const Content = ({
+  cohortLink,
+  cohortBtnText,
+  isAccordion,
+  cohortSummaryData,
+  menteesDetails,
+}) => {
   return (
     <div className="cohort-content container ">
-      <CohortSummary />
+      <CohortSummary
+        cohortSummaryData={cohortSummaryData}
+        menteesDetails={menteesDetails}
+      />
 
       <div className="cohorts__accordion_button">
         <Button
           variant={"outline"}
-          buttonText={"Learn More"}
+          buttonText={cohortBtnText}
           handleClick={() => (window.location.href = cohortLink)}
         />
       </div>

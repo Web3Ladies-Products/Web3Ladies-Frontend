@@ -20,7 +20,7 @@ const Cohorts = ({ indexPage, freeHandData, joinData, featuredMentees }) => {
           <h1 className="section-title"> Cohorts</h1>
         </div>
 
-        <CohortSection cohortData={indexPage} />
+        <CohortSection cohortData={indexPage.cohortSummaries} />
       </section>
 
       <VisitYoutube />
