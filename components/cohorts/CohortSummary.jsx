@@ -1,7 +1,38 @@
-import React from "react";
-import Image from "next/image";
+import React, { useEffect } from "react";
+import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 
 const CohortSummary = ({ cohortSummaryData, menteesDetails }) => {
+  const [menteeVideo, setMenteeVideo] = React.useState([]);
+  useEffect(() => {
+    setMenteeVideo(
+      menteesDetails.map((mentee, index) => {
+        return {
+          id: index,
+          name: mentee.name,
+          url: mentee.url,
+          title: mentee.title,
+          playVideo: false,
+          ref: React.createRef(),
+        };
+      })
+    );
+  }, [menteesDetails]);
+  const vidRef = React.useRef();
+
+  const handlePlayVideo = (id) => {
+    setMenteeVideo((prev) => {
+      return prev.map((video) => {
+        return id === video.id
+          ? {
+              ...video,
+              playVideo: !video.playVideo,
+            }
+          : {
+              ...video,
+            };
+      });
+    });
+  };
   return (
     <div className="cohort-summary">
       <div className="">
@@ -24,20 +55,40 @@ const CohortSummary = ({ cohortSummaryData, menteesDetails }) => {
             </ul>
           </div>
         </div>
-        {menteesDetails && (
+        {menteesDetails && menteeVideo && (
           <ul className="mentee-experience--list">
-            {menteesDetails.map((mentee, index) => {
+            {menteeVideo.map((mentee, index) => {
               return (
                 <li className="mentee-experience--list-item" key={index}>
                   <div className="summary-mentee-image">
-                    <Image
-                      className="summary-mentee-image"
-                      width={"272px"}
-                      height={"408px"}
-                      objectFit="contain"
-                      src={mentee.url}
-                      alt="mentee-image"
-                    />
+                    <div className="app__video">
+                      <video
+                        ref={mentee.ref}
+                        src={mentee.url}
+                        type="video/mp4"
+                        loop
+                        controls
+                      />
+                      <div className="app__video-overlay">
+                        <div
+                          className="app__video-overlay_circle "
+                          onClick={() => {
+                            handlePlayVideo(index);
+                            if (mentee.playVideo) {
+                              mentee.ref.current.pause();
+                            } else {
+                              mentee.ref.current.play();
+                            }
+                          }}
+                        >
+                          {mentee.playVideo ? (
+                            <BsPauseFill color="#fff" fontSize={30} />
+                          ) : (
+                            <BsFillPlayFill color="#fff" fontSize={30} />
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className="mentee-content">
                     <h2 className="sub-section-title bold">{mentee.name}</h2>
