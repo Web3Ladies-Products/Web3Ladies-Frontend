@@ -1,128 +1,162 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/layouts/Navbar";
 
 import Footer from "../../../components/layouts/Footer";
 import Button from "../../../components/buttons/Button";
 import { strapiService } from "../../../services";
+import AppLoader from "../../../components/UI/AppLoader";
 
-const Job = ({ job, jobData }) => {
+const Job = ({}) => {
   const router = useRouter();
+  const [job, setJob] = useState({});
+  const [jobData, setJobData] = useState([]);
+  useEffect(() => {
+    let slug = router.query.slug;
+    console.log("router", slug);
+    const fetchJob = async () => {
+      try {
+        const contributionData = await strapiService.getContrubutionPage();
+        const datas = contributionData.data.attributes;
+        const exactJob = datas.jobs.find((job) => job.id.toString() == slug);
+        const jobDatas = datas.jobs.filter((jb) => jb.id !== parseInt(slug));
+        setJobData(jobDatas);
+        setJob(exactJob);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchJob();
+  }, []);
   return (
     <>
       <Navbar />
-      {/* HERO SECTION */}
-      <section className="contribution__hero">
-        <div className="back-btn">
-          <p
-            onClick={() => {
-              router.back();
-            }}
-          >
-            Back
-          </p>
-        </div>
-        <div className="section__one">
-          <div className="subsection__one">
-            <h1>{job.title}</h1>
-            <div className="content">
-              <p className="section-text">{job.department}</p>
-              <span className="dot"></span>
-              <p className="section-text">{job.location}</p>
+      {job && jobData ? (
+        <>
+          <section className="contribution__hero">
+            <div className="back-btn">
+              <p
+                onClick={() => {
+                  router.back();
+                }}
+              >
+                Back
+              </p>
             </div>
-          </div>
-          <div className="subsection__two">
-            <Button
-              variant="primary"
-              buttonText="Apply"
-              handleClick={() => router.push("/contribution/apply")}
-            />
-          </div>
-        </div>
-        <div className="description">
-          <h4>Job description</h4>
-          <p>{job.description}</p>
-        </div>
-        <div className="responsibilities">
-          <h4>Responsibilities</h4>
-          <ul>
-            {job.responsibilities.map((responsibility, index) => (
-              <li key={index}>{responsibility}</li>
+            <div className="section__one">
+              <div className="subsection__one">
+                <h1>{job.title}</h1>
+                <div className="content">
+                  <p className="section-text">{job.department}</p>
+                  <span className="dot"></span>
+                  <p className="section-text">{job.location}</p>
+                </div>
+              </div>
+              <div className="subsection__two">
+                <Button
+                  variant="primary"
+                  buttonText="Apply"
+                  handleClick={() => router.push("/contribution/apply")}
+                />
+              </div>
+            </div>
+            <div className="description">
+              <h4>Job description</h4>
+              <p>{job.description}</p>
+            </div>
+            <div className="responsibilities">
+              <h4>Responsibilities</h4>
+              <ul>
+                {job.responsibilities?.map((responsibility, index) => (
+                  <li key={index}>{responsibility}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section className="contribution__current">
+            <h3>Other opportunities</h3>
+
+            {jobData?.map((job, index) => (
+              <div key={index} className="contribution__current-content">
+                <div className="text">
+                  <h4>{job.title}</h4>
+                  <p>{job.department}</p>
+                </div>
+                <div className="content-button">
+                  <Button
+                    variant="outline"
+                    buttonText="View role"
+                    handleClick={() => router.push(job.url)}
+                  />
+                </div>
+              </div>
             ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="contribution__current">
-        <h3>Other opportunities</h3>
-
-        {jobData.map((job, index) => (
-          <div key={index} className="contribution__current-content">
-            <div className="text">
-              <h4>{job.title}</h4>
-              <p>{job.department}</p>
-            </div>
-            <div className="content-button">
+            <div className="contribution__current-button">
               <Button
-                variant="outline"
-                buttonText="View role"
-                handleClick={() => router.push(job.url)}
+                variant="primary"
+                buttonText="View all"
+                handleClick={() => router.push("#")}
               />
             </div>
-          </div>
-        ))}
-        <div className="contribution__current-button">
-          <Button
-            variant="primary"
-            buttonText="View all"
-            handleClick={() => router.push("#")}
-          />
-        </div>
-      </section>
-
+          </section>
+        </>
+      ) : (
+        <AppLoader />
+      )}
       <Footer />
     </>
   );
 };
 
+// export async function getStaticPaths() {
+//   const contributionData = await strapiService.getContrubutionPage();
+//   const paths = contributionData.data.attributes.jobs.map((job) => {
+//     return {
+//       params: {
+//         slug: job.id.toString(),
+//       },
+//     };
+//   });
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   try {
+//     const contributionData = await strapiService.getContrubutionPage();
+//     const datas = contributionData.data.attributes;
+//     if (!datas) {
+//       return {
+//         props: {
+//           job: null,
+//           jobData: null,
+//           notFound: true,
+//           fallback: true,
+//         },
+//       };
+//     }
+//     console.log(datas);
+//     const job = datas.jobs.find((jo) => jo.id === parseInt(params.slug));
+//     const jobData = datas.jobs.filter((jb) => jb.id !== parseInt(params.slug));
+//     return {
+//       props: {
+//         job,
+//         jobData,
+//         notFound: false,
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       props: {
+//         job: null,
+//         jobData: null,
+//         notFound: true,
+//         fallback: true,
+//       },
+//     };
+//   }
+// }
 export default Job;
-
-export async function getStaticPaths() {
-  const contributionData = await strapiService.getContrubutionPage();
-  const paths = contributionData.data.attributes.jobs.map((job) => {
-    return {
-      params: {
-        slug: job.id.toString(),
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: true,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    const contributionData = await strapiService.getContrubutionPage();
-    const datas = contributionData.data.attributes;
-    const job = datas.jobs.find((job) => job.id === parseInt(params.slug));
-    const jobData = datas.jobs.filter(
-      (job) => job.id !== parseInt(params.slug)
-    );
-    return {
-      props: {
-        job,
-        jobData,
-        notFound: false,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        job: null,
-        notFound: true,
-      },
-    };
-  }
-}

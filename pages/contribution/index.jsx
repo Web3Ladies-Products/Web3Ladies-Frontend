@@ -89,7 +89,7 @@ export default Contribution;
 export async function getStaticProps() {
   const freeHandData = await strapiService.getFreeHand();
   const contributionData = await strapiService.getContrubutionPage();
-  console.log(contributionData);
+
   return {
     props: {
       contributionData: contributionData.data.attributes,
