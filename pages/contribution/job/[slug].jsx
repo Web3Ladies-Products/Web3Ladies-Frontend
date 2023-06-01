@@ -7,19 +7,23 @@ import Button from "../../../components/buttons/Button";
 import { strapiService } from "../../../services";
 import AppLoader from "../../../components/UI/AppLoader";
 
-const Job = ({}) => {
+const Job = ({ contributionPage }) => {
   const router = useRouter();
   const [job, setJob] = useState({});
-  const [jobData, setJobData] = useState([]);
+  const [jobData, setJobData] = useState(contributionPage?.jobs);
   useEffect(() => {
     let slug = router.query.slug;
     console.log("router", slug);
     const fetchJob = async () => {
       try {
-        const contributionData = await strapiService.getContrubutionPage();
-        const datas = contributionData.data.attributes;
-        const exactJob = datas.jobs.find((job) => job.id.toString() == slug);
-        const jobDatas = datas.jobs.filter((jb) => jb.id !== parseInt(slug));
+        // const contributionData = await strapiService.getContrubutionPage();
+        // const datas = contributionData.data.attributes;
+        const exactJob = contributionPage.jobs.find(
+          (job) => job.id.toString() == slug
+        );
+        const jobDatas = contributionPage.jobs.filter(
+          (jb) => jb.id !== parseInt(slug)
+        );
         setJobData(jobDatas);
         setJob(exactJob);
       } catch (err) {
@@ -109,20 +113,20 @@ const Job = ({}) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   const contributionData = await strapiService.getContrubutionPage();
-//   const paths = contributionData.data.attributes.jobs.map((job) => {
-//     return {
-//       params: {
-//         slug: job.id.toString(),
-//       },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: true,
-//   };
-// }
+export async function getStaticPaths() {
+  const contributionData = await strapiService.getContrubutionPage();
+  const paths = contributionData.data.attributes.jobs.map((job) => {
+    return {
+      params: {
+        slug: job.id.toString(),
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
 // export async function getStaticProps({ params }) {
 //   try {
@@ -160,3 +164,13 @@ const Job = ({}) => {
 //   }
 // }
 export default Job;
+
+export async function getStaticProps() {
+  const contributionPage = await strapiService.getContrubutionPage();
+
+  return {
+    props: {
+      contributionPage: contributionPage.data.attributes,
+    },
+  };
+}
