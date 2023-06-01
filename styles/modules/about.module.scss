@@ -149,12 +149,20 @@
       grid-row: 4/7;
     }
     .about-hero-vector {
-      max-width: 192px;
+      img {
+        // width: 100%;
+        max-width: 192px;
+      }
 
       z-index: 1;
-      grid-column: 10/12;
-      grid-row: 1/5;
-      width: 100%;
+      grid-column: 9/11;
+      grid-row: 2/5;
+      @media screen and (max-width: 500px) {
+        img {
+          max-width: 100%;
+        }
+        align-self: end;
+      }
     }
   }
 }

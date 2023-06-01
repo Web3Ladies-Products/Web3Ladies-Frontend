@@ -872,6 +872,19 @@ const getParnershipSuccessPageData = async () => {
   }
 };
 
+const getAboutPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/about-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
 export const strapiService = {
   getBootCampPageData,
   getBlogPosts,
@@ -931,4 +944,5 @@ export const strapiService = {
   getHireTalentPageData,
   getParnershipPageData,
   getParnershipSuccessPageData,
+  getAboutPageData,
 };

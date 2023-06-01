@@ -1,103 +1,98 @@
 {
-    "home": {
-      "hero": {
-        "title": "A Community for  that helps you grow",
-        "text": "Be a part of a community of confident and audacious Web3 Ladies. We are always open to new members.",
-        "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
-        "buttonText": "Join Now",
-        "buttonType": "primary",
-        "buttonLink": "#",
-        "image": "/assets/images/bootcamps.png"
+  "home": {
+    "hero": {
+      "title": "A Community for  that helps you grow",
+      "text": "Be a part of a community of confident and audacious Web3 Ladies. We are always open to new members.",
+      "description": "The Blockchain developer’s responsibility is to develop innovative solutions to challenging problems, including solutions for command and control, and high integrity.",
+      "buttonText": "Join Now",
+      "buttonType": "primary",
+      "buttonLink": "#",
+      "image": "/assets/images/bootcamps.png"
+    },
+    "why": {
+      "title": "Why Us",
+      "buttonText": "Join Us",
+      "buttonType": "outline",
+      "buttonLink": "#"
+    },
+    "train": {
+      "title": "Get free hands-on-training from the best minds",
+      "description": "Join our Mentorship Cohort",
+      "buttonText": "Join Now",
+      "buttonType": "primary",
+      "buttonLink": "#"
+    },
+    "highlights": [
+      {
+        "title": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
+        "image": "/assets/images/web3-heart.png",
+        "background": "#FFE6F6"
       },
-      "why": {
-        "title": "Why Us",
-        "buttonText": "Join Us",
-          "buttonType": "outline",
-          "buttonLink": "#"
-        
+      {
+        "title": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
+        "image": "/assets/images/web3-heart.png",
+        "background": "#E7D2FF"
       },
-      "train": {
-        "title": "Get free hands-on-training from the best minds",
-        "description": "Join our Mentorship Cohort",
-        "buttonText": "Join Now",
-        "buttonType": "primary",
-        "buttonLink": "#"
-       },      
-      "highlights": [
+      {
+        "title": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
+        "image": "/assets/images/web3-heart.png"
+      }
+    ],
+    "events_items": [
+      {
+        "title": "AMA session",
+        "description": "A session that allows community members to discuss and ask questions about companies and other women doing awesome things in the web3 space.",
+        "image": "/assets/images/ama.png"
+      },
+      {
+        "title": "Coffee Chat",
+        "description": "This is the onboarding call. This particular event affords us the opportunity to speak to all the new members and introduce our community values, mission and vision to them.",
+        "image": "/assets/images/coffe-chat.png"
+      },
+      {
+        "title": "Web3 Series",
+        "description": "A session where ladies learn about all things crypto.",
+        "image": "/assets/images/web3-chat.png"
+      },
+      {
+        "title": "Community Hangout",
+        "description": "In person meet-ups which helps the ladies to build connections and bond as community members.",
+        "image": "/assets/images/hangout.png"
+      },
+      {
+        "title": "Community Clubs",
+        "description": "We have various clubs which include the technical writing club, design club, marketing club, etc. This further help gives our community members the opportunity to gain knowledge in their field of interest.",
+        "image": "/assets/images/clubs.png"
+      }
+    ],
+    "analytics": {
+      "title": "Our Numbers",
+      "no_number": [
         {
-         "title": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
-          "image": "/assets/images/web3-heart.png",
-          "background": "#FFE6F6"
-         
-        },
-        {
-          "title": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
-          "image": "/assets/images/web3-heart.png",
-          "background": "#E7D2FF"
-        },
-        {
-          "title": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies",
-          "image": "/assets/images/web3-heart.png"
-          
-        }
-      ],
-      "events_items": [
-        {
-          "title": "AMA session",
-          "description": "A session that allows community members to discuss and ask questions about companies and other women doing awesome things in the web3 space.",
-          "image": "/assets/images/ama.png"
-        },
-        {
-          "title": "Coffee Chat",
-          "description": "This is the onboarding call. This particular event affords us the opportunity to speak to all the new members and introduce our community values, mission and vision to them.",
-          "image": "/assets/images/coffe-chat.png"
-        },
-        {
-          "title": "Web3 Series",
-          "description": "A session where ladies learn about all things crypto.",
-          "image": "/assets/images/web3-chat.png"
-        },
-        {
-          "title": "Community Hangout",
-          "description": "In person meet-ups which helps the ladies to build connections and bond as community members.",
-          "image": "/assets/images/hangout.png"
-        },
-        {
-          "title": "Community Clubs",
-          "description": "We have various clubs which include the technical writing club, design club, marketing club, etc. This further help gives our community members the opportunity to gain knowledge in their field of interest.",
-          "image": "/assets/images/clubs.png"
-        }
-      ],
-      "analytics": {
-        "title": "Our Numbers",
-        "no_number":[
-         {
           "title": "Community members",
-           "noOfNumber": "15389"
-         },
-         {
+          "noOfNumber": "15389"
+        },
+        {
           "title": "Cohorts",
-           "noOfNumber": "3"
-         },
-         {
+          "noOfNumber": "3"
+        },
+        {
           "title": "Trained mentees",
-           "noOfNumber": "1000+"
-         },
-         {
+          "noOfNumber": "1000+"
+        },
+        {
           "title": "Worktools",
-           "noOfNumber": "25"
-         },
-         {
+          "noOfNumber": "25"
+        },
+        {
           "title": "Projects",
-           "noOfNumber": "24"
-         }
-        ]
-      },
-      "events": {
-
+          "noOfNumber": "24"
+        }
+      ]
+    },
+    "events": {
       "title": "Our Community Events",
       "sub_title": "Community Events"
-
     },
     "join": {
       "title": "How to Join",
@@ -107,17 +102,17 @@
     },
     "how_to_join": [
       {
-        "image":"/assets/images/01.png",
+        "image": "/assets/images/01.png",
         "step": "Step One",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       },
       {
-        "image":"/assets/images/02.png",
+        "image": "/assets/images/02.png",
         "step": "Step Two",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       },
       {
-        "image":"/assets/images/03.png",
+        "image": "/assets/images/03.png",
         "step": "Step Three",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       }
@@ -128,27 +123,27 @@
       "chapter": "Chapters",
       "club": "Clubs",
       "buttonText": "See activities",
-          "buttonType": "outline",
-          "buttonLink": "#"
+      "buttonType": "outline",
+      "buttonLink": "#"
     },
     "community_chapters": [
       {
-        "image":"/assets/images/location-icon.png",
+        "image": "/assets/images/location-icon.png",
         "location": "Lagos Chapter",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       },
       {
-        "image":"/assets/images/location-icon.png",
+        "image": "/assets/images/location-icon.png",
         "location": "Lagos Chapter",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       },
       {
-        "image":"/assets/images/location-icon.png",
+        "image": "/assets/images/location-icon.png",
         "location": "Lagos Chapter",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       },
       {
-        "image":"/assets/images/location-icon.png",
+        "image": "/assets/images/location-icon.png",
         "location": "Lagos Chapter",
         "description": "We believe knowledge is what makes us distinguished and so we're committed to offering quality training to our ladies"
       }
@@ -156,14 +151,13 @@
     "youtube_section": {
       "title": "Visit our Youtube page to see our videos",
       "buttonText": "Visit",
-        "buttonType": "primary",
-        "buttonLink": "#"
+      "buttonType": "primary",
+      "buttonLink": "#"
     },
     "galleryItem": {
       "title": "Past Events"
     },
     "gallery": [
-      
       {
         "image": "/assets/images/gallery-1.png",
         "caption": "Gallery 1"
@@ -188,7 +182,6 @@
         "image": "/assets/images/gallery-6.png",
         "caption": "Gallery 6"
       }
-    
     ],
     "faqs": [
       {
@@ -216,8 +209,7 @@
       "testimonial_title": "Don’t take our word for it",
       "testimonial_description": "See what people have to say about their experience with Web3Ladies"
     },
-    "testimonial":
-     [
+    "testimonial": [
       {
         "name": "Student",
         "role": "Web3 Designer",
@@ -239,21 +231,18 @@
     ],
     "slug": "cohort-1"
   },
- "TESTIMONIAL_TABS":[
-  {
-   " key": "past_mentees",
-    "title": "Past Mentees"
-  },
-  {
-    "key": "shoutouts",
-    "title": "Shoutouts"
-  },
-  {
-    "key": "community",
-    "title": "Community"
-  }
- ]
- 
-
+  "TESTIMONIAL_TABS": [
+    {
+      " key": "past_mentees",
+      "title": "Past Mentees"
+    },
+    {
+      "key": "shoutouts",
+      "title": "Shoutouts"
+    },
+    {
+      "key": "community",
+      "title": "Community"
+    }
+  ]
 }
-  

@@ -3,7 +3,11 @@ import React from "react";
 const Notification = ({ text }) => {
   return (
     <div className="cohort__notification">
-      <p>{text}</p>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: text,
+        }}
+      />
     </div>
   );
 };
