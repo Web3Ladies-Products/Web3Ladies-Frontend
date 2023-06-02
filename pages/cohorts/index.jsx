@@ -42,7 +42,7 @@ export async function getStaticProps() {
   const freeHandData = await strapiService.getFreeHand();
   const joinData = await strapiService.getJoinAsMentor();
   const featuredMentees = await strapiService.getFeaturedMentee();
-  console.log(indexPage);
+
   return {
     props: {
       indexPage: indexPage.data.attributes,

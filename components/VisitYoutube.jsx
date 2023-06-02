@@ -8,8 +8,8 @@ const VisitYoutube = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const indexPage = await strapiService.getYoutubeData();
-        setYoutubeData(indexPage.data.attributes);
+        const indexPage = await strapiService.getCohortPageData();
+        setYoutubeData(indexPage.data.attributes.youtube_data);
       } catch (error) {
         console.log(error);
       }
@@ -58,7 +58,7 @@ const VisitYoutube = () => {
             <div className="contain">
               <div className="circle"></div>
               <div>
-                <p className="text">Web3ladies</p>
+                <p className="text">{youtubeData.text || "Web3ladies"}</p>
                 <div className="line"></div>
               </div>
             </div>

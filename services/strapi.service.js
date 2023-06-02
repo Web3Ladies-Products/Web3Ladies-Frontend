@@ -900,19 +900,6 @@ const getCertificatePageData = async () => {
   }
 };
 
-const getYoutubeData = async () => {
-  try {
-    const res = await fetch(`${STRAPI_URL}/api/youtube`, {
-      method: "GET",
-      headers,
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-    return res;
-  } catch (error) {
-    console.error(error);
-  }
-};
 const getAboutPageData = async () => {
   try {
     const res = await fetch(`${STRAPI_URL}/api/about-page`, {
@@ -988,5 +975,4 @@ export const strapiService = {
   getAboutPageData,
   getCommunityPageData,
   getCertificatePageData,
-  getYoutubeData,
 };
