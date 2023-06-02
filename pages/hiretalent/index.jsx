@@ -10,64 +10,6 @@ import { useRouter } from "next/router";
 
 import Supporters from "../../components/Supporters";
 
-const mentees = [
-  {
-    id: "1",
-    name: " Nzewi OCultist dummy",
-    year: "Year of graduation: 2020",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "2",
-    name: " Janet Jackson",
-    year: "BinYear of graduation: 2020nce",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "3",
-    name: " Mentee Jackson",
-    year: "Year of graduation: 2020",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "4",
-    name: " Mentee Jackson",
-    year: "Year of graduation: 2020",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "1",
-    name: " Nzewi OCultist dummy",
-    year: "Year of graduation: 2020",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "2",
-    name: " Janet Jackson",
-    year: "BinYear of graduation: 2020nce",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "3",
-    name: " Mentee Jackson",
-    year: "Year of graduation: 2020",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-  {
-    id: "4",
-    name: " Mentee Jackson",
-    year: "Year of graduation: 2020",
-    jobRole: "Blockchain ",
-    imageURL: "/assets/images/lone-woman.png",
-  },
-];
 export default function HireTalent({ indexPage }) {
   const router = useRouter();
 

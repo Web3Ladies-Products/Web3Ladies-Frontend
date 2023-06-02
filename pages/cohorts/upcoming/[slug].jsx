@@ -30,6 +30,7 @@ const UpcomingCohort = ({
     hero_button_link: cohort?.hero_button_link,
     hero_button_type: cohort?.hero_button_type,
     hero_image: cohort?.hero_image,
+    cohort_number: cohort?.cohort_number,
   };
 
   return (
@@ -39,7 +40,7 @@ const UpcomingCohort = ({
       <HeroSection heroDetails={heroDetails} badgeText={"ongoing"} />
 
       {/* ABOUT MENTEES SECTION */}
-      <About tracks_details={cohort.tracks_details} />
+      <About about_cohort={cohort} tracks_details={cohort.tracks_details} />
 
       {/* registeration details */}
       <Registration

@@ -872,6 +872,34 @@ const getParnershipSuccessPageData = async () => {
   }
 };
 
+const getCommunityPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/community-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getCertificatePageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/certificate`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getAboutPageData = async () => {
   try {
     const res = await fetch(`${STRAPI_URL}/api/about-page`, {
@@ -945,4 +973,6 @@ export const strapiService = {
   getParnershipPageData,
   getParnershipSuccessPageData,
   getAboutPageData,
+  getCommunityPageData,
+  getCertificatePageData,
 };

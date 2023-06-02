@@ -1,5 +1,9 @@
 @import "../scss/mixins";
 
+.active__navbar {
+  color: #7d0bfe !important;
+  font-weight: 600;
+}
 @keyframes bounce {
   0%,
   100% {

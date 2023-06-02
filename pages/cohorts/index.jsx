@@ -20,7 +20,7 @@ const Cohorts = ({ indexPage, freeHandData, joinData, featuredMentees }) => {
           <h1 className="section-title"> Cohorts</h1>
         </div>
 
-        <CohortSection cohortData={indexPage} />
+        <CohortSection cohortData={indexPage.cohortSummaries} />
       </section>
 
       <VisitYoutube />
@@ -42,7 +42,7 @@ export async function getStaticProps() {
   const freeHandData = await strapiService.getFreeHand();
   const joinData = await strapiService.getJoinAsMentor();
   const featuredMentees = await strapiService.getFeaturedMentee();
-  console.log(indexPage);
+
   return {
     props: {
       indexPage: indexPage.data.attributes,

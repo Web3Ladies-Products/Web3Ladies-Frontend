@@ -7,6 +7,8 @@ main {
     position: relative;
     width: 500px;
 
+    display: flex;
+    justify-content: center;
     @include mobile {
       margin: 30px auto;
       width: 100%;

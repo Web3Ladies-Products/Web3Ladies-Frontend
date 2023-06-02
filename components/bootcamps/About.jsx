@@ -5,7 +5,7 @@ import Button from "../buttons/Button";
 const About = ({ data }) => {
   return (
     <section className="about-bootcamp">
-      <div className="container d-flex justify-content-center align-items-center">
+      <div className="container bootCamp_container">
         <div className="about-image">
           <Image
             src={data.about_image}
