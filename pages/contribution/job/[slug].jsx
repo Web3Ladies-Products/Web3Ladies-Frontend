@@ -13,7 +13,6 @@ const Job = ({ contributionPage }) => {
   const [jobData, setJobData] = useState(contributionPage?.jobs);
   useEffect(() => {
     let slug = router.query.slug;
-    console.log("router", slug);
     const fetchJob = async () => {
       try {
         const exactJob = contributionPage.jobs.find(
@@ -58,7 +57,9 @@ const Job = ({ contributionPage }) => {
                 <Button
                   variant="primary"
                   buttonText="Apply"
-                  handleClick={() => router.push("/contribution/apply")}
+                  handleClick={() =>
+                    router.push(`/contribution/apply/${job.id}`)
+                  }
                 />
               </div>
             </div>
@@ -97,8 +98,8 @@ const Job = ({ contributionPage }) => {
             <div className="contribution__current-button">
               <Button
                 variant="primary"
-                buttonText="View all"
-                handleClick={() => router.push("#")}
+                buttonText={contributionPage?.btn_text_two}
+                handleClick={() => router.push(contributionPage?.btn_link_two)}
               />
             </div>
           </section>

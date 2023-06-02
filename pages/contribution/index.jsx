@@ -24,7 +24,7 @@ const Contribution = ({ contributionData, freeHandData }) => {
               <div className="button-container">
                 <Button
                   variant={"primary"}
-                  buttonText="See open roles"
+                  buttonText={contributionData?.btn_text}
                   handleClick={() => router.push(contributionData.btn_link)}
                 />
               </div>
@@ -68,8 +68,8 @@ const Contribution = ({ contributionData, freeHandData }) => {
         <div className="contribution__current-button">
           <Button
             variant="primary"
-            buttonText="View all"
-            handleClick={() => router.push("#")}
+            buttonText={contributionData?.btn_text_two}
+            handleClick={() => router.push(contributionData?.btn_link_two)}
           />
         </div>
       </section>

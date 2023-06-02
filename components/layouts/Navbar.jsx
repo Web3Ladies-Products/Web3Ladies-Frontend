@@ -18,7 +18,7 @@ const Navbar = () => {
       route: "/",
       type: "dropdown",
       showDropdown: false,
-      isActive: ["/about", "/community", "/events", "/partnership"].includes(
+      isActive: ["/about", "/community", "/events", "/contribution"].includes(
         router.pathname
       ),
       dropdown: [
@@ -42,9 +42,9 @@ const Navbar = () => {
         },
         {
           id: 4,
-          name: "Become a Partner",
-          link: "/partnership",
-          isActive: router.pathname === "/partnership",
+          name: "Become a Contributor",
+          link: "/contribution",
+          isActive: router.pathname === "/contribution",
         },
       ],
     },
@@ -92,8 +92,22 @@ const Navbar = () => {
       id: 2,
       name: "Sponsorship",
       route: "/sponsorship",
-      type: "link",
-      isActive: router.pathname === "/sponsorship",
+      type: "dropdown",
+      isActive: ["/sponsorship", "/partnership"].includes(router.pathname),
+      dropdown: [
+        {
+          id: 1,
+          name: "About Sponsorship",
+          link: "/sponsorship",
+          isActive: router.pathname === "/sponsorship",
+        },
+        {
+          id: 4,
+          name: "About Partnership",
+          link: "/partnership",
+          isActive: router.pathname === "/partnership",
+        },
+      ],
     },
     {
       id: 7,
@@ -117,7 +131,7 @@ const Navbar = () => {
       isActive: router.pathname.includes("/blog"),
     },
     {
-      id: 6,
+      id: 9,
       name: "Join Us Today",
       route: "/join-us-today",
       type: "dropdown",
@@ -126,7 +140,7 @@ const Navbar = () => {
         "/mentorship/register",
         "/community",
         "/mentorship",
-        "/contribution",
+        "/certificate",
       ].includes(router.pathname),
       dropdown: [
         {
@@ -149,9 +163,9 @@ const Navbar = () => {
         },
         {
           id: 4,
-          name: "Become a Contributor",
-          link: "/contribution",
-          isActive: router.pathname === "/contribution",
+          name: "Certificates",
+          link: "/certificate",
+          isActive: router.pathname === "/certificate",
         },
       ],
     },
@@ -249,20 +263,8 @@ const Navbar = () => {
                 );
               })}
             </ul>
-            {/* <div className="nav-cta">
-              <a href="/" target="_blank" className="button outline">
-                Join Us Today
-                <ChevronDown />
-              </a>
-            </div> */}
           </nav>
         </div>
-        {/* <div className="nav-cta">
-          <a href="/" target="_blank" className="">
-            Join Us Today
-            <ChevronDown style={{ marginLeft: "4px" }} />
-          </a>
-        </div> */}
 
         <div id="header" className="nav-container nav-sm">
           <Link href="/">
@@ -355,11 +357,6 @@ const Navbar = () => {
                   );
                 })}
               </ul>
-              {/* <div className="nav-cta">
-                <a href="/" target="_blank" className="button outline">
-                  Join Us Today
-                </a>
-              </div> */}
             </nav>
           )}
         </div>
