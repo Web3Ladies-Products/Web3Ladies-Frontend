@@ -99,14 +99,14 @@ const Community = ({ indexPage, communityPage, freeHandData }) => {
 
       {/* HOW TO JOIN SECTION */}
       <div className="top-space">
-        {/* <HowToJoin
+        <HowToJoin
           title={communityPage.how_title}
           how_to_join={communityPage.how_items}
           buttonText={communityPage.how_btn_text}
           handleClick={() => {
             router.push(communityPage.how_btn_link);
           }}
-        /> */}
+        />
       </div>
 
       {/* END OF JOIN  SECTION */}
@@ -125,14 +125,12 @@ const Community = ({ indexPage, communityPage, freeHandData }) => {
 
       {/* COMMUINTY SECTION */}
       <div className="top-space">
-        {/* <JoinCommunity
+        <JoinCommunity
           title={communityPage.join_title}
           description={communityPage?.join_description}
-          handleClick={() =>
-            window.open(communityPage.join_btn_link, "_blank")
-          }
+          handleClick={() => window.open(communityPage.join_btn_link, "_blank")}
           buttonText={communityPage.join_btn_text}
-        /> */}
+        />
       </div>
       {/* END OF COMMUINTY  SECTION */}
 

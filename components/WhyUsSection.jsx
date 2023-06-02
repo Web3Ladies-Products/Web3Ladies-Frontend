@@ -17,7 +17,11 @@ const WhyUs = ({ title, highlights, handleClick, buttonText }) => {
       <div style={{ marginTop: "30px" }}>
         <ul className=" container highlights--container">
           {highlights?.map((item, index) => (
-            <li key={index} className="highlight--container-item">
+            <li
+              key={index}
+              style={{ backgroundColor: item?.backgroundColor }}
+              className="highlight--container-item"
+            >
               <div className="grid-container">
                 <div className="">
                   <img src={item.image} className="grid-container--image" />

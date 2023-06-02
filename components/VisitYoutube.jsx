@@ -1,21 +1,41 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./buttons/Button";
+import { strapiService } from "../services";
 
 const VisitYoutube = () => {
+  const [youtubeData, setYoutubeData] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const indexPage = await strapiService.getYoutubeData();
+        setYoutubeData(indexPage.data.attributes);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className="visit-youtube">
       <div className="container">
         <div className="hero_content">
-          <h1 className="sub-section-title bold">
-            Visit our Youtube page <br></br> to see our videos
-          </h1>
+          <h1
+            className="sub-section-title bold"
+            dangerouslySetInnerHTML={{
+              __html:
+                youtubeData?.title ||
+                "Visit our Youtube page <br/> to see our videos",
+            }}
+          />
+
           <Button
             variant={"primary"}
-            buttonText={"Visit"}
+            buttonText={youtubeData.buttonText || "Visit"}
             handleClick={() =>
               window.open(
-                "https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg",
+                youtubeData.subscription_link ||
+                  "https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg",
                 "_blank"
               )
             }
@@ -25,7 +45,10 @@ const VisitYoutube = () => {
           <iframe
             width="350"
             height="200"
-            src="https://www.youtube.com/embed/LapzOS7zyW0"
+            src={
+              youtubeData.video_url ||
+              "https://www.youtube.com/embed/LapzOS7zyW0"
+            }
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -42,10 +65,11 @@ const VisitYoutube = () => {
             <Button
               variant={"primary"}
               className="button"
-              buttonText={"SUBSCRIBE"}
+              buttonText={youtubeData.subscription_text || "SUBSCRIBE"}
               handleClick={() =>
                 window.open(
-                  "https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg",
+                  youtubeData.subscription_link ||
+                    "https://www.youtube.com/channel/UCJXSj2yJz2JYV1yGE5lQFyg",
                   "_blank"
                 )
               }
