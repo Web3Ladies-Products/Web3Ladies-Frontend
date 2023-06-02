@@ -18,7 +18,9 @@ const Navbar = () => {
       route: "/",
       type: "dropdown",
       showDropdown: false,
-      isActive: ["/about"].includes(router.pathname),
+      isActive: ["/about", "/community", "/events", "/partnership"].includes(
+        router.pathname
+      ),
       dropdown: [
         {
           id: 1,
@@ -52,13 +54,18 @@ const Navbar = () => {
       route: "/mentorship",
       type: "dropdown",
       showDropdown: false,
-      isActive: router.pathname === "/mentorship",
+      isActive: [
+        "/#who-we-are",
+        "/cohorts",
+        "/bootcamps",
+        "/mentorship/#worktools",
+      ].includes(router.pathname),
       dropdown: [
         {
           id: 1,
           name: "About",
           link: "/#who-we-are",
-          isActive: router.pathname === "/about-us",
+          isActive: router.pathname === "/#who-we-are",
         },
         {
           id: 2,
@@ -115,7 +122,12 @@ const Navbar = () => {
       route: "/join-us-today",
       type: "dropdown",
       showDropdown: false,
-      isActive: router.pathname === "/join-us-today",
+      isActive: [
+        "/mentorship/register",
+        "/community",
+        "/mentorship",
+        "/contribution",
+      ].includes(router.pathname),
       dropdown: [
         {
           id: 1,
@@ -177,11 +189,16 @@ const Navbar = () => {
             <ul className="header-list">
               {navigationItems.map((item, index) => {
                 return (
-                  <li key={item.id} className={item.isActive ? "active" : ""}>
+                  <li key={item.id}>
                     {item.type === "link" ? (
                       <span className="header-list-item">
                         <Link href={item.route}>
-                          <a href="#">{item.name}</a>
+                          <a
+                            className={item.isActive ? "active__navbar" : ""}
+                            href="#"
+                          >
+                            {item.name}
+                          </a>
                         </Link>
                       </span>
                     ) : (
@@ -191,7 +208,11 @@ const Navbar = () => {
                         onMouseLeave={() => showDropdown(index)}
                       >
                         <div>
-                          {item.name}
+                          <span
+                            className={item.isActive ? "active__navbar" : ""}
+                          >
+                            {item.name}
+                          </span>
                           <ChevronDown
                             color={item.isActive ? "#0f0f0f" : "#0f0f0f7a"}
                             style={{ marginLeft: "4px" }}
@@ -203,7 +224,17 @@ const Navbar = () => {
                                   return (
                                     <li key={i} className="dropdown-list-item">
                                       <Link href={subNavItem.link}>
-                                        <a href="#"> {subNavItem.name}</a>
+                                        <a
+                                          className={
+                                            subNavItem.isActive
+                                              ? "active__navbar"
+                                              : ""
+                                          }
+                                          href="#"
+                                        >
+                                          {" "}
+                                          {subNavItem.name}
+                                        </a>
                                       </Link>
                                     </li>
                                   );
@@ -262,15 +293,12 @@ const Navbar = () => {
               <ul style={{ overflow: "hidden" }}>
                 {navigationItems.map((item, index) => {
                   return (
-                    <li
-                      key={index}
-                      onClick={() => setShowMobileNav(true)}
-                      className={item.isActive ? "active" : ""}
-                    >
+                    <li key={index} onClick={() => setShowMobileNav(true)}>
                       {item.type === "link" ? (
                         <Link href={item.route}>
-                          <a>
+                          <a className={item.isActive ? "active__navbar" : ""}>
                             {item.name}
+
                             <div className="angle active-sign"></div>
                           </a>
                         </Link>
@@ -280,7 +308,11 @@ const Navbar = () => {
                           onClick={() => showDropdown(index)}
                         >
                           <div>
-                            {item.name}
+                            <span
+                              className={item.isActive ? "active__navbar" : ""}
+                            >
+                              {item.name}
+                            </span>
                             {item.showDropdown && (
                               <div className="dropdown">
                                 <ul style={{ overflow: "hidden" }}>
@@ -291,7 +323,17 @@ const Navbar = () => {
                                         className="dropdown-list-item"
                                       >
                                         <Link href={subNavItem.link}>
-                                          <a href="#"> {subNavItem.name}</a>
+                                          <a
+                                            className={
+                                              subNavItem.isActive
+                                                ? "active__navbar"
+                                                : ""
+                                            }
+                                            href="#"
+                                          >
+                                            {" "}
+                                            {subNavItem.name}
+                                          </a>
                                         </Link>
                                       </li>
                                     );
