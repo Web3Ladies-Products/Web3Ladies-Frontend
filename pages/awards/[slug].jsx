@@ -186,7 +186,8 @@ const Slug = ({ nominee, freeHandData }) => {
 
 export async function getStaticPaths() {
   const response = await strapiService.getNominees();
-  const paths = response?.data.map((nominee) => {
+
+  const paths = response.data.map((nominee) => {
     return {
       params: {
         slug: nominee.attributes.slug,
@@ -204,6 +205,7 @@ export async function getStaticProps({ params }) {
     const response = await strapiService.getNomineeBySlug(params.slug);
     const data = response?.data[0]?.attributes;
     const freeHandData = await strapiService.getFreeHand();
+    console.log(data);
 
     if (data) {
       const content = await markdownToHtml(data?.about || "");
