@@ -1,11 +1,9 @@
-
 import { useRouter } from "next/router";
 import React from "react";
-import communityData from "../pages/api/community.json";
+
 import Button from "./buttons/Button";
 
-const CommunityClubs = () => {
-  const communityHome = communityData.home;
+const CommunityClubs = ({ communityPage }) => {
   const router = useRouter();
   return (
     <section className="">
@@ -13,16 +11,13 @@ const CommunityClubs = () => {
         <div className="cta">
           <div className="content">
             <div className="hero_content">
-              <h2 className="section-title">
-                {" "}
-                {communityHome.community_clubs.title}
-              </h2>
+              <h2 className="section-title"> {communityPage.club_title}</h2>
               <p className="section-text" id="com-desc">
-                {communityHome.community_clubs.description}
+                {communityPage.club_description}
               </p>
               <h1 className="section-title" id="com-chapters">
                 {" "}
-                {communityHome.community_clubs.chapter}
+                {communityPage.club_subtitle_one}
               </h1>
             </div>
           </div>
@@ -30,7 +25,7 @@ const CommunityClubs = () => {
 
         <div style={{ marginTop: "30px" }}>
           <ul className=" highlights--community">
-            {communityHome.community_chapters?.map((item, index) => (
+            {communityPage.club_chapters?.map((item, index) => (
               <li key={index} className="highlight--container-item">
                 <div className="chapter-container">
                   <div className="">
@@ -46,16 +41,13 @@ const CommunityClubs = () => {
                     </h4>
                     <p id="text-desc">{item.description}</p>
                     <Button
-                        variant={"outline"}
-                        style={{ marginLeft: '13px'}}
-                        buttonText={communityHome.community_clubs.buttonText}
-                        handleClick={() =>
-                          router.push(communityHome.community_clubs.buttonLink)
-                        }
-                      />
-                    </div>
+                      variant={"outline"}
+                      style={{ marginLeft: "13px" }}
+                      buttonText={item.buttonText}
+                      handleClick={() => router.push(item.buttonLink)}
+                    />
                   </div>
-                
+                </div>
               </li>
             ))}
           </ul>
@@ -65,46 +57,42 @@ const CommunityClubs = () => {
               <div className="hero_content">
                 <h1 className="section-title" id="com-chapters">
                   {" "}
-                  {communityHome.community_clubs.club}
+                  {communityPage.club_subtitle_two}
                 </h1>
               </div>
             </div>
           </div>
           <div style={{ marginTop: "30px" }}>
-          <ul className=" highlights--community">
-            {communityHome.community_chapters?.map((item, index) => (
-              <li key={index} className="highlight--container-item">
-                <div className="chapter-container">
-                  <div className="">
-                    <img
-                      src={item.image}
-                      className="grid-container--image"
-                      id="img-card"
-                    />
-                  </div>
-                  <div className="highlights--container-item--text">
-                    <h4 className="item-text" id="text-loc">
-                      {item.location}
-                    </h4>
-                    <p id="text-desc">{item.description}</p>
-                  
+            <ul className=" highlights--community">
+              {communityPage.club_lists?.map((item, index) => (
+                <li key={index} className="highlight--container-item">
+                  <div className="chapter-container">
+                    <div className="">
+                      <img
+                        src={item.image}
+                        className="grid-container--image"
+                        id="img-card"
+                      />
+                    </div>
+                    <div className="highlights--container-item--text">
+                      <h4 className="item-text" id="text-loc">
+                        {item.location}
+                      </h4>
+                      <p id="text-desc">{item.description}</p>
+
                       <Button
                         variant={"outline"}
-                        style={{ marginLeft: '13px'}}
-                        buttonText={communityHome.community_clubs.buttonText}
-                        handleClick={() =>
-                          router.push(communityHome.community_clubs.buttonLink)
-                        }
+                        style={{ marginLeft: "13px" }}
+                        buttonText={item.buttonText}
+                        handleClick={() => router.push(item.buttonLink)}
                       />
                     </div>
                   </div>
-             
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-
       </div>
     </section>
   );

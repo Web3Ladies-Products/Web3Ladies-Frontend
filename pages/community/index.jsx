@@ -4,7 +4,7 @@ import Navbar from "../../components/layouts/Navbar";
 
 import FAQs from "../../components/FAQs";
 import { strapiService } from "../../services/strapi.service";
-import communityData from "../../pages/api/community.json";
+
 import Image from "next/image";
 import Footer from "../../components/layouts/Footer";
 import Button from "../../components/buttons/Button";
@@ -19,8 +19,7 @@ import HowToJoin from "../../components/HowToJoin";
 import JoinCommunity from "../../components/JoinCommunity";
 import FreehandCard from "../../components/FreehandCard";
 
-const Community = ({ indexPage, freeHandData }) => {
-  const communityHome = communityData.home;
+const Community = ({ indexPage, communityPage, freeHandData }) => {
   const router = useRouter();
 
   return (
@@ -32,14 +31,14 @@ const Community = ({ indexPage, freeHandData }) => {
         <div className="container cta">
           <div className="content">
             <div className="hero_content">
-              <h1 className="section-title">{communityHome.hero.title}</h1>
-              <p className="section-text">{communityHome.hero.text}</p>
+              <h1 className="section-title">{communityPage.hero_title}</h1>
+              <p className="section-text">{communityPage.hero_description}</p>
 
               <div className="button-container">
                 <Button
                   variant={"primary"}
-                  buttonText={communityHome.hero.buttonText}
-                  handleClick={() => router.push(communityHome.hero.buttonLink)}
+                  buttonText={communityPage.hero_btn_text}
+                  handleClick={() => router.push(communityPage.hero_btn_link)}
                 />
               </div>
             </div>
@@ -78,11 +77,11 @@ const Community = ({ indexPage, freeHandData }) => {
 
       {/* WHYUS SECTION */}
       <WhyUsSection
-        title={communityHome.why.title}
-        highlights={communityHome.highlights}
-        buttonText={communityHome.why.buttonText}
+        title={communityPage.why_title}
+        highlights={communityPage.why_highlights}
+        buttonText={communityPage.why_btn_text}
         handleClick={() => {
-          router.push(communityHome.why.buttonLink);
+          router.push(communityPage.why_btn_link);
         }}
       />
       {/* END OF WHYUS SECTION */}
@@ -93,28 +92,28 @@ const Community = ({ indexPage, freeHandData }) => {
 
       {/* COMMUINTY EVENT SECTION */}
       <CommunityEvents
-        title={communityHome.events.title}
-        events_items={communityHome.events_items}
+        title={communityPage.event_title}
+        events_items={communityPage.event_items}
       />
       {/* END OF COMMUINTY EVENT  SECTION */}
 
       {/* HOW TO JOIN SECTION */}
       <div className="top-space">
-        <HowToJoin
-          title={communityHome.join.title}
-          how_to_join={communityHome.how_to_join}
-          buttonText={communityHome.join.buttonText}
+        {/* <HowToJoin
+          title={communityPage.how_title}
+          how_to_join={communityPage.how_items}
+          buttonText={communityPage.how_btn_text}
           handleClick={() => {
-            router.push(communityHome.join.buttonLink);
+            router.push(communityPage.how_btn_link);
           }}
-        />
+        /> */}
       </div>
 
       {/* END OF JOIN  SECTION */}
 
       {/* COMMUINTY CLUB SECTION */}
       <div className="top-space">
-        <CommunityClubs />
+        <CommunityClubs communityPage={communityPage} />
       </div>
       {/* END OF COMMUINTY CLUB  SECTION */}
 
@@ -126,20 +125,20 @@ const Community = ({ indexPage, freeHandData }) => {
 
       {/* COMMUINTY SECTION */}
       <div className="top-space">
-        <JoinCommunity
-          title={communityHome.join.buttonText}
-          description={communityHome.join.description}
+        {/* <JoinCommunity
+          title={communityPage.join_title}
+          description={communityPage?.join_description}
           handleClick={() =>
-            window.open(communityHome.join.buttonLink, "_blank")
+            window.open(communityPage.join_btn_link, "_blank")
           }
-          buttonText={communityHome.join.buttonText}
-        />
+          buttonText={communityPage.join_btn_text}
+        /> */}
       </div>
       {/* END OF COMMUINTY  SECTION */}
 
       {/* GALLERY SECTION */}
       <div className="top-space">
-        <Gallery data={communityHome.gallery} />
+        <Gallery data={communityPage.gallery} />
       </div>
 
       {/*END OF GALLERY SECTION */}
@@ -175,10 +174,12 @@ export default Community;
 //get home page data
 export async function getStaticProps() {
   const indexPage = await strapiService.getHomePageData();
+  const communityPageData = await strapiService.getCommunityPageData();
   const freeHandData = await strapiService.getFreeHand();
   return {
     props: {
       indexPage: indexPage.data.attributes,
+      communityPage: communityPageData.data.attributes,
       freeHandData: freeHandData.data.attributes,
     },
   };

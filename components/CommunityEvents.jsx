@@ -1,29 +1,20 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
+
 import React from "react";
-import communityData from "../pages/api/community.json";
 
-
-
-const CommunityEvents = ({
-  title,
-  events_items
-}) => {
-  const communityHome = communityData.home;
-  const router = useRouter();
+const CommunityEvents = ({ title, events_items }) => {
   return (
     <section className="highlights">
-    <div className="container">
-     
+      <div className="container">
         <div className="highlights--heading">
-          <h2 className="section-title"
-            dangerouslySetInnerHTML={{ __html: title }}/>
-         
+          <h2
+            className="section-title"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
         </div>
-  
 
-      <ul className="highlights--container">
-      {events_items?.map((item, index) => (
+        <ul className="highlights--container">
+          {events_items?.map((item, index) => (
             <li
               key={index}
               className="highlight--container-item"
@@ -39,20 +30,14 @@ const CommunityEvents = ({
                 />
               </div>
               <div className="highlights--container-item--text">
-              
                 <h4 className="item-text">{item.title}</h4>
-                 <p>{item.description}</p>
-              
+                <p>{item.description}</p>
               </div>
             </li>
           ))}
         </ul>
-    </div>
-
-    
-  </section>
-
-  
+      </div>
+    </section>
   );
 };
 

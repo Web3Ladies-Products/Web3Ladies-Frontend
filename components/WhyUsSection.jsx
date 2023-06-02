@@ -1,26 +1,16 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
-import communityData from "../pages/api/community.json";
-import Badge from "./Badge";
+
 import Button from "../components/buttons/Button";
 
-const WhyUs = ({
-  title,
-  highlights,
-  handleClick,
-  buttonText
-}) => {
-  const communityHome = communityData.home;
-  const router = useRouter();
+const WhyUs = ({ title, highlights, handleClick, buttonText }) => {
   return (
     <main className="">
       <div className="container why">
         <div className>
-          <h1 className="why--heading"
-            dangerouslySetInnerHTML={{ __html: title }}/>
-            
-        
+          <h1
+            className="why--heading"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
         </div>
       </div>
 
