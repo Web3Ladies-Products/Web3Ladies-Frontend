@@ -15,6 +15,18 @@ const DEFAULT_ERRORS = {
   company_name: [],
   message: [],
 };
+
+const requiredFields = [
+  { field: "full_name", message: "Name cannot be empty" },
+  { field: "email", message: "Email cannot be empty" },
+  {
+    field: "area_of_partnership",
+    message: "Area of partnership cannot be empty",
+  },
+  { field: "company_name", message: "Company name cannot be empty" },
+  { field: "message", message: "Message cannot be empty" },
+];
+
 // Dxc academic
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -48,29 +60,19 @@ const Register = () => {
       !formData.company_name ||
       !formData.message
     ) {
-      if (!formData.full_name) {
-        handleErrors("full_name", ["Name cannot be empty"]);
-      }
-      if (!formData.email) {
-        handleErrors("email", ["Email cannot be empty"]);
-      }
-      if (!formData.area_of_partnership) {
-        handleErrors("area_of_partnership", [
-          "Area of partnership cannot be empty",
-        ]);
-      }
-      if (!formData.company_name) {
-        handleErrors("company_name", ["Company name cannot be empty"]);
-      }
-      if (!formData.message) {
-        handleErrors("message", ["Message cannot be empty"]);
+      for (const { field, message } of requiredFields) {
+        if (!formData[field]) {
+          handleErrors(field, [message]);
+        } else {
+          handleErrors(field, []);
+        }
       }
       return;
     }
+
     setShowLoader(true);
 
     try {
-  
       await strapiService.sendPartnershipRequest(formData);
       alertService.alertMethod(
         "success",

@@ -19,8 +19,22 @@ const DEFAULT_ERRORS = {
   hours: [],
   reason1: [],
   reason2: [],
-  portfolio: [],
+  portfolio_link: [],
+  portfolio_file: [],
 };
+
+const requiredFields = [
+  { field: "full_name", message: "Name cannot be empty" },
+  { field: "email", message: "Email cannot be empty" },
+  { field: "isactive", message: "Select an option" },
+  { field: "phone_number", message: "Phone number cannot be empty" },
+  { field: "slack_username", message: "Slack username cannot be empty" },
+  { field: "linkedin_url", message: "Linkedin url cannot be empty" },
+  { field: "hours", message: "Hours cannot be empty" },
+  { field: "reason1", message: "Field cannot be empty" },
+  { field: "reason2", message: "Field cannot be empty" },
+];
+
 const Apply = ({ contributionPage }) => {
   const router = useRouter();
   const [job, setJob] = useState({});
@@ -34,7 +48,7 @@ const Apply = ({ contributionPage }) => {
     hours: "",
     reason1: "",
     reason2: "",
-    portfolio: "",
+    portfolio_link: "",
   });
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -42,7 +56,14 @@ const Apply = ({ contributionPage }) => {
   const [errors, setErrors] = React.useState(DEFAULT_ERRORS);
 
   const handleFormInputChange = generateInputChangeHandler(setFormData);
-
+  const handleErrors = (field, errMsg) => {
+    setErrors((prev) => {
+      return {
+        ...prev,
+        [field]: errMsg,
+      };
+    });
+  };
   useEffect(() => {
     let slug = router.query.slug;
     console.log("router", slug);
@@ -61,6 +82,35 @@ const Apply = ({ contributionPage }) => {
 
   const submitApplyForm = async (e) => {
     e.preventDefault();
+    if (
+      !formData.full_name ||
+      !formData.email ||
+      !formData.isactive ||
+      !formData.phone_number ||
+      !formData.slack_username ||
+      !formData.linkedin_url ||
+      !formData.hours ||
+      !formData.reason1 ||
+      !formData.reason2 ||
+      !selectedFile
+    ) {
+      for (const { field, message } of requiredFields) {
+        if (!formData[field]) {
+          handleErrors(field, [message]);
+        } else {
+          handleErrors(field, []);
+        }
+      }
+
+      if (!selectedFile) {
+        handleErrors("portfolio_file", ["Portfolio file is required"]);
+      } else {
+        handleErrors("portfolio_file", []);
+      }
+
+      return;
+    }
+
     if (formData.isactive === "no") {
       formData.isactive = false;
     } else {
@@ -87,7 +137,7 @@ const Apply = ({ contributionPage }) => {
         hours: "",
         reason1: "",
         reason2: "",
-        portfolio: "",
+        portfolio_link: "",
       });
       setSelectedFile(null);
       router.push("success");

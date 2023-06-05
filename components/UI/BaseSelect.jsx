@@ -14,7 +14,7 @@ export default function BaseSelect({
         {label ? <span className="base-input__label">{label}</span> : null}
         <select
           className={`${
-            errors[0].length && "input__form_error"
+            errors[0]?.length && "input__form_error"
           } base-input__text-space`}
           {...nativeSelectProps}
         >

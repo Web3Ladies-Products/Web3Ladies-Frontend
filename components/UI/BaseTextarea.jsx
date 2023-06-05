@@ -22,9 +22,8 @@ const BaseTextarea = ({
           rows={rows}
           type={type ? type : "text"}
           className={`${
-            errors[0].length && "input__form_error"
+            errors[0]?.length && "input__form_error"
           } base-input__text-space`}
-          
           {...nativeInputProps}
         />
       </div>

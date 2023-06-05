@@ -456,7 +456,7 @@ const mentorshipRegisterRequest = async (formData, file) => {
 const jobApplicationRequest = async (formData, file) => {
   let data = new FormData();
   console.log(file);
-  data.append("files.portfolio", file);
+  data.append("files.portfolio_file", file);
   data.append("data", JSON.stringify(formData));
 
   try {
