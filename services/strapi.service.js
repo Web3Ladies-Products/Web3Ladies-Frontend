@@ -456,7 +456,7 @@ const mentorshipRegisterRequest = async (formData, file) => {
 const jobApplicationRequest = async (formData, file) => {
   let data = new FormData();
   console.log(file);
-  data.append("files.portfolio", file);
+  data.append("files.portfolio_file", file);
   data.append("data", JSON.stringify(formData));
 
   try {
@@ -788,6 +788,7 @@ const getMentor = async () => {
 
 //partnership form
 const sendPartnershipRequest = async (data) => {
+  console.log(data);
   try {
     const response = await fetch(`${STRAPI_URL}/api/partnership-registers`, {
       method: "POST",

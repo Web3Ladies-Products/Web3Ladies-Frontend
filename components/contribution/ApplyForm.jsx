@@ -25,7 +25,6 @@ const ApplyForm = ({
             value={formData.email}
             onChange={handleFormInputChange}
             errors={[errors.email]}
-            required
           />
         </div>
         <div className="input">
@@ -36,7 +35,6 @@ const ApplyForm = ({
             value={formData.full_name}
             onChange={handleFormInputChange}
             errors={[errors.full_name]}
-            required
           />
         </div>
       </div>
@@ -51,7 +49,6 @@ const ApplyForm = ({
               value="yes"
               checked={formData.isactive === "yes"}
               type="radio"
-              required
             />
 
             <BaseRadioInput
@@ -61,9 +58,11 @@ const ApplyForm = ({
               name="isactive"
               checked={formData.isactive === "no"}
               type="radio"
-              required
             />
           </div>
+          {errors.isactive && (
+            <p className="form__error_text">{errors.isactive[0]}</p>
+          )}
         </div>
       </div>
 
@@ -76,7 +75,6 @@ const ApplyForm = ({
             value={formData.slack_username}
             onChange={handleFormInputChange}
             errors={[errors.slack_username]}
-            required
           />
         </div>
         <div className="input">
@@ -87,7 +85,6 @@ const ApplyForm = ({
             value={formData.phone_number}
             onChange={handleFormInputChange}
             errors={[errors.phone_number]}
-            required
           />
         </div>
       </div>
@@ -101,7 +98,6 @@ const ApplyForm = ({
             value={formData.linkedin_url}
             onChange={handleFormInputChange}
             errors={[errors.linkedin_url]}
-            required
           />
         </div>
         <div className="input"></div>
@@ -117,18 +113,11 @@ const ApplyForm = ({
             value={formData.reason1}
             onChange={handleFormInputChange}
             errors={[errors.reason1]}
-            required
           />
         </div>
       </div>
       <div className="d-flex  register-joinedfield">
         <div className="input">
-          {/* <BaseInput
-            label=""
-            
-            errors={[errors.hours]}
-            required
-          /> */}
           <label className={`base-input `}>
             <span className="base-input__label">
               How many hours are you willing to dedicate to the role?
@@ -140,18 +129,13 @@ const ApplyForm = ({
               <input
                 placeholder="8 hours"
                 name="hours"
-                required
                 value={formData.hours}
                 onChange={handleFormInputChange}
-                className="base-input__text-space"
+                className={`${
+                  errors.hours?.length && "input__form_error"
+                } base-input__text-space`}
               />
             </div>
-
-            {/* {errors?.map?.((error, index) => (
-        <span className="base-input__error" style={{color: "red"}} key={index}>
-          {error}
-        </span>
-      ))} */}
           </label>
         </div>
       </div>
@@ -166,23 +150,31 @@ const ApplyForm = ({
             value={formData.reason2}
             onChange={handleFormInputChange}
             errors={[errors.reason2]}
-            required
           />
         </div>
       </div>
       <div className="d-flex mb-20 register-joinedfield">
         <div>
           <p className="mb-14">Submit your Resume/CV</p>
-          <label className="form__register-file ">
-            + Upload file
+
+          <label
+            className={`${
+              errors.portfolio_file.length && "input__form_error"
+            } form__register-file`}
+          >
+            + Upload image
             <input
               className=""
               type="file"
-              name="resume"
               onChange={(e) => setSelectedFile(e.target.files[0])}
-              required
             />
           </label>
+          {errors.portfolio_file && (
+            <p className=" mt-14 form__error_text">
+              {errors.portfolio_file[0]}
+            </p>
+          )}
+
           {selectedFile && <p className="mt-14">{selectedFile?.name}</p>}
         </div>
       </div>
@@ -191,11 +183,10 @@ const ApplyForm = ({
           <BaseInput
             placeholder=""
             label="Link to your portfolio site or document"
-            name="portfolio"
-            value={formData.portfolio}
+            name="portfolio_link"
+            value={formData.portfolio_link}
             onChange={handleFormInputChange}
-            errors={[errors.portfolio]}
-            required
+            errors={[errors.portfolio_link]}
           />
         </div>
       </div>

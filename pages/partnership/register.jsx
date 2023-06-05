@@ -15,6 +15,18 @@ const DEFAULT_ERRORS = {
   company_name: [],
   message: [],
 };
+
+const requiredFields = [
+  { field: "full_name", message: "Name cannot be empty" },
+  { field: "email", message: "Email cannot be empty" },
+  {
+    field: "area_of_partnership",
+    message: "Area of partnership cannot be empty",
+  },
+  { field: "company_name", message: "Company name cannot be empty" },
+  { field: "message", message: "Message cannot be empty" },
+];
+
 // Dxc academic
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -30,15 +42,37 @@ const Register = () => {
   const [errors, setErrors] = React.useState(DEFAULT_ERRORS);
 
   const handleFormInputChange = generateInputChangeHandler(setFormData);
+  const handleErrors = (field, errMsg) => {
+    setErrors((prev) => {
+      return {
+        ...prev,
+        [field]: errMsg,
+      };
+    });
+  };
 
   const submitRegisterForm = async (e) => {
     e.preventDefault();
+    if (
+      !formData.full_name ||
+      !formData.email ||
+      !formData.area_of_partnership ||
+      !formData.company_name ||
+      !formData.message
+    ) {
+      for (const { field, message } of requiredFields) {
+        if (!formData[field]) {
+          handleErrors(field, [message]);
+        } else {
+          handleErrors(field, []);
+        }
+      }
+      return;
+    }
 
     setShowLoader(true);
 
     try {
-      console.log(JSON.stringify(formData), "here is the form data");
-
       await strapiService.sendPartnershipRequest(formData);
       alertService.alertMethod(
         "success",

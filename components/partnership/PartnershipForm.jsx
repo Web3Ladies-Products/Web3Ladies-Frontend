@@ -11,8 +11,6 @@ const PartnershipForm = ({
   submitRegisterForm,
   errors,
   showLoader,
-  selectedFile,
-  setSelectedFile,
 }) => {
   return (
     <form className="" onSubmit={submitRegisterForm}>
@@ -25,7 +23,6 @@ const PartnershipForm = ({
             value={formData.full_name}
             onChange={handleFormInputChange}
             errors={[errors.full_name]}
-            required
           />
         </div>
         <div className="input">
@@ -36,7 +33,6 @@ const PartnershipForm = ({
             value={formData.company_name}
             onChange={handleFormInputChange}
             errors={[errors.company_name]}
-            required
           />
         </div>
       </div>
@@ -51,7 +47,6 @@ const PartnershipForm = ({
             value={formData.email}
             onChange={handleFormInputChange}
             errors={[errors.email]}
-            required
           />
         </div>
         <div className="input">
@@ -67,7 +62,6 @@ const PartnershipForm = ({
             ]}
             onChange={handleFormInputChange}
             errors={[errors.area_of_partnership]}
-            required
           />
         </div>
       </div>
@@ -81,7 +75,6 @@ const PartnershipForm = ({
             value={formData.message}
             onChange={handleFormInputChange}
             errors={[errors.message]}
-            required
           />
         </div>
       </div>

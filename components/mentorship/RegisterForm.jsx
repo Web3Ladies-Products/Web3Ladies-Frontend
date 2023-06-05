@@ -25,7 +25,6 @@ const RegisterForm = ({
             value={formData.email}
             onChange={handleFormInputChange}
             errors={[errors.email]}
-            required
           />
         </div>
         <div className="input">
@@ -36,7 +35,6 @@ const RegisterForm = ({
             value={formData.full_name}
             onChange={handleFormInputChange}
             errors={[errors.full_name]}
-            required
           />
         </div>
       </div>
@@ -51,7 +49,7 @@ const RegisterForm = ({
               value="yes"
               checked={formData.isactive === "yes"}
               type="radio"
-              required
+              errors={[errors.isactive]}
             />
 
             <BaseRadioInput
@@ -61,9 +59,11 @@ const RegisterForm = ({
               name="isactive"
               checked={formData.isactive === "no"}
               type="radio"
-              required
             />
           </div>
+          {errors.isactive && (
+            <p className="form__error_text">{errors.isactive[0]}</p>
+          )}
         </div>
       </div>
 
@@ -76,7 +76,6 @@ const RegisterForm = ({
             value={formData.phone_number}
             onChange={handleFormInputChange}
             errors={[errors.phone_number]}
-            required
           />
         </div>
         <div className="input">
@@ -87,7 +86,6 @@ const RegisterForm = ({
             value={formData.twitter_handle}
             onChange={handleFormInputChange}
             errors={[errors.twitter_handle]}
-            required
           />
         </div>
       </div>
@@ -101,7 +99,6 @@ const RegisterForm = ({
             value={formData.slack_username}
             onChange={handleFormInputChange}
             errors={[errors.slack_username]}
-            required
           />
         </div>
         <div className="input">
@@ -112,7 +109,6 @@ const RegisterForm = ({
             value={formData.linkedin_url}
             onChange={handleFormInputChange}
             errors={[errors.linkedin_url]}
-            required
           />
         </div>
       </div>
@@ -125,7 +121,6 @@ const RegisterForm = ({
             value={formData.nationality}
             onChange={handleFormInputChange}
             errors={[errors.nationality]}
-            required
           />
         </div>
         <div className="input">
@@ -140,8 +135,7 @@ const RegisterForm = ({
               { label: "IRLs", value: "irls" },
             ]}
             onChange={handleFormInputChange}
-            errors={[errors.area_of_sponsorship]}
-            required
+            errors={[errors.track]}
           />
         </div>
       </div>
@@ -157,7 +151,6 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "employed"}
               type="radio"
-              required
             />
             <BaseRadioInput
               label="Unemployed"
@@ -166,7 +159,6 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "unemployed"}
               type="radio"
-              required
             />
             <BaseRadioInput
               label="Self-employed"
@@ -175,7 +167,6 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "selfEmployed"}
               type="radio"
-              required
             />
             <BaseRadioInput
               label="Student"
@@ -184,9 +175,11 @@ const RegisterForm = ({
               name="employment_status"
               checked={formData.employment_status === "student"}
               type="radio"
-              required
             />
           </div>
+          {errors.employment_status && (
+            <p className="form__error_text">{errors.employment_status[0]}</p>
+          )}
         </div>
       </div>
       <div className="d-flex register-joinedfield">
@@ -198,7 +191,6 @@ const RegisterForm = ({
             value={formData.reason1}
             onChange={handleFormInputChange}
             errors={[errors.reason1]}
-            required
           />
         </div>
       </div>
@@ -213,7 +205,6 @@ const RegisterForm = ({
               value="yes"
               checked={formData.dedication === "yes"}
               type="radio"
-              required
             />
 
             <BaseRadioInput
@@ -223,9 +214,11 @@ const RegisterForm = ({
               name="dedication"
               checked={formData.dedication === "no"}
               type="radio"
-              required
             />
           </div>
+          {errors.dedication && (
+            <p className="form__error_text">{errors.dedication[0]}</p>
+          )}
         </div>
       </div>
       <div className="d-flex register-joinedfield">
@@ -237,7 +230,6 @@ const RegisterForm = ({
             value={formData.reason2}
             onChange={handleFormInputChange}
             errors={[errors.reason2]}
-            required
           />
         </div>
       </div>
@@ -246,15 +238,23 @@ const RegisterForm = ({
           <p className="mb-14">
             Submit your preferred picture here (Headshot or full image)
           </p>
-          <label className="form__register-file ">
+          <label
+            className={`${
+              errors.profile_picture.length && "input__form_error"
+            } form__register-file`}
+          >
             + Upload image
             <input
               className=""
               type="file"
               onChange={(e) => setSelectedFile(e.target.files[0])}
-              required
             />
           </label>
+          {errors.profile_picture && (
+            <p className=" mt-14 form__error_text">
+              {errors.profile_picture[0]}
+            </p>
+          )}
           {selectedFile && <p className="mt-14">{selectedFile?.name}</p>}
         </div>
       </div>
@@ -267,7 +267,6 @@ const RegisterForm = ({
             value={formData.comment}
             onChange={handleFormInputChange}
             errors={[errors.comment]}
-            required
           />
         </div>
       </div>
