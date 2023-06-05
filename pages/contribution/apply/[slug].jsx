@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/layouts/Navbar";
 
 import Footer from "../../../components/layouts/Footer";
-import Button from "../../../components/buttons/Button";
+
 import { alertService, strapiService } from "../../../services";
 import AppLoader from "../../../components/UI/AppLoader";
 import ApplyForm from "../../../components/contribution/ApplyForm";

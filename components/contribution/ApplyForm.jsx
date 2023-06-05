@@ -118,12 +118,6 @@ const ApplyForm = ({
       </div>
       <div className="d-flex  register-joinedfield">
         <div className="input">
-          {/* <BaseInput
-            label=""
-            
-            errors={[errors.hours]}
-            
-          /> */}
           <label className={`base-input `}>
             <span className="base-input__label">
               How many hours are you willing to dedicate to the role?
@@ -142,12 +136,6 @@ const ApplyForm = ({
                 } base-input__text-space`}
               />
             </div>
-
-            {/* {errors?.map?.((error, index) => (
-        <span className="base-input__error" style={{color: "red"}} key={index}>
-          {error}
-        </span>
-      ))} */}
           </label>
         </div>
       </div>
