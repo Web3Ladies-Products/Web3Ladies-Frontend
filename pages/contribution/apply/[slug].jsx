@@ -142,7 +142,7 @@ const Apply = ({ contributionPage }) => {
         portfolio_link: "",
       });
       setSelectedFile(null);
-      router.push("success");
+      router.replace("/contribution");
       setShowLoader(false);
     } catch (error) {
       console.error(error, "here is the error");
