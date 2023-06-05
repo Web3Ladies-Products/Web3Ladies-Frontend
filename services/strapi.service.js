@@ -788,6 +788,7 @@ const getMentor = async () => {
 
 //partnership form
 const sendPartnershipRequest = async (data) => {
+  console.log(data);
   try {
     const response = await fetch(`${STRAPI_URL}/api/partnership-registers`, {
       method: "POST",

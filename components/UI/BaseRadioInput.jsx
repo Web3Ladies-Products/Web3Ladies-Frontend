@@ -7,7 +7,10 @@ const BaseRadioInput = ({
 }) => {
   return (
     <div className="d-flex justify-content-center align-items-center">
-      <input {...nativeInputProps} />
+      <input
+        className={`${errors[0].length && "input__form_error"} `}
+        {...nativeInputProps}
+      />
       <label>{label} </label>
     </div>
   );

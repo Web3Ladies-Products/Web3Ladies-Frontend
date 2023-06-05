@@ -12,7 +12,12 @@ export default function BaseSelect({
     <label className="base-input">
       <div className="base-input__select">
         {label ? <span className="base-input__label">{label}</span> : null}
-        <select className="base-input__text-space" {...nativeSelectProps}>
+        <select
+          className={`${
+            errors[0].length && "input__form_error"
+          } base-input__text-space`}
+          {...nativeSelectProps}
+        >
           {placeholder ? <option value="">{placeholder}</option> : null}
           {options?.map?.((option, index) => (
             <option value={option.value} key={index}>

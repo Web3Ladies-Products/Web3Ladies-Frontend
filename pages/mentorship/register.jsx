@@ -11,6 +11,18 @@ import { alertService, strapiService } from "../../services";
 const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
+  twitter_handle: [],
+  isactive: [],
+  phone_number: [],
+  slack_username: [],
+  linkedin_url: [],
+  nationality: [],
+  track: [],
+  employment_status: [],
+  dedication: [],
+  reason1: [],
+  reason2: [],
+  comment: [],
 };
 // Dxc academic
 const Register = () => {

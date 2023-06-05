@@ -17,11 +17,17 @@ const BaseInput = ({
         }`}
       >
         {!!prefixIcon && <span className="base-input__icon">{prefixIcon}</span>}
-        <input type={type ? type : "text"}  className="base-input__text-space" {...nativeInputProps} />
+        <input
+          type={type ? type : "text"}
+          className={`${
+            errors[0].length && "input__form_error"
+          } base-input__text-space`}
+          {...nativeInputProps}
+        />
       </div>
 
       {errors?.map?.((error, index) => (
-        <span className="base-input__error" style={{color: "red"}} key={index}>
+        <span className="base-input__error" key={index}>
           {error}
         </span>
       ))}

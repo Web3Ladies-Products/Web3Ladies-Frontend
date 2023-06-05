@@ -1040,3 +1040,10 @@ main {
     }
   }
 }
+
+.input__form_error {
+  border: 2px solid red !important;
+}
+.base-input__error {
+  color: red !important;
+}

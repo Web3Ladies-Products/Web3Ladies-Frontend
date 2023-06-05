@@ -30,15 +30,47 @@ const Register = () => {
   const [errors, setErrors] = React.useState(DEFAULT_ERRORS);
 
   const handleFormInputChange = generateInputChangeHandler(setFormData);
+  const handleErrors = (field, errMsg) => {
+    setErrors((prev) => {
+      return {
+        ...prev,
+        [field]: errMsg,
+      };
+    });
+  };
 
   const submitRegisterForm = async (e) => {
     e.preventDefault();
-
+    if (
+      !formData.full_name ||
+      !formData.email ||
+      !formData.area_of_partnership ||
+      !formData.company_name ||
+      !formData.message
+    ) {
+      if (!formData.full_name) {
+        handleErrors("full_name", ["Name cannot be empty"]);
+      }
+      if (!formData.email) {
+        handleErrors("email", ["Email cannot be empty"]);
+      }
+      if (!formData.area_of_partnership) {
+        handleErrors("area_of_partnership", [
+          "Area of partnership cannot be empty",
+        ]);
+      }
+      if (!formData.company_name) {
+        handleErrors("company_name", ["Company name cannot be empty"]);
+      }
+      if (!formData.message) {
+        handleErrors("message", ["Message cannot be empty"]);
+      }
+      return;
+    }
     setShowLoader(true);
 
     try {
-      console.log(JSON.stringify(formData), "here is the form data");
-
+  
       await strapiService.sendPartnershipRequest(formData);
       alertService.alertMethod(
         "success",
