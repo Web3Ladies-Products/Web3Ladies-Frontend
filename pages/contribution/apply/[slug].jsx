@@ -33,6 +33,7 @@ const requiredFields = [
   { field: "hours", message: "Hours cannot be empty" },
   { field: "reason1", message: "Field cannot be empty" },
   { field: "reason2", message: "Field cannot be empty" },
+  { field: "portfolio_link", message: "Portfolio link cannot be empty" },
 ];
 
 const Apply = ({ contributionPage }) => {
@@ -92,6 +93,7 @@ const Apply = ({ contributionPage }) => {
       !formData.hours ||
       !formData.reason1 ||
       !formData.reason2 ||
+      !formData.portfolio_link ||
       !selectedFile
     ) {
       for (const { field, message } of requiredFields) {
