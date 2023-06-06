@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { phaseData } from "../../../pages/api/feedback";
 import TabButton from "./TabButton";
 import PhaseContent from "./PhaseContent";
 
-const HowItWorks = () => {
-  const [activeTab, setActiveTab] = useState("one");
+const HowItWorks = ({ data }) => {
+  const [activeTab, setActiveTab] = useState(Object.keys(data)[0]);
 
   return (
     <div className="how-it-works-section ">
@@ -13,7 +12,7 @@ const HowItWorks = () => {
         <div>
           <div className="tab-button-line"></div>
           <div className="tab-button-wrapper">
-            {Object.keys(phaseData).map((key, i) => (
+            {Object.keys(data).map((key, i) => (
               <TabButton
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
@@ -24,7 +23,7 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
-        <PhaseContent data={phaseData[activeTab]} />
+        <PhaseContent data={data[activeTab]} />
       </div>
     </div>
   );

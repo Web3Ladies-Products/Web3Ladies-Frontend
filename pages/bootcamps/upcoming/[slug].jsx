@@ -1,7 +1,5 @@
-import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
-import bootcampsData from "../../api/bootcamps.json";
 import Registration from "../../../components/analytics/Registration";
 import Tracks from "../../../components/analytics/Tracks";
 import GoalsDetails from "../../../components/bootcamps/Goals";
@@ -16,13 +14,10 @@ import Mentors from "../../../components/Mentors";
 import FAQs from "../../../components/FAQs";
 import Testimonials from "../../../components/Testimonials";
 import Image from "next/image";
+import FreehandCard from "../../../components/FreehandCard";
+import { strapiService } from "../../../services";
 
-const Bootcamp = () => {
-  const { query } = useRouter();
-  const { slug } = query;
-  const bootcamps = bootcampsData.upcoming;
-  const bootcamp = bootcamps.find((b) => b.slug === slug);
-
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
   }
@@ -31,62 +26,38 @@ const Bootcamp = () => {
     <>
       <Navbar />
 
-      <HeroSection heroDetails={bootcamp.hero} />
+      <HeroSection data={bootcamp} />
 
-      <About aboutDetails={bootcamp.about} />
+      <About data={bootcamp} />
 
-      <GoalsDetails goalsDetails={bootcamp.goals} />
+      <GoalsDetails data={bootcamp} />
 
-      <Sponsors sponsorsDetails={bootcamp.sponsors} />
+      <Sponsors data={bootcamp} />
 
       <section className="analytics">
-        <Registration registrationDetails={bootcamp.registrationDetails} />
-        <Tracks tracksDetails={bootcamp.tracksDetails} />
+        <Registration data={bootcamp} />
+        <Tracks data={bootcamp} />
       </section>
 
       <section className="how-it-works">
         <div className="container">
           <div className="how-it-works--content">
-            <h1 className="section-title">{bootcamp.howItWorks.title}</h1>
+            <h1 className="section-title">{bootcamp.how_it_works_title}</h1>
             <div className="schedule-details">
               <div>
-                <div>
-                  <h5>
-                    {bootcamp.howItWorks.scheduleDetails.startDetails.title}
-                  </h5>
-                  <span>
-                    {bootcamp.howItWorks.scheduleDetails.startDetails.date}
-                  </span>
-                </div>
-                <div>
-                  <h5>
-                    {bootcamp.howItWorks.scheduleDetails.endDetails.title}
-                  </h5>
-                  <span>
-                    {bootcamp.howItWorks.scheduleDetails.endDetails.date}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <h5>{bootcamp.howItWorks.scheduleDetails.schedule.title}</h5>
-                  <span>
-                    {bootcamp.howItWorks.scheduleDetails.schedule.date}
-                  </span>
-                </div>
-                <div>
-                  <h5>{bootcamp.howItWorks.scheduleDetails.workshop.title}</h5>
-                  <span>
-                    {bootcamp.howItWorks.scheduleDetails.workshop.date}
-                  </span>
-                </div>
+                {bootcamp.how_it_works_schedule_details.map((item) => (
+                  <div key={item.title}>
+                    <h5>{item.title}</h5>
+                    <span>{item.date}</span>
+                  </div>
+                ))}
               </div>
             </div>
-            <p>{bootcamp.howItWorks.description}</p>
+            <p>{bootcamp.how_it_works_description}</p>
           </div>
           <div className="how-it-works--image">
             <Image
-              src={bootcamp.howItWorks.image}
+              src={bootcamp.how_it_works_image}
               className="bootcamp-image"
               width={"501px"}
               height={"501px"}
@@ -100,21 +71,80 @@ const Bootcamp = () => {
       <section className="summary">
         <div className="container">
           <h2 className="sub-section-title center bold">
-            {bootcamp.whyApply.title}
+            {bootcamp.why_apply_title}
           </h2>
-          <p className="center">{bootcamp.whyApply.description}</p>
+          <p className="center">{bootcamp.why_apply_description}</p>
         </div>
       </section>
 
-      <Benefits data={bootcamp.benefits} />
-      <Gains data={bootcamp.gains} />
-      <Curriculum data={bootcamp.curriculum} />
-      <Mentors data={bootcamp.mentors} />
-      <FAQs data={bootcamp.faqs} />
-      <Testimonials />
+      <Benefits track={bootcamp} />
+      <Gains track={bootcamp} />
+      <Curriculum data={bootcamp} />
+      <Mentors data={bootcamp} />
+      <FAQs bootcamp={bootcamp} />
+      <Testimonials
+        testimonial_title={bootcamp.testimonial_title}
+        testimonial_description={bootcamp.testimonial_description}
+        testimonial_items={bootcamp.testimonials_details}
+      />
+      <div className="mb-large" />
+      <div className="p-20">
+        <FreehandCard freeHandData={freeHandData} />
+      </div>
+      <div className="mb-large" />
       <Footer />
     </>
   );
 };
+
+export async function getStaticPaths() {
+  const response = await strapiService.getUpcomingBootCamps();
+  const paths = response.data.map((bootcamp) => {
+    return {
+      params: {
+        slug: bootcamp.attributes.slug,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const response = await strapiService.getUpcomingBootCampsBySlug(
+      params.slug
+    );
+    const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
+
+    if (data) {
+      return {
+        props: {
+          freeHandData: freeHandData.data.attributes,
+          bootcamp: {
+            ...data,
+          },
+        },
+      };
+    }
+    return {
+      props: {
+        bootcamp: null,
+        notFound: true,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        bootcamp: null,
+        notFound: true,
+      },
+    };
+  }
+}
 
 export default Bootcamp;

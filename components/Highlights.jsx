@@ -35,7 +35,7 @@ const Highlights = ({
             <li
               key={index}
               className="highlight--container-item"
-              onClick={() => handleClick(item.slug)}
+              onClick={() => router.push(item.button_link)}
             >
               <div className="highlights--container-item--image">
                 <Image

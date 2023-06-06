@@ -8,6 +8,7 @@ const Button = ({
   color,
   children,
   fullWidth,
+  border,
   ...props
 }) => {
   return (
@@ -17,7 +18,7 @@ const Button = ({
         variant ? variant : "primary",
         color ? color + "-color" : "",
         hasIcon ? "has-icon" : "",
-        fullWidth ? "w-full" : ""
+        fullWidth ? "w-full" : "",
       )}
       onClick={() => (props.type === "submit" ? null : handleClick())}
       {...props}

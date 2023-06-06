@@ -22,13 +22,13 @@
 
   @include desktop {
     margin-right: 10px;
-    padding: 13px 21px;
+    padding: 0 21px;
     min-width: 135px;
   }
 
   @include mobile {
     padding: 9px 15px;
-    overflow-x: scroll;
+    // overflow-x: scroll;
     justify-self: start;
   }
 
