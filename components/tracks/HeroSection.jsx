@@ -8,7 +8,7 @@ const Hero = ({ track, handleViewCurriculum }) => {
       <div className="container cta">
         <div className="content">
           <div className="hero_content">
-            <h1>{track?.hero_title}</h1>
+            <h1 className="section-title">{track?.hero_title}</h1>
             <p>{track?.hero_description}</p>
             <p className="note">{track?.hero_note}</p>
 

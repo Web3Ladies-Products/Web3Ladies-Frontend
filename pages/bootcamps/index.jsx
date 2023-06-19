@@ -25,7 +25,10 @@ const BootcampPage = ({
         <div className="container cta">
           <div className="content">
             <div className="hero_content bootcamp">
-              <h1 dangerouslySetInnerHTML={{ __html: bootCamp.hero_title }} />
+              <h1
+                className="section-title"
+                dangerouslySetInnerHTML={{ __html: bootCamp.hero_title }}
+              />
               <p>{bootCamp.hero_description}</p>
 
               <div className="button-container">

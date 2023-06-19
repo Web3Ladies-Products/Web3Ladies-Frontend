@@ -39,10 +39,9 @@ h6 {
   }
   letter-spacing: -0.04em;
 
-  // @include mobile {
-  //   font-size: 40px;
-  //   line-height: 50px;
-  // }
+  @include mobile {
+    margin-bottom: 0.6em;
+  }
 
   span {
     color: var(--primary-color);
