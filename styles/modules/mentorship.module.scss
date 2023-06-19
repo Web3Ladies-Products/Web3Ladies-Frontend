@@ -381,21 +381,19 @@ main {
 // Worktools section
 
 .work-assistance-section {
+  padding-bottom: 50px !important;
   > div {
     h1 {
       margin-bottom: 30px;
     }
     p {
-      width: 50%;
-      min-width: 300px;
+      max-width: 600px;
       font-size: 18px;
     }
     .work-assistance-images-wrap {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      > div {
-        margin-right: 20px;
-      }
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     }
   }
 }
