@@ -27,7 +27,7 @@ const Pagination = ({ pageDetails, paginationData, updateData }) => {
           <Button
             // variant={"darkOutline"}
             disabled={paginationData?.page === 1}
-            onClick={() => updateData(paginationData?.page - 1)}
+            handleClick={() => updateData(paginationData?.page - 1)}
           >
             <span className="icon-left">
               <ChevronLeft />
@@ -37,14 +37,14 @@ const Pagination = ({ pageDetails, paginationData, updateData }) => {
           {paginationData && (
             <ul>
               <li className="active">
-                <Button>{paginationData?.page}</Button>
+                <Button handleClick={() => {}}>{paginationData?.page}</Button>
               </li>
             </ul>
           )}
           <Button
             // variant={"primary"}
             disabled={paginationData?.page === paginationData?.pageCount}
-            onClick={() => updateData(paginationData.page + 1)}
+            handleClick={() => updateData(paginationData.page + 1)}
             hasIcon
           >
             {/* <span>Next</span> */}
