@@ -727,6 +727,7 @@ main {
       background-size: contain;
       padding: 10px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
       align-items: center;
       > div {
