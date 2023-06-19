@@ -11,8 +11,8 @@ const Job = ({ contributionPage }) => {
   const router = useRouter();
   const [job, setJob] = useState({});
   const [jobData, setJobData] = useState(contributionPage?.jobs);
+  let slug = router.query.slug;
   useEffect(() => {
-    let slug = router.query.slug;
     const fetchJob = async () => {
       try {
         const exactJob = contributionPage.jobs.find(
@@ -28,7 +28,7 @@ const Job = ({ contributionPage }) => {
       }
     };
     fetchJob();
-  }, []);
+  }, [slug]);
   return (
     <>
       <Navbar />
@@ -38,7 +38,7 @@ const Job = ({ contributionPage }) => {
             <div className="back-btn">
               <p
                 onClick={() => {
-                  router.back();
+                  router.push("/contribution");
                 }}
               >
                 Back
