@@ -27,19 +27,13 @@
   }
 
   @include mobile {
-    padding: 9px 15px;
-    // overflow-x: scroll;
-    justify-self: start;
+    padding: 0 15px;
   }
 
   &-bordered {
     @extend .option-tabs--tab;
     border: 2px solid rgba(var(--color-black-rgb), 0.05);
     border-radius: 47px;
-
-    @include mobile {
-      border-radius: 30px;
-    }
 
     &:hover {
       color: var(--primary-color);
@@ -75,10 +69,6 @@
         }
       }
     }
-  }
-
-  @media (max-width: 424px) {
-    // padding: 8px;
   }
 
   &.active {
