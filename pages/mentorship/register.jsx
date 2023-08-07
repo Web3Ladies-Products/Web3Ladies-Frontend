@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import Footer from "../../components/layouts/Footer";
+
 import Navbar from "../../components/layouts/Navbar";
 import RegisterForm from "../../components/mentorship/RegisterForm";
 import AppLoader from "../../components/UI/AppLoader";
@@ -11,7 +11,41 @@ import { alertService, strapiService } from "../../services";
 const DEFAULT_ERRORS = {
   full_name: [],
   email: [],
+  twitter_handle: [],
+  isactive: [],
+  phone_number: [],
+  slack_username: [],
+  linkedin_url: [],
+  nationality: [],
+  track: [],
+  employment_status: [],
+  dedication: [],
+  reason1: [],
+  reason2: [],
+  comment: [],
+  profile_picture: [],
 };
+
+const requiredFields = [
+  { field: "full_name", message: "Name cannot be empty" },
+  { field: "email", message: "Email cannot be empty" },
+  { field: "twitter_handle", message: "Twitter handle cannot be empty" },
+  { field: "isactive", message: "Select an option" },
+  { field: "phone_number", message: "Phone number cannot be empty" },
+  { field: "slack_username", message: "Slack username cannot be empty" },
+  { field: "linkedin_url", message: "Linkedin url cannot be empty" },
+  {
+    field: "nationality",
+    message: "Nationaly cannot be empty",
+  },
+  { field: "track", message: "Track cannot be empty" },
+  { field: "employment_status", message: "Select an option" },
+  { field: "dedication", message: "Select an option" },
+  { field: "reason1", message: "Field cannot be empty" },
+  { field: "reason2", message: "Field cannot be empty" },
+  { field: "comment", message: "Comment cannot be empty" },
+];
+
 // Dxc academic
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -38,8 +72,48 @@ const Register = () => {
 
   const handleFormInputChange = generateInputChangeHandler(setFormData);
 
+  const handleErrors = (field, errMsg) => {
+    setErrors((prev) => {
+      return {
+        ...prev,
+        [field]: errMsg,
+      };
+    });
+  };
+
   const submitRegisterForm = async (e) => {
     e.preventDefault();
+    if (
+      !formData.full_name ||
+      !formData.email ||
+      !formData.twitter_handle ||
+      !formData.phone_number ||
+      !formData.slack_username ||
+      !formData.linkedin_url ||
+      !formData.nationality ||
+      !formData.track ||
+      !formData.employment_status ||
+      !formData.dedication ||
+      !formData.reason1 ||
+      !formData.reason2 ||
+      !formData.comment ||
+      !selectedFile
+    ) {
+      for (const { field, message } of requiredFields) {
+        if (!formData[field]) {
+          handleErrors(field, [message]);
+        } else {
+          handleErrors(field, []);
+        }
+      }
+      if (!selectedFile) {
+        handleErrors("profile_picture", ["Please select an image"]);
+      } else {
+        handleErrors("profile_picture", []);
+      }
+      return;
+    }
+
     if (formData.isactive === "no") {
       formData.isactive = false;
     } else {
@@ -50,14 +124,7 @@ const Register = () => {
     setShowLoader(true);
 
     try {
-      const response = await strapiService.mentorshipRegisterRequest(
-        formData,
-        selectedFile
-      );
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ Mentorship Registration ~ response",
-        response
-      );
+      await strapiService.mentorshipRegisterRequest(formData, selectedFile);
       alertService.alertMethod(
         "success",
         "Waiting list request sent successfully"
@@ -79,11 +146,10 @@ const Register = () => {
         comment: "",
       });
       router.push("success");
+      setShowLoader(false);
     } catch (error) {
       console.error(error, "here is the error");
       alertService.alertMethod("error", "Waiting list request failed");
-    } finally {
-      console.log("finaly is called");
       setShowLoader(false);
     }
   };

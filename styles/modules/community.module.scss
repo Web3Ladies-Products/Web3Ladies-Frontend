@@ -1,0 +1,542 @@
+@import "../scss/mixins";
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+// HERO SECTION
+section {
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  // @include mobile {
+  //   padding-bottom: 0;
+  // }
+
+  .hero_image {
+    position: relative;
+    width: 600px;
+
+    @include mobile {
+      width: 100%;
+      margin: 60px auto;
+    }
+
+    &.featured {
+      > div:nth-of-type(1) {
+        animation: none !important;
+
+        .hero-image {
+          animation: none !important;
+        }
+      }
+    }
+
+    // @media (max-width: 1140px) {
+    //   margin-bottom: 100px;
+    //   width: 100%;
+    // }
+
+    & > div {
+      position: relative;
+
+      > span {
+        position: absolute !important;
+
+        &:nth-of-type(1) {
+          position: relative !important;
+          z-index: 0;
+          animation: none !important;
+        }
+
+        &:nth-of-type(2) {
+          bottom: 82px;
+          left: -20px;
+
+          @include mobile {
+            width: 45px !important;
+          }
+        }
+
+        &:nth-of-type(3) {
+          top: 40px;
+          right: -10px;
+
+          @include mobile {
+            width: 40px !important;
+          }
+        }
+
+        &:nth-of-type(4) {
+          bottom: 23px;
+          right: -5px;
+
+          img {
+            width: initial !important;
+            min-width: initial !important;
+          }
+
+          @include mobile {
+            width: 100px !important;
+          }
+        }
+      }
+
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          animation: bounce 2s #{"0." + ($i * 2)}s infinite;
+        }
+      }
+
+      .hero-image {
+        width: 40%;
+        animation: beaming-animation 5s infinite;
+
+        @keyframes beaming-animation {
+          0%,
+          100% {
+            transform: scale(0.95);
+            z-index: 1;
+          }
+
+          50% {
+            transform: scale(1);
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .cta {
+    .content {
+      @include desktop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .hero_content {
+          width: 50%;
+
+          h1 {
+            // max-width: 500px;
+            span {
+              font-family: inherit;
+            }
+          }
+
+          .section-text {
+            width: 80%;
+            font-weight: 400px;
+            font-size: 18px;
+          }
+
+          #com-chapters {
+            font-size: 23px;
+          }
+
+          #com-desc {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .button-container {
+        margin-top: 38px;
+        display: flex;
+        justify-content: flex-start;
+
+        & :first-child {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+}
+
+.community {
+  background-color: #f8f2ff;
+}
+
+// YOUTUBE SECTION
+.youtube {
+  margin-top: 10px;
+
+  &--heading {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+
+  &--container {
+    background: #fff4fb;
+    border-radius: 16px;
+    width: 1110px;
+    height: 45px;
+
+    .section-title {
+      margin-bottom: 20px;
+    }
+
+    @include desktop {
+      padding: 80px;
+      justify-content: space-evenly;
+    }
+
+    @include mobile {
+      padding: 40px;
+    }
+
+    h3 {
+      color: var(--color-white);
+    }
+
+    h6 {
+      font-size: 18px;
+      line-height: 134%;
+      color: var(--color-primary-light);
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      font-size: 25px;
+      margin-right: 20px;
+    }
+  }
+
+  &--text {
+    color: purple;
+  }
+}
+
+// END OF YOUTUBE SECTION
+
+// WHO WE ARE SECTION
+.introduction--heading {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  .why--heading {
+    grid-column: 3/7;
+    grid-row: 1/2;
+    align-self: end;
+  }
+  .why-image {
+    grid-column: 6/7;
+    grid-row: 1/2;
+  }
+}
+.who-we-are {
+  &--container {
+    @include desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 77px 93px;
+    }
+
+    background: #7d0bfe;
+    border-radius: 16px;
+    padding: 27px;
+  }
+
+  &--content {
+    @include desktop {
+      width: 465px;
+    }
+
+    @include mobile {
+      text-align: center;
+    }
+
+    h3 {
+      color: #ffffff;
+    }
+
+    p {
+      font-style: normal;
+      color: #ffdcf2;
+      margin-top: 19px;
+    }
+
+    &-cta {
+      margin-top: 30px;
+
+      @include mobile {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &--img {
+    width: 500px;
+    height: 500px;
+
+    @include mobile {
+      display: none;
+    }
+
+    margin-bottom: -120px;
+  }
+}
+
+// END OF WHO WE ARE SECTION
+
+// WHY SECTION
+.why {
+  @include desktop {
+    width: 77%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .groups-container {
+    @media (min-width: 1500px) {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  &--heading {
+    color: #000000;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 38px;
+
+    .btn {
+      margin-top: 10px;
+    }
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 48px;
+    }
+  }
+}
+
+.sub-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 80px;
+  margin-top: 20px;
+}
+
+.highlights {
+  &--heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+
+    @include mobile {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  &--community {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 48px;
+    margin-top: -30px;
+
+    .grid-container {
+      background: rgba(248, 243, 255, 0.5);
+      border-radius: 8px;
+    }
+
+    .chapter-container {
+      background: rgba(248, 243, 255, 0.5);
+      border-radius: 8px;
+      height: 300px;
+      width: 265px;
+    }
+
+    #img-card {
+      width: 40px;
+      margin-top: 20px;
+      padding-left: 15px;
+    }
+  }
+
+  &--container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 48px;
+    margin-top: -30px;
+
+    .grid-container--image {
+      padding-left: 10px;
+      margin-top: 10px;
+      width: 60px;
+    }
+
+    &-item {
+      cursor: pointer;
+
+      &--image {
+        // width: 400px;
+        height: 220px;
+        // background: #e7d2ff;
+        border-radius: 8px;
+        display: flex;
+        // justify-content: center;
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+
+      &--text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: baseline;
+
+        #text-loc {
+          font-size: 18px;
+          padding-left: 13px;
+        }
+
+        #text-desc {
+          padding-left: 13px;
+        }
+
+        h4 {
+          margin: 22px 0;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 130%;
+          letter-spacing: -0.04em;
+          padding-left: 10px;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 150%;
+          padding-left: 10px;
+          color: var(--color-grey);
+        }
+      }
+    }
+  }
+}
+
+#com-clubs {
+  width: 40%;
+}
+
+// END OF WHY SECTION
+.container-join {
+  border: 1px solid rgba(219, 219, 219, 0.5);
+  background-color: #111111;
+  padding: 32px;
+  width: 100%;
+  height: 321px;
+}
+
+#why--heading {
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+.why--text {
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+}
+
+//HANDS TRAINING SECTION
+.hands-training {
+  margin-top: 10px;
+
+  &--heading {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+
+  &--container {
+    background: #fff5fb;
+    border: 3px solid #7d0bfe;
+    border-radius: 16px;
+    height: 350px;
+
+    .crescent-vector {
+      position: absolute;
+      bottom: 90px;
+      left: 50px;
+    }
+
+    // .round-vector {
+    //   position: absolute;
+    //   bottom: 90px;
+    //   left:50px;
+    // }
+    .spiral-vector {
+      margin-right: 10px;
+      width: 70px;
+    }
+
+    .cta {
+      .content {
+        @include desktop {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .hero_content {
+            width: 55%;
+            text-align: center;
+
+            h1 {
+              // max-width: 500px;
+              span {
+                font-family: inherit;
+              }
+            }
+
+            .section-text {
+              font-weight: 400px;
+              font-size: 18px;
+            }
+
+            .section-title {
+              font-size: 34px;
+              line-height: 134%;
+              color: #000000;
+            }
+          }
+        }
+      }
+    }
+
+    @include desktop {
+      padding: 80px;
+      justify-content: space-evenly;
+    }
+
+    @include mobile {
+      padding: 40px;
+    }
+  }
+
+  &--text {
+    color: purple;
+  }
+}
+
+.highlight--container-item {
+  padding: 2em;
+  border-radius: 1em;
+}

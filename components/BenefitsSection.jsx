@@ -21,7 +21,7 @@ const Benefits = ({ track }) => {
         <Button
           variant={track?.benefits_button_type}
           buttonText={track?.benefits_button_text}
-          handleClick={() => null}
+          handleClick={() => window.open("/mentorship/register", "_blank")}
         />
       </div>
     </section>

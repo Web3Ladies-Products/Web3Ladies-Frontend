@@ -4,37 +4,36 @@ import Button from "../../components/buttons/Button";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
 import { strapiService } from "../../services";
-import { FAQ_DATA } from "../../pages/api/feedback";
 import Tracks from "../../components/cohorts/Tracks";
 import Testimonials from "../../components/Testimonials";
 import AboutSection from "../../components/AboutSection";
 import DualColorBanner from "../../components/DualColorBanner";
 import FAQs from "../../components/FAQs";
 import Supporters from "../../components/Supporters";
-import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
 import WorkAssistance from "../../components/mentorship/WorkAssistance";
 import Mentors from "../../components/mentorship/Mentors";
 import WhyLearn from "../../components/mentorship/WhyLearn";
 import FeaturedMentees from "../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../components/mentorship/JoinAsMentor";
-import CTACard from "../../components/CTACard";
 import Bootcamps from "../../components/mentorship/Bootcamps";
 import CohortSection from "../../components/mentorship/cohorts/Cohorts";
-import { useRouter } from "next/router";
 import FreehandCard from "../../components/FreehandCard";
-
-const mentorship = ({ indexPage }) => {
+import HowItWorks from "../../components/mentorship/how-it-works/HowItWorks";
+import { useRouter } from "next/router";
+const mentorship = ({
+  mentorshipPage,
+  bootcamps,
+  workAssistanceData,
+  whyLearnData,
+  freeHandData,
+  joinData,
+  featuredMentees,
+  cohortPageData,
+}) => {
   const router = useRouter();
-
-  React.useEffect(() => {
-    // router.push("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <Navbar />
-
       <main className="">
         {/*START OF HERO SECTION*/}
         <div className="container cta">
@@ -42,18 +41,22 @@ const mentorship = ({ indexPage }) => {
             <div className=" hero_content">
               <h1
                 className="title section-title "
-                dangerouslySetInnerHTML={{ __html: indexPage.mentorship_title }}
+                dangerouslySetInnerHTML={{ __html: mentorshipPage.hero_title }}
               ></h1>
               <div className="button-container">
                 <Button
                   variant={"primary"}
-                  buttonText={indexPage.button_one_text}
-                  handleClick={() => null}
+                  buttonText={mentorshipPage.hero_button_text_one}
+                  handleClick={() => {
+                    router.push(mentorshipPage.hero_button_link_one);
+                  }}
                 />
                 <Button
                   variant={"outline"}
-                  buttonText={indexPage.button_two_text}
-                  handleClick={() => null}
+                  buttonText={mentorshipPage.hero_button_text_two}
+                  handleClick={() => {
+                    router.push(mentorshipPage.hero_button_link_two);
+                  }}
                 />
               </div>
             </div>
@@ -102,25 +105,18 @@ const mentorship = ({ indexPage }) => {
         </div>
         {/*END OF HERO SECTION*/}
       </main>
-
-      <Supporters indexPage={indexPage} />
-
+      {/*SUPPORTERS SECTION*/}
+      {/*to be change to mentorshipPage not indexPage*/}
+      <Supporters indexPage={mentorshipPage} />
       {/*ABOUT MENTORSHIP */}
       <AboutSection
-        title="About Mentorship "
-        description={` This is a free intensive learning phase of the
-         basics/foundations for all tracks, it serves as the introduction
-         to the track for participants. This phase is for 4weeks, classes
-         will be twice a week (Tuesdays & Thursdays 5 - 7 PM). Across all
-         tracks participants will learn intensively as a beginner,
-         mentors will be on the ground to teach, resources will be shared
-         with the participants, assignments will be given as well, and
-         there will be an eviction at the end of this phase upon final
-         assessment to graduate into the learning phase.`}
-        buttonText="Register Now"
-        handleClick={() => null}
+        title={mentorshipPage.about_title}
+        description={mentorshipPage.about_description}
+        buttonText={mentorshipPage.about_button_text}
+        handleClick={() => {
+          router.push(mentorshipPage.about_button_link);
+        }}
       />
-
       {/* Criteria for Mentorship  */}
       <section className="criteria-section-wrapper">
         <div className="container">
@@ -136,61 +132,35 @@ const mentorship = ({ indexPage }) => {
               />
             </div>
             <div className="criteria-content">
-              <h1> Who is it for? </h1>
-
-              <div className="content">
-                <Image
-                  className="check"
-                  width={"28px"}
-                  height={"24px"}
-                  objectFit="contain"
-                  src="/assets/images/Checkmark.png"
-                  alt="check"
-                />
-                <p>
-                  A professional looking for deeper knowledge about the impact
-                  and applications of blockchain technologies in a business
-                  environment
-                </p>
-              </div>
-
-              <div className="content">
-                <Image
-                  className="check"
-                  width={"28px"}
-                  height={"24px"}
-                  objectFit="contain"
-                  src="/assets/images/Checkmark.png"
-                  alt="check"
-                />
-                <p>
-                  A professional looking for deeper knowledge about the impact
-                  and applications of blockchain technologies in a business
-                  environment
-                </p>
-              </div>
-
-              <div className="content">
-                <Image
-                  className="check"
-                  width={"28px"}
-                  height={"24px"}
-                  objectFit="contain"
-                  src="/assets/images/Checkmark.png"
-                  alt="check"
-                />
-                <p>
-                  A professional looking for deeper knowledge about the impact
-                  and applications of blockchain technologies in a business
-                  environment
-                </p>
-              </div>
+              <h1> {mentorshipPage.cta_title} </h1>
+              {mentorshipPage.cta_data &&
+                mentorshipPage.cta_data.map((item, index) => {
+                  return (
+                    <div className="content" key={item.id}>
+                      <Image
+                        className="check"
+                        width={"28px"}
+                        height={"24px"}
+                        objectFit="contain"
+                        src={item.image_url}
+                        alt="check"
+                      />
+                      <p>{item.content}</p>
+                    </div>
+                  );
+                })}
 
               <div>
                 <Button
-                  type="primary-inverse"
-                  buttonText={"Register Now"}
-                  handleClick={() => {}}
+                  variant={"primary-inverse"}
+                  buttonText={mentorshipPage.cta_button_text}
+                  handleClick={() => {
+                    router.push(
+                      mentorshipPage.cta_button_link
+                        ? mentorshipPage.cta_button_link
+                        : "/mentorship/register"
+                    );
+                  }}
                 />
               </div>
 
@@ -206,15 +176,26 @@ const mentorship = ({ indexPage }) => {
           </div>
         </div>
       </section>
-
-      {/* <HowItWorks /> */}
-
+      <main>
+        <HowItWorks data={mentorshipPage.how_it_works_items} />
+      </main>
       <DualColorBanner
-        title="Get hands-on training from the best minds"
-        buttonText="Register Now"
+        title={mentorshipPage.hands_on_title}
+        buttonText={mentorshipPage.hands_on_button_text}
+        handleClick={() => router.push(mentorshipPage.hands_on_button_link)}
         buttonType="outline"
-        image={"/assets/images/mentorship-training.png"}
+        image={mentorshipPage.hands_on_image}
       />
+
+      <section className="mentorship-bootcamp-section">
+        <div className="container mentorship-bootcamp-header">
+          <h1 className="section-title"> Cohorts</h1>
+        </div>
+        <CohortSection
+          cohortData={cohortPageData.cohortSummaries}
+          isAccordion={true}
+        />
+      </section>
 
       <section className="mentorship-bootcamp-section">
         <div className="container mentorship-bootcamp-header">
@@ -231,30 +212,29 @@ const mentorship = ({ indexPage }) => {
             />
           </div>
         </div>
-        <Bootcamps />
+        <Bootcamps bootcamp={bootcamps} />
       </section>
 
-      <CohortSection isAccordion={true} />
+      <WorkAssistance workAssistanceData={workAssistanceData} />
+      <Tracks tracks={mentorshipPage.track_details} />
 
-      <WorkAssistance />
-      <Tracks />
       <Mentors />
-      <WhyLearn />
-      <FeaturedMentees />
-      <JoinAsMentor />
-      <FAQs data={FAQ_DATA} />
-
-      <Testimonials
-        testimonial_title={indexPage.testimonial_title}
-        testimonial_description={indexPage.testimonial_description}
-        testimonial_items={indexPage.testimonial_items}
+      <WhyLearn whyLearnData={whyLearnData} />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
+      <FAQs
+        data={mentorshipPage.faq_details}
+        title={mentorshipPage.faq_title}
       />
-
-      {/* <CTACard /> */}
+      {/* to be change to mentorshipPage not indexPage */}
+      <Testimonials
+        testimonial_title={mentorshipPage.testimonial_title}
+        testimonial_description={mentorshipPage.testimonial_description}
+        testimonial_items={mentorshipPage.testimonial_items}
+      />
       <div className="tracks__spacing">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
-
       <Footer />
     </>
   );
@@ -264,10 +244,24 @@ export default mentorship;
 
 //get home page data
 export async function getStaticProps() {
-  const indexPage = await strapiService.getHomePageData();
+  const mentorshipPage = await strapiService.getMentorshipPageData();
+  const bootcamps = await strapiService.getBootCampPageData();
+  const whyLearnData = await strapiService.getWhyLearn();
+  const workAssistanceData = await strapiService.getWorkAssistance();
+  const freeHandData = await strapiService.getFreeHand();
+  const joinData = await strapiService.getJoinAsMentor();
+  const featuredMentees = await strapiService.getFeaturedMentee();
+  const cohortPageData = await strapiService.getCohortPageData();
   return {
     props: {
-      indexPage: indexPage.data.attributes,
+      mentorshipPage: mentorshipPage.data.attributes,
+      bootcamps: bootcamps.data.attributes,
+      workAssistanceData: workAssistanceData.data.attributes,
+      whyLearnData: whyLearnData.data.attributes,
+      freeHandData: freeHandData.data.attributes,
+      joinData: joinData.data.attributes,
+      featuredMentees: featuredMentees.data.attributes,
+      cohortPageData: cohortPageData.data.attributes,
     },
   };
 }

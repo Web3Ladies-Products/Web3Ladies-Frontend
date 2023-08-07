@@ -20,7 +20,7 @@ const Success = ({ indexPage }) => {
       link: TWITTER_URL,
     },
     {
-      name: "linkedIn",
+      name: "linkedin",
       link: LINKEDIN_URL,
     },
     {
@@ -71,9 +71,8 @@ const Success = ({ indexPage }) => {
                     __html: indexPage.title,
                   }}
                 />
-
-                <p>{indexPage.subtitle}</p>
               </div>
+              <p>{indexPage.subtitle}</p>
               <div className="center">
                 <small>{indexPage.small}</small>
                 <div className="icons-container ">

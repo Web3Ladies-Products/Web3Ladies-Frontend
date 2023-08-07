@@ -21,7 +21,7 @@ const DEFAULT_ERRORS = {
   gender: [],
 };
 
-const Slug = ({ nominee, notFound }) => {
+const Slug = ({ nominee, freeHandData }) => {
   if (!nominee) {
     return <p>Award not found</p>;
   }
@@ -39,17 +39,14 @@ const Slug = ({ nominee, notFound }) => {
   const submitVote = async (e) => {
     e.preventDefault();
 
-    console.log({ data: voteData });
-    voteData["nominee_name"] = "Jenet";
+    // voteData["nominee_name"] = "Jenet";
+    let formData = { ...voteData };
+    formData["nominee_name"] = nominee.name;
     setShowLoader(true);
     try {
-      const response = await strapiService.votingRequest({
-        data: voteData,
+      await strapiService.votingRequest({
+        data: formData,
       });
-      console.log(
-        "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-        response
-      );
       alertService.alertMethod("success", "vote successful");
       setVoteData({
         full_name: "",
@@ -179,7 +176,7 @@ const Slug = ({ nominee, notFound }) => {
         </div>
       </div>
 
-      <FreehandCard />
+      <FreehandCard freeHandData={freeHandData} />
       <div className="mb-large" />
 
       <Footer />
@@ -189,7 +186,8 @@ const Slug = ({ nominee, notFound }) => {
 
 export async function getStaticPaths() {
   const response = await strapiService.getNominees();
-  const paths = response?.data.map((nominee) => {
+
+  const paths = response.data.map((nominee) => {
     return {
       params: {
         slug: nominee.attributes.slug,
@@ -206,11 +204,14 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getNomineeBySlug(params.slug);
     const data = response?.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
     console.log(data);
+
     if (data) {
       const content = await markdownToHtml(data?.about || "");
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           nominee: {
             ...data,
             content,
@@ -225,7 +226,6 @@ export async function getStaticProps({ params }) {
       },
     };
   } catch (error) {
-    console.error(error);
     return {
       props: {
         nominee: null,

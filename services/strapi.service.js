@@ -38,7 +38,8 @@ const getCohortPageData = async () => {
       method: "GET",
       headers,
     })
-  .then(checkStatus).then(parseJSON);
+      .then(checkStatus)
+      .then(parseJSON);
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -51,8 +52,8 @@ const getTracks = async () => {
       method: "GET",
       headers,
     })
-      .then(checkStatus).then(parseJSON);
-      console.log("tracks",trackPage)
+      .then(checkStatus)
+      .then(parseJSON);
     return trackPage;
   } catch (error) {
     console.error(error);
@@ -108,8 +109,6 @@ const getCurrentCohorts = async () => {
   }
 };
 
-
-
 const getPastCohortBySlug = async (slug) => {
   try {
     const cohortPage = await fetch(
@@ -121,7 +120,6 @@ const getPastCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -153,7 +151,6 @@ const getUpcomingCohortBySlug = async (slug) => {
     )
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(cohortPage)
     return cohortPage;
   } catch (error) {
     console.error(error);
@@ -231,6 +228,20 @@ const getBlogPosts = async ({ page, pageSize, category }) => {
         headers,
       }
     )
+      .then(checkStatus)
+      .then(parseJSON);
+    return blogPosts;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getAllBlogPosts = async () => {
+  try {
+    const blogPosts = await fetch(`${STRAPI_URL}/api/blogs`, {
+      method: "GET",
+      headers,
+    })
       .then(checkStatus)
       .then(parseJSON);
     return blogPosts;
@@ -393,6 +404,21 @@ const contactRequest = async (data) => {
     throw new Error(error?.error?.message);
   }
 };
+const subscriptionRequest = async (formData) => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/subscriptions`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(formData),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error?.error?.message);
+  }
+};
 
 const votingRequest = async (data) => {
   try {
@@ -424,7 +450,24 @@ const mentorshipRegisterRequest = async (formData, file) => {
       .then(parseJSON);
     return reg;
   } catch (error) {
-    console.log(error.error);
+    throw new Error(error?.error?.message);
+  }
+};
+const jobApplicationRequest = async (formData, file) => {
+  let data = new FormData();
+  console.log(file);
+  data.append("files.portfolio_file", file);
+  data.append("data", JSON.stringify(formData));
+
+  try {
+    let reg = await fetch(`${STRAPI_URL}/api/job-applications`, {
+      method: "POST",
+      body: data,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return reg;
+  } catch (error) {
     throw new Error(error?.error?.message);
   }
 };
@@ -437,10 +480,23 @@ const getMentorshipSuccess = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(res);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
+  }
+};
+
+const getAwardSuccess = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/award-success`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -454,7 +510,7 @@ const getMentorshipClosed = async () => {
       .then(parseJSON);
     return res;
   } catch (error) {
-    console.log(error?.error?.message);
+    console.error(error);
   }
 };
 
@@ -482,7 +538,6 @@ const getNominees = async () => {
     })
       .then(checkStatus)
       .then(parseJSON);
-    // console.log(nominees)
     return nominees;
   } catch (error) {
     console.error(error);
@@ -572,8 +627,7 @@ const getPastBootCampBySlug = async (slug) => {
 
 const getPastBootCamps = async () => {
   try {
-    const pastbootCamp = await fetch(
-      `${STRAPI_URL}/api/past-bootcamps`, {
+    const pastbootCamp = await fetch(`${STRAPI_URL}/api/past-bootcamps`, {
       method: "GET",
       headers,
     })
@@ -619,6 +673,247 @@ const getUpcomingBootCamps = async () => {
   }
 };
 
+const getFeaturedMentee = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/featured-mentee`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getFreeHand = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/free-hand`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getFQA = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/frequently-asked-question`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getJoinAsMentor = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/join-as-mentor`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getWorkAssistance = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/work-assistance`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getWhyLearn = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/why-learn`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getContactPage = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/contact-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getMentor = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/mentor`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+//partnership form
+const sendPartnershipRequest = async (data) => {
+  console.log(data);
+  try {
+    const response = await fetch(`${STRAPI_URL}/api/partnership-registers`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ data: { ...data } }),
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return response;
+  } catch (error) {
+    console.error(error);
+    throw new Error(error);
+  }
+};
+
+const getContrubutionPage = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/contribution-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getEventPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/event-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getHireTalentPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/hire-talent`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getParnershipPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/partnership-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+const getParnershipSuccessPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/partnership-success`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getCommunityPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/community-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getCertificatePageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/certificate`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getAboutPageData = async () => {
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/about-page`, {
+      method: "GET",
+      headers,
+    })
+      .then(checkStatus)
+      .then(parseJSON);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
 export const strapiService = {
   getBootCampPageData,
   getBlogPosts,
@@ -629,6 +924,7 @@ export const strapiService = {
   getPostsByCategory,
   getSortedBlogPosts,
   searchBlogPosts,
+  getAllBlogPosts,
   getSimilarPosts,
   getHomePageData,
   getSponsorshipData,
@@ -647,7 +943,7 @@ export const strapiService = {
   getPastCohortBySlug,
   getUpcomingCohortBySlug,
   getUpcomingCohorts,
-
+  getAwardSuccess,
   getCurrentBootCampBySlug,
   getCurrentBootCamp,
   getPastBootCampBySlug,
@@ -659,4 +955,25 @@ export const strapiService = {
   getMentorshipClosed,
   getTracks,
   getTracksBySlug,
+  getFeaturedMentee,
+  getFreeHand,
+  getFQA,
+  getJoinAsMentor,
+  getWorkAssistance,
+  getWhyLearn,
+  getContactPage,
+  getMentor,
+  subscriptionRequest,
+  jobApplicationRequest,
+
+  //
+  sendPartnershipRequest,
+  getContrubutionPage,
+  getEventPageData,
+  getHireTalentPageData,
+  getParnershipPageData,
+  getParnershipSuccessPageData,
+  getAboutPageData,
+  getCommunityPageData,
+  getCertificatePageData,
 };

@@ -1,12 +1,24 @@
-import React from 'react'
-import Hero from './Hero'
+import React from "react";
 
-const contact = () => {
+import { strapiService } from "../../services";
+import Hero from "../../components/contact/Hero";
+
+const contact = ({ indexPage }) => {
   return (
-  <>
-  <Hero/>
-  </>
-  )
-}
+    <>
+      <Hero contactDetails={indexPage} />
+    </>
+  );
+};
 
-export default contact
+export default contact;
+
+export async function getStaticProps() {
+  const indexPage = await strapiService.getContactPage();
+
+  return {
+    props: {
+      indexPage: indexPage.data.attributes,
+    },
+  };
+}

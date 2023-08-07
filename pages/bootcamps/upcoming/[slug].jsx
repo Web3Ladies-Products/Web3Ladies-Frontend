@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
 import Registration from "../../../components/analytics/Registration";
@@ -18,7 +17,7 @@ import Image from "next/image";
 import FreehandCard from "../../../components/FreehandCard";
 import { strapiService } from "../../../services";
 
-const Bootcamp = ({ bootcamp }) => {
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
   }
@@ -78,20 +77,19 @@ const Bootcamp = ({ bootcamp }) => {
         </div>
       </section>
 
-      <Benefits data={bootcamp} />
-      <Gains data={bootcamp} />
+      <Benefits track={bootcamp} />
+      <Gains track={bootcamp} />
       <Curriculum data={bootcamp} />
       <Mentors data={bootcamp} />
       <FAQs bootcamp={bootcamp} />
       <Testimonials
         testimonial_title={bootcamp.testimonial_title}
         testimonial_description={bootcamp.testimonial_description}
-        testimonial_items={bootcamp.testimonial_items}
-        data={bootcamp}
+        testimonial_items={bootcamp.testimonials_details}
       />
       <div className="mb-large" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <div className="mb-large" />
       <Footer />
@@ -120,10 +118,12 @@ export async function getStaticProps({ params }) {
       params.slug
     );
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           bootcamp: {
             ...data,
           },

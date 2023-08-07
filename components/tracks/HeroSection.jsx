@@ -3,13 +3,12 @@ import Image from "next/image";
 import Button from "../buttons/Button";
 
 const Hero = ({ track, handleViewCurriculum }) => {
-// console.log(heroDetails)
   return (
     <main>
       <div className="container cta">
         <div className="content">
           <div className="hero_content">
-            <h1>{track?.hero_title}</h1>
+            <h1 className="section-title">{track?.hero_title}</h1>
             <p>{track?.hero_description}</p>
             <p className="note">{track?.hero_note}</p>
 
@@ -77,16 +76,18 @@ const Hero = ({ track, handleViewCurriculum }) => {
               <div className="hero__banner-subscript">
                 <div>
                   <p className="hero__banner-subscript_text1">Length:</p>
-                  <p className="hero__banner-subscript_text2">3 month</p>
+                  <p className="hero__banner-subscript_text2">{track.length}</p>
                 </div>
                 <div>
                   <p className="hero__banner-subscript_text1">Language:</p>
-                  <p className="hero__banner-subscript_text2">English</p>
+                  <p className="hero__banner-subscript_text2">
+                    {track.language}
+                  </p>
                 </div>
                 <div>
                   <p className="hero__banner-subscript_text1">Commitment:</p>
                   <p className="hero__banner-subscript_text2">
-                    7-10 hours per week
+                    {track.comment}
                   </p>
                 </div>
               </div>

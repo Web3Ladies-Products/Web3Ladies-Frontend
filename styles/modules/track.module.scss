@@ -4,7 +4,7 @@
 main {
   h1 {
     font-weight: 700;
-    font-size: clamp(48px, 4.3vw, 60px);
+    font-size: clamp(2.3rem, 6vw, 3.8rem) !important;
     // line-height: 72px;
     letter-spacing: -0.04em;
 
@@ -33,13 +33,16 @@ main {
   h2 {
     font-weight: 700;
     font-size: clamp(28px, 4.4vw, 48px);
-  
+
     padding: 10px 10px;
     letter-spacing: -0.04em;
   }
   .text {
     display: flex;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .text p {
@@ -105,24 +108,28 @@ main {
   background-color: #6a00e2;
   color: #ffffff;
   width: 100%;
-  padding: 50px 8%;
+  padding: 50px 0;
 
   .container {
     @include desktop {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
     }
 
     .gains_image {
       position: relative;
-      width: 500px;
-      @include mobile {
-        width: 300px;
-        margin-top: 200px;
-      }
+
+      justify-self: end;
+      // @include mobile {
+      //   width: 300px;
+      //   margin-top: 200px;
+      // }
     }
 
     .content {
+      flex: 1;
       h1 {
         font-weight: 700;
         font-size: 48px;
@@ -133,6 +140,14 @@ main {
 
       .button-container {
         justify-content: start;
+      }
+    }
+  }
+  @media screen and (max-width: 928px) {
+    .container {
+      grid-template-columns: 1fr;
+      .gains_image {
+        justify-self: center;
       }
     }
   }
@@ -160,7 +175,7 @@ main {
 .mentors-section {
   .heading {
     margin-bottom: 32px;
-    font-size: 54px;
+    font-size: clamp(2.1rem, 6vw, 3.4rem) !important;
     font-weight: 700;
   }
   .description {
@@ -188,6 +203,7 @@ main {
   border-radius: 8px;
   display: flex;
   width: 100%;
+  gap: 20px;
   padding: 20px;
   justify-content: flex-start;
 
@@ -205,7 +221,6 @@ main {
 
   .mentor-img {
     height: 100%;
-    margin-right: 45px;
   }
 }
 
@@ -214,7 +229,6 @@ main {
 }
 
 .hero__image-banner {
-
   position: relative;
   background-color: #f8f2ff;
   height: 440px;

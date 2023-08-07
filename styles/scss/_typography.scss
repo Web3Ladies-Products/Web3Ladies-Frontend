@@ -31,13 +31,16 @@ h6 {
 
 .section-title {
   font-weight: 700;
-  font-size: 54px;
-  line-height: 66px;
+  font-size: clamp(2.3rem, 6vw, 3.8rem) !important;
+  line-height: clamp(2.3rem, 6vw, 3.8rem) !important;
+  span {
+    font-size: clamp(2.3rem, 6vw, 3.8rem) !important;
+    line-height: clamp(2.3rem, 6vw, 3.8rem) !important;
+  }
   letter-spacing: -0.04em;
 
   @include mobile {
-    font-size: 40px;
-    line-height: 50px;
+    margin-bottom: 0.6em;
   }
 
   span {

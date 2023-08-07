@@ -1,31 +1,26 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
-import Gallery from "../../../components/Gallery";
-import cohortsData from "../../api/cohorts.json";
 import HeroSection from "../../../components/cohorts/HeroSection";
-import TestimonialsCarousel from "../../../components/TestimonialsCarousel";
-import ProjectsDone from "../../../components/ProjectsDone";
-import Highlights from "../../../components/Highlights";
 import Tracks from "../../../components/cohorts/Tracks";
-import MenteeExperience from "../../../components/MenteeExperience";
+import Track from "../../../components/analytics/Tracks";
 import VisitYoutube from "../../../components/VisitYoutube";
 import About from "../../../components/cohorts/About";
 import { strapiService } from "../../../services";
-import { FAQ_DATA } from "../../../pages/api/feedback.json";
 import FAQs from "../../../components/FAQs";
 import FeaturedMentees from "../../../components/mentorship/FeaturedMentees";
 import JoinAsMentor from "../../../components/mentorship/JoinAsMentor";
 import FreehandCard from "../../../components/FreehandCard";
 import Registration from "../../../components/analytics/Registration";
 import Custom404Error from "../../404";
-const UpcomingCohort = ({cohort}) => {
-  console.log(cohort)
- 
-
+const UpcomingCohort = ({
+  cohort,
+  freeHandData,
+  joinData,
+  featuredMentees,
+}) => {
   if (!cohort) {
-    return <Custom404Error/>;
+    return <Custom404Error />;
   }
 
   const heroDetails = {
@@ -35,32 +30,35 @@ const UpcomingCohort = ({cohort}) => {
     hero_button_link: cohort?.hero_button_link,
     hero_button_type: cohort?.hero_button_type,
     hero_image: cohort?.hero_image,
-  }
+    cohort_number: cohort?.cohort_number,
+  };
 
   return (
     <>
-       <Navbar />
+      <Navbar />
       {/* HERO SECTION */}
-       {/* HERO SECTION */}
       <HeroSection heroDetails={heroDetails} badgeText={"ongoing"} />
 
       {/* ABOUT MENTEES SECTION */}
-      <About tracks_details={cohort.tracks_details} />
-  
+      <About about_cohort={cohort} tracks_details={cohort.tracks_details} />
+
       {/* registeration details */}
-      <Registration registrationDetails={cohort.registrationDetails}/>
+      <Registration
+        data={{ registration_details: cohort.registrationDetails }}
+      />
+      <Track data={cohort} />
       {/* TRACKS SECTION */}
       <Tracks tracks={cohort.tracks} />
 
       {/* YOUTUBE SECTION */}
       <VisitYoutube />
-      <FeaturedMentees/>
-      <JoinAsMentor />
+      <FeaturedMentees featuredMentees={featuredMentees} />
+      <JoinAsMentor joinData={joinData} />
       <div className="faq">
-      <FAQs data={FAQ_DATA} />
+        <FAQs />
       </div>
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <Footer />
     </>
@@ -70,7 +68,6 @@ const UpcomingCohort = ({cohort}) => {
 export async function getStaticPaths() {
   const response = await strapiService.getUpcomingCohorts();
   const paths = response.data.map((cohort) => {
-  //  console.log(data)
     return {
       params: {
         slug: cohort.attributes.slug,
@@ -87,17 +84,18 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getUpcomingCohortBySlug(params.slug);
     const data = response.data[0]?.attributes;
-  //  console.log(data)
+    const freeHandData = await strapiService.getFreeHand();
+    const joinData = await strapiService.getJoinAsMentor();
+    const featuredMentees = await strapiService.getFeaturedMentee();
 
     if (data) {
-     
-      
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
+          joinData: joinData.data.attributes,
+          featuredMentees: featuredMentees.data.attributes,
           cohort: {
             ...data,
-           
-         
           },
         },
       };
@@ -118,6 +116,5 @@ export async function getStaticProps({ params }) {
     };
   }
 }
-
 
 export default UpcomingCohort;

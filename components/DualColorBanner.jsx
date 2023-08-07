@@ -7,6 +7,7 @@ const DualColorBanner = ({
   buttonText,
   buttonType,
   image,
+  handleClick,
 }) => {
   return (
     <div>
@@ -29,9 +30,7 @@ const DualColorBanner = ({
             <Button
               variant={buttonType}
               buttonText={buttonText}
-              handleClick={() =>
-                window.open(indexPage.become_a_sponsor_button_link, "_blank")
-              }
+              handleClick={handleClick}
             />
           </div>
         </div>

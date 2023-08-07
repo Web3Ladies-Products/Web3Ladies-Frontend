@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
-import Button from "../../../components/buttons/Button";
 import Navbar from "../../../components/layouts/Navbar";
 import Registration from "../../../components/analytics/Registration";
 import Tracks from "../../../components/analytics/Tracks";
@@ -20,7 +17,7 @@ import { strapiService } from "../../../services/strapi.service";
 import FreehandCard from "../../../components/FreehandCard";
 import CustomError from "../../_error";
 
-const Bootcamp = ({ bootcamp }) => {
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <CustomError />;
   }
@@ -52,22 +49,32 @@ const Bootcamp = ({ bootcamp }) => {
 
       <section className="mentee-experience">
         <div className="container">
-          <MenteeExperience data={bootcamp} />
+          <MenteeExperience
+            mentees_details={bootcamp?.past_bootcamps_mentees_details}
+          />
         </div>
       </section>
 
-      <TestimonialsCarousel data={bootcamp.testimonials_details} />
+      <TestimonialsCarousel
+        testimonials_details={bootcamp?.testimonials_details}
+      />
 
-      <ProjectsDone data={bootcamp.projects_done_details} />
+      <ProjectsDone data={bootcamp?.projects_done_details} />
 
-      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
-
+      <Highlights
+        title={
+          bootcamp.highlight_title
+            ? bootcamp.highlight_title
+            : "Highlights of the Cohort"
+        }
+        HIGHLIGHTS_ITEMS={bootcamp.highlight_items_details}
+      />
       <Gallery data={bootcamp.gallery_details} />
 
       <VisitYoutube />
       <div className="mb-large" />
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
 
       <Footer />
@@ -92,21 +99,20 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const response = await strapiService.getPastBootCampBySlug(
-      params.slug
-    );
+    const response = await strapiService.getPastBootCampBySlug(params.slug);
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           bootcamp: {
             ...data,
           },
         },
       };
     }
-    console.log(data)
     return {
       props: {
         bootcamp: null,

@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../../../components/layouts/Navbar";
 import Footer from "../../../components/layouts/Footer";
@@ -17,7 +16,7 @@ import VisitYoutube from "../../../components/VisitYoutube";
 import FreehandCard from "../../../components/FreehandCard";
 import { strapiService } from "../../../services";
 
-const Bootcamp = ({ bootcamp }) => {
+const Bootcamp = ({ bootcamp, freeHandData }) => {
   if (!bootcamp) {
     return <div>Bootcamp not found</div>;
   }
@@ -39,22 +38,33 @@ const Bootcamp = ({ bootcamp }) => {
         <Tracks data={bootcamp} />
       </section>
 
-      <Highlights title={"Highlights of the Cohort"} data={bootcamp} />
+      <Highlights
+        title={
+          bootcamp.highlight_title
+            ? bootcamp.highlight_title
+            : "Highlights of the Cohort"
+        }
+        HIGHLIGHTS_ITEMS={bootcamp.highlight_items_details}
+      />
 
-      <Curriculum data={bootcamp} />
+      <Curriculum
+        track={{
+          curriculum_title: bootcamp.curriculum_title,
+          curriculum_items: bootcamp.curriculum_items_details,
+        }}
+      />
       <Mentors data={bootcamp} />
-      <FAQs bootcamp={bootcamp} />
+      <FAQs data={bootcamp.faqs} />
       <Testimonials
         testimonial_title={bootcamp.testimonial_title}
         testimonial_description={bootcamp.testimonial_description}
-        testimonial_items={bootcamp.testimonial_items}
-        data={bootcamp}
+        testimonial_items={bootcamp.testimonials_details}
       />
       <VisitYoutube />
       <div className="mb-large" />
 
       <div className="p-20">
-        <FreehandCard />
+        <FreehandCard freeHandData={freeHandData} />
       </div>
       <div className="mb-large" />
 
@@ -82,10 +92,12 @@ export async function getStaticProps({ params }) {
   try {
     const response = await strapiService.getCurrentBootCampBySlug(params.slug);
     const data = response.data[0]?.attributes;
+    const freeHandData = await strapiService.getFreeHand();
 
     if (data) {
       return {
         props: {
+          freeHandData: freeHandData.data.attributes,
           bootcamp: {
             ...data,
           },

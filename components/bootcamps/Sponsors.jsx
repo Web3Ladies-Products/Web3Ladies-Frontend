@@ -5,14 +5,10 @@ import Button from "../buttons/Button";
 const Sponsors = ({ data }) => {
   return (
     <section className="sponsors">
-      <div className="container d-flex justify-content-center align-items-center">
+      <div className="container sponsor__container">
         <div className="sponsors-content">
-          <h2 className="sub-section-title bold">
-            {data.sponsors_title}
-          </h2>
-          <p className="section-description">
-            {data.sponsors_description}
-          </p>
+          <h2 className="sub-section-title bold">{data.sponsors_title}</h2>
+          <p className="section-description">{data.sponsors_description}</p>
           <Button
             variant={data.sponsors_button_type}
             buttonText={data.sponsors_button_text}
