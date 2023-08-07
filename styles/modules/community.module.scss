@@ -16,9 +16,9 @@ section {
   padding-top: 20px;
   padding-bottom: 50px;
 
-  @include mobile {
-    padding-bottom: 0;
-  }
+  // @include mobile {
+  //   padding-bottom: 0;
+  // }
 
   .hero_image {
     position: relative;

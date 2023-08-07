@@ -8,7 +8,10 @@ const HeroSection = ({ data }) => {
       <div className="container cta">
         <div className="content">
           <div className="hero_content data">
-            <h1 dangerouslySetInnerHTML={{ __html: data?.hero_title }} />
+            <h1
+              className="section-title"
+              dangerouslySetInnerHTML={{ __html: data?.hero_title }}
+            />
             <p>{data.hero_description}</p>
 
             <div className="button-container">

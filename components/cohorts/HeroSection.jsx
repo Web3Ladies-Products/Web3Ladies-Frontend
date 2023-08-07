@@ -16,7 +16,10 @@ const HeroSection = ({ heroDetails, badgeText }) => {
                 badgeBorderColor={"#000000"}
               />
             )}
-            <h1 dangerouslySetInnerHTML={{ __html: heroDetails.hero_title }} />
+            <h1
+              className="section-title"
+              dangerouslySetInnerHTML={{ __html: heroDetails.hero_title }}
+            />
             <p>{heroDetails.hero_description}</p>
 
             <div className="button-container">
