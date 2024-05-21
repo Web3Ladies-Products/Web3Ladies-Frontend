@@ -67,6 +67,19 @@ button,
     box-sizing: border-box;
     border-radius: 4px;
   }
+  &.outline-transparent {
+    --btn-color: rgba(var(--color-black-rgb));
+    background-color: transparent;
+    --btn-text-color: var(--color-black);
+    letter-spacing: 0.2px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--btn-text-color, --btn-color);
+    background-color: var(--btn-bg-color, transparent);
+    border: 2px solid var(--btn-color);
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
 
   &.clear {
     letter-spacing: 0.2px;
@@ -144,6 +157,19 @@ button,
   }
 }
 
+@media screen and (max-width: 450px) {
+  .button-container {
+    flex-direction: column;
+    gap: 20px;
+    width: 190px;
+    margin: 0 auto;
+    // justify-content: center;
+    // align-items: center;
+    .primary {
+      width: 100%;
+    }
+  }
+}
 .link {
   color: var(--primary-color);
 }

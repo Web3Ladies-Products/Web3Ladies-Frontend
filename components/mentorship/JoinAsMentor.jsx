@@ -1,23 +1,39 @@
-import React from "react";
 import Button from "../buttons/Button";
+import { useRouter } from "next/router";
 
-const JoinAsMentor = () => {
+const JoinAsMentor = ({ joinData }) => {
+  const router = useRouter();
+
   return (
     <div className="join-as-mentor-section">
-      <div>
+      {joinData && (
         <div>
-          <div className="">
-            <h1>Help us mentor more Ladies</h1>
-            <p>Become a sponsor of Web3Ladies</p>
-            <Button type="outlined-clear" buttonText="Join us now" />
-          </div>
-          <div className="">
-            <h1>HAVE WHAT IT TAKES TO BE A MENTOR</h1>
-            <p>Become a Mentor at Web3Ladies</p>
-            <Button type="outlined-clear" buttonText="Apply now" />
+          <div>
+            <div className="">
+              <h1>{joinData.title_1}</h1>
+              <p>{joinData.subtitle_1}</p>
+              <Button
+                handleClick={() => {
+                  router.push(joinData.btn_link_1);
+                }}
+                variant="outlined-clear"
+                buttonText={joinData.btn_text_1}
+              />
+            </div>
+            <div className="">
+              <h1>{joinData.title_2}</h1>
+              <p>{joinData.subtitle_2}</p>
+              <Button
+                handleClick={() => {
+                  router.push(joinData.btn_link_2);
+                }}
+                variant="outlined-clear"
+                buttonText={joinData.btn_text_2}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

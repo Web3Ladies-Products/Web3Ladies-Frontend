@@ -1,6 +1,8 @@
 @import "../scss/mixins";
 
 footer {
+  --top-spacing: 200px;
+  margin-top: var(--top-spacing);
   background-image: url("/assets/images/blockchain-icon.png");
   background-repeat: no-repeat;
   background-position: center;

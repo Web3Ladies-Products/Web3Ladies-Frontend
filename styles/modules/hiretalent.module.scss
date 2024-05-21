@@ -1,0 +1,105 @@
+@import "../scss/mixins";
+
+.hiretalent__content-details {
+  background-color: black;
+
+  padding: 100px 0;
+
+  color: var(--color-white);
+  h2 {
+    font-weight: 700;
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+  }
+  p {
+    max-width: 620px;
+  }
+  .hiretalent__content-image {
+    max-width: 1312px;
+    margin-top: 60px;
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+
+.top-spacing {
+  margin-top: 110px;
+}
+
+.hiretalent__mentee-content {
+  .text {
+    text-align: center;
+    margin-bottom: 60px;
+
+    h2 {
+      font-weight: 700;
+      font-size: clamp(1.8rem, 6vw, 3.5rem);
+    }
+    p {
+      max-width: 590px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.hiretalent__choose {
+  background-color: #6a00e2;
+  .container {
+    max-width: 80%;
+    padding: 90px 0;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    .content {
+      display: grid;
+      gap: 30px;
+      h2 {
+        font-weight: 700;
+        font-size: clamp(1.8rem, 4vw, 3.5rem);
+        color: var(--color-white);
+        margin-bottom: 20px;
+      }
+      p {
+        max-width: 567px;
+        color: var(--color-primary-light);
+      }
+      ul {
+        margin-bottom: 20px;
+        li {
+          display: grid;
+          gap: 10px;
+          align-self: center;
+          grid-template-columns: repeat(2, max-content);
+          .text {
+            color: var(--color-primary-light);
+          }
+        }
+      }
+    }
+    .choose_image {
+      justify-self: end;
+      // align-self: center;
+    }
+  }
+  @media screen and (max-width: 928px) {
+    .container {
+      grid-template-columns: 1fr;
+      .choose_image {
+        justify-self: center;
+      }
+    }
+  }
+}
+
+.hiretalent__talented {
+  h1 {
+    span {
+      color: var(--primary-color);
+      font-size: inherit;
+      font-weight: 700; ///
+    }
+  }
+}

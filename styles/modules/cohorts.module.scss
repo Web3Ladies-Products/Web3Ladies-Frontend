@@ -95,7 +95,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    align-items: center;
+
+    padding-top: 90px;
 
     @include mobile {
       grid-template-columns: 1fr;
@@ -115,10 +116,6 @@
         margin-bottom: 32px;
         font-size: 18px;
         line-height: 27px;
-
-        @include desktop {
-          width: 437px;
-        }
       }
 
       button {
@@ -131,11 +128,14 @@
     }
 
     &--image {
+      max-width: 515px;
       width: 100%;
-      padding: 90px 0;
 
       > span {
         border-radius: 8px !important;
+      }
+      @include mobile {
+        justify-self: center;
       }
     }
 
@@ -204,37 +204,48 @@
     font-size: 48px;
     line-height: 56px;
     letter-spacing: -0.04em;
+    // margin-left: 70px;
+    width: 85%;
+    // margin: 0 auto;
+    @include mobile {
+      // margin-left: 1px;
+    }
   }
 
   .summary-content {
     display: flex;
     justify-content: space-between;
+    gap: 100px;
+    // width: 85%;
+    margin: 0 auto;
     @include mobile {
       flex-direction: column;
     }
 
     &-text {
-      flex: 70;
-      margin-right: 50px;
+      flex: 50;
 
       p {
-        margin-top: 25px;
         font-weight: 400;
         font-size: 18px;
         line-height: 150%;
+        @include mobile {
+          flex: 50;
+        }
       }
     }
   }
 
   .metrics {
-    flex: 30;
     background-color: var(--background-color);
     border-radius: 8px;
     height: fit-content;
-    padding: 20px 30px 30px 20px;
+    padding: 30px 20px 20px 30px;
+    margin-bottom: 20px;
 
     @include mobile {
       margin-top: 20px;
+      width: 100%;
     }
 
     &-heading {
@@ -289,6 +300,68 @@
   }
 }
 
+.faq {
+  margin-top: 50px;
+}
+
+.thick-line {
+  background-color: #f1f1f1;
+
+  margin-top: 30px;
+  width: 70%;
+  height: 13px;
+}
+
+.contain {
+  display: flex;
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.circle {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.line {
+  width: 80%;
+  height: 7px;
+  background-color: #f1f1f1;
+  margin-top: -15px;
+}
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.button {
+  background-color: red;
+  width: 30%;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.containner {
+  display: flex;
+  justify-content: space-between;
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.cohorts__accordion_button {
+  width: 100%;
+  text-align: end;
+}
 // .cohort-content {
 //   width: 95%;
 //   margin: 0 auto;
@@ -306,3 +379,42 @@
 //     margin: 0 auto;
 //   }
 // }
+
+.app__video {
+  height: 200px;
+
+  position: relative;
+
+  display: grid;
+}
+
+.app__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+}
+
+.app__video-overlay {
+  width: max-content;
+  height: max-content;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+}
+
+.app__video-overlay_circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--color-background);
+  cursor: pointer;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

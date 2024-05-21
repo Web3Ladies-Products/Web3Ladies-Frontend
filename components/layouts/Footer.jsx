@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "/components/buttons/Button";
@@ -10,6 +10,8 @@ import {
   TWITTER_URL,
   YOUTUBE_URL,
 } from "../../lib/constants";
+import { alertService, strapiService } from "../../services";
+import AppLoader from "../UI/AppLoader";
 
 const Footer = () => {
   // get year util
@@ -45,7 +47,7 @@ const Footer = () => {
     // },
     {
       name: "Events",
-      route: "/#events",
+      route: "/events",
     },
     {
       name: "Mentorship",
@@ -53,14 +55,14 @@ const Footer = () => {
     },
     {
       name: "Community",
-      route: "/#join-our-community",
+      route: "/community",
     },
   ];
 
   const CONTACT_NAVIGATION_ONE = [
     {
       name: "Contact",
-      link: "mailto:hello@web3ladies.com",
+      link: "/contact",
     },
     {
       name: "Instagram",
@@ -89,9 +91,29 @@ const Footer = () => {
       link: YOUTUBE_URL,
     },
   ];
+  const [email, setEmail] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setShowLoader(true);
 
+    try {
+      await strapiService.subscriptionRequest({
+        data: { email },
+      });
+      setEmail("");
+      setShowLoader(false);
+      alertService.alertMethod("success", "contact form sent successfully");
+    } catch (error) {
+      console.error(error);
+      alertService.alertMethod("error", "Waiting list request failed");
+      setShowLoader(false);
+    }
+  };
   return (
     <div>
+      {showLoader && <AppLoader />}
       <footer>
         <div className="footer-content">
           <div className="footer-content_form">
@@ -108,20 +130,27 @@ const Footer = () => {
               <p className="card-text">
                 Get the latest updates about Web3Ladies activities and events.
               </p>
-              <form action="">
+              <form onSubmit={handleSubmit}>
                 <div className="update-form">
                   <div className="input">
                     <label
                       htmlFor="user-email"
                       className="display-none"
                     ></label>
-                    <input type="email" name="user-email" id="user-email" />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      name="user-email"
+                      id="user-email"
+                      required
+                    />
                   </div>
                   <div>
                     <Button
                       variant={"primary"}
                       buttonText={"Submit"}
-                      handleClick={() => null}
+                      type="submit"
                     />
                   </div>
                 </div>

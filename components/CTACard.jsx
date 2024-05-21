@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./buttons/Button";
+import Image from "next/image";
 
 const CTACard = () => {
   return (
@@ -16,6 +17,7 @@ const CTACard = () => {
           </h1>
           <p> Join our Mentorship Cohort</p>
           <div>
+         
             <Button buttonText="Join now" type="primary" />
           </div>
         </div>

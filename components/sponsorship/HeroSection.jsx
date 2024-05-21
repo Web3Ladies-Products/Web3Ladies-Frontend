@@ -35,6 +35,7 @@ const HeroSection = ({ heroDetails }) => {
                 className="hero-illustration"
                 width={"170px"}
                 height={"68px"}
+                objectFit="contain"
                 src="/assets/images/web3ladies-vector.png"
                 alt="web3ladies-vector"
               />

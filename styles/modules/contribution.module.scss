@@ -1,0 +1,128 @@
+@import "../scss/mixins";
+
+.contribution__current {
+  width: 75%;
+
+  margin: 70px auto;
+  .header-text {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 3.3rem;
+  }
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+  .contribution__current-content {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    h4 {
+      font-size: 1.2rem;
+    }
+    .content-button {
+      justify-self: end;
+    }
+  }
+  .contribution__current-button {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 468px) {
+    width: 90%;
+    margin: 50px auto;
+    .contribution__current-content {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      align-items: center;
+      .content-button {
+        justify-self: center;
+      }
+    }
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.contribution__hero {
+  width: 60%;
+  margin: 0 auto;
+  .back-btn {
+    margin: 50px 0;
+    color: var(--primary-color);
+    p {
+      text-decoration: underline;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  .section__one {
+    display: grid;
+    align-items: center;
+    grid-template-columns: max-content 1fr;
+
+    .subsection__one {
+      h1 {
+        font-size: 2rem;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        gap: 8px;
+        align-items: center;
+        .dot {
+          width: 6px !important;
+          height: 6px !important;
+        }
+      }
+    }
+    .subsection__two {
+      justify-self: end;
+    }
+  }
+
+  .description {
+    margin-top: 70px;
+    max-width: 90%;
+  }
+  .responsibilities {
+    margin-top: 20px;
+    max-width: 70%;
+    ul {
+      margin-top: 8px;
+      list-style: disc;
+      li {
+        margin-left: 25px;
+      }
+    }
+  }
+  @media screen and (max-width: 968px) {
+    width: 80%;
+
+    .description {
+      max-width: 100%;
+    }
+    .responsibilities {
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: 668px) {
+    width: 90%;
+    .section__one {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 17px;
+      .subsection__two {
+        justify-self: center;
+      }
+    }
+  }
+}

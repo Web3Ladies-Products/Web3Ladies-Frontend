@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/layouts/Navbar";
 import Footer from "../../components/layouts/Footer";
-import { useRouter } from "next/router";
+
 import { generateInputChangeHandler } from "../../helpers";
 import DonationForm from "../../components/donation/DonationForm";
 import PaymentMethod from "../../components/donation/PaymentMethod";
@@ -33,16 +33,12 @@ const Donate = () => {
 
   const submitDonation = async (e) => {
     e.preventDefault();
-    console.log({ data: formData });
     setShowLoader(true);
     try {
       const response = await strapiService.sendDonationRequest({
         data: formData,
       });
-      // console.log(
-      //   "🚀 ~ file: index.jsx ~ line 37 ~ submitDonation ~ response",
-      //   response
-      // );
+
       alertService.alertMethod("success", "Donation request sent successfully");
     } catch (error) {
       console.error(error);
