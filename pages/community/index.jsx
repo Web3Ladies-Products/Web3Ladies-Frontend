@@ -177,7 +177,7 @@ export async function getStaticProps() {
   return {
     props: {
       indexPage: indexPage.data.attributes,
-      communityPage: communityPageData.data.attributes,
+      communityPage: communityPageData?.data.attributes,
       freeHandData: freeHandData.data.attributes,
     },
   };
