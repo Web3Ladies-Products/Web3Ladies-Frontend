@@ -378,7 +378,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      indexPage: indexPage.data.attributes,
+      indexPage: indexPage?.data?.attributes,
     },
   };
 }
